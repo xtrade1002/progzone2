@@ -1,47 +1,37 @@
-import React from "react";
-import { Link } from "@inertiajs/react";
-import route from "@/route";
+import React from 'react';
+import route from '../route.js';
 
-export default function MainMenu() {
+const menuItems = [
+  { name: 'home', label: 'Főoldal' },
+  { name: 'aboutme', label: 'Rólam' },
+  { name: 'services', label: 'Szolgáltatások' },
+  { name: 'prices', label: 'Árak' },
+  { name: 'references', label: 'Referenciák' },
+  { name: 'studies', label: 'Studies' },
+  { name: 'contact', label: 'Kapcsolat' },
+];
+
+export default function MainMenu({ activePath }) {
   return (
-    <nav className="bg-[#232323] py-4">
-      <ul className="flex justify-center space-x-8 text-[#FF007A] text-lg font-semibold">
-        <li>
-          <Link href={route("home")} className="hover:underline">
-            Főoldal
-          </Link>
-        </li>
-        <li>
-          <Link href={route("aboutme")} className="hover:underline">
-            Rólam
-          </Link>
-        </li>
-        <li>
-          <Link href={route("services")} className="hover:underline">
-            Szolgáltatások
-          </Link>
-        </li>
-        <li>
-          <Link href={route("prices")} className="hover:underline">
-            Árak
-          </Link>
-        </li>
-        <li>
-          <Link href={route("references")} className="hover:underline">
-            Referencia
-          </Link>
-        </li>
-        <li>
-          <Link href={route("studies")} className="hover:underline">
-            Studies
-          </Link>
-        </li>
-        <li>
-          <Link href={route("contact")} className="hover:underline">
-            Kapcsolat
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <header className="bg-[#232323] py-4">
+      <nav>
+        <ul className="flex justify-center space-x-8 text-lg font-semibold text-[#FF007A]">
+          {menuItems.map((item) => {
+            const href = route(item.name);
+            const isActive = activePath === href;
+            const baseClasses = 'hover:underline transition-colors';
+            const activeClasses = isActive ? 'text-white underline decoration-[#FF007A] decoration-2 underline-offset-4' : '';
+
+            return (
+              <li key={item.name}>
+                <a href={href} className={`${baseClasses} ${activeClasses}`.trim()}>
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </header>
   );
 }

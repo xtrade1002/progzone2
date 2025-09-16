@@ -1,27 +1,25 @@
-import React from "react";
-import { Link } from "@inertiajs/react";
-import route from "@/route";
+import React from 'react';
+import route from '../route.js';
+
+const footerLinks = [
+  { name: 'privacy', label: 'Adatvédelmi szerződés' },
+  { name: 'terms', label: 'ÁSZF' },
+  { name: 'impressum', label: 'Impresszum' },
+];
 
 export default function FooterMenu() {
   return (
     <footer className="bg-gray-900 text-gray-400 text-sm py-6 mt-12">
-      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center px-4">
-        <p className="mb-4 sm:mb-0">
-          &copy; {new Date().getFullYear()} Progzone. All rights reserved.
-        </p>
+      <div className="container mx-auto flex flex-col items-center justify-between px-4 sm:flex-row">
+        <p className="mb-4 sm:mb-0">&copy; {new Date().getFullYear()} Progzone. Minden jog fenntartva.</p>
         <div className="flex space-x-6">
-          <Link href={route("privacy")} className="hover:text-pink-400">
-            Adatvédelmi szerződés
-          </Link>
-          <Link href={route("terms")} className="hover:text-pink-400">
-            ÁSZF
-          </Link>
-          <Link href={route("impressum")} className="hover:text-pink-400">
-            Impresszum
-          </Link>
+          {footerLinks.map((link) => (
+            <a key={link.name} href={route(link.name)} className="hover:text-pink-400">
+              {link.label}
+            </a>
+          ))}
         </div>
       </div>
     </footer>
   );
 }
-

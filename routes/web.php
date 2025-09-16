@@ -2,14 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome')->name('home');
-Route::view('/about-me', 'welcome')->name('aboutme');
-Route::view('/services', 'welcome')->name('services');
-Route::view('/prices', 'welcome')->name('prices');
-Route::view('/references', 'welcome')->name('references');
-Route::view('/studies', 'welcome')->name('studies');
-Route::view('/contact', 'welcome')->name('contact');
-Route::view('/privacy', 'welcome')->name('privacy');
-Route::view('/terms', 'welcome')->name('terms');
-Route::view('/impressum', 'welcome')->name('impressum');
+Route::view('/', 'app');
 
+Route::view('/home', 'app')->name('home');
+Route::view('/about-me', 'app')->name('aboutme');
+Route::view('/services', 'app')->name('services');
+Route::view('/prices', 'app')->name('prices');
+Route::view('/references', 'app')->name('references');
+Route::view('/studies', 'app')->name('studies');
+Route::view('/contact', 'app')->name('contact');
+Route::view('/privacy', 'app')->name('privacy');
+Route::view('/terms', 'app')->name('terms');
+Route::view('/impressum', 'app')->name('impressum');
+
+Route::fallback(fn () => view('app'));
