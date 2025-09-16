@@ -1,11 +1,14 @@
 const routes = {
-  home: '/',
+  home: '/home',
   aboutme: '/about-me',
   services: '/services',
   prices: '/prices',
   references: '/references',
   studies: '/studies',
   contact: '/contact',
+  privacy: '/privacy',
+  terms: '/terms',
+  impressum: '/impressum',
 };
 
 export default function route(name) {
