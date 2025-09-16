@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Inertia middleware hozzáadása a web middleware stackhez
+        $middleware->web(append: [
+            \Inertia\Middleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

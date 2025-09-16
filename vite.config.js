@@ -11,8 +11,6 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./resources/js', import.meta.url)),
-            react: fileURLToPath(new URL('./resources/js/lib/react.js', import.meta.url)),
-            'react-dom/client': fileURLToPath(new URL('./resources/js/lib/react-dom-client.js', import.meta.url)),
         },
     },
     plugins: [
