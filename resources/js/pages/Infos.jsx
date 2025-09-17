@@ -1,11 +1,11 @@
 import React from 'react';
 import Layout from '../Components/Layout.jsx';
 
-export default function Studies() {
+export default function Infos() {
   return (
     <Layout>
       <section className="max-w-4xl mx-auto px-6 py-16 space-y-6">
-        <h1 className="text-4xl font-bold text-center text-[#FF007A] md:text-left">Studies</h1>
+        <h1 className="text-4xl font-bold text-center text-[#FF007A] md:text-left">Információk</h1>
         <p className="text-lg text-gray-300">
           Itt osztom meg a legújabb tanulmányaimat, kutatásaimat és a kedvenc szakmai cikkeimet, amelyek inspirálnak a
           mindennapi munkám során.

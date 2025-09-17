@@ -7,7 +7,7 @@ const menuItems = [
   { name: 'services', label: 'Szolgáltatások' },
   { name: 'prices', label: 'Árak' },
   { name: 'references', label: 'Referenciák' },
-  { name: 'studies', label: 'Studies' },
+  { name: 'infos', label: 'Információk' },
   { name: 'contact', label: 'Kapcsolat' },
 ];
 
