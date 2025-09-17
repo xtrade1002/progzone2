@@ -4,7 +4,7 @@ const routes = {
   services: '/services',
   prices: '/prices',
   references: '/references',
-  studies: '/studies',
+  infos: '/infos',
   contact: '/contact',
   privacy: '/privacy',
   terms: '/terms',
