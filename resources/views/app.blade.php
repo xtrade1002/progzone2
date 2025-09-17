@@ -13,7 +13,7 @@
       @vite(['resources/css/app.css', 'resources/js/app.jsx'])
       @inertiaHead
   </head>
-  <body class="bg-[#101010] text-white font-sans antialiased">
+  <body class="bg-gradient-to-br from-[#0a0a0f] via-[#141422] to-[#0a0a0f] text-white font-sans antialiased">
       @inertia
   </body>
 </html>
