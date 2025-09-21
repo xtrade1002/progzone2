@@ -18,7 +18,7 @@ export default function References() {
           >
             <article 
               className="relative rounded-lg border border-[#FF007A]/30 overflow-hidden shadow-lg transform transition hover:scale-[1.02]"
-              style={{ backgroundImage: "url('/img/background.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
+              style={{ backgroundImage: "url('/img/bg_women.jpeg')", backgroundSize: "cover", backgroundPosition: "center" }}
             >
               {/* Sötét overlay a szöveg olvashatóságához */}
               <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition"></div>
@@ -59,7 +59,7 @@ export default function References() {
           >
             <article 
               className="relative rounded-lg border border-[#FF007A]/30 overflow-hidden shadow-lg transform transition hover:scale-[1.02]"
-              style={{ backgroundImage: "url('/img/background.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
+              style={{ backgroundImage: "url('/img/4.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
             >
               {/* Sötét overlay a szöveg olvashatóságához */}
               <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition"></div>
