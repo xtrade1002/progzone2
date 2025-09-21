@@ -12,6 +12,7 @@ Route::get('/services', fn () => Inertia::render('Services'))->name('services');
 Route::get('/prices', fn () => Inertia::render('Prices'))->name('prices');
 Route::get('/references', fn () => Inertia::render('References'))->name('references');
 Route::get('/infos', fn () => Inertia::render('Infos'))->name('infos');
+Route::get('/quote', fn () => Inertia::render('QuoteRequest'))->name('quote');
 Route::get('/contact', fn () => Inertia::render('Contact'))->name('contact');
 Route::get('/privacy', fn () => Inertia::render('Privacy'))->name('privacy');
 Route::get('/terms', fn () => Inertia::render('Terms'))->name('terms');
