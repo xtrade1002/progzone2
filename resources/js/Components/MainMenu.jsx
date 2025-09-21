@@ -8,6 +8,7 @@ const menuItems = [
   { name: 'prices', label: 'Árak' },
   { name: 'references', label: 'Referenciák' },
   { name: 'infos', label: 'Információk' },
+  { name: 'quote', label: 'Árajánlat' },
   { name: 'contact', label: 'Kapcsolat' },
 ];
 
