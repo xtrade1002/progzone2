@@ -42,6 +42,7 @@ export default function QuoteRequest() {
   const fields = quote.fields ?? {};
   const serviceOptions = fields.service?.options ?? [];
   const budgetOptions = fields.budget?.options ?? [];
+  const button = quote.button ?? {};
   const introParagraphs = Array.isArray(quote.intro) ? quote.intro : [];
 
   const handleChange = (field) => (event) => {
@@ -84,7 +85,8 @@ export default function QuoteRequest() {
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <input
                 type="text"
-                placeholder="Teljes név *"
+                placeholder={fields.name?.placeholder ?? 'Full name *'}
+                aria-label={fields.name?.label ?? 'Full name'}
                 required
                 className={inputClasses}
                 value={formData.name}
@@ -92,7 +94,8 @@ export default function QuoteRequest() {
               />
               <input
                 type="email"
-                placeholder="E-mail cím *"
+                placeholder={fields.email?.placeholder ?? 'Email address *'}
+                aria-label={fields.email?.label ?? 'Email address'}
                 required
                 className={inputClasses}
                 value={formData.email}
@@ -100,33 +103,34 @@ export default function QuoteRequest() {
               />
             </div>
 
-            {/* Telefon + Cég */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <input
                 type="tel"
-                placeholder="Telefonszám"
+                placeholder={fields.phone?.placeholder ?? 'Phone'}
+                aria-label={fields.phone?.label ?? 'Phone'}
                 className={inputClasses}
                 value={formData.phone}
                 onChange={handleChange('phone')}
               />
               <input
                 type="text"
-                placeholder="Cég / projekt neve"
+                placeholder={fields.company?.placeholder ?? 'Company / project'}
+                aria-label={fields.company?.label ?? 'Company / project'}
                 className={inputClasses}
                 value={formData.company}
                 onChange={handleChange('company')}
               />
             </div>
 
-            {/* Szolgáltatás + Költségkeret */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <select
                 required
                 value={formData.service}
                 onChange={handleChange('service')}
                 className={`${inputClasses} bg-[#151522]`}
+                aria-label={fields.service?.label ?? 'Desired service'}
               >
-                <option value="">Kívánt szolgáltatás *</option>
+                <option value="">{fields.service?.placeholder ?? 'Choose a service'}</option>
                 {serviceOptions.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
@@ -137,8 +141,9 @@ export default function QuoteRequest() {
                 value={formData.budget}
                 onChange={handleChange('budget')}
                 className={`${inputClasses} bg-[#151522]`}
+                aria-label={fields.budget?.label ?? 'Estimated budget'}
               >
-                <option value="">Tervezett költségkeret</option>
+                <option value="">{fields.budget?.placeholder ?? 'Select a budget'}</option>
                 {budgetOptions.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
@@ -147,140 +152,33 @@ export default function QuoteRequest() {
               </select>
             </div>
 
-            {/* Határidő */}
             <input
               type="text"
-              placeholder="Tervezett határidő"
+              placeholder={fields.timeline?.placeholder ?? 'Preferred timeline'}
+              aria-label={fields.timeline?.label ?? 'Preferred timeline'}
               className={inputClasses}
               value={formData.timeline}
               onChange={handleChange('timeline')}
             />
 
-            {/* Projekt leírás */}
             <textarea
               rows="5"
               required
-              placeholder="Projekt rövid leírása *"
+              placeholder={fields.message?.placeholder ?? 'Project summary *'}
+              aria-label={fields.message?.label ?? 'Project summary'}
               className={`${inputClasses} min-h-[140px]`}
               value={formData.message}
               onChange={handleChange('message')}
             ></textarea>
 
-            {/* Új mezők */}
-            <textarea
-              rows="2"
-              placeholder="Referencia weboldalak (linkek)"
-              className={inputClasses}
-              value={formData.referenceSites}
-              onChange={handleChange('referenceSites')}
-            />
-            <input
-              type="text"
-              placeholder="Célközönség / piac (pl. magyar, nemzetközi)"
-              className={inputClasses}
-              value={formData.targetAudience}
-              onChange={handleChange('targetAudience')}
-            />
-            <input
-              type="text"
-              placeholder="Nyelvi igények (pl. egynyelvű, kétnyelvű, többnyelvű)"
-              className={inputClasses}
-              value={formData.languages}
-              onChange={handleChange('languages')}
-            />
-            <textarea
-              rows="2"
-              placeholder="Fő funkciók listája (pl. webshop, foglalási rendszer)"
-              className={inputClasses}
-              value={formData.features}
-              onChange={handleChange('features')}
-            />
-            <input
-              type="text"
-              placeholder="Tartalomforrás (saját vagy szükséges segítség)"
-              className={inputClasses}
-              value={formData.contentSource}
-              onChange={handleChange('contentSource')}
-            />
-
-            {/* Pénzügyi / adminisztratív */}
-            <textarea
-              rows="2"
-              placeholder="Számlázási adatok (cégnév, adószám, ország)"
-              className={inputClasses}
-              value={formData.billingInfo}
-              onChange={handleChange('billingInfo')}
-            />
-            <input
-              type="text"
-              placeholder="Preferált fizetési mód (átutalás, PayPal, kártya)"
-              className={inputClasses}
-              value={formData.paymentMethod}
-              onChange={handleChange('paymentMethod')}
-            />
-            <input
-              type="text"
-              placeholder="Támogatási igény (SLA, havi support, karbantartás)"
-              className={inputClasses}
-              value={formData.support}
-              onChange={handleChange('support')}
-            />
-
-            {/* Technikai igények */}
-            <input
-              type="text"
-              placeholder="Domain és tárhely helyzete"
-              className={inputClasses}
-              value={formData.hostingDomain}
-              onChange={handleChange('hostingDomain')}
-            />
-            <textarea
-              rows="2"
-              placeholder="Integrációs igények (számlázó, CRM, API-k)"
-              className={inputClasses}
-              value={formData.integrations}
-              onChange={handleChange('integrations')}
-            />
-            <textarea
-              rows="2"
-              placeholder="SEO / marketing igények (SEO, Ads, social media)"
-              className={inputClasses}
-              value={formData.marketing}
-              onChange={handleChange('marketing')}
-            />
-            <textarea
-              rows="2"
-              placeholder="Biztonsági / jogi elvárások (GDPR, SSL, consent modul)"
-              className={inputClasses}
-              value={formData.legal}
-              onChange={handleChange('legal')}
-            />
-            <input
-              type="text"
-              placeholder="Fontossági sorrend (pl. gyors határidő vagy alacsony költség)"
-              className={inputClasses}
-              value={formData.priority}
-              onChange={handleChange('priority')}
-            />
-
-            {/* Privacy */}
-            <label className="flex items-center gap-3 text-gray-300 text-sm">
-              <input
-                type="checkbox"
-                required
-                checked={formData.privacy}
-                onChange={handleChange('privacy')}
-                className="h-4 w-4 accent-[#FF007A]"
-              />
-              Megismertem és elfogadom az adatkezelési tájékoztatót
-            </label>
-
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="reference_sites">
-              {fields.reference_sites?.label}
+              {fields.reference_sites?.label ?? 'Inspiration / reference sites'}
               <textarea
                 id="reference_sites"
                 rows="4"
-                placeholder={fields.reference_sites?.placeholder}
+                placeholder={
+                  fields.reference_sites?.placeholder ?? 'Share any websites or products you like'
+                }
                 className={`${inputClasses} min-h-[120px]`}
                 value={formData.reference_sites}
                 onChange={handleChange('reference_sites')}
@@ -293,11 +191,11 @@ export default function QuoteRequest() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="target_audience">
-                {fields.target_audience?.label}
+                {fields.target_audience?.label ?? 'Primary audience'}
                 <input
                   id="target_audience"
                   type="text"
-                  placeholder={fields.target_audience?.placeholder}
+                  placeholder={fields.target_audience?.placeholder ?? 'Who will use or buy the product?'}
                   className={inputClasses}
                   value={formData.target_audience}
                   onChange={handleChange('target_audience')}
@@ -308,11 +206,11 @@ export default function QuoteRequest() {
                 )}
               </label>
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="languages">
-                {fields.languages?.label}
+                {fields.languages?.label ?? 'Project languages'}
                 <input
                   id="languages"
                   type="text"
-                  placeholder={fields.languages?.placeholder}
+                  placeholder={fields.languages?.placeholder ?? 'e.g. English, German'}
                   className={inputClasses}
                   value={formData.languages}
                   onChange={handleChange('languages')}
@@ -323,11 +221,11 @@ export default function QuoteRequest() {
             </div>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="features">
-              {fields.features?.label}
+              {fields.features?.label ?? 'Key features'}
               <textarea
                 id="features"
                 rows="4"
-                placeholder={fields.features?.placeholder}
+                placeholder={fields.features?.placeholder ?? 'List the most important functionality'}
                 className={`${inputClasses} min-h-[120px]`}
                 value={formData.features}
                 onChange={handleChange('features')}
@@ -338,11 +236,11 @@ export default function QuoteRequest() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="content_source">
-                {fields.content_source?.label}
+                {fields.content_source?.label ?? 'Content source'}
                 <input
                   id="content_source"
                   type="text"
-                  placeholder={fields.content_source?.placeholder}
+                  placeholder={fields.content_source?.placeholder ?? 'Who will provide copy, images or videos?'}
                   className={inputClasses}
                   value={formData.content_source}
                   onChange={handleChange('content_source')}
@@ -353,11 +251,11 @@ export default function QuoteRequest() {
                 )}
               </label>
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="payment_method">
-                {fields.payment_method?.label}
+                {fields.payment_method?.label ?? 'Preferred payment method'}
                 <input
                   id="payment_method"
                   type="text"
-                  placeholder={fields.payment_method?.placeholder}
+                  placeholder={fields.payment_method?.placeholder ?? 'e.g. bank transfer, milestone-based'}
                   className={inputClasses}
                   value={formData.payment_method}
                   onChange={handleChange('payment_method')}
@@ -370,11 +268,11 @@ export default function QuoteRequest() {
             </div>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="billing_info">
-              {fields.billing_info?.label}
+              {fields.billing_info?.label ?? 'Billing information'}
               <textarea
                 id="billing_info"
                 rows="4"
-                placeholder={fields.billing_info?.placeholder}
+                placeholder={fields.billing_info?.placeholder ?? 'Company name, tax number, address, etc.'}
                 className={`${inputClasses} min-h-[120px]`}
                 value={formData.billing_info}
                 onChange={handleChange('billing_info')}
@@ -387,11 +285,11 @@ export default function QuoteRequest() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="support">
-                {fields.support?.label}
+                {fields.support?.label ?? 'Support expectations'}
                 <input
                   id="support"
                   type="text"
-                  placeholder={fields.support?.placeholder}
+                  placeholder={fields.support?.placeholder ?? 'Do you need maintenance after launch?'}
                   className={inputClasses}
                   value={formData.support}
                   onChange={handleChange('support')}
@@ -400,11 +298,11 @@ export default function QuoteRequest() {
                 {errors.support && <span className="text-xs text-red-400">{errors.support}</span>}
               </label>
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="hosting_domain">
-                {fields.hosting_domain?.label}
+                {fields.hosting_domain?.label ?? 'Hosting / domain needs'}
                 <input
                   id="hosting_domain"
                   type="text"
-                  placeholder={fields.hosting_domain?.placeholder}
+                  placeholder={fields.hosting_domain?.placeholder ?? 'Do you need help with hosting or domains?'}
                   className={inputClasses}
                   value={formData.hosting_domain}
                   onChange={handleChange('hosting_domain')}
@@ -417,11 +315,11 @@ export default function QuoteRequest() {
             </div>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="integrations">
-              {fields.integrations?.label}
+              {fields.integrations?.label ?? 'Required integrations'}
               <textarea
                 id="integrations"
                 rows="4"
-                placeholder={fields.integrations?.placeholder}
+                placeholder={fields.integrations?.placeholder ?? 'CRM, newsletter, payment gateways, etc.'}
                 className={`${inputClasses} min-h-[120px]`}
                 value={formData.integrations}
                 onChange={handleChange('integrations')}
@@ -433,11 +331,11 @@ export default function QuoteRequest() {
             </label>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="marketing">
-              {fields.marketing?.label}
+              {fields.marketing?.label ?? 'Marketing goals'}
               <textarea
                 id="marketing"
                 rows="4"
-                placeholder={fields.marketing?.placeholder}
+                placeholder={fields.marketing?.placeholder ?? 'Campaigns, KPIs or channels to focus on'}
                 className={`${inputClasses} min-h-[120px]`}
                 value={formData.marketing}
                 onChange={handleChange('marketing')}
@@ -447,11 +345,11 @@ export default function QuoteRequest() {
             </label>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="legal">
-              {fields.legal?.label}
+              {fields.legal?.label ?? 'Legal / compliance notes'}
               <textarea
                 id="legal"
                 rows="4"
-                placeholder={fields.legal?.placeholder}
+                placeholder={fields.legal?.placeholder ?? 'GDPR, contracts, terms, other requirements'}
                 className={`${inputClasses} min-h-[120px]`}
                 value={formData.legal}
                 onChange={handleChange('legal')}
@@ -461,11 +359,11 @@ export default function QuoteRequest() {
             </label>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="priority">
-              {fields.priority?.label}
+              {fields.priority?.label ?? 'Project priority'}
               <input
                 id="priority"
                 type="text"
-                placeholder={fields.priority?.placeholder}
+                placeholder={fields.priority?.placeholder ?? 'How urgent or important is this project?'}
                 className={inputClasses}
                 value={formData.priority}
                 onChange={handleChange('priority')}
@@ -485,7 +383,7 @@ export default function QuoteRequest() {
                   onChange={handleChange('privacy')}
                   aria-invalid={errors.privacy ? 'true' : 'false'}
                 />
-                {fields.privacy?.label}
+                {fields.privacy?.label ?? 'I have read and accept the privacy policy.'}
               </label>
               {errors.privacy && <span className="text-xs text-red-400">{errors.privacy}</span>}
             </div>
@@ -496,7 +394,9 @@ export default function QuoteRequest() {
                 className="rounded-lg bg-[#FF007A] px-8 py-3 font-semibold text-white shadow-[0_0_25px_#ff007a] transition hover:shadow-[0_0_40px_#ff007a] disabled:cursor-not-allowed disabled:opacity-70"
                 disabled={processing}
               >
-                {processing ? 'Küldés folyamatban…' : 'Árajánlat kérése'}
+                {processing
+                  ? button.processing ?? 'Sending…'
+                  : button.default ?? 'Send'}
               </button>
             </div>
           </form>
