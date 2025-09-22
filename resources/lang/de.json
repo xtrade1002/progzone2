@@ -214,14 +214,66 @@
         "label": "Bevorzugter Zeitplan",
         "placeholder": "z. B. Ende Juni 2024"
       },
-      "message": {
-        "label": "Projektbeschreibung *",
-        "placeholder": "Beschreibe Ziele, gewünschte Funktionen und weitere Details."
-      },
-      "privacy": {
-        "label": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie."
-      }
+    "message": {
+      "label": "Projektbeschreibung *",
+      "placeholder": "Beschreibe Ziele, gewünschte Funktionen und weitere Details."
     },
+    "reference_sites": {
+      "label": "Inspiration / Referenzseiten",
+      "placeholder": "Nenne Webseiten oder Produkte, die dir gefallen"
+    },
+    "target_audience": {
+      "label": "Hauptzielgruppe",
+      "placeholder": "Wer wird das Produkt nutzen oder kaufen?"
+    },
+    "languages": {
+      "label": "Projektsprachen",
+      "placeholder": "z. B. Deutsch, Englisch"
+    },
+    "features": {
+      "label": "Wichtigste Funktionen",
+      "placeholder": "Liste die wichtigsten gewünschten Funktionen auf"
+    },
+    "content_source": {
+      "label": "Quelle der Inhalte",
+      "placeholder": "Wer liefert Texte, Bilder oder Videos?"
+    },
+    "billing_info": {
+      "label": "Rechnungsinformationen",
+      "placeholder": "Firmenname, Steuernummer, Rechnungsadresse usw."
+    },
+    "payment_method": {
+      "label": "Bevorzugte Zahlungsmethode",
+      "placeholder": "z. B. Überweisung, meilensteinbasiert"
+    },
+    "support": {
+      "label": "Support-Erwartungen",
+      "placeholder": "Benötigst du Betreuung nach dem Launch?"
+    },
+    "hosting_domain": {
+      "label": "Hosting- / Domain-Bedarf",
+      "placeholder": "Brauchst du Unterstützung bei Hosting oder Domains?"
+    },
+    "integrations": {
+      "label": "Benötigte Integrationen",
+      "placeholder": "CRM, Newsletter, Zahlungsanbieter usw."
+    },
+    "marketing": {
+      "label": "Marketingziele",
+      "placeholder": "Kampagnen, KPIs oder Kanäle, auf die du dich fokussierst"
+    },
+    "legal": {
+      "label": "Rechtliche / Compliance-Hinweise",
+      "placeholder": "DSGVO, Verträge, AGB oder andere Anforderungen"
+    },
+    "priority": {
+      "label": "Projektpriorität",
+      "placeholder": "Wie dringend oder wichtig ist das Projekt?"
+    },
+    "privacy": {
+      "label": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie."
+    }
+  },
     "button": {
       "default": "Senden",
       "processing": "Wird gesendet…"

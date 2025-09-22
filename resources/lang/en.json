@@ -214,14 +214,66 @@
         "label": "Preferred timeline",
         "placeholder": "e.g. end of June 2024"
       },
-      "message": {
-        "label": "Project summary *",
-        "placeholder": "Describe the goals, required features and any other helpful details."
-      },
-      "privacy": {
-        "label": "I have read and accept the privacy policy."
-      }
+    "message": {
+      "label": "Project summary *",
+      "placeholder": "Describe the goals, required features and any other helpful details."
     },
+    "reference_sites": {
+      "label": "Inspiration / reference sites",
+      "placeholder": "Share any websites or products you like"
+    },
+    "target_audience": {
+      "label": "Primary audience",
+      "placeholder": "Who will use or buy the product?"
+    },
+    "languages": {
+      "label": "Project languages",
+      "placeholder": "e.g. English, German"
+    },
+    "features": {
+      "label": "Key features",
+      "placeholder": "List the most important functionality"
+    },
+    "content_source": {
+      "label": "Content source",
+      "placeholder": "Who will provide copy, images or videos?"
+    },
+    "billing_info": {
+      "label": "Billing information",
+      "placeholder": "Company name, tax number, address, etc."
+    },
+    "payment_method": {
+      "label": "Preferred payment method",
+      "placeholder": "e.g. bank transfer, milestone-based"
+    },
+    "support": {
+      "label": "Support expectations",
+      "placeholder": "Do you need maintenance after launch?"
+    },
+    "hosting_domain": {
+      "label": "Hosting / domain needs",
+      "placeholder": "Do you need help with hosting or domains?"
+    },
+    "integrations": {
+      "label": "Required integrations",
+      "placeholder": "CRM, newsletter, payment gateways, etc."
+    },
+    "marketing": {
+      "label": "Marketing goals",
+      "placeholder": "Campaigns, KPIs or channels to focus on"
+    },
+    "legal": {
+      "label": "Legal / compliance notes",
+      "placeholder": "GDPR, contracts, terms, other requirements"
+    },
+    "priority": {
+      "label": "Project priority",
+      "placeholder": "How urgent or important is this project?"
+    },
+    "privacy": {
+      "label": "I have read and accept the privacy policy."
+    }
+  },
     "button": {
       "default": "Send",
       "processing": "Sending…"
