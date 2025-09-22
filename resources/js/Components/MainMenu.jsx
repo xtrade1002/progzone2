@@ -1,16 +1,20 @@
 import React from 'react';
 import route from '../route.js';
 
-const menuItems = [
+const baseMenuItems = [
   { name: 'home', label: 'Főoldal' },
   { name: 'aboutme', label: 'Rólam' },
   { name: 'services', label: 'Szolgáltatások' },
   { name: 'prices', label: 'Árak' },
   { name: 'references', label: 'Referenciák' },
   { name: 'infos', label: 'Információk' },
-  { name: 'quote', label: 'Árajánlat' },
-  { name: 'contact', label: 'Kapcsolat' },
 ];
+
+const ctaItem = { name: 'quote', label: 'Árajánlat' };
+
+const trailingItems = [{ name: 'contact', label: 'Kapcsolat' }];
+
+const menuItems = [...baseMenuItems, ctaItem, ...trailingItems];
 
 export default function MainMenu({ activePath }) {
   return (
