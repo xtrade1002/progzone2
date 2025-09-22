@@ -14,10 +14,8 @@ return Application::configure(basePath: dirname(__DIR__))
         // Inertia middleware hozzáadása a web middleware stackhez
         $middleware->web(
             append: [
-                \Inertia\Middleware::class,
-            ],
-            prepend: [
                 \App\Http\Middleware\SetLocaleFromHost::class,
+                \Inertia\Middleware::class,
             ],
         );
     })
