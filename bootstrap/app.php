@@ -12,9 +12,14 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         // Inertia middleware hozzáadása a web middleware stackhez
-        $middleware->web(append: [
-            \Inertia\Middleware::class,
-        ]);
+        $middleware->web(
+            append: [
+                \Inertia\Middleware::class,
+            ],
+            prepend: [
+                \App\Http\Middleware\SetLocaleFromHost::class,
+            ],
+        );
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

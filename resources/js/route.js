@@ -12,6 +12,7 @@ const routes = {
   impressum: '/impressum',
   'quote-request.store': '/quote-request',
   'contact-message.store': '/contact-message',
+  'locale.update': '/locale',
 };
 
 export default function route(name) {

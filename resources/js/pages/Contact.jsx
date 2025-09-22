@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Head, router, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import route from '../route.js';
+import useTranslations from '../lib/useTranslations.js';
 
 const createInitialFormState = () => ({
   name: '',
@@ -15,6 +16,10 @@ export default function Contact() {
   const [processing, setProcessing] = useState(false);
   const { props } = usePage();
   const errors = props?.errors ?? {};
+  const { trans, t } = useTranslations();
+  const contact = trans?.contact ?? {};
+  const fields = contact.fields ?? {};
+  const buttonLabels = contact.button ?? {};
 
   const handleChange = (field) => (event) => {
     setFormData((previous) => ({
@@ -35,16 +40,16 @@ export default function Contact() {
 
   return (
     <Layout>
-      <Head title="Kapcsolat" />
+      <Head title={contact.meta_title ?? t('menu.contact', 'Contact')} />
       <section className="max-w-4xl mx-auto px-6 py-20">
         <div className="rounded-2xl p-10 text-center">
           <h2 className="text-4xl sm:text-4xl font-extrabold text-center text-[#FF007A] mb-16 drop-shadow-[0_0_15px_#ff007a]">
-            Kapcsolat
+            {contact.title}
           </h2>
 
           <div className="mb-12">
-            <h3 className="text-xl font-bold text-[#00f7ff]">📧 Email</h3>
-            <p className="mt-2 text-gray-300 text-lg">info@progzone.de</p>
+            <h3 className="text-xl font-bold text-[#00f7ff]">{contact.email_label}</h3>
+            <p className="mt-2 text-gray-300 text-lg">{contact.email_value}</p>
           </div>
 
           <form className="space-y-6 max-w-3xl mx-auto" onSubmit={handleSubmit}>
@@ -52,7 +57,7 @@ export default function Contact() {
               <div className="flex flex-col gap-2">
                 <input
                   type="text"
-                  placeholder="Név *"
+                  placeholder={fields.name?.placeholder}
                   className="w-full rounded-lg bg-transparent border border-gray-600 p-3 text-gray-200 focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] outline-none"
                   required
                   value={formData.name}
@@ -64,7 +69,7 @@ export default function Contact() {
               <div className="flex flex-col gap-2">
                 <input
                   type="email"
-                  placeholder="E-mail *"
+                  placeholder={fields.email?.placeholder}
                   className="w-full rounded-lg bg-transparent border border-gray-600 p-3 text-gray-200 focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] outline-none"
                   required
                   value={formData.email}
@@ -77,7 +82,7 @@ export default function Contact() {
             <div className="flex flex-col gap-2">
               <input
                 type="tel"
-                placeholder="Telefonszám"
+                placeholder={fields.phone?.placeholder}
                 className="w-full rounded-lg bg-transparent border border-gray-600 p-3 text-gray-200 focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] outline-none"
                 value={formData.phone}
                 onChange={handleChange('phone')}
@@ -87,7 +92,7 @@ export default function Contact() {
             </div>
             <div className="flex flex-col gap-2">
               <textarea
-                placeholder="Üzenet *"
+                placeholder={fields.message?.placeholder}
                 rows="5"
                 className="w-full rounded-lg bg-transparent border border-gray-600 p-3 text-gray-200 focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] outline-none"
                 required
@@ -102,7 +107,7 @@ export default function Contact() {
               className="w-full md:w-auto px-8 py-3 rounded-lg font-semibold bg-[#FF007A] text-white shadow-[0_0_20px_#ff007a] hover:shadow-[0_0_35px_#ff007a] transition disabled:cursor-not-allowed disabled:opacity-70"
               disabled={processing}
             >
-              {processing ? 'Küldés folyamatban…' : 'Küldés'}
+              {processing ? buttonLabels.processing : buttonLabels.default}
             </button>
           </form>
         </div>

@@ -32,7 +32,7 @@ class FormController extends Controller
 
         return redirect()
             ->back()
-            ->with('success', 'Köszönjük, ajánlatkérésedet rögzítettük!');
+            ->with('success', __('flash_quote_success'));
     }
 
     /**
@@ -51,6 +51,6 @@ class FormController extends Controller
 
         return redirect()
             ->back()
-            ->with('success', 'Üzenetedet sikeresen elküldtük!');
+            ->with('success', __('flash_contact_success'));
     }
 }

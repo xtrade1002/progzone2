@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Head, router, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import route from '../route.js';
+import useTranslations from '../lib/useTranslations.js';
 
 const inputClasses =
   'w-full rounded-lg border border-gray-600 bg-transparent p-3 text-gray-200 focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] outline-none transition';
@@ -23,6 +24,12 @@ export default function QuoteRequest() {
   const [processing, setProcessing] = useState(false);
   const { props } = usePage();
   const errors = props?.errors ?? {};
+  const { trans, t } = useTranslations();
+  const quote = trans?.quote ?? {};
+  const fields = quote.fields ?? {};
+  const serviceOptions = fields.service?.options ?? [];
+  const budgetOptions = fields.budget?.options ?? [];
+  const introParagraphs = Array.isArray(quote.intro) ? quote.intro : [];
 
   const handleChange = (field) => (event) => {
     const value = field === 'privacy' ? event.target.checked : event.target.value;
@@ -44,28 +51,29 @@ export default function QuoteRequest() {
 
   return (
     <Layout>
-      <Head title="Árajánlat kérés" />
+      <Head title={quote.meta_title ?? t('menu.quote', 'Quote request')} />
       <section className="w-full px-6 py-20">
         <div className="mx-auto max-w-4xl rounded-2xl border border-gray-700 bg-black/30 p-10 shadow-[0_0_45px_rgba(255,0,122,0.18)]">
           <div className="mb-12 space-y-4 text-center">
             <h2 className="text-4xl sm:text-5xl font-extrabold text-[#FF007A] drop-shadow-[0_0_20px_#ff007a]">
-              Árajánlat kérés
+              {quote.title}
             </h2>
-            <p className="text-lg text-gray-300">
-              Írd le néhány mondatban, mire van szükséged, és rövid időn belül személyre szabott ajánlattal
-              kereslek meg.
-            </p>
-            <p className="text-sm text-gray-400">* A csillaggal jelölt mezők kitöltése kötelező.</p>
+            {introParagraphs.map((paragraph, index) => (
+              <p key={index} className="text-lg text-gray-300">
+                {paragraph}
+              </p>
+            ))}
+            {quote.hint && <p className="text-sm text-gray-400">{quote.hint}</p>}
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="name">
-                Teljes név *
+                {fields.name?.label}
                 <input
                   id="name"
                   type="text"
-                  placeholder="Írd be a neved"
+                  placeholder={fields.name?.placeholder}
                   required
                   className={inputClasses}
                   value={formData.name}
@@ -75,11 +83,11 @@ export default function QuoteRequest() {
                 {errors.name && <span className="text-xs text-red-400">{errors.name}</span>}
               </label>
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="email">
-                E-mail cím *
+                {fields.email?.label}
                 <input
                   id="email"
                   type="email"
-                  placeholder="Add meg az e-mail címed"
+                  placeholder={fields.email?.placeholder}
                   required
                   className={inputClasses}
                   value={formData.email}
@@ -92,11 +100,11 @@ export default function QuoteRequest() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="phone">
-                Telefonszám
+                {fields.phone?.label}
                 <input
                   id="phone"
                   type="tel"
-                  placeholder="+36 20 123 4567"
+                  placeholder={fields.phone?.placeholder}
                   className={inputClasses}
                   value={formData.phone}
                   onChange={handleChange('phone')}
@@ -105,11 +113,11 @@ export default function QuoteRequest() {
                 {errors.phone && <span className="text-xs text-red-400">{errors.phone}</span>}
               </label>
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="company">
-                Cég / projekt neve
+                {fields.company?.label}
                 <input
                   id="company"
                   type="text"
-                  placeholder="Cégnév vagy projekt"
+                  placeholder={fields.company?.placeholder}
                   className={inputClasses}
                   value={formData.company}
                   onChange={handleChange('company')}
@@ -121,7 +129,7 @@ export default function QuoteRequest() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="service">
-                Kívánt szolgáltatás *
+                {fields.service?.label}
                 <select
                   id="service"
                   required
@@ -131,19 +139,18 @@ export default function QuoteRequest() {
                   aria-invalid={errors.service ? 'true' : 'false'}
                 >
                   <option value="" disabled>
-                    Válassz szolgáltatást
+                    {fields.service?.placeholder}
                   </option>
-                  <option value="weboldal">Weboldal készítés</option>
-                  <option value="webshop">Webshop fejlesztés</option>
-                  <option value="design">Webdesign / UI</option>
-                  <option value="logo">Logó- vagy arculattervezés</option>
-                  <option value="marketing">Online marketing</option>
-                  <option value="egyedi">Egyedi fejlesztés</option>
+                  {serviceOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
                 </select>
                 {errors.service && <span className="text-xs text-red-400">{errors.service}</span>}
               </label>
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="budget">
-                Tervezett költségkeret
+                {fields.budget?.label}
                 <select
                   id="budget"
                   value={formData.budget}
@@ -152,24 +159,24 @@ export default function QuoteRequest() {
                   aria-invalid={errors.budget ? 'true' : 'false'}
                 >
                   <option value="" disabled>
-                    Válassz kategóriát
+                    {fields.budget?.placeholder}
                   </option>
-                  <option value="0-200">0 - 200 000 Ft</option>
-                  <option value="200-500">200 000 - 500 000 Ft</option>
-                  <option value="500-1000">500 000 - 1 000 000 Ft</option>
-                  <option value="1000+">1 000 000 Ft felett</option>
-                  <option value="bizonytalan">Még bizonytalan</option>
+                  {budgetOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
                 </select>
                 {errors.budget && <span className="text-xs text-red-400">{errors.budget}</span>}
               </label>
             </div>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="timeline">
-              Tervezett határidő
+              {fields.timeline?.label}
               <input
                 id="timeline"
                 type="text"
-                placeholder="Pl. 2024. június vége"
+                placeholder={fields.timeline?.placeholder}
                 className={inputClasses}
                 value={formData.timeline}
                 onChange={handleChange('timeline')}
@@ -179,12 +186,12 @@ export default function QuoteRequest() {
             </label>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="message">
-              Projekt rövid leírása *
+              {fields.message?.label}
               <textarea
                 id="message"
                 rows="6"
                 required
-                placeholder="Írd le, milyen megoldást szeretnél, milyen funkciókra van szükség, illetve minden egyéb hasznos információt."
+                placeholder={fields.message?.placeholder}
                 className={`${inputClasses} min-h-[160px]`}
                 value={formData.message}
                 onChange={handleChange('message')}
@@ -204,7 +211,7 @@ export default function QuoteRequest() {
                   onChange={handleChange('privacy')}
                   aria-invalid={errors.privacy ? 'true' : 'false'}
                 />
-                Megismertem és elfogadom az adatkezelési tájékoztatót.
+                {fields.privacy?.label}
               </label>
               {errors.privacy && <span className="text-xs text-red-400">{errors.privacy}</span>}
             </div>
@@ -215,7 +222,7 @@ export default function QuoteRequest() {
                 className="w-full sm:w-auto rounded-lg bg-[#FF007A] px-8 py-3 text-center font-semibold text-white shadow-[0_0_25px_#ff007a] transition hover:shadow-[0_0_40px_#ff007a] disabled:cursor-not-allowed disabled:opacity-70"
                 disabled={processing}
               >
-                {processing ? 'Küldés folyamatban…' : 'Elküldöm'}
+                {processing ? quote.button?.processing : quote.button?.default}
               </button>
             </div>
           </form>
