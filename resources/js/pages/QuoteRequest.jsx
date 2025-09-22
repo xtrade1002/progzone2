@@ -66,7 +66,7 @@ export default function QuoteRequest() {
     <Layout>
       <Head title={quote.meta_title ?? t('menu.quote', 'Quote request')} />
       <section className="w-full px-6 py-20">
-        <div className="mx-auto max-w-4xl rounded-2xl border border-gray-700 bg-black/30 p-10 shadow-[0_0_45px_rgba(255,0,122,0.18)]">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-gray-700 bg-black/30 p-10 shadow-[0_0_45px_rgba(255,0,122,0.18)]">
           <div className="mb-12 space-y-4 text-center">
             <h2 className="text-4xl sm:text-5xl font-extrabold text-[#FF007A] drop-shadow-[0_0_20px_#ff007a]">
               {quote.title}
@@ -80,137 +80,199 @@ export default function QuoteRequest() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
+            {/* Név + Email */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="name">
-                {fields.name?.label}
-                <input
-                  id="name"
-                  type="text"
-                  placeholder={fields.name?.placeholder}
-                  required
-                  className={inputClasses}
-                  value={formData.name}
-                  onChange={handleChange('name')}
-                  aria-invalid={errors.name ? 'true' : 'false'}
-                />
-                {errors.name && <span className="text-xs text-red-400">{errors.name}</span>}
-              </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="email">
-                {fields.email?.label}
-                <input
-                  id="email"
-                  type="email"
-                  placeholder={fields.email?.placeholder}
-                  required
-                  className={inputClasses}
-                  value={formData.email}
-                  onChange={handleChange('email')}
-                  aria-invalid={errors.email ? 'true' : 'false'}
-                />
-                {errors.email && <span className="text-xs text-red-400">{errors.email}</span>}
-              </label>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="phone">
-                {fields.phone?.label}
-                <input
-                  id="phone"
-                  type="tel"
-                  placeholder={fields.phone?.placeholder}
-                  className={inputClasses}
-                  value={formData.phone}
-                  onChange={handleChange('phone')}
-                  aria-invalid={errors.phone ? 'true' : 'false'}
-                />
-                {errors.phone && <span className="text-xs text-red-400">{errors.phone}</span>}
-              </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="company">
-                {fields.company?.label}
-                <input
-                  id="company"
-                  type="text"
-                  placeholder={fields.company?.placeholder}
-                  className={inputClasses}
-                  value={formData.company}
-                  onChange={handleChange('company')}
-                  aria-invalid={errors.company ? 'true' : 'false'}
-                />
-                {errors.company && <span className="text-xs text-red-400">{errors.company}</span>}
-              </label>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="service">
-                {fields.service?.label}
-                <select
-                  id="service"
-                  required
-                  value={formData.service}
-                  onChange={handleChange('service')}
-                  className={`${inputClasses} bg-[#151522]`}
-                  aria-invalid={errors.service ? 'true' : 'false'}
-                >
-                  <option value="" disabled>
-                    {fields.service?.placeholder}
-                  </option>
-                  {serviceOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-                {errors.service && <span className="text-xs text-red-400">{errors.service}</span>}
-              </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="budget">
-                {fields.budget?.label}
-                <select
-                  id="budget"
-                  value={formData.budget}
-                  onChange={handleChange('budget')}
-                  className={`${inputClasses} bg-[#151522]`}
-                  aria-invalid={errors.budget ? 'true' : 'false'}
-                >
-                  <option value="" disabled>
-                    {fields.budget?.placeholder}
-                  </option>
-                  {budgetOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-                {errors.budget && <span className="text-xs text-red-400">{errors.budget}</span>}
-              </label>
-            </div>
-
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="timeline">
-              {fields.timeline?.label}
               <input
-                id="timeline"
                 type="text"
-                placeholder={fields.timeline?.placeholder}
-                className={inputClasses}
-                value={formData.timeline}
-                onChange={handleChange('timeline')}
-                aria-invalid={errors.timeline ? 'true' : 'false'}
-              />
-              {errors.timeline && <span className="text-xs text-red-400">{errors.timeline}</span>}
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="message">
-              {fields.message?.label}
-              <textarea
-                id="message"
-                rows="6"
+                placeholder="Teljes név *"
                 required
-                placeholder={fields.message?.placeholder}
-                className={`${inputClasses} min-h-[160px]`}
-                value={formData.message}
-                onChange={handleChange('message')}
-                aria-invalid={errors.message ? 'true' : 'false'}
-              ></textarea>
-              {errors.message && <span className="text-xs text-red-400">{errors.message}</span>}
+                className={inputClasses}
+                value={formData.name}
+                onChange={handleChange('name')}
+              />
+              <input
+                type="email"
+                placeholder="E-mail cím *"
+                required
+                className={inputClasses}
+                value={formData.email}
+                onChange={handleChange('email')}
+              />
+            </div>
+
+            {/* Telefon + Cég */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <input
+                type="tel"
+                placeholder="Telefonszám"
+                className={inputClasses}
+                value={formData.phone}
+                onChange={handleChange('phone')}
+              />
+              <input
+                type="text"
+                placeholder="Cég / projekt neve"
+                className={inputClasses}
+                value={formData.company}
+                onChange={handleChange('company')}
+              />
+            </div>
+
+            {/* Szolgáltatás + Költségkeret */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <select
+                required
+                value={formData.service}
+                onChange={handleChange('service')}
+                className={`${inputClasses} bg-[#151522]`}
+              >
+                <option value="">Kívánt szolgáltatás *</option>
+                {serviceOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={formData.budget}
+                onChange={handleChange('budget')}
+                className={`${inputClasses} bg-[#151522]`}
+              >
+                <option value="">Tervezett költségkeret</option>
+                {budgetOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Határidő */}
+            <input
+              type="text"
+              placeholder="Tervezett határidő"
+              className={inputClasses}
+              value={formData.timeline}
+              onChange={handleChange('timeline')}
+            />
+
+            {/* Projekt leírás */}
+            <textarea
+              rows="5"
+              required
+              placeholder="Projekt rövid leírása *"
+              className={`${inputClasses} min-h-[140px]`}
+              value={formData.message}
+              onChange={handleChange('message')}
+            ></textarea>
+
+            {/* Új mezők */}
+            <textarea
+              rows="2"
+              placeholder="Referencia weboldalak (linkek)"
+              className={inputClasses}
+              value={formData.referenceSites}
+              onChange={handleChange('referenceSites')}
+            />
+            <input
+              type="text"
+              placeholder="Célközönség / piac (pl. magyar, nemzetközi)"
+              className={inputClasses}
+              value={formData.targetAudience}
+              onChange={handleChange('targetAudience')}
+            />
+            <input
+              type="text"
+              placeholder="Nyelvi igények (pl. egynyelvű, kétnyelvű, többnyelvű)"
+              className={inputClasses}
+              value={formData.languages}
+              onChange={handleChange('languages')}
+            />
+            <textarea
+              rows="2"
+              placeholder="Fő funkciók listája (pl. webshop, foglalási rendszer)"
+              className={inputClasses}
+              value={formData.features}
+              onChange={handleChange('features')}
+            />
+            <input
+              type="text"
+              placeholder="Tartalomforrás (saját vagy szükséges segítség)"
+              className={inputClasses}
+              value={formData.contentSource}
+              onChange={handleChange('contentSource')}
+            />
+
+            {/* Pénzügyi / adminisztratív */}
+            <textarea
+              rows="2"
+              placeholder="Számlázási adatok (cégnév, adószám, ország)"
+              className={inputClasses}
+              value={formData.billingInfo}
+              onChange={handleChange('billingInfo')}
+            />
+            <input
+              type="text"
+              placeholder="Preferált fizetési mód (átutalás, PayPal, kártya)"
+              className={inputClasses}
+              value={formData.paymentMethod}
+              onChange={handleChange('paymentMethod')}
+            />
+            <input
+              type="text"
+              placeholder="Támogatási igény (SLA, havi support, karbantartás)"
+              className={inputClasses}
+              value={formData.support}
+              onChange={handleChange('support')}
+            />
+
+            {/* Technikai igények */}
+            <input
+              type="text"
+              placeholder="Domain és tárhely helyzete"
+              className={inputClasses}
+              value={formData.hostingDomain}
+              onChange={handleChange('hostingDomain')}
+            />
+            <textarea
+              rows="2"
+              placeholder="Integrációs igények (számlázó, CRM, API-k)"
+              className={inputClasses}
+              value={formData.integrations}
+              onChange={handleChange('integrations')}
+            />
+            <textarea
+              rows="2"
+              placeholder="SEO / marketing igények (SEO, Ads, social media)"
+              className={inputClasses}
+              value={formData.marketing}
+              onChange={handleChange('marketing')}
+            />
+            <textarea
+              rows="2"
+              placeholder="Biztonsági / jogi elvárások (GDPR, SSL, consent modul)"
+              className={inputClasses}
+              value={formData.legal}
+              onChange={handleChange('legal')}
+            />
+            <input
+              type="text"
+              placeholder="Fontossági sorrend (pl. gyors határidő vagy alacsony költség)"
+              className={inputClasses}
+              value={formData.priority}
+              onChange={handleChange('priority')}
+            />
+
+            {/* Privacy */}
+            <label className="flex items-center gap-3 text-gray-300 text-sm">
+              <input
+                type="checkbox"
+                required
+                checked={formData.privacy}
+                onChange={handleChange('privacy')}
+                className="h-4 w-4 accent-[#FF007A]"
+              />
+              Megismertem és elfogadom az adatkezelési tájékoztatót
             </label>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="reference_sites">
@@ -431,10 +493,10 @@ export default function QuoteRequest() {
             <div className="flex flex-col items-stretch sm:flex-row sm:justify-end">
               <button
                 type="submit"
-                className="w-full sm:w-auto rounded-lg bg-[#FF007A] px-8 py-3 text-center font-semibold text-white shadow-[0_0_25px_#ff007a] transition hover:shadow-[0_0_40px_#ff007a] disabled:cursor-not-allowed disabled:opacity-70"
+                className="rounded-lg bg-[#FF007A] px-8 py-3 font-semibold text-white shadow-[0_0_25px_#ff007a] transition hover:shadow-[0_0_40px_#ff007a] disabled:cursor-not-allowed disabled:opacity-70"
                 disabled={processing}
               >
-                {processing ? quote.button?.processing : quote.button?.default}
+                {processing ? 'Küldés folyamatban…' : 'Árajánlat kérése'}
               </button>
             </div>
           </form>
