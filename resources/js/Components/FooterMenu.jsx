@@ -2,7 +2,7 @@ import React from 'react';
 import route from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
 
-const footerLinks = [
+export const footerLinks = [
   { name: 'privacy', labelKey: 'footer.privacy', fallback: 'Privacy Policy' },
   { name: 'terms', labelKey: 'footer.terms', fallback: 'Terms' },
   { name: 'impressum', labelKey: 'footer.impressum', fallback: 'Impressum' },

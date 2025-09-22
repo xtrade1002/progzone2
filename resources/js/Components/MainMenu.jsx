@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import route from '../route.js';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
+import { footerLinks } from './FooterMenu.jsx';
 import useTranslations from '../lib/useTranslations.js';
 
 const MenuIcon = ({ className }) => (
@@ -155,6 +156,22 @@ export default function MainMenu({ activePath }) {
             })}
           </ul>
         </nav>
+
+        <div className="border-t border-white/10 px-4 py-4">
+          <ul className="space-y-1">
+            {footerLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={route(link.name)}
+                  onClick={closeMenu}
+                  className="block rounded-lg px-4 py-2 text-base font-medium text-gray-300 transition-colors duration-200 hover:text-[#00f7ff] hover:bg-white/5"
+                >
+                  {t(link.labelKey, link.fallback)}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <div className="border-t border-white/10 p-4">
           <LanguageSwitcher />
