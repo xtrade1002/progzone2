@@ -41,15 +41,27 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    platform: linux/arm64/v8
+    platform: linux/amd64   # csak amd64 image van belőle
     container_name: progzone2-phpmyadmin
     restart: unless-stopped
     environment:
       PMA_HOST: db
-      PMA_USER: root
+      PMA_USER: progzone2
       PMA_PASSWORD: progzone2
     ports:
       - "8082:80"
+
+  vite:
+    image: node:20
+    container_name: progzone2-vite
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - "5187:5173"
+    depends_on:
+      - app
 
 volumes:
   dbdata:
