@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactMessage;
 use App\Models\QuoteRequest;
+use App\Services\MailjetService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
+    public function __construct(private MailjetService $mailjet)
+    {
+    }
+
     /**
      * Handle the incoming quote request form submission.
      */
@@ -30,6 +35,8 @@ class FormController extends Controller
 
         QuoteRequest::create($data);
 
+        $this->mailjet->sendQuoteRequestNotification($data);
+
         return redirect()
             ->back()
             ->with('success', 'Köszönjük, ajánlatkérésedet rögzítettük!');
@@ -48,6 +55,8 @@ class FormController extends Controller
         ]);
 
         ContactMessage::create($data);
+
+        $this->mailjet->sendContactMessageNotification($data);
 
         return redirect()
             ->back()
