@@ -50,7 +50,7 @@ class Price extends Model
     /**
      * Determine if the prices table contains the locale column.
      */
-    protected static function hasLocaleColumn(): bool
+    public static function hasLocaleColumn(): bool
     {
         static $hasLocaleColumn;
 
