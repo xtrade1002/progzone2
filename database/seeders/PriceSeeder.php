@@ -19,6 +19,7 @@ class PriceSeeder extends Seeder
                 'locale' => 'hu',
                 'title' => 'Weboldal készítés (WordPress)',
                 'description' => "Gyors, költséghatékony és könnyen szerkeszthető megoldás modern dizájnnal és SEO-val.\nAz ár függ például az oldalak számától, a design típusától, a tartalomkezeléstől, a karbantartástól stb.\n\nA projekt fő része fix áras, a plusz igények óradíj szerint (10.000 Ft / óra) kerülnek elszámolásra.",
+
                 'feature_heading' => 'Az ár NEM tartalmazza:',
                 'features' => [
                     'Domain név (kb. 3.000 Ft/év)',
@@ -34,6 +35,7 @@ class PriceSeeder extends Seeder
                 'locale' => 'hu',
                 'title' => 'Webshop készítés (WooCommerce)',
                 'description' => "Professzionális online bolt integrált fizetéssel, szállítással, akciókezeléssel és többnyelvűséggel.\nAz ár függ például a termékek számától, a fizetési és szállítási integrációktól, a design típusától, az automatizáció és karbantartás igényétől stb.\n\nA projekt fő része fix áras, a plusz igények óradíj szerint (10.000 Ft / óra) kerülnek elszámolásra.",
+
                 'feature_heading' => 'Az ár NEM tartalmazza:',
                 'features' => [
                     'Domain név (kb. 3.000 Ft/év)',
@@ -49,6 +51,7 @@ class PriceSeeder extends Seeder
                 'locale' => 'hu',
                 'title' => 'Egyedileg fejlesztett weboldal',
                 'description' => "Speciális funkciókkal, maximális rugalmassággal és bővíthetőséggel.\nAz ár függ például a kért funkciók bonyolultságától, az integrációktól, a rendszer méretétől, a design egyediségétől és a karbantartási igényektől stb.\n\nA projekttől függően lehet fix áras, vagy óradíj szerinti (10.000 Ft / óra) elszámolás.",
+
                 'feature_heading' => null,
                 'features' => null,
                 'price_label' => 'Fix ár / 10.000 Ft/óra',
@@ -86,6 +89,7 @@ class PriceSeeder extends Seeder
                 'locale' => 'de',
                 'title' => 'WooCommerce-Onlineshop',
                 'description' => "Professioneller Onlineshop mit integrierten Zahlungen, Versand, Aktionsverwaltung und Mehrsprachigkeit.\nDer Preis hängt zum Beispiel von der Produktanzahl, den Zahlungs- und Versandintegrationen, dem Design, dem Automatisierungs- und Wartungsaufwand usw. ab.\n\nDer Hauptteil des Projekts hat einen Festpreis, zusätzliche Wünsche werden nach Stunden abgerechnet (10.000 Ft / Stunde).",
+
                 'feature_heading' => 'Der Preis beinhaltet nicht:',
                 'features' => [
                     'Domainname (ca. 3.000 Ft / Jahr)',
@@ -101,6 +105,7 @@ class PriceSeeder extends Seeder
                 'locale' => 'de',
                 'title' => 'Individuelle Webentwicklung',
                 'description' => "Spezielle Funktionen mit maximaler Flexibilität und Erweiterbarkeit.\nDer Preis richtet sich nach der Komplexität der gewünschten Funktionen, den Integrationen, der Systemgröße, der Individualität des Designs, dem Wartungsbedarf usw.\n\nJe nach Projekt arbeiten wir mit einem Festpreis oder rechnen nach Stunden ab (10.000 Ft / Stunde).",
+
                 'feature_heading' => null,
                 'features' => null,
                 'price_label' => 'Festpreis / 10.000 Ft pro Stunde',
@@ -111,6 +116,7 @@ class PriceSeeder extends Seeder
                 'locale' => 'de',
                 'title' => 'Online-Marketing',
                 'description' => "Google Ads sowie Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung zur Steigerung deiner Umsätze.\nDer Preis richtet sich nach Anzahl, Art und Komplexität der Kampagnen.",
+
                 'feature_heading' => null,
                 'features' => null,
                 'price_label' => 'Ab 30.000 Ft / Monat + Werbebudget',
@@ -123,6 +129,7 @@ class PriceSeeder extends Seeder
                 'locale' => 'en',
                 'title' => 'WordPress Website',
                 'description' => "Fast, cost-effective and easy-to-edit solution with modern design and SEO.\nPricing depends on factors like the number of pages, design style, content management, maintenance, etc.\n\nThe main scope of the project has a fixed price, additional requests are billed at an hourly rate (HUF 10,000 / hour).",
+
                 'feature_heading' => 'The price does not include:',
                 'features' => [
                     'Domain name (approx. HUF 3,000 / year)',
@@ -138,6 +145,7 @@ class PriceSeeder extends Seeder
                 'locale' => 'en',
                 'title' => 'WooCommerce Online Store',
                 'description' => "Professional online store with integrated payments, shipping, promotion management and multilingual support.\nPricing depends on factors like the number of products, payment and shipping integrations, design style, automation and maintenance needs, etc.\n\nThe main scope of the project has a fixed price, additional requests are billed at an hourly rate (HUF 10,000 / hour).",
+
                 'feature_heading' => 'The price does not include:',
                 'features' => [
                     'Domain name (approx. HUF 3,000 / year)',
@@ -153,6 +161,7 @@ class PriceSeeder extends Seeder
                 'locale' => 'en',
                 'title' => 'Custom Web Development',
                 'description' => "Special functionality with maximum flexibility and scalability.\nPricing depends on the complexity of the requested features, integrations, system size, design uniqueness, maintenance needs, etc.\n\nDepending on the project we can work with a fixed fee or hourly billing (HUF 10,000 / hour).",
+
                 'feature_heading' => null,
                 'features' => null,
                 'price_label' => 'Fixed price / HUF 10,000 per hour',
@@ -163,6 +172,7 @@ class PriceSeeder extends Seeder
                 'locale' => 'en',
                 'title' => 'Marketing',
                 'description' => "Google Ads, Facebook and Instagram campaigns, SEO and content creation to grow your revenue.\nPricing depends on the number, type and complexity of the campaigns.",
+
                 'feature_heading' => null,
                 'features' => null,
                 'price_label' => 'From HUF 30,000 / month + ad spend',
