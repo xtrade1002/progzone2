@@ -48,11 +48,6 @@ export default function Contact() {
           </h2>
 
         <div className='border-1 border-[#ff007a] rounded-xl px-30 py-10'>
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-[#00f7ff]">{contact.email_label}</h3>
-            <p className="mt-2 text-gray-300 text-lg">{contact.email_value}</p>
-          </div>
-
           <form className="space-y-6 max-w-3xl mx-auto" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex flex-col gap-2">
