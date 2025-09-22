@@ -10,6 +10,8 @@ const routes = {
   privacy: '/privacy',
   terms: '/terms',
   impressum: '/impressum',
+  'quote-request.store': '/quote-request',
+  'contact-message.store': '/contact-message',
 };
 
 export default function route(name) {
