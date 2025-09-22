@@ -42,6 +42,7 @@ export default function Contact() {
             Kapcsolat
           </h2>
 
+        <div className='border-1 border-[#ff007a] rounded-xl px-30 py-10'>
           <div className="mb-12">
             <h3 className="text-xl font-bold text-[#00f7ff]">📧 Email</h3>
             <p className="mt-2 text-gray-300 text-lg">info@progzone.de</p>
@@ -105,6 +106,7 @@ export default function Contact() {
               {processing ? 'Küldés folyamatban…' : 'Küldés'}
             </button>
           </form>
+          </div>
         </div>
       </section>
     </Layout>
