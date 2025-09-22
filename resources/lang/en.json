@@ -1,0 +1,313 @@
+{
+  "flash_quote_success": "Thank you! Your request has been received!",
+  "flash_contact_success": "Your message has been sent successfully!",
+  "common": {
+    "language_switcher_label": "Language selector"
+  },
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "prices": "Pricing",
+    "references": "References",
+    "infos": "Insights",
+    "quote": "Quote",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "impressum": "Imprint"
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "impressum": "Imprint",
+    "copyright": "© :year Progzone. All rights reserved."
+  },
+  "home": {
+    "meta_title": "Home",
+    "title": "Welcome to ProgZone – glad to see you here!",
+    "paragraphs": [
+      "Whether you need a website, online store, web design, logo creation or online marketing – you’ll find everything in one place.",
+      "My focus is on modern, bespoke and responsive solutions that look great and deliver measurable results. If you want a professional online presence, I’d love to help bring your vision to life!"
+    ]
+  },
+  "about": {
+    "meta_title": "About",
+    "image_alt": "About me",
+    "intro_title": "Welcome to ProgZone – it’s great to have you here!",
+    "intro_paragraphs": [
+      "From web design and development to branding and marketing, I cover the full digital journey.",
+      "I deliver modern, tailored and responsive solutions that help your business stand out and grow online."
+    ],
+    "services_title": "How can I support you?",
+    "service_blocks": [
+      {
+        "title": "Design",
+        "description": "Unique and professional designs that give your brand a strong visual identity.",
+        "highlights": [
+          {
+            "title": "Adobe Photoshop & Illustrator Certification",
+            "description": "Professional image editing, logo design and digital illustration"
+          },
+          {
+            "title": "Web Design & Digital Media",
+            "description": "UI/UX design, responsive layouts, HTML & CSS"
+          }
+        ]
+      },
+      {
+        "title": "Web Development",
+        "description": "Custom solutions built with HTML, CSS, JavaScript, PHP and modern frameworks such as Laravel and Angular.",
+        "highlights": [
+          {
+            "title": "Web Development & Frontend Design",
+            "description": "HTML, CSS, JavaScript, responsive design"
+          },
+          {
+            "title": "Backend development with PHP",
+            "description": "PHP, MySQL, MVC architecture, API integrations"
+          },
+          {
+            "title": "Modern web apps with Angular & Laravel",
+            "description": "TypeScript, component-based development, REST APIs"
+          }
+        ]
+      },
+      {
+        "title": "Marketing",
+        "description": "Reach the right audience and achieve sustainable results with tailored campaigns.",
+        "highlights": [
+          {
+            "title": "SEO optimisation",
+            "description": "Strategic keyword research, technical SEO, high-quality content"
+          },
+          {
+            "title": "Social Media Marketing (Instagram & Facebook)",
+            "description": "Creative campaigns, targeted ads, brand awareness"
+          },
+          {
+            "title": "Google Analytics",
+            "description": "Detailed insights into user behaviour, traffic sources and conversions"
+          },
+          {
+            "title": "Google Ads",
+            "description": "High-converting campaigns with continuous optimisation"
+          }
+        ]
+      }
+    ]
+  },
+  "services": {
+    "meta_title": "Services",
+    "cards": [
+      {
+        "title": "WordPress website",
+        "description": "Fast and budget-friendly solution where you can manage content easily. Perfect for businesses that need a professional, SEO-ready website on a tight timeline."
+      },
+      {
+        "title": "WooCommerce online store",
+        "description": "A professional e-commerce experience with integrated payments, shipping options, promotions and multilingual support."
+      },
+      {
+        "title": "Custom web development",
+        "description": "Fully tailored development for unique requirements and complex features – flexible and scalable."
+      },
+      {
+        "title": "Marketing",
+        "description": "End-to-end online marketing: Google Ads, Facebook and Instagram campaigns, SEO and content creation to grow your reach and revenue."
+      }
+    ]
+  },
+  "prices": {
+    "meta_title": "Pricing",
+    "title": "Pricing",
+    "note": "For a detailed proposal please get in touch via email:",
+    "note_email": "info@progzone.de"
+  },
+  "quote": {
+    "meta_title": "Request a quote",
+    "title": "Request a quote",
+    "intro": [
+      "Tell me a bit about your project and I’ll send you a tailored proposal shortly.",
+      "The more context you share, the more precise my estimate will be."
+    ],
+    "hint": "* Fields marked with an asterisk are required.",
+    "fields": {
+      "name": {
+        "label": "Full name *",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email address *",
+        "placeholder": "Enter your email"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "+44 7700 900123"
+      },
+      "company": {
+        "label": "Company / project",
+        "placeholder": "Company or project name"
+      },
+      "service": {
+        "label": "Desired service *",
+        "placeholder": "Choose a service",
+        "options": [
+          { "value": "weboldal", "label": "Website development" },
+          { "value": "webshop", "label": "Online store" },
+          { "value": "design", "label": "Web design / UI" },
+          { "value": "logo", "label": "Logo or branding" },
+          { "value": "marketing", "label": "Online marketing" },
+          { "value": "egyedi", "label": "Custom development" }
+        ]
+      },
+      "budget": {
+        "label": "Estimated budget",
+        "placeholder": "Select a range",
+        "options": [
+          { "value": "0-200", "label": "€0 – €2,000" },
+          { "value": "200-500", "label": "€2,000 – €5,000" },
+          { "value": "500-1000", "label": "€5,000 – €10,000" },
+          { "value": "1000+", "label": "Over €10,000" },
+          { "value": "bizonytalan", "label": "Not sure yet" }
+        ]
+      },
+      "timeline": {
+        "label": "Preferred timeline",
+        "placeholder": "e.g. end of June 2024"
+      },
+      "message": {
+        "label": "Project summary *",
+        "placeholder": "Describe the goals, required features and any other helpful details."
+      },
+      "privacy": {
+        "label": "I have read and accept the privacy policy."
+      }
+    },
+    "button": {
+      "default": "Send",
+      "processing": "Sending…"
+    }
+  },
+  "contact": {
+    "meta_title": "Contact",
+    "title": "Contact",
+    "email_label": "📧 Email",
+    "email_value": "info@progzone.de",
+    "fields": {
+      "name": { "placeholder": "Name *" },
+      "email": { "placeholder": "Email *" },
+      "phone": { "placeholder": "Phone" },
+      "message": { "placeholder": "Message *" }
+    },
+    "button": {
+      "default": "Send",
+      "processing": "Sending…"
+    }
+  },
+  "infos": {
+    "meta_title": "Insights",
+    "title": "How are advertising costs structured?",
+    "sections": [
+      {
+        "title": "Service fee",
+        "lead": "Covers planning, management and optimisation of your campaigns.",
+        "description": [
+          "Includes keyword research, audience targeting, copywriting, creatives and ongoing optimisation.",
+          "Ensures your budget delivers the best possible results. A fixed fee that reflects expert support."
+        ]
+      },
+      {
+        "title": "Ad spend",
+        "lead": "The amount paid directly to the advertising platforms (Google, Facebook, Instagram, TikTok, etc.).",
+        "description": [
+          "Example: €500 monthly budget → 100% goes to the platform.",
+          "Covers only the media spend and is billed from the client’s own account."
+        ]
+      }
+    ],
+    "cards": [
+      {
+        "title": "Social media marketing",
+        "description": "Recommended when [highlight]brand building, community growth or broad reach[/highlight] are the main goals. Ideal for increasing awareness and attracting new customers."
+      },
+      {
+        "title": "Google Ads",
+        "description": "Recommended when you want to [highlight]appear in highly targeted searches[/highlight] (e.g. “dentist London” or “online shop pricing”). Users are actively looking for solutions, making it perfect for enquiries and conversions."
+      }
+    ]
+  },
+  "references": {
+    "meta_title": "References",
+    "title": "References",
+    "subtitle": "A selection of my favourite projects",
+    "lightbox_alt": "Preview",
+    "projects": [
+      {
+        "type": "link",
+        "url": "https://www.glamlash.hu",
+        "image": "/img/bg_women.jpeg",
+        "title": "Beauty services",
+        "description": "Complete branding and responsive website.",
+        "cta": "View website"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/kertmester_logo.png",
+        "title": "Logo and brand design",
+        "lightboxImage": "/img/4.webp"
+      },
+      {
+        "type": "link",
+        "url": "https://www.kertmester.eu",
+        "image": "/img/kertmester_logo.png",
+        "title": "Garden services website",
+        "cta": "View website"
+      },
+      {
+        "type": "link",
+        "url": "https://www.versenybikini.hu",
+        "image": "/img/background.jpg",
+        "title": "Custom competition bikinis",
+        "description": "Complete branding and responsive website.",
+        "cta": "View website"
+      },
+      {
+        "type": "card",
+        "title": "Garden platform",
+        "description": "Development of a user-friendly dashboard and integrations for start-ups."
+      }
+    ]
+  },
+  "impressum": {
+    "meta_title": "Imprint",
+    "title": "Imprint",
+    "details": [
+      { "label": "Name:", "value": "Xtrade" },
+      { "label": "VAT ID:", "value": "DE362261730" },
+      { "label": "Email:", "value": "info@progzone.hu", "type": "email" },
+      { "label": "Phone:", "value": "+49 173 615 47 30", "type": "phone" },
+      { "label": "Address:", "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Germany" }
+    ]
+  },
+  "privacy": {
+    "meta_title": "Privacy",
+    "title": "Privacy policy",
+    "intro": "I handle personal data in line with all applicable regulations and best practices. Data is used solely for communication and delivering the requested services.",
+    "items": [
+      "Only I have access to the submitted information.",
+      "Data is never shared with third parties.",
+      "All contact details will be deleted on request."
+    ]
+  },
+  "terms": {
+    "meta_title": "Terms",
+    "title": "Terms and conditions",
+    "intro": "Clear communication and reliable timelines are important to me. The following points summarise the most important conditions.",
+    "items": [
+      "Project scope and quotation are documented in writing.",
+      "Meeting agreed timelines is a shared responsibility.",
+      "Support and maintenance are available even after project completion."
+    ]
+  }
+}

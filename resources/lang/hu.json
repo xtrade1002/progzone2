@@ -1,0 +1,313 @@
+{
+  "flash_quote_success": "Köszönjük, ajánlatkérésedet rögzítettük!",
+  "flash_contact_success": "Üzenetedet sikeresen elküldtük!",
+  "common": {
+    "language_switcher_label": "Nyelvválasztó"
+  },
+  "menu": {
+    "home": "Főoldal",
+    "about": "Rólam",
+    "services": "Szolgáltatások",
+    "prices": "Árak",
+    "references": "Referenciák",
+    "infos": "Információk",
+    "quote": "Árajánlat",
+    "contact": "Kapcsolat",
+    "privacy": "Adatvédelem",
+    "terms": "ÁSZF",
+    "impressum": "Impresszum"
+  },
+  "footer": {
+    "privacy": "Adatvédelmi szerződés",
+    "terms": "ÁSZF",
+    "impressum": "Impresszum",
+    "copyright": "© :year Progzone. Minden jog fenntartva."
+  },
+  "home": {
+    "meta_title": "Főoldal",
+    "title": "Örülök, hogy itt vagy – Üdvözöllek a ProgZone-nál!",
+    "paragraphs": [
+      "Legyen szó weboldal-készítésről, webshop-fejlesztésről, webdesignról, logótervezésről vagy online marketingről – nálam mindent egy helyen megtalálsz.",
+      "A célom, hogy modern, egyedi és reszponzív megoldásokat kínáljak, amelyek nemcsak jól néznek ki, hanem valódi eredményeket is hoznak. Ha profi online jelenlétre vágysz, szívesen segítek megvalósítani a víziódat!"
+    ]
+  },
+  "about": {
+    "meta_title": "Rólam",
+    "image_alt": "Rólam",
+    "intro_title": "Örülök, hogy itt vagy – Üdvözöllek a ProgZone oldalán!",
+    "intro_paragraphs": [
+      "Legyen szó weboldal-készítésről, webshop-fejlesztésről, webdesignról, logótervezésről vagy online marketingről – nálam mindent egy helyen megtalálsz.",
+      "A célom, hogy modern, egyedi és reszponzív megoldásokat kínáljak, amelyek nemcsak jól néznek ki, hanem valódi eredményeket is hoznak. Ha profi online jelenlétre vágysz, szívesen segítek megvalósítani a víziódat!"
+    ],
+    "services_title": "Miben tudok Neked segíteni?",
+    "service_blocks": [
+      {
+        "title": "Design",
+        "description": "Egyedi és professzionális designok, amelyek kiemelik a márkádat.",
+        "highlights": [
+          {
+            "title": "Adobe Photoshop & Illustrator Tanúsítvány",
+            "description": "Professzionális képszerkesztés, logótervezés, digitális illusztráció"
+          },
+          {
+            "title": "Webdesign & Digitális Médiák",
+            "description": "UI/UX design, reszponzív webdesign, HTML & CSS"
+          }
+        ]
+      },
+      {
+        "title": "Webfejlesztés",
+        "description": "Egyedi megoldások HTML, CSS, JavaScript, PHP és modern keretrendszerek segítségével.",
+        "highlights": [
+          {
+            "title": "Webfejlesztés & Frontend Design",
+            "description": "HTML, CSS, JavaScript, reszponzív design"
+          },
+          {
+            "title": "Backend programozás PHP-vel",
+            "description": "PHP, MySQL, MVC-architektúra, API-integráció"
+          },
+          {
+            "title": "Modern webalkalmazások Angular & Laravel alapokon",
+            "description": "TypeScript, komponens alapú fejlesztés, REST API-k"
+          }
+        ]
+      },
+      {
+        "title": "Marketing",
+        "description": "Segítünk elérni a megfelelő célcsoportot és fenntartható eredményeket hozni.",
+        "highlights": [
+          {
+            "title": "SEO-optimalizálás",
+            "description": "Stratégiai kulcsszóelemzés, technikai SEO, minőségi tartalmak"
+          },
+          {
+            "title": "Social Media Marketing (Instagram & Facebook)",
+            "description": "Kreatív kampányok, célzott hirdetések, márkaismertség növelés"
+          },
+          {
+            "title": "Google Analytics",
+            "description": "Részletes elemzések a felhasználói viselkedésről, forgalomról és konverziókról"
+          },
+          {
+            "title": "Google Ads",
+            "description": "Hirdetések létrehozása és optimalizálása magas konverziós aránnyal"
+          }
+        ]
+      }
+    ]
+  },
+  "services": {
+    "meta_title": "Szolgáltatások",
+    "cards": [
+      {
+        "title": "Weboldal készítés (WordPress)",
+        "description": "Gyors és költséghatékony megoldás, ahol a tartalmat Te is könnyedén szerkesztheted. Ideális vállalkozásoknak, akik profi, modern és keresőoptimalizált weboldalt szeretnének rövid határidővel."
+      },
+      {
+        "title": "Webshop készítés (WooCommerce)",
+        "description": "Professzionális online áruház integrált fizetéssel, szállítási megoldásokkal, akciók kezelésével és akár többnyelvű felülettel."
+      },
+      {
+        "title": "Egyedileg fejlesztett weboldal",
+        "description": "Teljesen személyre szabott fejlesztés speciális igényekhez és egyedi funkciókhoz, maximális rugalmassággal."
+      },
+      {
+        "title": "Marketing",
+        "description": "Teljes körű online marketing: Google Ads, Facebook és Instagram kampányok, SEO és tartalomkészítés. Segítünk több ügyfelet elérni és növelni a bevételeidet."
+      }
+    ]
+  },
+  "prices": {
+    "meta_title": "Árak",
+    "title": "Árak",
+    "note": "Pontos árajánlatért kérlek vedd fel velem a kapcsolatot emailben:",
+    "note_email": "info@progzone.de"
+  },
+  "quote": {
+    "meta_title": "Árajánlat kérés",
+    "title": "Árajánlat kérés",
+    "intro": [
+      "Írd le néhány mondatban, mire van szükséged, és rövid időn belül személyre szabott ajánlattal kereslek meg.",
+      "Minél több részletet adsz meg, annál pontosabb ajánlatot tudok készíteni."
+    ],
+    "hint": "* A csillaggal jelölt mezők kitöltése kötelező.",
+    "fields": {
+      "name": {
+        "label": "Teljes név *",
+        "placeholder": "Írd be a neved"
+      },
+      "email": {
+        "label": "E-mail cím *",
+        "placeholder": "Add meg az e-mail címed"
+      },
+      "phone": {
+        "label": "Telefonszám",
+        "placeholder": "+36 20 123 4567"
+      },
+      "company": {
+        "label": "Cég / projekt neve",
+        "placeholder": "Cégnév vagy projekt"
+      },
+      "service": {
+        "label": "Kívánt szolgáltatás *",
+        "placeholder": "Válassz szolgáltatást",
+        "options": [
+          { "value": "weboldal", "label": "Weboldal készítés" },
+          { "value": "webshop", "label": "Webshop fejlesztés" },
+          { "value": "design", "label": "Webdesign / UI" },
+          { "value": "logo", "label": "Logó- vagy arculattervezés" },
+          { "value": "marketing", "label": "Online marketing" },
+          { "value": "egyedi", "label": "Egyedi fejlesztés" }
+        ]
+      },
+      "budget": {
+        "label": "Tervezett költségkeret",
+        "placeholder": "Válassz kategóriát",
+        "options": [
+          { "value": "0-200", "label": "0 - 200 000 Ft" },
+          { "value": "200-500", "label": "200 000 - 500 000 Ft" },
+          { "value": "500-1000", "label": "500 000 - 1 000 000 Ft" },
+          { "value": "1000+", "label": "1 000 000 Ft felett" },
+          { "value": "bizonytalan", "label": "Még bizonytalan" }
+        ]
+      },
+      "timeline": {
+        "label": "Tervezett határidő",
+        "placeholder": "Pl. 2024. június vége"
+      },
+      "message": {
+        "label": "Projekt rövid leírása *",
+        "placeholder": "Írd le, milyen megoldást szeretnél, milyen funkciókra van szükség, illetve minden egyéb hasznos információt."
+      },
+      "privacy": {
+        "label": "Megismertem és elfogadom az adatkezelési tájékoztatót."
+      }
+    },
+    "button": {
+      "default": "Elküldöm",
+      "processing": "Küldés folyamatban…"
+    }
+  },
+  "contact": {
+    "meta_title": "Kapcsolat",
+    "title": "Kapcsolat",
+    "email_label": "📧 Email",
+    "email_value": "info@progzone.de",
+    "fields": {
+      "name": { "placeholder": "Név *" },
+      "email": { "placeholder": "E-mail *" },
+      "phone": { "placeholder": "Telefonszám" },
+      "message": { "placeholder": "Üzenet *" }
+    },
+    "button": {
+      "default": "Küldés",
+      "processing": "Küldés folyamatban…"
+    }
+  },
+  "infos": {
+    "meta_title": "Információk",
+    "title": "Miből állnak össze a hirdetési költségek?",
+    "sections": [
+      {
+        "title": "Szolgáltatási díj",
+        "lead": "A kampányok tervezésének, kezelésének és optimalizálásának díja.",
+        "description": [
+          "Tartalmazza a kulcsszókutatást, célcsoport meghatározást, szövegek és kreatívok elkészítését, folyamatos optimalizálást.",
+          "Biztosítja, hogy a költségvetés a lehető legjobb eredményt hozza. Fix összeg = a szakember honoráriuma."
+        ]
+      },
+      {
+        "title": "Hirdetési költségkeret",
+        "lead": "Az az összeg, amelyet közvetlenül a hirdetési platformnak (Google, Facebook, Instagram, TikTok stb.) fizetünk.",
+        "description": [
+          "Példa: 500 € havi büdzsé → 100%-ban a platformhoz kerül.",
+          "Csak a hirdetési felület használatát fedezi, a megrendelő saját számlájáról kerül levonásra."
+        ]
+      }
+    ],
+    "cards": [
+      {
+        "title": "Közösségi marketing",
+        "description": "Ajánlott, [highlight]ha a márkaépítésről, közösség kialakításáról vagy széles elérésről van szó.[/highlight] Ideális a termékek vagy szolgáltatások ismertté tételére és a márkaismertség növelésére."
+      },
+      {
+        "title": "Google Ads",
+        "description": "Ajánlott, [highlight]ha célzott keresésekre szeretnénk megjelenni[/highlight] (pl. „fogorvos Budapest” vagy „webshop készítés ára”). A felhasználók aktívan keresnek megoldást, így nagyobb az esély közvetlen vásárlásra vagy ajánlatkérésre."
+      }
+    ]
+  },
+  "references": {
+    "meta_title": "Referenciák",
+    "title": "Referenciák",
+    "subtitle": "Válogatás a kedvenc projektjeimből",
+    "lightbox_alt": "Előnézet",
+    "projects": [
+      {
+        "type": "link",
+        "url": "https://www.glamlash.hu",
+        "image": "/img/bg_women.jpeg",
+        "title": "Kozmetikai szolgáltatás",
+        "description": "Komplett márkaarculat és reszponzív webes megjelenés kialakítása.",
+        "cta": "Megnézem a weboldalt"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/kertmester_logo.png",
+        "title": "Logótervezés és arculat",
+        "lightboxImage": "/img/4.webp"
+      },
+      {
+        "type": "link",
+        "url": "https://www.kertmester.eu",
+        "image": "/img/kertmester_logo.png",
+        "title": "Kertészeti weboldal",
+        "cta": "Megnézem a weboldalt"
+      },
+      {
+        "type": "link",
+        "url": "https://www.versenybikini.hu",
+        "image": "/img/background.jpg",
+        "title": "Versenybikini készítés",
+        "description": "Komplett márkaarculat és reszponzív webes megjelenés kialakítása.",
+        "cta": "Megnézem a weboldalt"
+      },
+      {
+        "type": "card",
+        "title": "Kertészeti weboldal",
+        "description": "Felhasználóbarát dashboard és integrációk fejlesztése startupoknak."
+      }
+    ]
+  },
+  "impressum": {
+    "meta_title": "Impresszum",
+    "title": "Impresszum",
+    "details": [
+      { "label": "Név:", "value": "Xtrade" },
+      { "label": "USt-IdNr.:", "value": "DE362261730" },
+      { "label": "E-mail:", "value": "info@progzone.hu", "type": "email" },
+      { "label": "Telefonszám:", "value": "+49 173 615 47 30", "type": "phone" },
+      { "label": "Székhely:", "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland" }
+    ]
+  },
+  "privacy": {
+    "meta_title": "Adatvédelem",
+    "title": "Adatvédelmi szerződés",
+    "intro": "A személyes adatok kezelése során minden esetben az érvényes jogszabályoknak és a legjobb gyakorlatnak megfelelően járok el. Az adatok kizárólag a kapcsolattartáshoz és a szolgáltatás teljesítéséhez szükségesek.",
+    "items": [
+      "Az adatokhoz kizárólag én férek hozzá.",
+      "Az adatokat soha nem adom át harmadik félnek.",
+      "A kapcsolattartáshoz használt információkat kérésre törlöm."
+    ]
+  },
+  "terms": {
+    "meta_title": "ÁSZF",
+    "title": "Általános szerződési feltételek",
+    "intro": "Az együttműködés során törekszem az átlátható kommunikációra és a határidők pontos betartására. Az alábbi pontok foglalják össze a legfontosabb feltételeket.",
+    "items": [
+      "A projekt részleteit és az árajánlatot írásban rögzítjük.",
+      "A határidők betartása közös felelősségünk.",
+      "A projekt lezárása után is biztosítok támogatást és karbantartást."
+    ]
+  }
+}

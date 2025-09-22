@@ -1,0 +1,313 @@
+{
+  "flash_quote_success": "Vielen Dank! Deine Anfrage wurde gespeichert!",
+  "flash_contact_success": "Deine Nachricht wurde erfolgreich versendet!",
+  "common": {
+    "language_switcher_label": "Sprachauswahl"
+  },
+  "menu": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "services": "Leistungen",
+    "prices": "Preise",
+    "references": "Referenzen",
+    "infos": "Infos",
+    "quote": "Angebot",
+    "contact": "Kontakt",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "impressum": "Impressum"
+  },
+  "footer": {
+    "privacy": "Datenschutzerklärung",
+    "terms": "AGB",
+    "impressum": "Impressum",
+    "copyright": "© :year Progzone. Alle Rechte vorbehalten."
+  },
+  "home": {
+    "meta_title": "Startseite",
+    "title": "Willkommen bei ProgZone – Schön, dass du da bist!",
+    "paragraphs": [
+      "Ob Website, Onlineshop, Webdesign, Logo-Entwicklung oder Online-Marketing – bei mir erhältst du alles aus einer Hand.",
+      "Mein Ziel ist es, moderne, individuelle und responsive Lösungen zu liefern, die nicht nur gut aussehen, sondern echte Ergebnisse bringen. Wenn du dir einen professionellen Auftritt wünschst, unterstütze ich dich gerne bei der Umsetzung deiner Vision!"
+    ]
+  },
+  "about": {
+    "meta_title": "Über mich",
+    "image_alt": "Über mich",
+    "intro_title": "Willkommen auf ProgZone – ich freue mich, dass du hier bist!",
+    "intro_paragraphs": [
+      "Ich begleite dich von der Idee bis zum fertigen Projekt – von Websites über Webshops und Webdesign bis hin zu Logos und Online-Marketing.",
+      "Mein Anspruch sind moderne, maßgeschneiderte und responsive Lösungen, die deine Marke sichtbar machen und messbare Resultate liefern."
+    ],
+    "services_title": "Wobei kann ich dich unterstützen?",
+    "service_blocks": [
+      {
+        "title": "Design",
+        "description": "Individuelle und professionelle Designs, die deine Marke unverwechselbar machen.",
+        "highlights": [
+          {
+            "title": "Adobe Photoshop & Illustrator Zertifikat",
+            "description": "Professionelle Bildbearbeitung, Logo-Design, digitale Illustration"
+          },
+          {
+            "title": "Webdesign & Digitale Medien",
+            "description": "UI/UX-Design, responsives Webdesign, HTML & CSS"
+          }
+        ]
+      },
+      {
+        "title": "Webentwicklung",
+        "description": "Individuelle Lösungen mit HTML, CSS, JavaScript, PHP sowie modernen Frameworks wie Laravel und Angular.",
+        "highlights": [
+          {
+            "title": "Webentwicklung & Frontend Design",
+            "description": "HTML, CSS, JavaScript, Responsive Design"
+          },
+          {
+            "title": "Backend-Programmierung mit PHP",
+            "description": "PHP, MySQL, MVC-Architektur, API-Integration"
+          },
+          {
+            "title": "Moderne Webanwendungen mit Angular & Laravel",
+            "description": "TypeScript, komponentenbasierte Entwicklung, REST-APIs"
+          }
+        ]
+      },
+      {
+        "title": "Marketing",
+        "description": "Wir helfen dir, die passende Zielgruppe zu erreichen und nachhaltige Ergebnisse zu erzielen.",
+        "highlights": [
+          {
+            "title": "SEO-Optimierung",
+            "description": "Strategische Keyword-Analyse, technische SEO, hochwertiger Content"
+          },
+          {
+            "title": "Social Media Marketing (Instagram & Facebook)",
+            "description": "Kreative Kampagnen, zielgerichtete Anzeigen, Markenaufbau"
+          },
+          {
+            "title": "Google Analytics",
+            "description": "Detaillierte Analysen zu Nutzerverhalten, Traffic und Conversions"
+          },
+          {
+            "title": "Google Ads",
+            "description": "Erstellung und Optimierung von Kampagnen mit hoher Conversion-Rate"
+          }
+        ]
+      }
+    ]
+  },
+  "services": {
+    "meta_title": "Leistungen",
+    "cards": [
+      {
+        "title": "WordPress-Webseite",
+        "description": "Schnelle und kosteneffiziente Lösung, bei der du Inhalte selbst pflegen kannst. Ideal für Unternehmen, die einen professionellen und SEO-optimierten Auftritt wünschen."
+      },
+      {
+        "title": "WooCommerce-Onlineshop",
+        "description": "Professioneller Onlineshop mit integrierten Zahlungen, Versandlösungen, Aktionen und mehrsprachigen Oberflächen."
+      },
+      {
+        "title": "Individuelle Webentwicklung",
+        "description": "Komplett maßgeschneiderte Entwicklung für besondere Anforderungen und spezielle Funktionen – maximal flexibel und skalierbar."
+      },
+      {
+        "title": "Marketing",
+        "description": "Ganzheitliche Online-Marketing-Betreuung: Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung für mehr Reichweite und Umsatz."
+      }
+    ]
+  },
+  "prices": {
+    "meta_title": "Preise",
+    "title": "Preise",
+    "note": "Für ein individuelles Angebot kontaktiere mich bitte per E-Mail:",
+    "note_email": "info@progzone.de"
+  },
+  "quote": {
+    "meta_title": "Angebot anfordern",
+    "title": "Angebot anfordern",
+    "intro": [
+      "Beschreibe kurz dein Projekt und du erhältst in Kürze ein maßgeschneidertes Angebot.",
+      "Je mehr Details du mitteilst, desto genauer kann ich den Aufwand einschätzen."
+    ],
+    "hint": "* Felder mit Sternchen sind Pflichtfelder.",
+    "fields": {
+      "name": {
+        "label": "Vollständiger Name *",
+        "placeholder": "Bitte gib deinen Namen ein"
+      },
+      "email": {
+        "label": "E-Mail-Adresse *",
+        "placeholder": "Bitte gib deine E-Mail-Adresse ein"
+      },
+      "phone": {
+        "label": "Telefonnummer",
+        "placeholder": "+49 170 123 4567"
+      },
+      "company": {
+        "label": "Unternehmen / Projektname",
+        "placeholder": "Firmenname oder Projekt"
+      },
+      "service": {
+        "label": "Gewünschte Leistung *",
+        "placeholder": "Bitte wähle eine Leistung",
+        "options": [
+          { "value": "weboldal", "label": "Website-Erstellung" },
+          { "value": "webshop", "label": "Onlineshop-Entwicklung" },
+          { "value": "design", "label": "Webdesign / UI" },
+          { "value": "logo", "label": "Logo- oder Corporate-Design" },
+          { "value": "marketing", "label": "Online-Marketing" },
+          { "value": "egyedi", "label": "Individuelle Entwicklung" }
+        ]
+      },
+      "budget": {
+        "label": "Geplantes Budget",
+        "placeholder": "Bitte wähle eine Kategorie",
+        "options": [
+          { "value": "0-200", "label": "0 - 2 000 €" },
+          { "value": "200-500", "label": "2 000 - 5 000 €" },
+          { "value": "500-1000", "label": "5 000 - 10 000 €" },
+          { "value": "1000+", "label": "über 10 000 €" },
+          { "value": "bizonytalan", "label": "Noch unklar" }
+        ]
+      },
+      "timeline": {
+        "label": "Geplanter Zeitrahmen",
+        "placeholder": "z. B. Ende Juni 2024"
+      },
+      "message": {
+        "label": "Kurzbeschreibung des Projekts *",
+        "placeholder": "Beschreibe gewünschte Funktionen, Ziele und alle weiteren wichtigen Informationen."
+      },
+      "privacy": {
+        "label": "Ich habe die Datenschutzhinweise gelesen und akzeptiere sie."
+      }
+    },
+    "button": {
+      "default": "Absenden",
+      "processing": "Wird gesendet…"
+    }
+  },
+  "contact": {
+    "meta_title": "Kontakt",
+    "title": "Kontakt",
+    "email_label": "📧 E-Mail",
+    "email_value": "info@progzone.de",
+    "fields": {
+      "name": { "placeholder": "Name *" },
+      "email": { "placeholder": "E-Mail *" },
+      "phone": { "placeholder": "Telefon" },
+      "message": { "placeholder": "Nachricht *" }
+    },
+    "button": {
+      "default": "Senden",
+      "processing": "Wird gesendet…"
+    }
+  },
+  "infos": {
+    "meta_title": "Infos",
+    "title": "Wie setzen sich die Werbekosten zusammen?",
+    "sections": [
+      {
+        "title": "Servicegebühr",
+        "lead": "Gebühr für Planung, Betreuung und Optimierung deiner Kampagnen.",
+        "description": [
+          "Enthält Keyword-Recherche, Zielgruppenanalyse, Text- und Kreativerstellung sowie laufende Optimierung.",
+          "Sorgt dafür, dass dein Budget optimal eingesetzt wird. Fester Betrag = Honorar für die Betreuung."
+        ]
+      },
+      {
+        "title": "Werbebudget",
+        "lead": "Budget, das direkt an die Werbeplattform (Google, Facebook, Instagram, TikTok etc.) gezahlt wird.",
+        "description": [
+          "Beispiel: 500 € Monatsbudget → 100 % gehen direkt an die Plattform.",
+          "Deckt ausschließlich die Schaltung der Anzeigen ab und wird vom Konto des Auftraggebers abgebucht."
+        ]
+      }
+    ],
+    "cards": [
+      {
+        "title": "Social Media Marketing",
+        "description": "Empfohlen, [highlight]wenn Markenaufbau, Community-Aufbau oder Reichweite im Fokus stehen[/highlight]. Ideal, um Produkte oder Dienstleistungen bekannt zu machen und Markenbekanntheit aufzubauen."
+      },
+      {
+        "title": "Google Ads",
+        "description": "Empfohlen, [highlight]wenn du bei gezielten Suchanfragen sichtbar sein möchtest[/highlight] (z. B. „Zahnarzt Berlin“ oder „Onlineshop erstellen Kosten"). Nutzer suchen aktiv nach Lösungen – perfekt für direkte Anfragen und Verkäufe."
+      }
+    ]
+  },
+  "references": {
+    "meta_title": "Referenzen",
+    "title": "Referenzen",
+    "subtitle": "Eine Auswahl meiner Lieblingsprojekte",
+    "lightbox_alt": "Vorschau",
+    "projects": [
+      {
+        "type": "link",
+        "url": "https://www.glamlash.hu",
+        "image": "/img/bg_women.jpeg",
+        "title": "Kosmetikdienstleistung",
+        "description": "Komplettes Branding und responsive Webpräsenz.",
+        "cta": "Website ansehen"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/kertmester_logo.png",
+        "title": "Logo- und Markenentwicklung",
+        "lightboxImage": "/img/4.webp"
+      },
+      {
+        "type": "link",
+        "url": "https://www.kertmester.eu",
+        "image": "/img/kertmester_logo.png",
+        "title": "Gartenbau-Webseite",
+        "cta": "Website ansehen"
+      },
+      {
+        "type": "link",
+        "url": "https://www.versenybikini.hu",
+        "image": "/img/background.jpg",
+        "title": "Versenybikini Herstellung",
+        "description": "Komplettes Branding und responsive Webpräsenz.",
+        "cta": "Website ansehen"
+      },
+      {
+        "type": "card",
+        "title": "Gartenbau-Plattform",
+        "description": "Entwicklung eines benutzerfreundlichen Dashboards und Integrationen für Start-ups."
+      }
+    ]
+  },
+  "impressum": {
+    "meta_title": "Impressum",
+    "title": "Impressum",
+    "details": [
+      { "label": "Name:", "value": "Xtrade" },
+      { "label": "USt-IdNr.:", "value": "DE362261730" },
+      { "label": "E-Mail:", "value": "info@progzone.hu", "type": "email" },
+      { "label": "Telefon:", "value": "+49 173 615 47 30", "type": "phone" },
+      { "label": "Anschrift:", "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland" }
+    ]
+  },
+  "privacy": {
+    "meta_title": "Datenschutz",
+    "title": "Datenschutzerklärung",
+    "intro": "Ich verarbeite personenbezogene Daten stets gemäß den geltenden Vorschriften und bewährten Standards. Die Daten werden ausschließlich zur Kontaktaufnahme und zur Erfüllung der beauftragten Leistungen genutzt.",
+    "items": [
+      "Nur ich habe Zugriff auf die übermittelten Daten.",
+      "Die Daten werden niemals an Dritte weitergegeben.",
+      "Auf Wunsch lösche ich sämtliche Kontaktdaten."
+    ]
+  },
+  "terms": {
+    "meta_title": "AGB",
+    "title": "Allgemeine Geschäftsbedingungen",
+    "intro": "Transparente Kommunikation und verlässliche Zeitpläne sind mir wichtig. Die folgenden Punkte fassen die wichtigsten Bedingungen zusammen.",
+    "items": [
+      "Projektumfang und Angebot werden schriftlich festgehalten.",
+      "Die Einhaltung von Terminen ist unsere gemeinsame Verantwortung.",
+      "Auch nach Projektabschluss biete ich Support und Wartung an."
+    ]
+  }
+}
