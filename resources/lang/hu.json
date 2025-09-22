@@ -118,12 +118,54 @@
       }
     ]
   },
-  "prices": {
-    "meta_title": "Árak",
-    "title": "Árak",
-    "note": "Pontos árajánlatért kérlek vedd fel velem a kapcsolatot emailben:",
-    "note_email": "info@progzone.de"
-  },
+    "prices": {
+      "meta_title": "Árak",
+      "title": "Árak",
+      "note": "Pontos árajánlatért kérlek vedd fel velem a kapcsolatot emailben:",
+      "note_email": "info@progzone.de",
+  
+      "wordpress": {
+        "title": "Weboldal készítés (WordPress)",
+        "desc": "Gyors, költséghatékony és könnyen szerkeszthető megoldás modern dizájnnal és SEO-val. Az ár függ, pl. oldalak számától, design típusától, tartalomkezeléstől és karbantartástól, stb.",
+        "not_included": "Az ár NEM tartalmazza:",
+        "list": [
+          "Domain név (kb. 3.000 Ft/év)",
+          "Tárhely (kb. 10.000 Ft/év)",
+          "Prémium sablonok és bővítmények (20.000-50.000 Ft)",
+          "Egyedi fejlesztésű funkciók (pl. időpontfoglaló, számlázás)"
+        ],
+        "footer": "A projekt fő része fix áras, a plusz igények óradíj szerint (10.000 Ft / óra).",
+        "price": "150.000 Ft-tól"
+      },
+  
+      "webshop": {
+        "title": "Webshop készítés (WooCommerce)",
+        "desc": "Professzionális online bolt, integrált fizetéssel, szállítással, akciókezeléssel és többnyelvűséggel.",
+        "not_included": "Az ár NEM tartalmazza:",
+        "list": [
+          "Domain név (kb. 3.000 Ft/év)",
+          "Tárhely (kb. 10.000 Ft/év)",
+          "Prémium sablonok és bővítmények (20.000-50.000 Ft)",
+          "Egyedi fejlesztésű funkciók (pl. időpontfoglaló, számlázás)"
+        ],
+        "footer": "A projekt fő része fix áras, a plusz igények óradíj szerint (10.000 Ft / óra).",
+        "price": "200.000 Ft-tól"
+      },
+  
+      "custom": {
+        "title": "Egyedileg fejlesztett weboldal",
+        "desc": "Speciális funkciókkal, maximális rugalmassággal és bővíthetőséggel. Az ár függ a funkciók bonyolultságától, integrációktól, mérettől és karbantartástól.",
+        "footer": "A projekttől függően fix ár vagy óradíjas (10.000 Ft / óra).",
+        "price": "Fix ár / 10.000 Ft/óra"
+      },
+  
+      "marketing": {
+        "title": "Marketing",
+        "desc": "Google Ads, Facebook és Instagram kampányok, SEO és tartalomkészítés a bevételeid növeléséhez.",
+        "footer": "Az ár a kampányok számától, típusától, bonyolultságától függ.",
+        "price": "30.000 Ft-tól/hó + hirdetési költség"
+      }
+    },
   "quote": {
     "meta_title": "Árajánlat kérés",
     "title": "Árajánlat kérés",
