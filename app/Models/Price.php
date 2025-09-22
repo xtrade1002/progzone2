@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 
 class Price extends Model
 {
@@ -33,7 +34,10 @@ class Price extends Model
     public function scopeForDomainAndLocale(Builder $query, ?string $domain, string $locale): Builder
     {
         return $query
-            ->where('locale', $locale)
+            ->when(
+                static::hasLocaleColumn(),
+                fn (Builder $query) => $query->where('locale', $locale)
+            )
             ->where(function (Builder $query) use ($domain) {
                 $query->whereNull('domain');
 
@@ -41,5 +45,21 @@ class Price extends Model
                     $query->orWhere('domain', $domain);
                 }
             });
+    }
+
+    /**
+     * Determine if the prices table contains the locale column.
+     */
+    protected static function hasLocaleColumn(): bool
+    {
+        static $hasLocaleColumn;
+
+        if ($hasLocaleColumn === null) {
+            $model = new static();
+
+            $hasLocaleColumn = Schema::hasColumn($model->getTable(), 'locale');
+        }
+
+        return $hasLocaleColumn;
     }
 }
