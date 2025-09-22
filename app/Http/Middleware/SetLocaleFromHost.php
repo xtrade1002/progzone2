@@ -15,7 +15,12 @@ class SetLocaleFromHost
     {
         $availableLocales = ['hu', 'de', 'en'];
 
-        $sessionLocale = $request->session()->get('locale');
+        $sessionLocale = null;
+
+        if ($request->hasSession()) {
+            $sessionLocale = $request->session()->get('locale');
+        }
+
         if ($sessionLocale && in_array($sessionLocale, $availableLocales, true)) {
             $locale = $sessionLocale;
         } else {
@@ -30,7 +35,9 @@ class SetLocaleFromHost
                 $locale = config('app.fallback_locale', 'hu');
             }
 
-            $request->session()->put('locale', $locale);
+            if ($request->hasSession()) {
+                $request->session()->put('locale', $locale);
+            }
         }
 
         App::setLocale($locale);
