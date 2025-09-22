@@ -16,6 +16,19 @@ const createInitialFormState = () => ({
   budget: '',
   timeline: '',
   message: '',
+  reference_sites: '',
+  target_audience: '',
+  languages: '',
+  features: '',
+  content_source: '',
+  billing_info: '',
+  payment_method: '',
+  support: '',
+  hosting_domain: '',
+  integrations: '',
+  marketing: '',
+  legal: '',
+  priority: '',
   privacy: false,
 });
 
@@ -198,6 +211,205 @@ export default function QuoteRequest() {
                 aria-invalid={errors.message ? 'true' : 'false'}
               ></textarea>
               {errors.message && <span className="text-xs text-red-400">{errors.message}</span>}
+            </label>
+
+            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="reference_sites">
+              {fields.reference_sites?.label}
+              <textarea
+                id="reference_sites"
+                rows="4"
+                placeholder={fields.reference_sites?.placeholder}
+                className={`${inputClasses} min-h-[120px]`}
+                value={formData.reference_sites}
+                onChange={handleChange('reference_sites')}
+                aria-invalid={errors.reference_sites ? 'true' : 'false'}
+              ></textarea>
+              {errors.reference_sites && (
+                <span className="text-xs text-red-400">{errors.reference_sites}</span>
+              )}
+            </label>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="target_audience">
+                {fields.target_audience?.label}
+                <input
+                  id="target_audience"
+                  type="text"
+                  placeholder={fields.target_audience?.placeholder}
+                  className={inputClasses}
+                  value={formData.target_audience}
+                  onChange={handleChange('target_audience')}
+                  aria-invalid={errors.target_audience ? 'true' : 'false'}
+                />
+                {errors.target_audience && (
+                  <span className="text-xs text-red-400">{errors.target_audience}</span>
+                )}
+              </label>
+              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="languages">
+                {fields.languages?.label}
+                <input
+                  id="languages"
+                  type="text"
+                  placeholder={fields.languages?.placeholder}
+                  className={inputClasses}
+                  value={formData.languages}
+                  onChange={handleChange('languages')}
+                  aria-invalid={errors.languages ? 'true' : 'false'}
+                />
+                {errors.languages && <span className="text-xs text-red-400">{errors.languages}</span>}
+              </label>
+            </div>
+
+            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="features">
+              {fields.features?.label}
+              <textarea
+                id="features"
+                rows="4"
+                placeholder={fields.features?.placeholder}
+                className={`${inputClasses} min-h-[120px]`}
+                value={formData.features}
+                onChange={handleChange('features')}
+                aria-invalid={errors.features ? 'true' : 'false'}
+              ></textarea>
+              {errors.features && <span className="text-xs text-red-400">{errors.features}</span>}
+            </label>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="content_source">
+                {fields.content_source?.label}
+                <input
+                  id="content_source"
+                  type="text"
+                  placeholder={fields.content_source?.placeholder}
+                  className={inputClasses}
+                  value={formData.content_source}
+                  onChange={handleChange('content_source')}
+                  aria-invalid={errors.content_source ? 'true' : 'false'}
+                />
+                {errors.content_source && (
+                  <span className="text-xs text-red-400">{errors.content_source}</span>
+                )}
+              </label>
+              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="payment_method">
+                {fields.payment_method?.label}
+                <input
+                  id="payment_method"
+                  type="text"
+                  placeholder={fields.payment_method?.placeholder}
+                  className={inputClasses}
+                  value={formData.payment_method}
+                  onChange={handleChange('payment_method')}
+                  aria-invalid={errors.payment_method ? 'true' : 'false'}
+                />
+                {errors.payment_method && (
+                  <span className="text-xs text-red-400">{errors.payment_method}</span>
+                )}
+              </label>
+            </div>
+
+            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="billing_info">
+              {fields.billing_info?.label}
+              <textarea
+                id="billing_info"
+                rows="4"
+                placeholder={fields.billing_info?.placeholder}
+                className={`${inputClasses} min-h-[120px]`}
+                value={formData.billing_info}
+                onChange={handleChange('billing_info')}
+                aria-invalid={errors.billing_info ? 'true' : 'false'}
+              ></textarea>
+              {errors.billing_info && (
+                <span className="text-xs text-red-400">{errors.billing_info}</span>
+              )}
+            </label>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="support">
+                {fields.support?.label}
+                <input
+                  id="support"
+                  type="text"
+                  placeholder={fields.support?.placeholder}
+                  className={inputClasses}
+                  value={formData.support}
+                  onChange={handleChange('support')}
+                  aria-invalid={errors.support ? 'true' : 'false'}
+                />
+                {errors.support && <span className="text-xs text-red-400">{errors.support}</span>}
+              </label>
+              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="hosting_domain">
+                {fields.hosting_domain?.label}
+                <input
+                  id="hosting_domain"
+                  type="text"
+                  placeholder={fields.hosting_domain?.placeholder}
+                  className={inputClasses}
+                  value={formData.hosting_domain}
+                  onChange={handleChange('hosting_domain')}
+                  aria-invalid={errors.hosting_domain ? 'true' : 'false'}
+                />
+                {errors.hosting_domain && (
+                  <span className="text-xs text-red-400">{errors.hosting_domain}</span>
+                )}
+              </label>
+            </div>
+
+            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="integrations">
+              {fields.integrations?.label}
+              <textarea
+                id="integrations"
+                rows="4"
+                placeholder={fields.integrations?.placeholder}
+                className={`${inputClasses} min-h-[120px]`}
+                value={formData.integrations}
+                onChange={handleChange('integrations')}
+                aria-invalid={errors.integrations ? 'true' : 'false'}
+              ></textarea>
+              {errors.integrations && (
+                <span className="text-xs text-red-400">{errors.integrations}</span>
+              )}
+            </label>
+
+            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="marketing">
+              {fields.marketing?.label}
+              <textarea
+                id="marketing"
+                rows="4"
+                placeholder={fields.marketing?.placeholder}
+                className={`${inputClasses} min-h-[120px]`}
+                value={formData.marketing}
+                onChange={handleChange('marketing')}
+                aria-invalid={errors.marketing ? 'true' : 'false'}
+              ></textarea>
+              {errors.marketing && <span className="text-xs text-red-400">{errors.marketing}</span>}
+            </label>
+
+            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="legal">
+              {fields.legal?.label}
+              <textarea
+                id="legal"
+                rows="4"
+                placeholder={fields.legal?.placeholder}
+                className={`${inputClasses} min-h-[120px]`}
+                value={formData.legal}
+                onChange={handleChange('legal')}
+                aria-invalid={errors.legal ? 'true' : 'false'}
+              ></textarea>
+              {errors.legal && <span className="text-xs text-red-400">{errors.legal}</span>}
+            </label>
+
+            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="priority">
+              {fields.priority?.label}
+              <input
+                id="priority"
+                type="text"
+                placeholder={fields.priority?.placeholder}
+                className={inputClasses}
+                value={formData.priority}
+                onChange={handleChange('priority')}
+                aria-invalid={errors.priority ? 'true' : 'false'}
+              />
+              {errors.priority && <span className="text-xs text-red-400">{errors.priority}</span>}
             </label>
 
             <div className="flex flex-col gap-4 text-sm text-gray-400 md:flex-row md:items-center md:justify-between">

@@ -218,14 +218,66 @@
         "label": "Tervezett határidő",
         "placeholder": "Pl. 2024. június vége"
       },
-      "message": {
-        "label": "Projekt rövid leírása *",
-        "placeholder": "Írd le, milyen megoldást szeretnél, milyen funkciókra van szükség, illetve minden egyéb hasznos információt."
-      },
-      "privacy": {
-        "label": "Megismertem és elfogadom az adatkezelési tájékoztatót."
-      }
+    "message": {
+      "label": "Projekt rövid leírása *",
+      "placeholder": "Írd le, milyen megoldást szeretnél, milyen funkciókra van szükség, illetve minden egyéb hasznos információt."
     },
+    "reference_sites": {
+      "label": "Inspiráció / referencia oldalak",
+      "placeholder": "Írj meg néhány weboldalt vagy terméket, ami tetszik"
+    },
+    "target_audience": {
+      "label": "Elsődleges célközönség",
+      "placeholder": "Kik fogják használni vagy megvásárolni a terméket?"
+    },
+    "languages": {
+      "label": "Projekt nyelvei",
+      "placeholder": "Pl. magyar, angol"
+    },
+    "features": {
+      "label": "Legfontosabb funkciók",
+      "placeholder": "Sorold fel a legfontosabb elvárt funkciókat"
+    },
+    "content_source": {
+      "label": "Tartalom forrása",
+      "placeholder": "Ki biztosítja a szövegeket, képeket vagy videókat?"
+    },
+    "billing_info": {
+      "label": "Számlázási információk",
+      "placeholder": "Cégnév, adószám, számlázási cím stb."
+    },
+    "payment_method": {
+      "label": "Preferált fizetési mód",
+      "placeholder": "Pl. átutalás, mérföldkövekhez kötve"
+    },
+    "support": {
+      "label": "Utótámogatási igény",
+      "placeholder": "Szükséged lesz karbantartásra a projekt után?"
+    },
+    "hosting_domain": {
+      "label": "Tárhely / domain igény",
+      "placeholder": "Kell segítség tárhely vagy domain ügyintézésben?"
+    },
+    "integrations": {
+      "label": "Szükséges integrációk",
+      "placeholder": "CRM, hírlevél, fizetési szolgáltatók stb."
+    },
+    "marketing": {
+      "label": "Marketing célok",
+      "placeholder": "Kampányok, KPI-k vagy csatornák, amelyekre fókuszálnál"
+    },
+    "legal": {
+      "label": "Jogi / megfelelőségi tudnivalók",
+      "placeholder": "GDPR, szerződések, ÁSZF vagy egyéb elvárások"
+    },
+    "priority": {
+      "label": "Projekt prioritása",
+      "placeholder": "Mennyire sürgős vagy fontos ez a projekt?"
+    },
+    "privacy": {
+      "label": "Megismertem és elfogadom az adatkezelési tájékoztatót."
+    }
+  },
     "button": {
       "default": "Elküldöm",
       "processing": "Küldés folyamatban…"
