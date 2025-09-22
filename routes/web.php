@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,5 +18,8 @@ Route::get('/contact', fn () => Inertia::render('Contact'))->name('contact');
 Route::get('/privacy', fn () => Inertia::render('Privacy'))->name('privacy');
 Route::get('/terms', fn () => Inertia::render('Terms'))->name('terms');
 Route::get('/impressum', fn () => Inertia::render('Impressum'))->name('impressum');
+
+Route::post('/quote-request', [FormController::class, 'storeQuoteRequest'])->name('quote-request.store');
+Route::post('/contact-message', [FormController::class, 'storeContactMessage'])->name('contact-message.store');
 
 Route::fallback(fn () => Inertia::render('Home'));
