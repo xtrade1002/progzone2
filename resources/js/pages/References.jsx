@@ -33,7 +33,7 @@ export default function References() {
           )}
         </article>
       );
-    }
+    } 
 
     const CardContent = (
       <article className="relative rounded-lg border border-[#FF007A]/30 overflow-hidden shadow-lg transform transition hover:scale-[1.02] bg-[#0B0B0B]">
