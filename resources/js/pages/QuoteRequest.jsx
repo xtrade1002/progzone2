@@ -71,6 +71,7 @@ export default function QuoteRequest() {
           <div className="mb-12 space-y-4 text-center">
             <h2 className="text-5xl sm:text-4xl font-extrabold text-[#FF007A] drop-shadow-[0_0_20px_#ff007a]">
               {quote.title}
+              <span className="after:content-[''] after:block after:w-24 after:h-1 after:bg-[#00f7ff] after:mx-auto after:mt-4 after:rounded-full"></span>
             </h2>
             {introParagraphs.map((paragraph, index) => (
               <p key={index} className="text-lg text-gray-300">

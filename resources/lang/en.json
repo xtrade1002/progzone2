@@ -539,12 +539,8 @@
         "type": "link",
         "url": "https://www.versenybikini.hu",
         "image": "/img/glamazon_logo.png",
-        "title": "Competition bikini creation",
+        "title": "Competition bikini",
         "cta": "View website"
-      },
-      {
-        "type": "card",
-        "title": "Gardening website"
       },
       {
         "type": "lightbox",

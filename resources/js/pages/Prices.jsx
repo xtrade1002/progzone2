@@ -16,14 +16,6 @@ export default function Prices() {
     <Layout>
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
         <div className="rounded-2xl p-4 sm:p-10">
-          <h1
-            className={`text-3xl sm:text-4xl font-extrabold text-center text-[#FF007A] mb-16 drop-shadow-[0_0_15px_#ff007a] transform transition-all duration-700 ease-out ${
-              visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            Árak
-          </h1>
-
           <ul className="space-y-10">
             {/* WordPress weboldal */}
             <li className={cardBase}>

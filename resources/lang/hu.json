@@ -547,10 +547,6 @@
         "cta": "Megnézem a weboldalt"
       },
       {
-        "type": "card",
-        "title": "Kertészeti weboldal"
-      },
-      {
         "type": "lightbox",
         "image": "/img/action.jpg",
         "title": "Szórólap",

@@ -43,7 +43,7 @@ export default function Contact() {
     <Layout>
       <Head title={contact.meta_title ?? t('menu.contact', 'Contact')} />
       <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-20 py-20">
-        <div className="rounded-2xl p-6 sm:p-10 text-center bg-[#0a0a0f]/60 shadow-[0_0_30px_#ff007a55] backdrop-blur">
+        <div className="rounded-2xl p-6 sm:p-10 text-center border-1 border-[#ff007a] bg-[#0a0a0f]/60 shadow-[0_0_30px_#ff007a55] backdrop-blur">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#FF007A] drop-shadow-[0_0_15px_#ff007a] relative">
             {contact.title}
             <span className="after:content-[''] after:block after:w-24 after:h-1 after:bg-[#00f7ff] after:mx-auto after:mt-4 after:rounded-full"></span>
@@ -61,7 +61,7 @@ export default function Contact() {
             </div>
           )}
 
-          <div className="mt-12 border border-[#ff007a] rounded-xl px-6 sm:px-10 md:px-16 py-10 sm:py-12 max-w-5xl mx-auto">
+          <div className="mt-12  rounded-xl px-6 sm:px-10 md:px-16 py-10 sm:py-12 max-w-5xl mx-auto">
             <form className="space-y-6 w-full" onSubmit={handleSubmit}>
               {/* Név + Email */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

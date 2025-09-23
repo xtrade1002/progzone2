@@ -543,10 +543,6 @@
         "cta": "Website ansehen"
       },
       {
-        "type": "card",
-        "title": "Gartenbau-Webseite"
-      },
-      {
         "type": "lightbox",
         "image": "/img/action.jpg",
         "title": "Flyer",
