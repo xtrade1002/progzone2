@@ -21,31 +21,6 @@ export default function References() {
   }, []);
 
   const renderProject = (project, index) => {
-    if (project.type === 'lightbox') {
-      return (
-        <button
-          key={index}
-          onClick={() => setLightboxImage(project.lightboxImage ?? project.image)}
-          className="block group w-full"
-        >
-          <article
-            className="relative rounded-lg border border-[#FF007A]/30 overflow-hidden shadow-lg transform transition hover:scale-[1.02]"
-            style={{
-              backgroundImage: project.image ? `url('${project.image}')` : undefined,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              height: '250px',
-            }}
-          >
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition"></div>
-            <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4">
-              <h2 className="text-xl font-semibold text-[#FF007A]">{project.title}</h2>
-            </div>
-          </article>
-        </button>
-      );
-    }
-
     if (project.type === 'card') {
       return (
         <article
@@ -53,8 +28,50 @@ export default function References() {
           className="rounded-lg border border-[#FF007A]/30 bg-[#1A1A1A] p-6"
         >
           <h2 className="text-2xl font-semibold text-[#FF007A]">{project.title}</h2>
-          <p className="mt-4 text-sm text-gray-300">{project.description}</p>
+          {project.description && (
+            <p className="mt-4 text-sm text-gray-300">{project.description}</p>
+          )}
         </article>
+      );
+    }
+
+    const CardContent = (
+      <article className="relative rounded-lg border border-[#FF007A]/30 overflow-hidden shadow-lg transform transition hover:scale-[1.02] bg-[#0B0B0B]">
+        <div className="relative h-[250px] overflow-hidden">
+          {project.image && (
+            <img
+              src={project.image}
+              alt={project.title ?? references.lightbox_alt ?? 'Reference image'}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          )}
+          <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition" aria-hidden="true"></div>
+        </div>
+        <div className="p-4 bg-black/70">
+          <h2 className="text-xl font-semibold text-[#FF007A]">{project.title}</h2>
+          {project.description && (
+            <p className="mt-1 text-sm text-gray-300">{project.description}</p>
+          )}
+          {project.cta && (
+            <span className="inline-block mt-3 px-4 py-2 rounded-md bg-[#FF007A] text-white text-sm font-medium shadow-md hover:shadow-[0_0_15px_#ff007a] transition">
+              {project.cta}
+            </span>
+          )}
+        </div>
+      </article>
+    );
+
+    if (project.type === 'lightbox') {
+      return (
+        <button
+          key={index}
+          type="button"
+          onClick={() => setLightboxImage(project.lightboxImage ?? project.image)}
+          className="block w-full text-left group"
+        >
+          {CardContent}
+        </button>
       );
     }
 
@@ -66,28 +83,7 @@ export default function References() {
         rel="noopener noreferrer"
         className="block group"
       >
-        <article
-          className="relative rounded-lg border border-[#FF007A]/30 overflow-hidden shadow-lg transform transition hover:scale-[1.02]"
-          style={{
-            backgroundImage: project.image ? `url('${project.image}')` : undefined,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '250px',
-          }}
-        >
-          <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition"></div>
-          <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4">
-            <h2 className="text-xl font-semibold text-[#FF007A]">{project.title}</h2>
-            {project.description && (
-              <p className="mt-1 text-sm text-gray-300">{project.description}</p>
-            )}
-            {project.cta && (
-              <span className="inline-block mt-3 px-4 py-2 rounded-md bg-[#FF007A] text-white text-sm font-medium shadow-md hover:shadow-[0_0_15px_#ff007a] transition">
-                {project.cta}
-              </span>
-            )}
-          </div>
-        </article>
+        {CardContent}
       </a>
     );
   };
@@ -96,24 +92,30 @@ export default function References() {
     <Layout>
       <Head title={references.meta_title ?? t('menu.references', 'References')} />
       <section className="max-w-7xl mx-auto px-6 py-16 space-y-6">
+        <h1 className="text-4xl font-bold text-center text-[#FF007A] md:text-left">
+          {references.title}
+        </h1>
+        {references.subtitle && (
+          <p className="text-lg text-gray-300">{references.subtitle}</p>
+        )}
 
-  <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-    {projects.map((project, index) => renderProject(project, index))}
-  </div>
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
+          {projects.map((project, index) => renderProject(project, index))}
+        </div>
 
-  {lightboxImage && (
-    <div
-      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer"
-      onClick={() => setLightboxImage(null)}
-    >
-      <img
-        src={lightboxImage}
-        alt={references.lightbox_alt ?? 'Preview'}
-        className="max-h-[90%] max-w-[90%] rounded-lg shadow-lg"
-      />
-    </div>
-  )}
-</section>
+        {lightboxImage && (
+          <div
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer"
+            onClick={() => setLightboxImage(null)}
+          >
+            <img
+              src={lightboxImage}
+              alt={references.lightbox_alt ?? 'Preview'}
+              className="max-h-[90%] max-w-[90%] rounded-lg shadow-lg"
+            />
+          </div>
+        )}
+      </section>
     </Layout>
   );
 }
