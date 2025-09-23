@@ -152,24 +152,36 @@ export default function QuoteRequest() {
               </select>
             </div>
 
-            <input
-              type="text"
-              placeholder={fields.timeline?.placeholder ?? 'Preferred timeline'}
-              aria-label={fields.timeline?.label ?? 'Preferred timeline'}
-              className={inputClasses}
-              value={formData.timeline}
-              onChange={handleChange('timeline')}
-            />
+            <div className="flex flex-col gap-2">
+              <label htmlFor="timeline" className="text-sm font-medium text-gray-300">
+                {fields.timeline?.label ?? 'Preferred timeline'}
+              </label>
+              <input
+                id="timeline"
+                type="text"
+                placeholder={fields.timeline?.placeholder ?? 'Preferred timeline'}
+                aria-label={fields.timeline?.label ?? 'Preferred timeline'}
+                className={inputClasses}
+                value={formData.timeline}
+                onChange={handleChange('timeline')}
+              />
+            </div>
 
-            <textarea
-              rows="5"
-              required
-              placeholder={fields.message?.placeholder ?? 'Project summary *'}
-              aria-label={fields.message?.label ?? 'Project summary'}
-              className={`${inputClasses} min-h-[140px]`}
-              value={formData.message}
-              onChange={handleChange('message')}
-            ></textarea>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="message" className="text-sm font-medium text-gray-300">
+                {fields.message?.label ?? 'Project summary *'}
+              </label>
+              <textarea
+                id="message"
+                rows="5"
+                required
+                placeholder={fields.message?.placeholder ?? 'Project summary *'}
+                aria-label={fields.message?.label ?? 'Project summary'}
+                className={`${inputClasses} min-h-[140px]`}
+                value={formData.message}
+                onChange={handleChange('message')}
+              ></textarea>
+            </div>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="reference_sites">
               {fields.reference_sites?.label ?? 'Inspiration / reference sites'}

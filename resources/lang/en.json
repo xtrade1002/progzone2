@@ -381,19 +381,6 @@
             ]
           },
           {
-            "title": "What is SEO and why is it important?",
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "<strong>SEO</strong> (search engine optimisation) helps Google value your site more. You rank higher in search results, so more people find you without paying for clicks."
-              },
-              {
-                "type": "paragraph",
-                "text": "In short, SEO is like a free billboard inside Google."
-              }
-            ]
-          },
-          {
             "title": "How much does a website cost in the long term?",
             "content": [
               {
@@ -456,6 +443,19 @@
               {
                 "type": "paragraph",
                 "text": "In short: Google targets the buying moment, while Facebook focuses on generating attention."
+              }
+            ]
+          },
+          {
+            "title": "What is SEO and why is it important?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "<strong>SEO</strong> (search engine optimisation) helps Google value your site more. You rank higher in search results, so more people find you without paying for clicks."
+              },
+              {
+                "type": "paragraph",
+                "text": "In short, SEO is like a free billboard inside Google."
               }
             ]
           }

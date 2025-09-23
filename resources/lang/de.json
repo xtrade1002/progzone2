@@ -381,19 +381,6 @@
             ]
           },
           {
-            "title": "Was ist SEO und warum ist es wichtig?",
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "<strong>SEO</strong> (Suchmaschinenoptimierung) sorgt dafür, dass Google deine Seite besser bewertet. Du erscheinst höher in den Suchergebnissen und wirst ohne bezahlte Klicks von mehr Menschen gefunden."
-              },
-              {
-                "type": "paragraph",
-                "text": "Kurz gesagt: SEO ist wie eine kostenlose Werbetafel bei Google."
-              }
-            ]
-          },
-          {
             "title": "Wie viel kostet eine Webseite langfristig?",
             "content": [
               {
@@ -456,6 +443,19 @@
               {
                 "type": "paragraph",
                 "text": "Kurz gesagt: Google adressiert den Moment kurz vor dem Kauf, Facebook sorgt für Aufmerksamkeit."
+              }
+            ]
+          },
+          {
+            "title": "Was ist SEO und warum ist es wichtig?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "<strong>SEO</strong> (Suchmaschinenoptimierung) sorgt dafür, dass Google deine Seite besser bewertet. Du erscheinst höher in den Suchergebnissen und wirst ohne bezahlte Klicks von mehr Menschen gefunden."
+              },
+              {
+                "type": "paragraph",
+                "text": "Kurz gesagt: SEO ist wie eine kostenlose Werbetafel bei Google."
               }
             ]
           }

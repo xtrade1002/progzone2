@@ -385,19 +385,6 @@
             ]
           },
           {
-            "title": "Mi az a SEO és miért fontos?",
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "A <strong>SEO</strong> (keresőoptimalizálás) segít abban, hogy a Google jobban szeresse a weboldalad. Így a keresésekben előrébb kerülsz, és több ember talál rád anélkül, hogy fizetned kellene a kattintásokért."
-              },
-              {
-                "type": "paragraph",
-                "text": "Röviden: a SEO olyan, mint egy ingyenes reklámtábla a Google-ben."
-              }
-            ]
-          },
-          {
             "title": "Mennyibe kerül egy weboldal hosszú távon?",
             "content": [
               {
@@ -460,6 +447,19 @@
               {
                 "type": "paragraph",
                 "text": "Röviden: a Google a vásárlás előtti pillanatot célozza, a Facebook a figyelemfelkeltést."
+              }
+            ]
+          },
+          {
+            "title": "Mi az a SEO és miért fontos?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "A <strong>SEO</strong> (keresőoptimalizálás) segít abban, hogy a Google jobban szeresse a weboldalad. Így a keresésekben előrébb kerülsz, és több ember talál rád anélkül, hogy fizetned kellene a kattintásokért."
+              },
+              {
+                "type": "paragraph",
+                "text": "Röviden: a SEO olyan, mint egy ingyenes reklámtábla a Google-ben."
               }
             ]
           }
