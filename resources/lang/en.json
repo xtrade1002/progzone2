@@ -519,35 +519,134 @@
         "type": "link",
         "url": "https://www.glamlash.hu",
         "image": "/img/bg_women.jpeg",
-        "title": "Beauty services",
-        "description": "Complete branding and responsive website.",
+        "title": "Eyelash extension services",
         "cta": "View website"
       },
       {
         "type": "lightbox",
         "image": "/img/kertmester_logo.png",
         "title": "Logo and brand design",
-        "lightboxImage": "/img/4.webp"
+        "lightboxImage": "/img/kertmester_logo.png"
       },
       {
         "type": "link",
         "url": "https://www.kertmester.eu",
-        "image": "/img/kertmester_logo.png",
-        "title": "Garden services website",
+        "image": "/img/4.webp",
+        "title": "Gardening website",
         "cta": "View website"
       },
       {
         "type": "link",
         "url": "https://www.versenybikini.hu",
-        "image": "/img/background.jpg",
-        "title": "Custom competition bikinis",
-        "description": "Complete branding and responsive website.",
+        "image": "/img/glamazon_logo.png",
+        "title": "Competition bikini creation",
         "cta": "View website"
       },
       {
         "type": "card",
-        "title": "Garden platform",
-        "description": "Development of a user-friendly dashboard and integrations for start-ups."
+        "title": "Gardening website"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/action.jpg",
+        "title": "Flyer",
+        "lightboxImage": "/img/action.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/africa.jpg",
+        "title": "Poster",
+        "lightboxImage": "/img/africa.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/bakery.png",
+        "title": "Flyer",
+        "lightboxImage": "/img/bakery.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/banner.png",
+        "title": "Banner advertisement",
+        "lightboxImage": "/img/banner.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/bistro.jpg",
+        "title": "Flyer",
+        "lightboxImage": "/img/bistro.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/businesscard.jpg",
+        "title": "Business card",
+        "lightboxImage": "/img/businesscard.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/educationday.png",
+        "title": "Poster",
+        "lightboxImage": "/img/educationday.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/error.png",
+        "title": "404 page",
+        "lightboxImage": "/img/error.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/gaycupydo2.png",
+        "title": "Logo",
+        "lightboxImage": "/img/gaycupydo2.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/giftvoucher.jpg",
+        "title": "Gift voucher",
+        "lightboxImage": "/img/giftvoucher.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/massagepass.jpg",
+        "title": "Wellness pass",
+        "lightboxImage": "/img/massagepass.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/sale.png",
+        "title": "Flyer",
+        "lightboxImage": "/img/sale.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/sexxxtra_logo4.png",
+        "title": "Logo",
+        "lightboxImage": "/img/sexxxtra_logo4.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/szorolap_front.jpg",
+        "title": "Flyer",
+        "lightboxImage": "/img/szorolap_front.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/wetter.png",
+        "title": "Weather app design",
+        "lightboxImage": "/img/wetter.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/wetter2.png",
+        "title": "Weather app design",
+        "lightboxImage": "/img/wetter2.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/wine.png",
+        "title": "Website design",
+        "lightboxImage": "/img/wine.png"
       }
     ]
   },

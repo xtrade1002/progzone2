@@ -519,35 +519,134 @@
         "type": "link",
         "url": "https://www.glamlash.hu",
         "image": "/img/bg_women.jpeg",
-        "title": "Kosmetikdienstleistung",
-        "description": "Komplettes Branding und responsive Webpräsenz.",
+        "title": "Wimpernverlängerung",
         "cta": "Website ansehen"
       },
       {
         "type": "lightbox",
         "image": "/img/kertmester_logo.png",
-        "title": "Logo- und Markenentwicklung",
-        "lightboxImage": "/img/4.webp"
+        "title": "Logo- und Markendesign",
+        "lightboxImage": "/img/kertmester_logo.png"
       },
       {
         "type": "link",
         "url": "https://www.kertmester.eu",
-        "image": "/img/kertmester_logo.png",
+        "image": "/img/4.webp",
         "title": "Gartenbau-Webseite",
         "cta": "Website ansehen"
       },
       {
         "type": "link",
         "url": "https://www.versenybikini.hu",
-        "image": "/img/background.jpg",
-        "title": "Versenybikini Herstellung",
-        "description": "Komplettes Branding und responsive Webpräsenz.",
+        "image": "/img/glamazon_logo.png",
+        "title": "Anfertigung von Wettkampfbikinis",
         "cta": "Website ansehen"
       },
       {
         "type": "card",
-        "title": "Gartenbau-Plattform",
-        "description": "Entwicklung eines benutzerfreundlichen Dashboards und Integrationen für Start-ups."
+        "title": "Gartenbau-Webseite"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/action.jpg",
+        "title": "Flyer",
+        "lightboxImage": "/img/action.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/africa.jpg",
+        "title": "Plakat",
+        "lightboxImage": "/img/africa.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/bakery.png",
+        "title": "Flyer",
+        "lightboxImage": "/img/bakery.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/banner.png",
+        "title": "Bannerwerbung",
+        "lightboxImage": "/img/banner.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/bistro.jpg",
+        "title": "Flyer",
+        "lightboxImage": "/img/bistro.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/businesscard.jpg",
+        "title": "Visitenkarte",
+        "lightboxImage": "/img/businesscard.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/educationday.png",
+        "title": "Plakat",
+        "lightboxImage": "/img/educationday.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/error.png",
+        "title": "404-Seite",
+        "lightboxImage": "/img/error.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/gaycupydo2.png",
+        "title": "Logo",
+        "lightboxImage": "/img/gaycupydo2.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/giftvoucher.jpg",
+        "title": "Geschenkgutschein",
+        "lightboxImage": "/img/giftvoucher.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/massagepass.jpg",
+        "title": "Wellness-Pass",
+        "lightboxImage": "/img/massagepass.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/sale.png",
+        "title": "Flyer",
+        "lightboxImage": "/img/sale.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/sexxxtra_logo4.png",
+        "title": "Logo",
+        "lightboxImage": "/img/sexxxtra_logo4.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/szorolap_front.jpg",
+        "title": "Flyer",
+        "lightboxImage": "/img/szorolap_front.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/wetter.png",
+        "title": "Wetter-App-Design",
+        "lightboxImage": "/img/wetter.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/wetter2.png",
+        "title": "Wetter-App-Design",
+        "lightboxImage": "/img/wetter2.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/wine.png",
+        "title": "Webdesign",
+        "lightboxImage": "/img/wine.png"
       }
     ]
   },
