@@ -25,7 +25,7 @@ export default function References() {
       return (
         <article
           key={index}
-          className="rounded-lg border border-[#FF007A]/30 bg-[#1A1A1A] p-6"
+          className="rounded-lg border border-[#FF007A]/30 bg-[#1A1A1A] p-6 h-full flex flex-col"
         >
           <h2 className="text-2xl font-semibold text-[#FF007A]">{project.title}</h2>
           {project.description && (
@@ -36,7 +36,7 @@ export default function References() {
     } 
 
     const CardContent = (
-      <article className="relative rounded-lg border border-[#FF007A]/30 overflow-hidden shadow-lg transform transition hover:scale-[1.02] bg-[#0B0B0B]">
+      <article className="relative flex h-full flex-col rounded-lg border border-[#FF007A]/30 overflow-hidden shadow-lg transform transition hover:scale-[1.02] bg-[#0B0B0B]">
         <div className="relative h-[250px] overflow-hidden">
           {project.image && (
             <img
@@ -48,13 +48,13 @@ export default function References() {
           )}
           <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition" aria-hidden="true"></div>
         </div>
-        <div className="p-4 bg-black/70">
+        <div className="flex flex-1 flex-col p-4 bg-black/70">
           <h2 className="text-xl font-semibold text-[#FF007A]">{project.title}</h2>
           {project.description && (
             <p className="mt-1 text-sm text-gray-300">{project.description}</p>
           )}
           {project.cta && (
-            <span className="inline-block mt-3 px-4 py-2 rounded-md bg-[#FF007A] text-white text-sm font-medium shadow-md hover:shadow-[0_0_15px_#ff007a] transition">
+            <span className="mt-auto inline-flex self-start px-4 py-2 rounded-md bg-[#FF007A] text-white text-sm font-medium shadow-md hover:shadow-[0_0_15px_#ff007a] transition">
               {project.cta}
             </span>
           )}
@@ -68,7 +68,7 @@ export default function References() {
           key={index}
           type="button"
           onClick={() => setLightboxImage(project.lightboxImage ?? project.image)}
-          className="block w-full text-left group"
+          className="group block h-full w-full text-left"
         >
           {CardContent}
         </button>
@@ -81,7 +81,7 @@ export default function References() {
         href={project.url ?? '#'}
         target="_blank"
         rel="noopener noreferrer"
-        className="block group"
+        className="group block h-full"
       >
         {CardContent}
       </a>
