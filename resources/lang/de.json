@@ -572,9 +572,9 @@
       },
       {
         "type": "lightbox",
-        "image": "/img/bistro.jpg",
+        "image": "/img/bistro.png",
         "title": "Flyer",
-        "lightboxImage": "/img/bistro.jpg"
+        "lightboxImage": "/img/bistro.png"
       },
       {
         "type": "lightbox",
