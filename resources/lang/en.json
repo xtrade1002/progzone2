@@ -297,23 +297,217 @@
   },
   "infos": {
     "meta_title": "Info",
-    "sections": {
-      "web": "Websites",
-      "marketing": "Marketing",
-      "security": "Security"
-    },
-    "questions": {
-      "domain_hosting": "What is a domain and hosting service?",
-      "wordpress_vs_custom": "What is the difference between WordPress and custom-developed websites?",
-      "wordpress_maintenance": "Why is the maintenance of WordPress websites necessary?",
-      "custom_costs": "Why does a custom-developed website cost more than a WordPress site?",
-      "seo": "What is SEO and why is it important?",
-      "longterm_costs": "How much does a website cost in the long term?",
-      "marketing_costs": "What do marketing costs consist of?",
-      "google_vs_facebook": "What is the difference between Google Ads and Facebook advertising?",
-      "security": "Why is website security important?",
-      "privacy_terms": "Why are a Privacy Policy and Terms & Conditions necessary?"
-    }
+    "empty": "Content is being prepared...",
+    "sections": [
+      {
+        "title": "Websites",
+        "items": [
+          {
+            "title": "What is a domain and hosting service?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "A <strong>domain name</strong> (e.g. <code>example.com</code>) is like the address of a house. When someone types it into their browser, it leads them to your website."
+              },
+              {
+                "type": "paragraph",
+                "text": "The <strong>hosting (web hosting)</strong> is the house itself: the place where your website’s files (text, images, database) are stored."
+              },
+              {
+                "type": "paragraph",
+                "text": "Domain and hosting are both required to make your site accessible to everyone. If either one is missing, the site won’t work."
+              }
+            ]
+          },
+          {
+            "title": "What is the difference between WordPress and custom-developed websites?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "<strong>WordPress</strong> is a ready-made system used by millions. It’s like a pre-built house that you can rearrange inside: pick a theme and add plugins. It’s faster and cheaper, but less flexible."
+              },
+              {
+                "type": "paragraph",
+                "text": "A <strong>custom-developed website</strong> is built from the ground up specifically for you. It’s like designing your own villa: you get exactly what you want, but it takes more time and budget."
+              },
+              {
+                "type": "paragraph",
+                "text": "In short: WordPress is the “ready-made house”, while custom development is the “self-built home”."
+              }
+            ]
+          },
+          {
+            "title": "Why is the maintenance of WordPress websites necessary?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "WordPress is like a smartphone: it needs regular updates or it becomes outdated and insecure."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "<strong>Updates</strong>: new versions of the core, themes and plugins keep the site more secure.",
+                  "<strong>Security</strong>: without updates, your site can be hacked easily.",
+                  "<strong>Performance</strong>: updates often make the site faster.",
+                  "<strong>Preventing conflicts</strong>: outdated plugins frequently clash with each other."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Maintenance is like servicing a car: skip it for too long and it will eventually break down."
+              }
+            ]
+          },
+          {
+            "title": "Why does a custom-developed website cost more than a WordPress site?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Custom development requires more working hours and expertise, which is why it costs more."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "<strong>Every feature is built from scratch</strong>, there is no ready-made template.",
+                  "<strong>Fully tailored</strong> to your exact requirements.",
+                  "<strong>More secure and faster</strong> because it isn’t overloaded with unnecessary plugins.",
+                  "<strong>A long-term investment</strong> that can be expanded more easily."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "It’s like the difference between an <strong>IKEA cabinet</strong> and a <strong>custom-built piece of furniture</strong> made by a carpenter."
+              }
+            ]
+          },
+          {
+            "title": "What is SEO and why is it important?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "<strong>SEO</strong> (search engine optimisation) helps Google value your site more. You rank higher in search results, so more people find you without paying for clicks."
+              },
+              {
+                "type": "paragraph",
+                "text": "In short, SEO is like a free billboard inside Google."
+              }
+            ]
+          },
+          {
+            "title": "How much does a website cost in the long term?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "A website isn’t a one-off expense. There are ongoing costs as well:"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "<strong>Domain fee</strong>: paid yearly, usually a few to several dozen euros.",
+                  "<strong>Hosting fee</strong>: the cost of running the server, generally billed monthly or annually.",
+                  "<strong>Maintenance</strong>: updates, bug fixes and backups.",
+                  "<strong>Further development</strong>: when you need new features."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "It’s like owning a car: the purchase price is just the beginning — fuel, insurance and servicing also matter."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Marketing",
+        "items": [
+          {
+            "title": "What do marketing costs consist of?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Marketing budgets are made up of several elements, not just the ads themselves."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "<strong>Ad spend</strong>: the amount paid directly to platforms like Google, Facebook or others.",
+                  "<strong>Campaign management</strong>: the fee for the specialist or agency that runs and optimises the ads.",
+                  "<strong>Content creation</strong>: writing copy, designing visuals and producing videos.",
+                  "<strong>Tools</strong>: subscriptions for email marketing software, SEO suites and analytics platforms."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Think of marketing like a machine: you invest not only in advertising but also in the work that keeps it running."
+              }
+            ]
+          },
+          {
+            "title": "What is the difference between Google Ads and Facebook advertising?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "<strong>Google Ads</strong> appear when someone is actively searching for something. If they type \"hairdresser Berlin\", they see ads straight away."
+              },
+              {
+                "type": "paragraph",
+                "text": "<strong>Facebook ads</strong> create interest. They reach people who might not be looking right now, but could be interested."
+              },
+              {
+                "type": "paragraph",
+                "text": "In short: Google targets the buying moment, while Facebook focuses on generating attention."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Security",
+        "items": [
+          {
+            "title": "Why is website security important?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "An insecure website can be hacked easily, which can have serious consequences:"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "Customer data and passwords can be stolen.",
+                  "Attackers can inject malicious ads or malware.",
+                  "Google may blocklist your site."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "A secure website is like putting a lock on your shop door: it protects your business and your clients’ trust."
+              }
+            ]
+          },
+          {
+            "title": "Why are a Privacy Policy and Terms & Conditions necessary?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "These documents are required by law and they also build trust."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "<strong>Privacy Policy (GDPR)</strong>: explains how you use visitors’ data.",
+                  "<strong>Terms & Conditions</strong>: essential especially for online shops, covering the buying process, guarantees and withdrawal."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Without them you risk fines, and visitors will hesitate to trust you."
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   "references": {
     "meta_title": "References",
