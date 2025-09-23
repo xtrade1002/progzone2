@@ -297,35 +297,23 @@
   },
   "infos": {
     "meta_title": "Infos",
-    "title": "Wie setzen sich die Werbekosten zusammen?",
-    "sections": [
-      {
-        "title": "Servicegebühr",
-        "lead": "Gebühr für Planung, Betreuung und Optimierung deiner Kampagnen.",
-        "description": [
-          "Umfasst Keyword-Recherche, Zielgruppenanalyse, Texterstellung, Creatives und laufende Optimierung.",
-          "Stellt sicher, dass dein Budget optimal eingesetzt wird. Fester Betrag = Betreuungshonorar."
-        ]
-      },
-      {
-        "title": "Werbebudget",
-        "lead": "Budget, das direkt an die Werbeplattform (Google, Facebook, Instagram, TikTok etc.) gezahlt wird.",
-        "description": [
-          "Beispiel: 500 € Monatsbudget → 100 % gehen direkt an die Plattform.",
-          "Deckt ausschließlich die Schaltung der Anzeigen ab und wird vom Konto des Auftraggebers abgebucht."
-        ]
-      }
-    ],
-    "cards": [
-      {
-        "title": "Social Media Marketing",
-        "description": "Empfohlen, [highlight]wenn Markenaufbau, Community-Aufbau oder Reichweite im Fokus stehen[/highlight]. Ideal, um Produkte oder Dienstleistungen bekannt zu machen und Markenbekanntheit aufzubauen."
-      },
-      {
-        "title": "Google Ads",
-        "description": "Empfohlen, [highlight]wenn du bei gezielten Suchanfragen sichtbar sein möchtest[/highlight] (z. B. \"Zahnarzt Berlin\" oder \"Onlineshop erstellen Kosten\"). Nutzer suchen aktiv nach Lösungen – perfekt für direkte Anfragen und Verkäufe."
-      }
-    ]
+    "sections": {
+      "web": "Webseiten",
+      "marketing": "Marketing",
+      "security": "Sicherheit"
+    },
+    "questions": {
+      "domain_hosting": "Was ist eine Domain und ein Hosting-Service?",
+      "wordpress_vs_custom": "Was ist der Unterschied zwischen WordPress und individuell entwickelten Webseiten?",
+      "wordpress_maintenance": "Warum ist die Wartung von WordPress-Webseiten notwendig?",
+      "custom_costs": "Warum kostet eine individuell entwickelte Webseite mehr als eine WordPress-Seite?",
+      "seo": "Was ist SEO und warum ist es wichtig?",
+      "longterm_costs": "Wie viel kostet eine Webseite langfristig?",
+      "marketing_costs": "Woraus bestehen die Marketingkosten?",
+      "google_vs_facebook": "Was ist der Unterschied zwischen Google Ads und Facebook-Werbung?",
+      "security": "Warum ist die Sicherheit einer Webseite wichtig?",
+      "privacy_terms": "Warum sind Datenschutzerklärung und AGB notwendig?"
+    }
   },
   "references": {
     "meta_title": "Referenzen",

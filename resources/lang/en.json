@@ -296,36 +296,24 @@
     }
   },
   "infos": {
-    "meta_title": "Insights",
-    "title": "How are advertising costs structured?",
-    "sections": [
-      {
-        "title": "Service fee",
-        "lead": "Covers planning, management and optimisation of your campaigns.",
-        "description": [
-          "Includes keyword research, audience targeting, copywriting, creatives and ongoing optimisation.",
-          "Ensures your budget delivers the best possible results. A fixed fee that reflects expert support."
-        ]
-      },
-      {
-        "title": "Ad spend",
-        "lead": "The amount paid directly to the advertising platforms (Google, Facebook, Instagram, TikTok, etc.).",
-        "description": [
-          "Example: €500 monthly budget → 100% goes to the platform.",
-          "Covers only the media spend and is billed from the client’s own account."
-        ]
-      }
-    ],
-    "cards": [
-      {
-        "title": "Social media marketing",
-        "description": "Recommended when [highlight]brand building, community growth or broad reach[/highlight] are the main goals. Ideal for increasing awareness and attracting new customers."
-      },
-      {
-        "title": "Google Ads",
-        "description": "Recommended when you want to [highlight]appear in highly targeted searches[/highlight] (e.g. “dentist London” or “online shop pricing”). Users are actively looking for solutions, making it perfect for enquiries and conversions."
-      }
-    ]
+    "meta_title": "Info",
+    "sections": {
+      "web": "Websites",
+      "marketing": "Marketing",
+      "security": "Security"
+    },
+    "questions": {
+      "domain_hosting": "What is a domain and hosting service?",
+      "wordpress_vs_custom": "What is the difference between WordPress and custom-developed websites?",
+      "wordpress_maintenance": "Why is the maintenance of WordPress websites necessary?",
+      "custom_costs": "Why does a custom-developed website cost more than a WordPress site?",
+      "seo": "What is SEO and why is it important?",
+      "longterm_costs": "How much does a website cost in the long term?",
+      "marketing_costs": "What do marketing costs consist of?",
+      "google_vs_facebook": "What is the difference between Google Ads and Facebook advertising?",
+      "security": "Why is website security important?",
+      "privacy_terms": "Why are a Privacy Policy and Terms & Conditions necessary?"
+    }
   },
   "references": {
     "meta_title": "References",
