@@ -67,9 +67,9 @@ export default function QuoteRequest() {
     <Layout>
       <Head title={quote.meta_title ?? t('menu.quote', 'Quote request')} />
       <section className="w-full px-6 py-20">
-        <div className="mx-auto max-w-5xl rounded-2xl border border-gray-700 bg-black/30 p-10 shadow-[0_0_45px_rgba(255,0,122,0.18)]">
+        <div className="mx-auto max-w-5xl rounded-2xl border-1 border-[#ff007a]/30 bg-black/30 p-10 shadow-[0_0_45px_rgba(255,0,122,0.18)]">
           <div className="mb-12 space-y-4 text-center">
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-[#FF007A] drop-shadow-[0_0_20px_#ff007a]">
+            <h2 className="text-5xl sm:text-4xl font-extrabold text-[#FF007A] drop-shadow-[0_0_20px_#ff007a]">
               {quote.title}
             </h2>
             {introParagraphs.map((paragraph, index) => (
