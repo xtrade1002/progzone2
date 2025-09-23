@@ -95,27 +95,31 @@ export default function References() {
   return (
     <Layout>
       <Head title={references.meta_title ?? t('menu.references', 'References')} />
-      <section className="max-w-4xl mx-auto px-6 py-16 space-y-6">
-        <h1 className="text-4xl font-bold text-center text-[#FF007A] md:text-left">{references.title}</h1>
-        {references.subtitle && <p className="text-lg text-gray-300">{references.subtitle}</p>}
+      <section className="max-w-7xl mx-auto px-6 py-16 space-y-6">
+  <h1 className="text-4xl font-bold text-center text-[#FF007A] md:text-left">
+    {references.title}
+  </h1>
+  {references.subtitle && (
+    <p className="text-lg text-gray-300">{references.subtitle}</p>
+  )}
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((project, index) => renderProject(project, index))}
-        </div>
+  <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
+    {projects.map((project, index) => renderProject(project, index))}
+  </div>
 
-        {lightboxImage && (
-          <div
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer"
-            onClick={() => setLightboxImage(null)}
-          >
-            <img
-              src={lightboxImage}
-              alt={references.lightbox_alt ?? 'Preview'}
-              className="max-h-[90%] max-w-[90%] rounded-lg shadow-lg"
-            />
-          </div>
-        )}
-      </section>
+  {lightboxImage && (
+    <div
+      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer"
+      onClick={() => setLightboxImage(null)}
+    >
+      <img
+        src={lightboxImage}
+        alt={references.lightbox_alt ?? 'Preview'}
+        className="max-h-[90%] max-w-[90%] rounded-lg shadow-lg"
+      />
+    </div>
+  )}
+</section>
     </Layout>
   );
 }

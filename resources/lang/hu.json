@@ -523,35 +523,134 @@
         "type": "link",
         "url": "https://www.glamlash.hu",
         "image": "/img/bg_women.jpeg",
-        "title": "Kozmetikai szolgáltatás",
-        "description": "Komplett márkaarculat és reszponzív webes megjelenés kialakítása.",
+        "title": "Műszempilla készítés",
         "cta": "Megnézem a weboldalt"
       },
       {
         "type": "lightbox",
         "image": "/img/kertmester_logo.png",
         "title": "Logótervezés és arculat",
-        "lightboxImage": "/img/4.webp"
+        "lightboxImage": "/img/kertmester_logo.png"
       },
       {
         "type": "link",
         "url": "https://www.kertmester.eu",
-        "image": "/img/kertmester_logo.png",
+        "image": "/img/4.webp",
         "title": "Kertészeti weboldal",
         "cta": "Megnézem a weboldalt"
       },
       {
         "type": "link",
         "url": "https://www.versenybikini.hu",
-        "image": "/img/background.jpg",
+        "image": "/img/glamazon_logo.png",
         "title": "Versenybikini készítés",
-        "description": "Komplett márkaarculat és reszponzív webes megjelenés kialakítása.",
         "cta": "Megnézem a weboldalt"
       },
       {
         "type": "card",
-        "title": "Kertészeti weboldal",
-        "description": "Felhasználóbarát dashboard és integrációk fejlesztése startupoknak."
+        "title": "Kertészeti weboldal"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/action.jpg",
+        "title": "Szórólap",
+        "lightboxImage": "/img/action.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/africa.jpg",
+        "title": "Plakát",
+        "lightboxImage": "/img/africa.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/bakery.png",
+        "title": "Szórólap",
+        "lightboxImage": "/img/bakery.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/banner.png",
+        "title": "Banner hirdetés",
+        "lightboxImage": "/img/banner.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/bistro.jpg",
+        "title": "Szórólap",
+        "lightboxImage": "/img/bistro.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/businesscard.jpg",
+        "title": "Névjegykártya",
+        "lightboxImage": "/img/businesscard.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/educationday.png",
+        "title": "Plakát",
+        "lightboxImage": "/img/educationday.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/error.png",
+        "title": "404 oldal",
+        "lightboxImage": "/img/error.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/gaycupydo2.png",
+        "title": "Logó",
+        "lightboxImage": "/img/gaycupydo2.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/giftvoucher.jpg",
+        "title": "Ajándékutalvány",
+        "lightboxImage": "/img/giftvoucher.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/massagepass.jpg",
+        "title": "Wellness bérlet",
+        "lightboxImage": "/img/massagepass.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/sale.png",
+        "title": "Szórólap",
+        "lightboxImage": "/img/sale.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/sexxxtra_logo4.png",
+        "title": "Logó",
+        "lightboxImage": "/img/sexxxtra_logo4.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/szorolap_front.jpg",
+        "title": "Szórólap",
+        "lightboxImage": "/img/szorolap_front.jpg"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/wetter.png",
+        "title": "Időjárás app design",
+        "lightboxImage": "/img/wetter.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/wetter2.png",
+        "title": "Időjárás app design",
+        "lightboxImage": "/img/wetter2.png"
+      },
+      {
+        "type": "lightbox",
+        "image": "/img/wine.png",
+        "title": "Weboldal design",
+        "lightboxImage": "/img/wine.png"
       }
     ]
   },
