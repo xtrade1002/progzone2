@@ -297,23 +297,217 @@
   },
   "infos": {
     "meta_title": "Infos",
-    "sections": {
-      "web": "Webseiten",
-      "marketing": "Marketing",
-      "security": "Sicherheit"
-    },
-    "questions": {
-      "domain_hosting": "Was ist eine Domain und ein Hosting-Service?",
-      "wordpress_vs_custom": "Was ist der Unterschied zwischen WordPress und individuell entwickelten Webseiten?",
-      "wordpress_maintenance": "Warum ist die Wartung von WordPress-Webseiten notwendig?",
-      "custom_costs": "Warum kostet eine individuell entwickelte Webseite mehr als eine WordPress-Seite?",
-      "seo": "Was ist SEO und warum ist es wichtig?",
-      "longterm_costs": "Wie viel kostet eine Webseite langfristig?",
-      "marketing_costs": "Woraus bestehen die Marketingkosten?",
-      "google_vs_facebook": "Was ist der Unterschied zwischen Google Ads und Facebook-Werbung?",
-      "security": "Warum ist die Sicherheit einer Webseite wichtig?",
-      "privacy_terms": "Warum sind Datenschutzerklärung und AGB notwendig?"
-    }
+    "empty": "Inhalte werden bald ergänzt...",
+    "sections": [
+      {
+        "title": "Webseiten",
+        "items": [
+          {
+            "title": "Was ist eine Domain und ein Hosting-Service?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Ein <strong>Domainname</strong> (z. B. <code>example.com</code>) ist wie die Adresse eines Hauses. Wenn jemand ihn im Browser eingibt, gelangt er zu deiner Website."
+              },
+              {
+                "type": "paragraph",
+                "text": "Das <strong>Hosting (Webhosting)</strong> ist das Haus selbst: der Ort, an dem die Dateien deiner Website (Texte, Bilder, Datenbank) gespeichert werden."
+              },
+              {
+                "type": "paragraph",
+                "text": "Domain und Hosting werden beide benötigt, damit deine Seite für alle erreichbar ist. Fehlt eines davon, funktioniert die Website nicht."
+              }
+            ]
+          },
+          {
+            "title": "Was ist der Unterschied zwischen WordPress und individuell entwickelten Webseiten?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "<strong>WordPress</strong> ist ein fertiges System, das Millionen nutzen. Es ist wie ein vorgefertigtes Haus, das du innen umgestalten kannst: Du wählst ein Theme und Erweiterungen. Es ist schneller und günstiger, aber weniger flexibel."
+              },
+              {
+                "type": "paragraph",
+                "text": "Eine <strong>individuell entwickelte Website</strong> entsteht dagegen komplett von Grund auf für dich. Das ist wie eine selbst entworfene Villa: Du bekommst genau das, was du dir wünschst, brauchst dafür aber mehr Zeit und Budget."
+              },
+              {
+                "type": "paragraph",
+                "text": "Kurz gesagt: WordPress ist das „fertige Haus“, individuelle Entwicklung das „selbst gebaute Zuhause“."
+              }
+            ]
+          },
+          {
+            "title": "Warum ist die Wartung von WordPress-Webseiten notwendig?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "WordPress ist wie ein Smartphone: Ohne regelmäßige Updates veraltet es und wird unsicher."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "<strong>Updates</strong>: neue Versionen von Core, Themes und Plugins machen die Seite sicherer.",
+                  "<strong>Sicherheit</strong>: ohne Updates kann deine Seite leicht gehackt werden.",
+                  "<strong>Performance</strong>: Updates machen die Seite häufig schneller.",
+                  "<strong>Fehler vermeiden</strong>: veraltete Plugins geraten oft miteinander in Konflikt."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Wartung ist wie ein Service fürs Auto: Wenn du ihn zu lange auslässt, bleibt es irgendwann stehen."
+              }
+            ]
+          },
+          {
+            "title": "Warum kostet eine individuell entwickelte Webseite mehr als eine WordPress-Seite?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Individuelle Entwicklung erfordert mehr Arbeitszeit und Fachwissen, deshalb ist sie teurer."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "<strong>Alle Funktionen entstehen von Grund auf</strong>, es gibt keine fertigen Templates.",
+                  "<strong>Komplett maßgeschneidert</strong> nach deinen Anforderungen.",
+                  "<strong>Sicherer und schneller</strong>, weil keine überflüssigen Plugins eingebaut sind.",
+                  "<strong>Langfristige Investition</strong>, die sich später leichter erweitern lässt."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Das ist wie der Unterschied zwischen einem <strong>IKEA-Möbelstück</strong> und einem <strong>maßgefertigten Möbel</strong> vom Schreiner."
+              }
+            ]
+          },
+          {
+            "title": "Was ist SEO und warum ist es wichtig?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "<strong>SEO</strong> (Suchmaschinenoptimierung) sorgt dafür, dass Google deine Seite besser bewertet. Du erscheinst höher in den Suchergebnissen und wirst ohne bezahlte Klicks von mehr Menschen gefunden."
+              },
+              {
+                "type": "paragraph",
+                "text": "Kurz gesagt: SEO ist wie eine kostenlose Werbetafel bei Google."
+              }
+            ]
+          },
+          {
+            "title": "Wie viel kostet eine Webseite langfristig?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Eine Website ist keine einmalige Ausgabe. Es gibt laufende Kosten:"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "<strong>Domaingebühr</strong>: jährlich fällig, meist einige bis einige Dutzend Euro.",
+                  "<strong>Hostinggebühr</strong>: die Kosten für den Serverbetrieb, normalerweise monatlich oder jährlich.",
+                  "<strong>Wartung</strong>: Updates, Fehlerbehebungen, Backups.",
+                  "<strong>Weiterentwicklung</strong>: wenn neue Funktionen benötigt werden."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Das ist wie bei einem Auto: Der Kaufpreis ist nur der Anfang – auch Treibstoff, Versicherung und Service zählen."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Marketing",
+        "items": [
+          {
+            "title": "Woraus bestehen die Marketingkosten?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Marketingbudgets setzen sich aus mehreren Bausteinen zusammen – nicht nur aus den Anzeigen."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "<strong>Anzeigenbudget</strong>: der Betrag, den du direkt an Plattformen wie Google, Facebook oder andere zahlst.",
+                  "<strong>Kampagnenbetreuung</strong>: das Honorar der Fachperson oder Agentur, die die Anzeigen steuert und optimiert.",
+                  "<strong>Content-Erstellung</strong>: Texte, Bilder und Videos produzieren.",
+                  "<strong>Tools</strong>: Abos für E-Mail-Marketing-Software, SEO-Tools und Analyseplattformen."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Marketing ist wie eine Maschine: Du investierst nicht nur in die Werbung selbst, sondern auch in die Arbeit im Hintergrund."
+              }
+            ]
+          },
+          {
+            "title": "Was ist der Unterschied zwischen Google Ads und Facebook-Werbung?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "<strong>Google Ads</strong> erscheinen, wenn jemand aktiv nach etwas sucht. Gibt jemand „Friseur Berlin“ ein, sieht er sofort Anzeigen."
+              },
+              {
+                "type": "paragraph",
+                "text": "<strong>Facebook-Werbung</strong> weckt Interesse. Sie erreicht Menschen, die vielleicht gerade nichts suchen, sich aber dafür interessieren könnten."
+              },
+              {
+                "type": "paragraph",
+                "text": "Kurz gesagt: Google adressiert den Moment kurz vor dem Kauf, Facebook sorgt für Aufmerksamkeit."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Sicherheit",
+        "items": [
+          {
+            "title": "Warum ist die Sicherheit einer Webseite wichtig?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Eine unsichere Website kann leicht gehackt werden – mit ernsthaften Folgen:"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "Kundendaten und Passwörter können gestohlen werden.",
+                  "Schadsoftware oder unerwünschte Werbung kann eingeschleust werden.",
+                  "Google kann deine Seite auf die Sperrliste setzen."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Eine sichere Website ist wie ein Schloss an der Ladentür: Sie schützt dein Unternehmen und das Vertrauen deiner Kundschaft."
+              }
+            ]
+          },
+          {
+            "title": "Warum sind Datenschutzerklärung und AGB notwendig?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Diese Dokumente sind gesetzlich vorgeschrieben und stärken zugleich das Vertrauen."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "<strong>Datenschutzerklärung (DSGVO)</strong>: erklärt, wie du die Daten deiner Besucher verwendest.",
+                  "<strong>AGB</strong>: vor allem für Onlineshops wichtig; sie regeln Kaufablauf, Garantien und Widerruf."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Ohne sie drohen nicht nur Bußgelder, auch Besucher vertrauen dir weniger."
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   "references": {
     "meta_title": "Referenzen",
