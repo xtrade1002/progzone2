@@ -6,7 +6,61 @@ import useTranslations from '../lib/useTranslations.js';
 export default function Prices({ prices = [] }) {
   const { trans, t } = useTranslations();
   const priceTranslations = trans?.prices ?? {};
-  const cards = Array.isArray(prices) ? prices : [];
+
+  const normalizedCards = Array.isArray(prices)
+    ? prices.map((price, index) => ({
+        id: price.id ?? price.slug ?? index,
+        slug: price.slug ?? index,
+        title: price.title,
+        description: price.description,
+        feature_heading: price.feature_heading,
+        features: Array.isArray(price.features) ? price.features : [],
+        price_label: price.price_label,
+      }))
+    : [];
+
+  const fallbackKeys = ['wordpress', 'webshop', 'custom', 'marketing'];
+
+  const fallbackCards = fallbackKeys
+    .map((key, index) => {
+      const translation = priceTranslations?.[key];
+
+      if (!translation || typeof translation !== 'object') {
+        return null;
+      }
+
+      const descriptionParts = [translation.desc, translation.footer].filter(
+        (part) => typeof part === 'string' && part.trim() !== '',
+      );
+
+      const description = descriptionParts.join('\n\n');
+      const features = Array.isArray(translation.list)
+        ? translation.list.filter((item) => typeof item === 'string' && item.trim() !== '')
+        : [];
+
+      if (
+        !translation.title &&
+        !description &&
+        !translation.price &&
+        !translation.not_included &&
+        features.length === 0
+      ) {
+        return null;
+      }
+
+      return {
+        id: key,
+        slug: key,
+        title: translation.title,
+        description,
+        feature_heading: translation.not_included,
+        features,
+        price_label: translation.price,
+      };
+    })
+    .filter(Boolean);
+
+  const cards = normalizedCards.length > 0 ? normalizedCards : fallbackCards;
 
   const cardBase =
     'border border-[#ff007a]/50 rounded-2xl p-6 sm:p-8 bg-[#121317] hover:shadow-[0_0_30px_#ff007a] transition duration-300';
