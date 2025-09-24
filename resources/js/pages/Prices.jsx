@@ -14,9 +14,9 @@ export default function Prices({ prices = {} }) {
 
   // Fordítási kulcs → adatbázis slug leképezés
   const slugMap = {
-    wordpress: 'wordpress',
-    webshop: 'woocommerce',
-    custom: 'egyedifejlesztes',
+    wordpress: 'wordpress-website',
+    webshop: 'woocommerce-store',
+    custom: 'custom-website',
     marketing: 'marketing',
   };
 
