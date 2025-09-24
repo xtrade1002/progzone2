@@ -25,11 +25,16 @@ class SetLocaleFromHost
             $locale = $sessionLocale;
         } else {
             $host = $request->getHost();
-            $locale = match ($host) {
-                'progzone.de', 'bitbau.ch' => 'de',
+            $hostLocaleMap = [
+                'progzone.de' => 'de',
+                'www.progzone.de' => 'de',
+                'bitbau.ch' => 'de',
+                'www.bitbau.ch' => 'de',
                 'progzone.hu' => 'hu',
-                default => config('app.fallback_locale', 'hu'),
-            };
+                'www.progzone.hu' => 'hu',
+            ];
+
+            $locale = $hostLocaleMap[$host] ?? config('app.fallback_locale', 'hu');
 
             if (! in_array($locale, $availableLocales, true)) {
                 $locale = config('app.fallback_locale', 'hu');
