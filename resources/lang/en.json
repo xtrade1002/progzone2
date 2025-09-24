@@ -121,7 +121,9 @@
   "prices": {
   "meta_title": "Prices",
   "title": "Prices",
-  "note": "For a detailed quote, please contact me:",
+  "note": "For a detailed quote, please contact me via email:",
+  "note_email": "info@progzone.de",
+
 
   "wordpress": {
     "title": "Website Development (WordPress)",

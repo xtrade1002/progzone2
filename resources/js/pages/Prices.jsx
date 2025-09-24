@@ -3,69 +3,17 @@ import { Head } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
 
+/**
+ * Prices oldal – a szövegek a fordítási fájlokból jönnek, az árak az adatbázisból (domain alapján).
+ *
+ * Props:
+ *  - prices: objektum, amelyben a backend kulcs szerint rendezi az árakat (pl. { wordpress: {...}, domain: {...} })
+ */
 export default function Prices({ prices = {} }) {
   const { trans, t } = useTranslations();
-  const priceTranslations = trans?.prices ?? {};
+  const tr = trans?.prices ?? {};
 
-  const normalizedCards = Array.isArray(prices)
-    ? prices.map((price, index) => ({
-        id: price.id ?? price.slug ?? index,
-        slug: price.slug ?? index,
-        title: price.title,
-        description: price.description,
-        feature_heading: price.feature_heading,
-        features: Array.isArray(price.features) ? price.features : [],
-        price_label: price.price_label,
-      }))
-    : [];
-
-  const fallbackKeys = ['wordpress', 'webshop', 'custom', 'marketing'];
-
-  const fallbackCards = fallbackKeys
-    .map((key, index) => {
-      const translation = priceTranslations?.[key];
-
-      if (!translation || typeof translation !== 'object') {
-        return null;
-      }
-
-      const descriptionParts = [translation.desc, translation.footer].filter(
-        (part) => typeof part === 'string' && part.trim() !== '',
-      );
-
-      const description = descriptionParts.join('\n\n');
-      const features = Array.isArray(translation.list)
-        ? translation.list.filter((item) => typeof item === 'string' && item.trim() !== '')
-        : [];
-
-      if (
-        !translation.title &&
-        !description &&
-        !translation.price &&
-        !translation.not_included &&
-        features.length === 0
-      ) {
-        return null;
-      }
-
-      return {
-        id: key,
-        slug: key,
-        title: translation.title,
-        description,
-        feature_heading: translation.not_included,
-        features,
-        price_label: translation.price,
-      };
-    })
-    .filter(Boolean);
-
-  const cards = normalizedCards.length > 0 ? normalizedCards : fallbackCards;
-
-  const cardBase =
-    'border border-[#ff007a]/50 rounded-2xl p-6 sm:p-8 bg-[#121317] hover:shadow-[0_0_30px_#ff007a] transition duration-300';
-
-  // Helyőrzők kicserélése DB árakkal
+  // Helyőrzők cseréje (domain_price, hosting_price, plugin_price, hourly_rate)
   const replacePlaceholders = (text) => {
     if (!text) return '';
     return text
@@ -87,23 +35,24 @@ export default function Prices({ prices = {} }) {
       );
   };
 
+  // Kártya-generátor: a kulcsot (`wordpress`, `webshop`, `custom`, `marketing`) átadva kirendereli a tartalmat
   const renderCard = (key) => {
     const block = tr[key];
     if (!block) return null;
 
     return (
-      <li className={cardBase}>
+      <li className="border border-[#ff007a]/50 rounded-2xl p-6 sm:p-8 bg-[#121317] hover:shadow-[0_0_30px_#ff007a] transition duration-300">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 w-full">
           <div className="flex-1 min-w-0">
             <h2 className="text-2xl font-bold text-[#FF007A] mb-3">
               {block.title}
             </h2>
+            {/* Leírás több sorban is lehet; newline-ok megtartása */}
             {block.desc && (
-              <p className="text-gray-300 whitespace-pre-line">
-                {block.desc}
-              </p>
+              <p className="text-gray-300 whitespace-pre-line">{block.desc}</p>
             )}
 
+            {/* “Az ár NEM tartalmazza:” vagy megfelelő fordítása */}
             {block.not_included && (
               <p className="text-gray-300 mt-4">
                 <span className="font-bold text-[#FF007A] underline">
@@ -112,14 +61,16 @@ export default function Prices({ prices = {} }) {
               </p>
             )}
 
+            {/* Listaelemek helyőrzőkkel */}
             {Array.isArray(block.list) && (
               <ul className="list-disc list-inside mt-2 text-gray-400 space-y-1">
-                {block.list.map((item, i) => (
-                  <li key={i}>{replacePlaceholders(item)}</li>
+                {block.list.map((item, idx) => (
+                  <li key={idx}>{replacePlaceholders(item)}</li>
                 ))}
               </ul>
             )}
 
+            {/* Lábjegyzet (pl. “Fix alapár…”) */}
             {block.footer && (
               <p className="text-gray-300 mt-4">
                 {replacePlaceholders(block.footer)}
@@ -127,6 +78,7 @@ export default function Prices({ prices = {} }) {
             )}
           </div>
 
+          {/* Az ár megjelenítése az adatbázisból */}
           <span className="text-lg sm:text-xl font-bold text-[#00f7ff] mt-2 md:mt-0 break-words">
             {prices[key]?.price_label} {prices[key]?.currency}{' '}
             {prices[key]?.extras}
@@ -141,6 +93,7 @@ export default function Prices({ prices = {} }) {
       <Head title={tr.meta_title ?? t('menu.prices', 'Prices')} />
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
         <div className="rounded-2xl p-4 sm:p-10">
+          {/* Oldal címe (Árak / Prices / Preise) */}
           {tr.title && (
             <h1 className="text-3xl font-bold text-center text-[#FF007A]">
               {tr.title}
@@ -154,6 +107,7 @@ export default function Prices({ prices = {} }) {
             {renderCard('marketing')}
           </ul>
 
+          {/* Záró megjegyzés */}
           {(tr.note || tr.note_email) && (
             <p className="mt-12 text-center text-gray-400">
               {tr.note}{' '}

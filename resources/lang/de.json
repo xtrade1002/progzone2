@@ -121,7 +121,8 @@
   "prices": {
   "meta_title": "Preise",
   "title": "Preise",
-  "note": "Für ein genaues Angebot kontaktieren Sie mich bitte:",
+  "note": "Für ein genaues Angebot kontaktieren Sie mich bitte per E-Mail:",
+  "note_email": "info@progzone.de",
 
   "wordpress": {
     "title": "Website-Erstellung (WordPress)",

@@ -10,24 +10,23 @@ use Inertia\Response;
 class PriceController extends Controller
 {
     /**
-     * Display the price list for the current domain and locale.
+     * Display the price list for the current domain.
      */
     public function index(Request $request): Response
     {
         $domain = $request->getHost(); // pl. progzone.de
 
-        // Lekérjük az árakat domain alapján
+        // Árlista domain szerint, kulcs: cím/slug (pl. wordpress, domain, plugin stb.)
         $prices = DB::table('prices')
             ->where('domain', $domain)
             ->where('is_active', 1)
             ->orderBy('position')
             ->get()
-            ->keyBy('title'); // kulcs: wordpress, woocommerce, custom, marketing, domain, hosting stb.
+            ->mapWithKeys(function ($row) {
+                return [$row->title => (array) $row];
+            });
 
         return Inertia::render('Prices', [
-            // a szövegek a fordítási JSON fájlokból jönnek (hu/de/en)
-            'trans'  => trans('prices'),
-            // az árak az adatbázisból jönnek, domain szerint
             'prices' => $prices,
         ]);
     }
