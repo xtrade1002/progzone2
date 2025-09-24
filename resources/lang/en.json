@@ -121,21 +121,19 @@
   "prices": {
   "meta_title": "Prices",
   "title": "Prices",
-  "note": "For a detailed quote, please contact me via email:",
-  "note_email": "info@progzone.de",
+  "note": "For a detailed quote, please contact me:",
 
   "wordpress": {
     "title": "Website Development (WordPress)",
     "desc": "Fast, cost-effective and easy-to-edit solution with modern design and SEO. The price depends on the number of pages, design type, content management and maintenance.",
     "not_included": "The price does NOT include:",
     "list": [
-      "Domain name (approx. $10/year)",
-      "Hosting (approx. $30/year)",
-      "Premium themes and plugins ($20–50)",
+      "Domain name (approx. {domain_price})",
+      "Hosting (approx. {hosting_price})",
+      "Premium themes and plugins ({plugin_price})",
       "Custom functions (e.g. booking system, invoicing)"
     ],
-    "footer": "The main project is fixed price, extras are billed hourly ($25/hour).",
-    "price": "From 150.000 Ft"
+    "footer": "The main project is fixed price, extras are billed hourly ({hourly_rate})."
   },
 
   "webshop": {
@@ -143,27 +141,24 @@
     "desc": "Professional online store with integrated payments, shipping, discount management and multilingual support.",
     "not_included": "The price does NOT include:",
     "list": [
-      "Domain name (approx. $10/year)",
-      "Hosting (approx. $30/year)",
-      "Premium themes and plugins ($20–50)",
+      "Domain name (approx. {domain_price})",
+      "Hosting (approx. {hosting_price})",
+      "Premium themes and plugins ({plugin_price})",
       "Custom functions (e.g. booking system, invoicing)"
     ],
-    "footer": "The main project is fixed price, extras are billed hourly ($25/hour).",
-    "price": "From 200.000 Ft"
+    "footer": "The main project is fixed price, extras are billed hourly ({hourly_rate})."
   },
 
   "custom": {
     "title": "Custom Developed Website",
     "desc": "With special functions, maximum flexibility and expandability. The price depends on the complexity of the functions, the integrations, the size of the system and the maintenance needs.",
-    "footer": "Depending on the project: fixed price or hourly billing ($25/hour).",
-    "price": "Fixed price / $25 per hour"
+    "footer": "Depending on the project: fixed price or hourly billing ({hourly_rate})."
   },
 
   "marketing": {
     "title": "Marketing",
     "desc": "Google Ads, Facebook and Instagram campaigns, SEO and content creation to increase your revenue.",
-    "footer": "The price depends on the number, type and complexity of the campaigns.",
-    "price": "From 30.000 Ft/month + advertising costs"
+    "footer": "The price depends on the number, type and complexity of the campaigns."
   }
 },
   "quote": {
