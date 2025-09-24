@@ -18,28 +18,38 @@ class PriceController extends Controller
         $domain = $request->getHost(); // pl. progzone.de
         $locale = app()->getLocale();
 
-        // Árlista domain + nyelv szerint, kulcs: slug (pl. wordpress, domain, plugin stb.)
+        // Árlista domain + nyelv szerint
         $prices = Price::query()
             ->forDomainAndLocale($domain, $locale)
             ->orderBy('position')
             ->get()
             ->mapWithKeys(function (Price $price) {
                 return [
-                    $price->slug => Arr::only(
-                        $price->toArray(),
+                    // FONTOS: a slug legyen a kulcs
+                    $price->slug ?? 'extra' => array_merge(
+                        Arr::only(
+                            $price->toArray(),
+                            [
+                                'slug',
+                                'locale',
+                                'domain',
+                                'title',
+                                'description',
+                                'feature_heading',
+                                'features',
+                                'price_label',
+                                'currency',
+                                'extras',
+                                'position',
+                            ]
+                        ),
                         [
-                            'slug',
-                            'locale',
-                            'domain',
-                            'title',
-                            'description',
-                            'feature_heading',
-                            'features',
-                            'price_label',
-                            'currency',
-                            'extras',
-                            'position',
-                        ],
+                            // Fix árértékek a placeholder-ekhez
+                            'domain_price'  => '3.000 Ft/év',
+                            'hosting_price' => '10.000 Ft/év',
+                            'plugin_price'  => '20.000–50.000 Ft',
+                            'hourly_rate'   => '10.000 Ft/óra',
+                        ]
                     ),
                 ];
             });

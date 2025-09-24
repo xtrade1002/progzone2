@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Head } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
 
 /**
- * Prices oldal – szövegek a fordítási fájlból, árak adatbázisból.
+ * Prices oldal – szövegek a fordítási fájlból, árak adatbázisból.
+ *
  * Props:
  *  - prices: object, kulcsok a slug-ok (pl. wordpress, woocommerce, egyedifejlesztes, marketing stb.)
  */
@@ -12,125 +13,56 @@ export default function Prices({ prices = {} }) {
   const { trans, t } = useTranslations();
   const tr = trans?.prices ?? {};
 
-  const normalizeSlug = (slug) => {
-    if (!slug) return '';
-
-    return slug
-      .toString()
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-  };
-
-  // Normalizált árlista objektum a slug → ár gyors kereséséhez
-  const priceMap = useMemo(() => {
-    if (!prices) return {};
-
-    const entries = Array.isArray(prices)
-      ? prices.map((item) => [item?.slug ?? null, item])
-      : Object.entries(prices ?? {});
-
-    return entries.reduce((acc, [key, item]) => {
-      if (!item || typeof item !== 'object') {
-        return acc;
-      }
-
-      const possibleSlugs = [key, item.slug].filter(Boolean);
-
-      for (const slug of possibleSlugs) {
-        const normalized = normalizeSlug(slug);
-
-        if (slug && !acc[slug]) {
-          acc[slug] = item;
-        }
-
-        if (normalized && !acc[normalized]) {
-          acc[normalized] = item;
-        }
-      }
-
-      return acc;
-    }, {});
-  }, [prices]);
-
-  const getPriceBySlug = (slugCandidates) => {
-    const candidates = Array.isArray(slugCandidates) ? slugCandidates : [slugCandidates];
-
-    for (const candidate of candidates) {
-      if (!candidate) continue;
-
-      if (priceMap[candidate]) {
-        return priceMap[candidate];
-      }
-
-      const normalized = normalizeSlug(candidate);
-      if (normalized && priceMap[normalized]) {
-        return priceMap[normalized];
-      }
-    }
-
-    return null;
-  };
-
-  const formatPriceText = (priceObj) => {
-    if (!priceObj || typeof priceObj !== 'object') return '';
-
-    return [priceObj.price_label, priceObj.currency, priceObj.extras]
-      .filter(Boolean)
-      .join(' ')
-      .trim();
-  };
-
-  // Fordítási kulcs → adatbázis slug leképezés (több lehetséges sluggal)
+  // Fordítási kulcs → adatbázis slug leképezés
   const slugMap = {
-    wordpress: ['wordpress-website', 'wordpress'],
-    webshop: ['woocommerce-store', 'webshop'],
-    custom: ['custom-website', 'custom'],
-    marketing: ['marketing'],
+    wordpress: 'wordpress',
+    webshop: 'woocommerce',
+    custom: 'egyedifejlesztes',
+    marketing: 'marketing',
   };
 
-  // Külön ármezők a placeholder-ekhez (extras)
-  const extras = {
-    domain_price:
-      getPriceBySlug(['domain', 'domain-price'])?.price_label ??
-      prices?.domain?.price_label ??
-      '',
-    hosting_price:
-      getPriceBySlug(['hosting', 'hosting-price'])?.price_label ??
-      prices?.hosting?.price_label ??
-      '',
-    plugin_price:
-      getPriceBySlug(['plugin', 'plugin-price'])?.price_label ??
-      prices?.plugin?.price_label ??
-      '',
-    hourly_rate:
-      getPriceBySlug(['extra-functions', 'extra-functions-dev', 'extraFunctionsDev', 'hourly-rate'])?.price_label ??
-      prices?.extraFunctionsDev?.price_label ??
-      '',
+  // Helyőrzők cseréje regex-szel (kezeli a {key}, :key, ({key}) formátumokat is)
+  const replacePlaceholders = (text, allPrices) => {
+    if (!text || !allPrices) return text;
+  
+    let result = text;
+  
+    Object.entries(allPrices).forEach(([slug, priceObj]) => {
+      if (!priceObj || priceObj.price_value == null) return;
+  
+      // price_value → formázott szám
+      const formattedValue = new Intl.NumberFormat('hu-HU').format(priceObj.price_value);
+  
+      // ár szöveg összeállítása
+      const value =
+        formattedValue +
+        (priceObj.currency ? ` ${priceObj.currency}` : '') +
+        (priceObj.extras ? ` ${priceObj.extras}` : '');
+  
+      // slug alapján pl. ({domain_price}) → (3.000 Ft/év)
+      const regex = new RegExp(`\$begin:math:text$\\\\{${slug}_price\\\\}\\$end:math:text$`, 'g');
+      result = result.replace(regex, `(${value})`);
+    });
+  
+    return result;
   };
 
-  // Helyettesítés a {domain_price}, {plugin_price} stb. helyőrzőkre
-  const replacePlaceholders = (text) => {
-    if (!text || typeof text !== 'string') return text;
-    return text
-      .replace('{domain_price}', extras.domain_price)
-      .replace('{hosting_price}', extras.hosting_price)
-      .replace('{plugin_price}', extras.plugin_price)
-      .replace('{hourly_rate}', extras.hourly_rate);
-  };
-
+  // Kártya megjelenítése
   const renderCard = (key) => {
     const block = tr[key];
     if (!block) return null;
 
-    const slugs = slugMap[key] || [key];
-    const priceObj = getPriceBySlug(slugs);
-    const priceText = formatPriceText(priceObj);
+    const slug = slugMap[key] || key;
+    const priceObj = prices[slug];
 
     return (
-      <li className="border border-[#ff007a]/50 rounded-2xl p-6 sm:p-8 bg-[#121317] hover:shadow-[0_0_30px_#ff007a] transition duration-300">
+      <li
+        key={key}
+        className="border border-[#ff007a]/50 rounded-2xl p-6 sm:p-8 bg-[#121317] hover:shadow-[0_0_30px_#ff007a] transition duration-300"
+      >
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 w-full">
           <div className="flex-1 min-w-0">
+            {/* Cím */}
             <h2 className="text-2xl font-bold text-[#FF007A] mb-3">
               {block.title}
             </h2>
@@ -138,11 +70,11 @@ export default function Prices({ prices = {} }) {
             {/* Leírás */}
             {block.desc && (
               <p className="text-gray-300 whitespace-pre-line">
-                {replacePlaceholders(block.desc)}
+                {replacePlaceholders(block.desc, priceObj)}
               </p>
             )}
 
-            {/* "Az ár nem tartalmazza" */}
+            {/* “Az ár NEM tartalmazza” */}
             {block.not_included && (
               <p className="text-gray-300 mt-4">
                 <span className="font-bold text-[#FF007A] underline">
@@ -155,7 +87,9 @@ export default function Prices({ prices = {} }) {
             {Array.isArray(block.list) && (
               <ul className="list-disc list-inside mt-2 text-gray-400 space-y-1">
                 {block.list.map((item, idx) => (
-                  <li key={idx}>{replacePlaceholders(item)}</li>
+                  <li key={idx}>
+                    {replacePlaceholders(item, priceObj)}
+                  </li>
                 ))}
               </ul>
             )}
@@ -163,15 +97,16 @@ export default function Prices({ prices = {} }) {
             {/* Lábjegyzet */}
             {block.footer && (
               <p className="text-gray-300 mt-4">
-                {replacePlaceholders(block.footer)}
+                {replacePlaceholders(block.footer, priceObj)}
               </p>
             )}
           </div>
 
           {/* Az adatbázisból érkező ár kiírása */}
-          {priceText && (
+          {priceObj && (
             <span className="text-lg sm:text-xl font-bold text-[#00f7ff] mt-2 md:mt-0 break-words">
-              {priceText}
+              {priceObj.price_label} {priceObj.currency}{' '}
+              {priceObj.extras}
             </span>
           )}
         </div>
