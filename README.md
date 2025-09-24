@@ -21,6 +21,21 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Mailjet SMTP használata
+
+Az alkalmazás levélküldését a [Mailjet](https://www.mailjet.com/) SMTP szolgáltatása végzi. A csomagküldéshez állítsd be a következő környezeti változókat a `.env` fájlban:
+
+```env
+MAIL_MAILER=mailjet
+MAIL_HOST=in-v3.mailjet.com
+MAIL_PORT=587
+MAIL_USERNAME=your-mailjet-api-key
+MAIL_PASSWORD=your-mailjet-secret-key
+MAIL_ENCRYPTION=tls
+```
+
+Szükség esetén külön `MAILJET_*` változókkal (például `MAILJET_HOST`, `MAILJET_USERNAME`) felülírhatod az alapértelmezett értékeket. Ne felejtsd el a Mailjet fiókodhoz tartozó API kulcsokat és feladói e-mail címet megadni.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
