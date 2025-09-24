@@ -119,49 +119,53 @@
     ]
   },
   "prices": {
-    "meta_title": "Preise",
-    "title": "Preise",
-    "note": "Für ein genaues Angebot kontaktieren Sie mich bitte per E-Mail:",
-    "note_email": "info@progzone.de",
-    "wordpress": {
-      "title": "Website-Erstellung (WordPress)",
-      "desc": "Schnelle, kostengünstige und einfach zu bearbeitende Lösung mit modernem Design und SEO. Der Preis hängt z. B. von der Anzahl der Seiten, dem Design, dem Content-Management und der Wartung ab.",
-      "not_included": "Der Preis enthält NICHT:",
-      "list": [
-        "Domainname (ca. 10 €/Jahr)",
-        "Hosting (ca. 30 €/Jahr)",
-        "Premium-Themes und Plugins (20–50 € jährlich oder einmalig)",
-        "Individuelle Funktionen (z. B. Buchungssystem, Rechnungsstellung)"
-      ],
-      "footer": "Das Hauptprojekt ist Festpreis, zusätzliche Wünsche nach Stunden (ca. 25 €/Stunde).",
-      "price": "Ab 150.000 Ft"
-    },
-    "webshop": {
-      "title": "Onlineshop-Erstellung (WooCommerce)",
-      "desc": "Professioneller Online-Shop mit integrierten Zahlungen, Versand, Rabattverwaltung und Mehrsprachigkeit.",
-      "not_included": "Der Preis enthält NICHT:",
-      "list": [
-        "Domainname (ca. 10 €/Jahr)",
-        "Hosting (ca. 30 €/Jahr)",
-        "Premium-Themes und Plugins (20–50 € jährlich oder einmalig)",
-        "Individuelle Funktionen (z. B. Buchungssystem, Rechnungsstellung)"
-      ],
-      "footer": "Das Hauptprojekt ist Festpreis, zusätzliche Wünsche nach Stunden (ca. 25 €/Stunde).",
-      "price": "Ab 200.000 Ft"
-    },
-    "custom": {
-      "title": "Individuell entwickelte Website",
-      "desc": "Mit speziellen Funktionen, maximaler Flexibilität und Erweiterbarkeit. Der Preis hängt von der Komplexität der Funktionen und den Integrationen ab.",
-      "footer": "Je nach Projekt Festpreis oder Stundenabrechnung (ca. 25 €/Stunde).",
-      "price": "Festpreis / 25 €/Stunde"
-    },
-    "marketing": {
-      "title": "Marketing",
-      "desc": "Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung zur Umsatzsteigerung.",
-      "footer": "Der Preis hängt von der Anzahl, Art und Komplexität der Kampagnen ab.",
-      "price": "Ab 30.000 Ft/Monat + Werbekosten"
-    }
+  "meta_title": "Preise",
+  "title": "Preise",
+  "note": "Für ein genaues Angebot kontaktieren Sie mich bitte per E-Mail:",
+  "note_email": "info@progzone.de",
+
+  "wordpress": {
+    "title": "Website-Erstellung (WordPress)",
+    "desc": "Schnelle, kostengünstige und einfach zu bearbeitende Lösung mit modernem Design und SEO. Der Preis hängt z. B. von der Anzahl der Seiten, dem Design, dem Content-Management und der Wartung ab.",
+    "not_included": "Der Preis enthält NICHT:",
+    "list": [
+      "Domainname (ca. 10 €/Jahr)",
+      "Hosting (ca. 30 €/Jahr)",
+      "Premium-Themes und Plugins (20–50 €)",
+      "Individuelle Funktionen (z. B. Buchungssystem, Rechnungsstellung)"
+    ],
+    "footer": "Das Hauptprojekt ist Festpreis, zusätzliche Wünsche werden nach Stunden abgerechnet (ca. 25 €/Stunde).",
+    "price": "Ab 150.000 Ft"
   },
+
+  "webshop": {
+    "title": "Onlineshop-Erstellung (WooCommerce)",
+    "desc": "Professioneller Online-Shop mit integrierten Zahlungen, Versand, Rabattverwaltung und Mehrsprachigkeit.",
+    "not_included": "Der Preis enthält NICHT:",
+    "list": [
+      "Domainname (ca. 10 €/Jahr)",
+      "Hosting (ca. 30 €/Jahr)",
+      "Premium-Themes und Plugins (20–50 €)",
+      "Individuelle Funktionen (z. B. Buchungssystem, Rechnungsstellung)"
+    ],
+    "footer": "Das Hauptprojekt ist Festpreis, zusätzliche Wünsche werden nach Stunden abgerechnet (ca. 25 €/Stunde).",
+    "price": "Ab 200.000 Ft"
+  },
+
+  "custom": {
+    "title": "Individuell entwickelte Website",
+    "desc": "Mit speziellen Funktionen, maximaler Flexibilität und Erweiterbarkeit. Der Preis hängt von der Komplexität der Funktionen, den Integrationen, der Größe des Systems und dem Wartungsaufwand ab.",
+    "footer": "Je nach Projekt Festpreis oder Stundenabrechnung (ca. 25 €/Stunde).",
+    "price": "Festpreis / 25 €/Stunde"
+  },
+
+  "marketing": {
+    "title": "Marketing",
+    "desc": "Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung zur Umsatzsteigerung.",
+    "footer": "Der Preis hängt von der Anzahl, Art und Komplexität der Kampagnen ab.",
+    "price": "Ab 30.000 Ft/Monat + Werbekosten"
+  }
+},
   "quote": {
     "meta_title": "Angebot anfordern",
     "title": "Angebot anfordern",
