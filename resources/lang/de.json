@@ -129,8 +129,8 @@
     "desc": "Schnelle, kostengünstige und einfach zu bearbeitende Lösung mit modernem Design und SEO. Der Preis hängt z. B. von der Anzahl der Seiten, dem Design, dem Content-Management und der Wartung ab.",
     "not_included": "Der Preis enthält NICHT:",
     "list": [
-      "Domainname (ca. {domain_price})",
-      "Hosting (ca. {hosting_price})",
+      "Domainname ca. ({domain_price})",
+      "Hosting ca. ({hosting_price})",
       "Premium-Themes und Plugins ({plugin_price})",
       "Individuelle Funktionen"
     ],
@@ -142,8 +142,8 @@
     "desc": "Professioneller Online-Shop mit integrierten Zahlungen, Versand, Rabattverwaltung und Mehrsprachigkeit.",
     "not_included": "Der Preis enthält NICHT:",
     "list": [
-      "Domainname (ca. {domain_price})",
-      "Hosting (ca. {hosting_price})",
+      "Domainname ca. ({domain_price})",
+      "Hosting ca. ({hosting_price})",
       "Premium-Themes und Plugins ({plugin_price})",
       "Individuelle Funktionen"
     ],

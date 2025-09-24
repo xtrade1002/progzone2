@@ -130,8 +130,8 @@
     "desc": "Fast, cost-effective and easy-to-edit solution with modern design and SEO. The price depends on the number of pages, design type, content management and maintenance.",
     "not_included": "The price does NOT include:",
     "list": [
-      "Domain name (approx. {domain_price})",
-      "Hosting (approx. {hosting_price})",
+      "Domain name approx. ({domain_price})",
+      "Hosting approx. ({hosting_price})",
       "Premium themes and plugins ({plugin_price})",
       "Custom functions (e.g. booking system, invoicing)"
     ],
@@ -143,8 +143,8 @@
     "desc": "Professional online store with integrated payments, shipping, discount management and multilingual support.",
     "not_included": "The price does NOT include:",
     "list": [
-      "Domain name (approx. {domain_price})",
-      "Hosting (approx. {hosting_price})",
+      "Domain name approx. ({domain_price})",
+      "Hosting approx. ({hosting_price})",
       "Premium themes and plugins ({plugin_price})",
       "Custom functions (e.g. booking system, invoicing)"
     ],

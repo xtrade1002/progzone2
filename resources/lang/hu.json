@@ -128,8 +128,8 @@
     "desc": "Gyors, költséghatékony és könnyen szerkeszthető megoldás modern dizájnnal és SEO-val. Az ár függ, pl. oldalak számától, design típusától, tartalomkezeléstől és karbantartástól, stb.",
     "not_included": "Az ár NEM tartalmazza:",
     "list": [
-      "Domain név (kb. {domain_price})",
-      "Tárhely (kb. {hosting_price})",
+      "Domain név kb. ({domain_price})",
+      "Tárhely kb. ({hosting_price})",
       "Prémium sablonok és bővítmények ({plugin_price})",
       "Egyedi fejlesztésű funkciók"
     ],
@@ -141,8 +141,8 @@
     "desc": "Professzionális online bolt, integrált fizetéssel, szállítással, akciókezeléssel és többnyelvűséggel.",
     "not_included": "Az ár NEM tartalmazza:",
     "list": [
-      "Domain név (kb. {domain_price})",
-      "Tárhely (kb. {hosting_price})",
+      "Domain név kb. ({domain_price})",
+      "Tárhely kb. ({hosting_price})",
       "Prémium sablonok és bővítmények ({plugin_price})",
       "Egyedi fejlesztésű funkciók"
     ],

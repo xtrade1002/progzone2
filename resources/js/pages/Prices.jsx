@@ -4,41 +4,46 @@ import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
 
 /**
- * Prices oldal – a szövegek a fordítási fájlokból jönnek, az árak az adatbázisból (domain alapján).
- *
+ * Prices oldal – szövegek a fordítási fájlból, árak adatbázisból.
  * Props:
- *  - prices: objektum, amelyben a backend kulcs szerint rendezi az árakat (pl. { wordpress: {...}, domain: {...} })
+ *  - prices: object, kulcsok a slug-ok (pl. wordpress, woocommerce, egyedifejlesztes, marketing stb.)
  */
 export default function Prices({ prices = {} }) {
   const { trans, t } = useTranslations();
   const tr = trans?.prices ?? {};
 
-  // Helyőrzők cseréje (domain_price, hosting_price, plugin_price, hourly_rate)
-  const replacePlaceholders = (text) => {
-    if (!text) return '';
-    return text
-      .replace(
-        '{domain_price}',
-        `${prices.domain?.price_label ?? ''} ${prices.domain?.currency ?? ''}${prices.domain?.extras ?? ''}`
-      )
-      .replace(
-        '{hosting_price}',
-        `${prices.hosting?.price_label ?? ''} ${prices.hosting?.currency ?? ''}${prices.hosting?.extras ?? ''}`
-      )
-      .replace(
-        '{plugin_price}',
-        `${prices.plugin?.price_label ?? ''} ${prices.plugin?.currency ?? ''}${prices.plugin?.extras ?? ''}`
-      )
-      .replace(
-        '{hourly_rate}',
-        `${prices.extraFunctionsDev?.price_label ?? ''} ${prices.extraFunctionsDev?.currency ?? ''}${prices.extraFunctionsDev?.extras ?? ''}`
-      );
+  // Fordítási kulcs → adatbázis slug leképezés
+  const slugMap = {
+    wordpress: 'wordpress',
+    webshop: 'woocommerce',
+    custom: 'egyedifejlesztes',
+    marketing: 'marketing',
   };
 
-  // Kártya-generátor: a kulcsot (`wordpress`, `webshop`, `custom`, `marketing`) átadva kirendereli a tartalmat
+  // Külön ármezők a placeholder-ekhez (extras)
+  const extras = {
+    domain_price: prices.domain?.price_label ?? '',
+    hosting_price: prices.hosting?.price_label ?? '',
+    plugin_price: prices.plugin?.price_label ?? '',
+    hourly_rate: prices.extraFunctionsDev?.price_label ?? '',
+  };
+
+  // Helyettesítés a {domain_price}, {plugin_price} stb. helyőrzőkre
+  const replacePlaceholders = (text) => {
+    if (!text || typeof text !== 'string') return text;
+    return text
+      .replace('{domain_price}', extras.domain_price)
+      .replace('{hosting_price}', extras.hosting_price)
+      .replace('{plugin_price}', extras.plugin_price)
+      .replace('{hourly_rate}', extras.hourly_rate);
+  };
+
   const renderCard = (key) => {
     const block = tr[key];
     if (!block) return null;
+
+    const slug = slugMap[key] || key;
+    const priceObj = prices[slug];
 
     return (
       <li className="border border-[#ff007a]/50 rounded-2xl p-6 sm:p-8 bg-[#121317] hover:shadow-[0_0_30px_#ff007a] transition duration-300">
@@ -47,12 +52,15 @@ export default function Prices({ prices = {} }) {
             <h2 className="text-2xl font-bold text-[#FF007A] mb-3">
               {block.title}
             </h2>
-            {/* Leírás több sorban is lehet; newline-ok megtartása */}
+
+            {/* Leírás */}
             {block.desc && (
-              <p className="text-gray-300 whitespace-pre-line">{block.desc}</p>
+              <p className="text-gray-300 whitespace-pre-line">
+                {replacePlaceholders(block.desc)}
+              </p>
             )}
 
-            {/* “Az ár NEM tartalmazza:” vagy megfelelő fordítása */}
+            {/* "Az ár nem tartalmazza" */}
             {block.not_included && (
               <p className="text-gray-300 mt-4">
                 <span className="font-bold text-[#FF007A] underline">
@@ -61,7 +69,7 @@ export default function Prices({ prices = {} }) {
               </p>
             )}
 
-            {/* Listaelemek helyőrzőkkel */}
+            {/* Listaelemek */}
             {Array.isArray(block.list) && (
               <ul className="list-disc list-inside mt-2 text-gray-400 space-y-1">
                 {block.list.map((item, idx) => (
@@ -70,7 +78,7 @@ export default function Prices({ prices = {} }) {
               </ul>
             )}
 
-            {/* Lábjegyzet (pl. “Fix alapár…”) */}
+            {/* Lábjegyzet */}
             {block.footer && (
               <p className="text-gray-300 mt-4">
                 {replacePlaceholders(block.footer)}
@@ -78,11 +86,12 @@ export default function Prices({ prices = {} }) {
             )}
           </div>
 
-          {/* Az ár megjelenítése az adatbázisból */}
-          <span className="text-lg sm:text-xl font-bold text-[#00f7ff] mt-2 md:mt-0 break-words">
-            {prices[key]?.price_label} {prices[key]?.currency}{' '}
-            {prices[key]?.extras}
-          </span>
+          {/* Az adatbázisból érkező ár kiírása */}
+          {priceObj && (
+            <span className="text-lg sm:text-xl font-bold text-[#00f7ff] mt-2 md:mt-0 break-words">
+              {priceObj.price_label} {priceObj.currency} {priceObj.extras}
+            </span>
+          )}
         </div>
       </li>
     );
@@ -93,7 +102,6 @@ export default function Prices({ prices = {} }) {
       <Head title={tr.meta_title ?? t('menu.prices', 'Prices')} />
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
         <div className="rounded-2xl p-4 sm:p-10">
-          {/* Oldal címe (Árak / Prices / Preise) */}
           {tr.title && (
             <h1 className="text-3xl font-bold text-center text-[#FF007A]">
               {tr.title}
@@ -107,7 +115,6 @@ export default function Prices({ prices = {} }) {
             {renderCard('marketing')}
           </ul>
 
-          {/* Záró megjegyzés */}
           {(tr.note || tr.note_email) && (
             <p className="mt-12 text-center text-gray-400">
               {tr.note}{' '}
