@@ -26,29 +26,21 @@ class PriceController extends Controller
             ->mapWithKeys(function (Price $price) {
                 return [
                     // FONTOS: a slug legyen a kulcs
-                    $price->slug ?? 'extra' => array_merge(
-                        Arr::only(
-                            $price->toArray(),
-                            [
-                                'slug',
-                                'locale',
-                                'domain',
-                                'title',
-                                'description',
-                                'feature_heading',
-                                'features',
-                                'price_label',
-                                'currency',
-                                'extras',
-                                'position',
-                            ]
-                        ),
+                    $price->slug ?? 'extra' => Arr::only(
+                        $price->toArray(),
                         [
-                            // Fix árértékek a placeholder-ekhez
-                            'domain_price'  => '3.000 Ft/év',
-                            'hosting_price' => '10.000 Ft/év',
-                            'plugin_price'  => '20.000–50.000 Ft',
-                            'hourly_rate'   => '10.000 Ft/óra',
+                            'slug',
+                            'locale',
+                            'domain',
+                            'title',
+                            'description',
+                            'feature_heading',
+                            'features',
+                            'price_label',
+                            'price_value',
+                            'currency',
+                            'extras',
+                            'position',
                         ]
                     ),
                 ];
