@@ -20,35 +20,44 @@ class Price extends Model
         'feature_heading',
         'features',
         'price_label',
+        'currency',
+        'extras',
         'position',
+        'is_active',
     ];
 
     protected $casts = [
         'features' => 'array',
         'position' => 'integer',
+        'is_active' => 'boolean',
     ];
 
     /**
-     * Scope a query to only include entries for the given domain and locale.
+     * Scope: Szűrés domain + nyelv szerint.
+     * Használat: Price::forDomainAndLocale($domain, $locale)->get();
      */
     public function scopeForDomainAndLocale(Builder $query, ?string $domain, string $locale): Builder
     {
+        $isLocalhost = in_array($domain, ['localhost', '127.0.0.1']);
+
         return $query
             ->when(
                 static::hasLocaleColumn(),
-                fn (Builder $query) => $query->where('locale', $locale)
+                fn (Builder $query) => $query->where(function ($q) use ($locale) {
+                    $q->whereNull('locale')->orWhere('locale', $locale);
+                })
             )
-            ->where(function (Builder $query) use ($domain) {
-                $query->whereNull('domain');
-
-                if ($domain) {
-                    $query->orWhere('domain', $domain);
-                }
-            });
+            ->when(
+                !$isLocalhost,
+                fn (Builder $query) => $query->where(function ($q) use ($domain) {
+                    $q->whereNull('domain')->orWhere('domain', $domain);
+                })
+            )
+            ->where('is_active', 1);
     }
 
     /**
-     * Determine if the prices table contains the locale column.
+     * Ellenőrzi, hogy van-e 'locale' oszlop az adatbázisban.
      */
     public static function hasLocaleColumn(): bool
     {
@@ -56,7 +65,6 @@ class Price extends Model
 
         if ($hasLocaleColumn === null) {
             $model = new static();
-
             $hasLocaleColumn = Schema::hasColumn($model->getTable(), 'locale');
         }
 
