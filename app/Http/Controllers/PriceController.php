@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Price;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -15,15 +16,32 @@ class PriceController extends Controller
     public function index(Request $request): Response
     {
         $domain = $request->getHost(); // pl. progzone.de
+        $locale = app()->getLocale();
 
-        // Árlista domain szerint, kulcs: cím/slug (pl. wordpress, domain, plugin stb.)
-        $prices = DB::table('prices')
-            ->where('domain', $domain)
-            ->where('is_active', 1)
+        // Árlista domain + nyelv szerint, kulcs: slug (pl. wordpress, domain, plugin stb.)
+        $prices = Price::query()
+            ->forDomainAndLocale($domain, $locale)
             ->orderBy('position')
             ->get()
-            ->mapWithKeys(function ($row) {
-                return [$row->title => (array) $row];
+            ->mapWithKeys(function (Price $price) {
+                return [
+                    $price->slug => Arr::only(
+                        $price->toArray(),
+                        [
+                            'slug',
+                            'locale',
+                            'domain',
+                            'title',
+                            'description',
+                            'feature_heading',
+                            'features',
+                            'price_label',
+                            'currency',
+                            'extras',
+                            'position',
+                        ],
+                    ),
+                ];
             });
 
         return Inertia::render('Prices', [
