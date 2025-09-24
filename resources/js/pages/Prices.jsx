@@ -21,29 +21,82 @@ export default function Prices({ prices = {} }) {
     marketing: 'marketing',
   };
 
-  // Helyőrzők cseréje regex-szel (kezeli a {key}, :key, ({key}) formátumokat is)
-  const replacePlaceholders = (text, allPrices) => {
-    if (!text || !allPrices) return text;
-  
+  const placeholderSlugMap = {
+    domain_price: 'domain',
+    hosting_price: 'hosting',
+    plugin_price: 'plugin',
+    hourly_rate: 'extraFunctionsDev',
+  };
+
+  const formatPriceValue = (priceObj) => {
+    if (!priceObj) return '';
+
+    const { price_value, price_label, currency, extras } = priceObj;
+
+    const currencyLocaleMap = {
+      Ft: 'hu-HU',
+      HUF: 'hu-HU',
+      EUR: 'de-DE',
+      CHF: 'de-CH',
+    };
+
+    const numericValue =
+      price_value !== null && price_value !== undefined && price_value !== ''
+        ? Number(price_value)
+        : null;
+    const hasNumericValue = Number.isFinite(numericValue);
+    const locale = currencyLocaleMap[currency] || 'hu-HU';
+
+    const formattedNumber = hasNumericValue
+      ? new Intl.NumberFormat(locale, {
+          minimumFractionDigits: Number.isInteger(numericValue) ? 0 : 2,
+          maximumFractionDigits: Number.isInteger(numericValue) ? 0 : 2,
+        }).format(numericValue)
+      : (price_label ?? '').trim();
+
+    if (!formattedNumber) {
+      return '';
+    }
+
+    const currencyClean = typeof currency === 'string' ? currency.trim() : '';
+    const currencyPart = currencyClean ? ` ${currencyClean}` : '';
+
+    let extrasClean = typeof extras === 'string' ? extras.trim() : '';
+    extrasClean = extrasClean.replace(/^\/\s+/, '/').replace(/^-\s+/, '-');
+
+    let extrasPart = '';
+    if (extrasClean) {
+      extrasPart = extrasClean.startsWith('/') || extrasClean.startsWith('-')
+        ? extrasClean
+        : ` ${extrasClean}`;
+    }
+
+    return `${formattedNumber}${currencyPart}${extrasPart}`.trim();
+  };
+
+  // Helyőrzők cseréje (kezeli a {key}, :key, ({key}) formátumokat is)
+  const replacePlaceholders = (text) => {
+    if (!text) return text;
+
     let result = text;
-  
-    Object.entries(allPrices).forEach(([slug, priceObj]) => {
-      if (!priceObj || priceObj.price_value == null) return;
-  
-      // price_value → formázott szám
-      const formattedValue = new Intl.NumberFormat('hu-HU').format(priceObj.price_value);
-  
-      // ár szöveg összeállítása
-      const value =
-        formattedValue +
-        (priceObj.currency ? ` ${priceObj.currency}` : '') +
-        (priceObj.extras ? ` ${priceObj.extras}` : '');
-  
-      // slug alapján pl. ({domain_price}) → (3.000 Ft/év)
-      const regex = new RegExp(`\$begin:math:text$\\\\{${slug}_price\\\\}\\$end:math:text$`, 'g');
-      result = result.replace(regex, `(${value})`);
+
+    Object.entries(placeholderSlugMap).forEach(([placeholder, slug]) => {
+      const priceObj = prices?.[slug];
+      const value = formatPriceValue(priceObj);
+
+      if (!value) return;
+
+      const replacements = [
+        { search: `({${placeholder}})`, replaceWith: `(${value})` },
+        { search: `{${placeholder}}`, replaceWith: value },
+        { search: `:${placeholder}`, replaceWith: value },
+      ];
+
+      replacements.forEach(({ search, replaceWith }) => {
+        result = result.split(search).join(replaceWith);
+      });
     });
-  
+
     return result;
   };
 
@@ -70,7 +123,7 @@ export default function Prices({ prices = {} }) {
             {/* Leírás */}
             {block.desc && (
               <p className="text-gray-300 whitespace-pre-line">
-                {replacePlaceholders(block.desc, priceObj)}
+                {replacePlaceholders(block.desc)}
               </p>
             )}
 
@@ -88,7 +141,7 @@ export default function Prices({ prices = {} }) {
               <ul className="list-disc list-inside mt-2 text-gray-400 space-y-1">
                 {block.list.map((item, idx) => (
                   <li key={idx}>
-                    {replacePlaceholders(item, priceObj)}
+                    {replacePlaceholders(item)}
                   </li>
                 ))}
               </ul>
@@ -97,7 +150,7 @@ export default function Prices({ prices = {} }) {
             {/* Lábjegyzet */}
             {block.footer && (
               <p className="text-gray-300 mt-4">
-                {replacePlaceholders(block.footer, priceObj)}
+                {replacePlaceholders(block.footer)}
               </p>
             )}
           </div>
