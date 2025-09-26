@@ -1,0 +1,31 @@
+{
+  "_mui-NsRWMU-7.js": {
+    "file": "assets/mui-NsRWMU-7.js",
+    "name": "mui",
+    "imports": [
+      "_react-ClZwdvRs.js"
+    ]
+  },
+  "_react-ClZwdvRs.js": {
+    "file": "assets/react-ClZwdvRs.js",
+    "name": "react"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-CoYBur1v.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/app.jsx": {
+    "file": "assets/app-DJPK8enb.js",
+    "name": "app",
+    "src": "resources/js/app.jsx",
+    "isEntry": true,
+    "imports": [
+      "_mui-NsRWMU-7.js",
+      "_react-ClZwdvRs.js"
+    ]
+  }
+}
