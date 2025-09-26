@@ -32,3 +32,6 @@ docker-compose.override.yml
 *.pid
 *.seed
 *.pid.lock
+
+# Vite dev server hot file
+public/hot
