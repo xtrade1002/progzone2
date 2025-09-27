@@ -21,8 +21,12 @@
         "@inertiajs/react": "^2.1.6",
         "@mui/material": "^7.3.2",
         "flag-icons": "^7.5.0",
+        "framer-motion": "^12.23.22",
+        "leaflet": "^1.9.4",
         "lucide-react": "^0.544.0",
         "react": "^19.1.1",
-        "react-dom": "^19.1.1"
+        "react-dom": "^19.1.1",
+        "react-quill": "^2.0.0",
+        "recharts": "^3.2.1"
     }
 }
