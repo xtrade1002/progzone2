@@ -6,6 +6,7 @@ import useTranslations from '../lib/useTranslations.js';
 
 const inputClasses =
   'w-full rounded-lg border border-gray-600 bg-transparent p-3 text-gray-200 focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] outline-none transition';
+const selectClasses = inputClasses.replace('bg-transparent', 'bg-[#151522]');
 
 const createInitialFormState = () => ({
   name: '',
@@ -128,7 +129,7 @@ export default function QuoteRequest() {
                 required
                 value={formData.service}
                 onChange={handleChange('service')}
-                className={`${inputClasses} bg-[#151522]`}
+                className={selectClasses}
                 aria-label={fields.service?.label ?? 'Desired service'}
               >
                 <option value="">{fields.service?.placeholder ?? 'Choose a service'}</option>
@@ -141,7 +142,7 @@ export default function QuoteRequest() {
               <select
                 value={formData.budget}
                 onChange={handleChange('budget')}
-                className={`${inputClasses} bg-[#151522]`}
+                className={selectClasses}
                 aria-label={fields.budget?.label ?? 'Estimated budget'}
               >
                 <option value="">{fields.budget?.placeholder ?? 'Select a budget'}</option>
