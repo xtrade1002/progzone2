@@ -63,7 +63,7 @@ export default function MainMenu({ activePath }) {
   return (
     <header className="relative bg-gradient-to-br from-[#0a0a0f] via-[#141422] to-[#0a0a0f] text-gray-400 py-4">
       <nav className="relative">
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <ul className="flex items-center justify-center space-x-6 text-lg font-semibold text-[#FF007A]">
             {menuItems.map((item) => {
               const href = route(item.name);
@@ -87,7 +87,7 @@ export default function MainMenu({ activePath }) {
           </ul>
         </div>
 
-        <div className="flex items-center justify-end px-4 md:hidden">
+        <div className="flex items-center justify-end px-4 lg:hidden">
           <button
             type="button"
             onClick={toggleMenu}
@@ -102,12 +102,12 @@ export default function MainMenu({ activePath }) {
       </nav>
 
       {/* Neon kék vonal közvetlenül a menü alatt */}
-      <div className="hidden w-full h-[1px] bg-[#00f7ff] shadow-[0_0_15px_#00f7ff] mt-4 mb-2 md:block" />
+      <div className="hidden w-full h-[1px] bg-[#00f7ff] shadow-[0_0_15px_#00f7ff] mt-4 mb-2 lg:block" />
 
       {isMenuOpen && (
         <button
           type="button"
-          className="fixed inset-0 z-40 bg-black/70 md:hidden"
+          className="fixed inset-0 z-40 bg-black/70 lg:hidden"
           onClick={closeMenu}
           aria-label="Close navigation menu"
         />
@@ -115,7 +115,7 @@ export default function MainMenu({ activePath }) {
 
       <aside
         id="mobile-main-menu"
-        className={`fixed top-0 right-0 z-50 flex h-full w-72 max-w-full flex-col bg-gradient-to-b from-[#141422] to-[#0a0a0f] shadow-[0_0_25px_rgba(0,247,255,0.3)] transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 z-50 flex h-full w-72 max-w-full flex-col bg-gradient-to-b from-[#141422] to-[#0a0a0f] shadow-[0_0_25px_rgba(0,247,255,0.3)] transition-transform duration-300 ease-in-out lg:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
