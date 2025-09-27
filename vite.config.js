@@ -20,22 +20,32 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+
+    // 🚀 Weboldal felgyorsítása
     optimizeDeps: {
         include: [
             '@mui/material',
             '@emotion/react',
             '@emotion/styled',
+            'react-quill',
+            'recharts',
+            'framer-motion',
+            'leaflet',
         ],
     },
+
     build: {
         rollupOptions: {
             output: {
                 manualChunks: {
                     react: ['react', 'react-dom'],
                     mui: ['@mui/material', '@emotion/react', '@emotion/styled'],
+                    quill: ['react-quill'],
+                    charts: ['recharts'],
+                    motion: ['framer-motion'],
+                    leaflet: ['leaflet'],
                 },
             },
-
         },
     },
 });
