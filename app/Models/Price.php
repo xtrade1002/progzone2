@@ -20,6 +20,7 @@ class Price extends Model
         'feature_heading',
         'features',
         'price_label',
+        'price_value',
         'currency',
         'extras',
         'position',
@@ -28,6 +29,7 @@ class Price extends Model
 
     protected $casts = [
         'features' => 'array',
+        'price_value' => 'decimal:2',
         'position' => 'integer',
         'is_active' => 'boolean',
     ];
@@ -48,12 +50,15 @@ class Price extends Model
                 })
             )
             ->when(
-                !$isLocalhost,
+                !$isLocalhost && static::hasColumn('domain'),
                 fn (Builder $query) => $query->where(function ($q) use ($domain) {
                     $q->whereNull('domain')->orWhere('domain', $domain);
                 })
             )
-            ->where('is_active', 1);
+            ->when(
+                static::hasColumn('is_active'),
+                fn (Builder $query) => $query->where('is_active', 1)
+            );
     }
 
     /**
@@ -61,13 +66,21 @@ class Price extends Model
      */
     public static function hasLocaleColumn(): bool
     {
-        static $hasLocaleColumn;
+        return static::hasColumn('locale');
+    }
 
-        if ($hasLocaleColumn === null) {
+    /**
+     * Ellenőrzi, hogy a megadott oszlop elérhető-e a táblában.
+     */
+    protected static function hasColumn(string $column): bool
+    {
+        static $columnCache = [];
+
+        if (! array_key_exists($column, $columnCache)) {
             $model = new static();
-            $hasLocaleColumn = Schema::hasColumn($model->getTable(), 'locale');
+            $columnCache[$column] = Schema::hasColumn($model->getTable(), $column);
         }
 
-        return $hasLocaleColumn;
+        return $columnCache[$column];
     }
 }
