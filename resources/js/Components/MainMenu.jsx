@@ -119,16 +119,19 @@ export default function MainMenu({ activePath }) {
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between border-b border-white/10 p-4">
+        <div className="flex items-center gap-3 border-b border-white/10 p-4">
           <span className="text-lg font-semibold text-white">{t('menu.title', 'Menu')}</span>
-          <button
-            type="button"
-            onClick={closeMenu}
-            className="rounded-md p-2 text-[#FF007A] transition hover:text-[#00f7ff] focus:outline-none focus:ring-2 focus:ring-[#00f7ff] focus:ring-offset-2 focus:ring-offset-[#141422]"
-            aria-label="Close navigation menu"
-          >
-            <CloseIcon className="h-6 w-6" />
-          </button>
+          <div className="ml-auto flex items-center gap-3">
+            <LanguageSwitcher />
+            <button
+              type="button"
+              onClick={closeMenu}
+              className="rounded-md p-2 text-[#FF007A] transition hover:text-[#00f7ff] focus:outline-none focus:ring-2 focus:ring-[#00f7ff] focus:ring-offset-2 focus:ring-offset-[#141422]"
+              aria-label="Close navigation menu"
+            >
+              <CloseIcon className="h-6 w-6" />
+            </button>
+          </div>
         </div>
 
         <nav className="flex-1 overflow-y-auto py-4">
@@ -171,10 +174,6 @@ export default function MainMenu({ activePath }) {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="border-t border-white/10 p-4">
-          <LanguageSwitcher />
         </div>
       </aside>
     </header>
