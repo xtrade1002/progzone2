@@ -3,8 +3,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
-        "dev": "vite",
+        "build": "node scripts/clean-hot.js && vite build",
+        "dev": "node scripts/clean-hot.js && vite",
         "preview": "vite preview"
     },
     "devDependencies": {
