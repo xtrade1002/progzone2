@@ -11,11 +11,7 @@
     "name": "react"
   },
   "resources/css/app.css": {
-<<<<<<< HEAD
     "file": "assets/app-CoYBur1v.css",
-=======
-    "file": "assets/app-BzzLDH0U.css",
->>>>>>> 8bfcc39 (up)
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -23,11 +19,7 @@
     ]
   },
   "resources/js/app.jsx": {
-<<<<<<< HEAD
     "file": "assets/app-DJPK8enb.js",
-=======
-    "file": "assets/app-DWGkAc_x.js",
->>>>>>> 8bfcc39 (up)
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,

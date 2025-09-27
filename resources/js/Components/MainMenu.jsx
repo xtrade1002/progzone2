@@ -63,7 +63,6 @@ export default function MainMenu({ activePath }) {
   return (
     <header className="relative bg-gradient-to-br from-[#0a0a0f] via-[#141422] to-[#0a0a0f] text-gray-400 py-4">
       <nav className="relative">
-        {/* Asztali menü */}
         <div className="hidden lg:block">
           <ul className="flex items-center justify-center space-x-6 text-lg font-semibold text-[#FF007A]">
             {menuItems.map((item) => {
@@ -82,14 +81,12 @@ export default function MainMenu({ activePath }) {
                 </li>
               );
             })}
-            {/* Asztali nyelvváltó */}
             <li className="pl-2">
               <LanguageSwitcher />
             </li>
           </ul>
         </div>
 
-        {/* Mobil hamburger ikon */}
         <div className="flex items-center justify-end px-4 lg:hidden">
           <button
             type="button"
@@ -104,7 +101,7 @@ export default function MainMenu({ activePath }) {
         </div>
       </nav>
 
-      {/* Neon kék vonal csak desktopon */}
+      {/* Neon kék vonal közvetlenül a menü alatt */}
       <div className="hidden w-full h-[1px] bg-[#00f7ff] shadow-[0_0_15px_#00f7ff] mt-4 mb-2 lg:block" />
 
       {isMenuOpen && (
@@ -116,7 +113,6 @@ export default function MainMenu({ activePath }) {
         />
       )}
 
-      {/* Mobil menü */}
       <aside
         id="mobile-main-menu"
         className={`fixed top-0 right-0 z-50 flex h-full w-72 max-w-full flex-col bg-gradient-to-b from-[#141422] to-[#0a0a0f] shadow-[0_0_25px_rgba(0,247,255,0.3)] transition-transform duration-300 ease-in-out lg:hidden ${
@@ -124,13 +120,9 @@ export default function MainMenu({ activePath }) {
         }`}
       >
         <div className="flex items-center gap-3 border-b border-white/10 p-4">
-          <span className="text-lg font-semibold text-white">
-            {t('menu.title', 'Menu')}
-          </span>
-           <div className="mb-3">
-            <LanguageSwitcher />
-          </div>
+          <span className="text-lg font-semibold text-white">{t('menu.title', 'Menu')}</span>
           <div className="ml-auto flex items-center gap-3">
+            <LanguageSwitcher />
             <button
               type="button"
               onClick={closeMenu}
@@ -142,7 +134,6 @@ export default function MainMenu({ activePath }) {
           </div>
         </div>
 
-        {/* Menü linkek */}
         <nav className="flex-1 overflow-y-auto py-4">
           <ul className="space-y-1 px-4">
             {menuItems.map((item) => {
@@ -167,14 +158,9 @@ export default function MainMenu({ activePath }) {
               );
             })}
           </ul>
-        
         </nav>
-         
-        {/* Mobil nyelvváltó a footer linkek előtt */}
+
         <div className="border-t border-white/10 px-4 py-4">
-          <div className="mb-3">
-            <LanguageSwitcher />
-          </div>
           <ul className="space-y-1">
             {footerLinks.map((link) => (
               <li key={link.name}>
