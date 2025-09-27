@@ -15,7 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(
             append: [
                 \App\Http\Middleware\SetLocaleFromHost::class,
-                \Inertia\Middleware::class,
+                \App\Http\Middleware\HandleInertiaRequests::class,
             ],
         );
     })
