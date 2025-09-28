@@ -12,7 +12,7 @@ const createInitialFormState = () => ({
 });
 
 export default function Contact() {
-  const [formData, setFormData] = useState(createInitialFormState);
+  const [formData, setFormData] = useState(() => createInitialFormState());
   const [processing, setProcessing] = useState(false);
   const { props } = usePage();
   const errors = props?.errors ?? {};
