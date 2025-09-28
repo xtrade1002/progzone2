@@ -34,7 +34,7 @@ const createInitialFormState = () => ({
 });
 
 export default function QuoteRequest() {
-  const [formData, setFormData] = useState(createInitialFormState);
+  const [formData, setFormData] = useState(() => createInitialFormState());
   const [processing, setProcessing] = useState(false);
   const { props } = usePage();
   const errors = props?.errors ?? {};
@@ -70,19 +70,19 @@ export default function QuoteRequest() {
       <section className="w-full px-6 py-20">
         <div className="mx-auto max-w-5xl rounded-2xl border-1 border-[#ff007a]/30 bg-black/30 p-10 shadow-[0_0_45px_rgba(255,0,122,0.18)]">
           <div className="mb-12 space-y-4 text-center">
-            <h2 className="text-5xl sm:text-4xl font-extrabold text-[#FF007A] drop-shadow-[0_0_20px_#ff007a]">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#FF007A] drop-shadow-[0_0_20px_#ff007a]">
               {quote.title}
               <span className="after:content-[''] after:block after:w-24 after:h-1 after:bg-[#00f7ff] after:mx-auto after:mt-4 after:rounded-full"></span>
             </h2>
             {introParagraphs.map((paragraph, index) => (
-              <p key={index} className="text-lg text-gray-300">
+              <p key={index} className="text-base sm:text-lg text-gray-300 text-justify">
                 {paragraph}
               </p>
             ))}
-            {quote.hint && <p className="text-sm text-gray-400">{quote.hint}</p>}
+            {quote.hint && <p className="text-sm text-gray-400 text-justify">{quote.hint}</p>}
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-8 text-justify">
             {/* Név + Email */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <input
