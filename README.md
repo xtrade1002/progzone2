@@ -36,6 +36,23 @@ MAIL_ENCRYPTION=tls
 
 Szükség esetén külön `MAILJET_*` változókkal (például `MAILJET_HOST`, `MAILJET_USERNAME`) felülírhatod az alapértelmezett értékeket. Ne felejtsd el a Mailjet fiókodhoz tartozó API kulcsokat és feladói e-mail címet megadni.
 
+## Frontend fejlesztés hibakeresése
+
+Fejlesztés közben a Vite kiszolgáló felel a React és Inertia assetekért. Ha a böngésző konzoljában az alábbihoz hasonló hibákat látsz:
+
+```
+GET http://127.0.0.1:5174/@react-refresh net::ERR_ABORTED 404 (Not Found)
+WebSocket connection to 'ws://127.0.0.1:5174/?token=...' failed
+```
+
+akkor a Vite fejlesztői szerver nem érhető el a böngészőből. Győződj meg róla, hogy:
+
+1. Az `npm install` parancs lefutott, így a `@vitejs/plugin-react` és a többi függőség is települt.
+2. A `npm run dev` parancs fut, és a kiszolgáló a `.env` fájlban megadott porton (`VITE_DEV_SERVER_PORT`) érhető el.
+3. Dockeres használatnál a `.env` fájl `VITE_DEV_SERVER_BIND=0.0.0.0` beállítása engedélyezi, hogy a hoszt gépről is elérd a kiszolgálót.
+
+Ha mindezek rendben vannak, a Vite automatikusan kiszolgálja a `@react-refresh` végpontot, és a WebSocket kapcsolat is fel fog tudni épülni.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
