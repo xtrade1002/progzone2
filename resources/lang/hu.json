@@ -24,12 +24,16 @@
     "menu_title": "Footer menü",
     "copyright": "© :year Progzone. Minden jog fenntartva."
   },
-  "home": {
+    "home": {
     "meta_title": "Főoldal",
-    "title": "Örülök, hogy itt vagy – Üdvözöllek a ProgZone-nál!",
     "paragraphs": [
-      "Legyen szó weboldal-készítésről, webshop-fejlesztésről, webdesignról, logótervezésről vagy online marketingről – nálam mindent egy helyen megtalálsz.",
-      "A célom, hogy modern, egyedi és reszponzív megoldásokat kínáljak, amelyek nemcsak jól néznek ki, hanem valódi eredményeket is hoznak. Ha profi online jelenlétre vágysz, szívesen segítek megvalósítani a víziódat!"
+      "Professzionális weboldal és webshop készítés, webdesign és online marketing egy helyen"
+    ],
+    "typewriter": [
+      "Webdesign",
+      "Marketing",
+      "Weboldalkészítés",
+      "Webshop készítés"
     ]
   },
   "about": {
