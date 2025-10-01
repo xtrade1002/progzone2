@@ -20,8 +20,7 @@ export default function AboutMe() {
   return (
     <Layout>
       <Head title={about.meta_title ?? t('menu.about', 'About')} />
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 py-16 space-y-20">
-
+      <section className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-16 space-y-20">
         {/* --- Kép + bemutatkozás --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div
@@ -45,12 +44,17 @@ export default function AboutMe() {
             </h3>
             {introParagraphs.length > 0 ? (
               introParagraphs.map((paragraph, index) => (
-                <p key={index} className="text-gray-300 leading-relaxed mb-4">
+                <p
+                  key={index}
+                  className="text-gray-300 leading-relaxed mb-4 text-justify px-1"
+                >
                   {paragraph}
                 </p>
               ))
             ) : (
-              <p className="text-[#00f7ff] italic">Tartalom feltöltés alatt...</p>
+              <p className="text-[#00f7ff] italic text-justify px-1">
+                Tartalom feltöltés alatt...
+              </p>
             )}
           </div>
         </div>
@@ -76,10 +80,10 @@ export default function AboutMe() {
                   <h2 className="text-2xl font-bold text-[#FF007A] mb-4">
                     {block.title}
                   </h2>
-                  <p className="text-gray-300 mb-6">{block.description}</p>
+                  <p className="text-gray-300 mb-6 text-justify px-1">{block.description}</p>
                   <ul className="space-y-4 text-gray-400">
                     {(block.highlights ?? []).map((highlight, highlightIndex) => (
-                      <li key={highlightIndex}>
+                      <li key={highlightIndex} className="text-justify px-1">
                         <span className="font-semibold text-white">
                           {highlight.title}
                         </span>

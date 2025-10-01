@@ -26,10 +26,14 @@
   },
   "home": {
     "meta_title": "Home",
-    "title": "Welcome to ProgZone – glad to see you here!",
     "paragraphs": [
-      "Whether you need a website, online store, web design, logo creation or online marketing – you’ll find everything in one place.",
-      "My focus is on modern, bespoke and responsive solutions that look great and deliver measurable results. If you want a professional online presence, I’d love to help bring your vision to life!"
+      "Professional website and webshop development, web design and online marketing in one place"
+    ],
+    "typewriter": [
+      "Web design",
+      "Marketing",
+      "Website development",
+      "E-commerce solutions"
     ]
   },
   "about": {

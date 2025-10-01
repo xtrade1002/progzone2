@@ -1,3 +1,4 @@
+
 import React from 'react';
 import route from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
@@ -19,9 +20,7 @@ export default function FooterMenu() {
       <div className="container mx-auto flex flex-col items-center justify-between px-4 sm:flex-row">
         <p className="mb-4 sm:mb-0">{copyright}</p>
         <div className="flex flex-col items-center space-y-2 sm:items-end">
-          <p className="text-lg font-semibold uppercase tracking-widest text-pink-400">
-            {footerMenuTitle}
-          </p>
+
           <div className="flex space-x-6">
             {footerLinks.map((link) => (
               <a key={link.name} href={route(link.name)} className="hover:text-pink-400">
@@ -34,3 +33,4 @@ export default function FooterMenu() {
     </footer>
   );
 }
+
