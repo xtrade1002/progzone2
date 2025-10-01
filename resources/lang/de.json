@@ -24,12 +24,16 @@
     "menu_title": "Footer-Menü",
     "copyright": "© :year Progzone. Alle Rechte vorbehalten."
   },
-  "home": {
+   "home": {
     "meta_title": "Startseite",
-    "title": "Willkommen bei ProgZone – schön, dass du da bist!",
     "paragraphs": [
-      "Ob Website, Onlineshop, Webdesign, Logo-Entwicklung oder Online-Marketing – bei mir bekommst du alles aus einer Hand.",
-      "Ich setze auf moderne, maßgeschneiderte und responsive Lösungen, die nicht nur gut aussehen, sondern messbare Ergebnisse liefern. Wenn du dir einen professionellen Auftritt wünschst, unterstütze ich dich gerne bei der Umsetzung deiner Vision!"
+      "Professionelle Website- und Webshop-Erstellung, Webdesign und Online-Marketing an einem Ort"
+    ],
+    "typewriter": [
+      "Webdesign",
+      "Marketing",
+      "Webseitenentwicklung",
+      "Onlineshop Erstellung"
     ]
   },
   "about": {
