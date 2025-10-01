@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Head } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
@@ -8,44 +9,81 @@ export default function Home() {
   const home = trans?.home ?? {};
   const paragraphs = Array.isArray(home.paragraphs) ? home.paragraphs : [];
 
-  // animációhoz állapot
-  const [visible, setVisible] = useState(false);
+  // Szavak a fordításból
+  const words = Array.isArray(home.typewriter) ? home.typewriter : [];
 
+  const [displayedText, setDisplayedText] = useState("");
+  const [cursorVisible, setCursorVisible] = useState(true);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+  const [showMotto, setShowMotto] = useState(false);
+
+  // typewriter logika
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 100); // kis delay
+    if (words.length === 0) return;
+
+    const currentWord = words[wordIndex];
+    let typingSpeed = deleting ? 50 : 120; // törlés gyorsabb, írás lassabb
+
+    const interval = setInterval(() => {
+      if (!deleting) {
+        setDisplayedText(currentWord.substring(0, charIndex + 1));
+        setCharIndex((prev) => prev + 1);
+
+        if (charIndex + 1 === currentWord.length) {
+          setTimeout(() => setDeleting(true), 1000);
+          clearInterval(interval);
+        }
+      } else {
+        setDisplayedText(currentWord.substring(0, charIndex - 1));
+        setCharIndex((prev) => prev - 1);
+
+        if (charIndex - 1 === 0) {
+          setDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+          clearInterval(interval);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearInterval(interval);
+  }, [charIndex, deleting, wordIndex, words]);
+
+  // kurzor villogás
+  useEffect(() => {
+    const cursorBlink = setInterval(() => {
+      setCursorVisible((prev) => !prev);
+    }, 500);
+    return () => clearInterval(cursorBlink);
+  }, []);
+
+  // mottó fade-in késleltetéssel
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowMotto(true);
+    }, 1500); // kb. 1,5s a typewriter után
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <Layout>
       <Head title={home.meta_title ?? t('menu.home', 'Home')} />
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 py-16 text-center space-y-6 border border-[#00f7ff]/30 rounded-2xl shadow-[0_0_25px_#00f7ff55] bg-[#0a0a0f]/60">
-        {/* Cím animációval */}
-        <h1
-          className={`text-3xl sm:text-5xl font-extrabold text-[#FF007A] mb-12 drop-shadow-[0_0_15px_#ff007a] transform transition-all duration-700 ease-out ${
-            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          {home.title ?? t('menu.home', 'Home')}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 md:px-12 py-16 text-center space-y-10 rounded-2xl">
+
+        {/* Typewriter animált szöveg */}
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-[#FF007A] mb-6 drop-shadow-[0_0_30px_#ff007a] h-24 tracking-wide">
+          {displayedText}
+          <span className="text-[#00f7ff]">{cursorVisible ? "|" : " "}</span>
         </h1>
 
-        {/* Bekezdések vagy fallback */}
-        {paragraphs.length > 0 ? (
-          paragraphs.map((paragraph, index) => (
-            <p
-              key={index}
-              className={`text-base sm:text-lg text-gray-300 leading-relaxed transform transition-all duration-700 ease-out delay-${
-                index * 150
-              } ${
-                visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        {/* Idézetszerű mottó az első paragraphból + fade-in animáció */}
+        {paragraphs.length > 0 && (
+          <p
+            className={`max-w-3xl mx-auto text-xl sm:text-2xl italic text-gray-200 border-l-4 border-[#ff007a] pl-6 leading-relaxed transition-opacity duration-1000 ${showMotto ? "opacity-100" : "opacity-0"
               }`}
-            >
-              {paragraph}
-            </p>
-          ))
-        ) : (
-          <p className="text-lg text-[#00f7ff] drop-shadow-[0_0_10px_#00f7ff] italic">
-            Tartalom feltöltés alatt...
+          >
+            „{paragraphs[0]}”
           </p>
         )}
       </section>
