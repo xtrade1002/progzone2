@@ -33,6 +33,7 @@ class PriceController extends Controller
             'position',
         ];
 
+
         $aliasMap = [
             'domain' => ['domain_price'],
             'hosting' => ['hosting_price'],
