@@ -33,20 +33,13 @@ class PriceController extends Controller
             'position',
         ];
 
-        $aliasGroups = [
-            ['domain', 'domain_price'],
-            ['hosting', 'hosting_price'],
-            ['plugin', 'plugin_price'],
-            ['extraFunctionsDev', 'extra_functions_dev', 'hourly_rate'],
+
+        $aliasMap = [
+            'domain' => ['domain_price'],
+            'hosting' => ['hosting_price'],
+            'plugin' => ['plugin_price'],
+            'extraFunctionsDev' => ['hourly_rate'],
         ];
-
-        $aliasMap = [];
-
-        foreach ($aliasGroups as $group) {
-            foreach ($group as $slug) {
-                $aliasMap[$slug] = array_values(array_diff($group, [$slug]));
-            }
-        }
 
         // Árlista domain + nyelv szerint
         $prices = [];
