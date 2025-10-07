@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Price;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -15,7 +16,7 @@ class PriceController extends Controller
      */
     public function index(Request $request): Response
     {
-        $domain = $request->getHost(); // pl. progzone.de
+        $domain = $this->normalizeDomain($request->getHost()); // pl. progzone.de
         $locale = app()->getLocale();
 
         $allowedAttributes = [
@@ -62,5 +63,44 @@ class PriceController extends Controller
         return Inertia::render('Prices', [
             'prices' => $prices,
         ]);
+    }
+
+    /**
+     * Normalizes a domain value by removing protocol prefixes, common subdomains and ports.
+     */
+    protected function normalizeDomain(?string $domain): ?string
+    {
+        if ($domain === null) {
+            return null;
+        }
+
+        $normalized = Str::of($domain)
+            ->lower()
+            ->trim()
+            ->value();
+
+        if ($normalized === '') {
+            return null;
+        }
+
+        if (Str::startsWith($normalized, ['http://', 'https://'])) {
+            $parsedHost = parse_url($normalized, PHP_URL_HOST);
+
+            if (is_string($parsedHost) && $parsedHost !== '') {
+                $normalized = $parsedHost;
+            }
+        }
+
+        if (Str::startsWith($normalized, '//')) {
+            $normalized = Str::substr($normalized, 2);
+        }
+
+        if (Str::startsWith($normalized, 'www.')) {
+            $normalized = Str::substr($normalized, 4);
+        }
+
+        $normalized = Str::before($normalized, '/');
+
+        return Str::before($normalized, ':');
     }
 }
