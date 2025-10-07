@@ -66,7 +66,9 @@ class PriceController extends Controller
     }
 
     /**
+
      * Removes common subdomain prefixes (e.g. www.) and lowercases the domain name.
+
      */
     protected function normalizeDomain(?string $domain): ?string
     {
@@ -74,12 +76,15 @@ class PriceController extends Controller
             return null;
         }
 
+
         $normalized = Str::lower($domain);
 
         if (Str::startsWith($normalized, 'www.')) {
             $normalized = Str::substr($normalized, 4);
         }
 
+
         return $normalized;
     }
 }
+
