@@ -66,7 +66,9 @@ class PriceController extends Controller
     }
 
     /**
-     * Normalizes a domain value by removing protocol prefixes, common subdomains and ports.
+
+     * Removes common subdomain prefixes (e.g. www.) and lowercases the domain name.
+
      */
     protected function normalizeDomain(?string $domain): ?string
     {
@@ -74,33 +76,15 @@ class PriceController extends Controller
             return null;
         }
 
-        $normalized = Str::of($domain)
-            ->lower()
-            ->trim()
-            ->value();
 
-        if ($normalized === '') {
-            return null;
-        }
-
-        if (Str::startsWith($normalized, ['http://', 'https://'])) {
-            $parsedHost = parse_url($normalized, PHP_URL_HOST);
-
-            if (is_string($parsedHost) && $parsedHost !== '') {
-                $normalized = $parsedHost;
-            }
-        }
-
-        if (Str::startsWith($normalized, '//')) {
-            $normalized = Str::substr($normalized, 2);
-        }
+        $normalized = Str::lower($domain);
 
         if (Str::startsWith($normalized, 'www.')) {
             $normalized = Str::substr($normalized, 4);
         }
 
-        $normalized = Str::before($normalized, '/');
 
-        return Str::before($normalized, ':');
+        return $normalized;
     }
 }
+

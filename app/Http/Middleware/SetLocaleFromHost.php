@@ -30,7 +30,10 @@ class SetLocaleFromHost
 
             $hostLocaleMap = [
                 'progzone.de' => 'de',
+
+                'www.progzone.de' => 'de',
                 'bitbau.ch' => 'de-CH',
+                'www.bitbau.ch' => 'de-CH',
                 'progzone.hu' => 'hu',
             ];
 
