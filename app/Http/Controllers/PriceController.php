@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Price;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -15,7 +16,7 @@ class PriceController extends Controller
      */
     public function index(Request $request): Response
     {
-        $domain = $request->getHost(); // pl. progzone.de
+        $domain = $this->normalizeDomain($request->getHost()); // pl. progzone.de
         $locale = app()->getLocale();
 
         $allowedAttributes = [
@@ -62,5 +63,23 @@ class PriceController extends Controller
         return Inertia::render('Prices', [
             'prices' => $prices,
         ]);
+    }
+
+    /**
+     * Removes common subdomain prefixes (e.g. www.) and lowercases the domain name.
+     */
+    protected function normalizeDomain(?string $domain): ?string
+    {
+        if ($domain === null) {
+            return null;
+        }
+
+        $normalized = Str::lower($domain);
+
+        if (Str::startsWith($normalized, 'www.')) {
+            $normalized = Str::substr($normalized, 4);
+        }
+
+        return $normalized;
     }
 }
