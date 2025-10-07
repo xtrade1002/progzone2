@@ -13,7 +13,7 @@ class SetLocaleFromHost
      */
     public function handle(Request $request, Closure $next)
     {
-        $availableLocales = ['hu', 'de', 'en'];
+        $availableLocales = ['hu', 'de', 'de-CH', 'en'];
 
         $sessionLocale = null;
 
@@ -28,8 +28,8 @@ class SetLocaleFromHost
             $hostLocaleMap = [
                 'progzone.de' => 'de',
                 'www.progzone.de' => 'de',
-                'bitbau.ch' => 'de',
-                'www.bitbau.ch' => 'de',
+                'bitbau.ch' => 'de-CH',
+                'www.bitbau.ch' => 'de-CH',
                 'progzone.hu' => 'hu',
                 'www.progzone.hu' => 'hu',
             ];
