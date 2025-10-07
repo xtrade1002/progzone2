@@ -43,22 +43,17 @@ class PriceController extends Controller
         ];
 
         // Árlista domain + nyelv szerint
-        $prices = [];
+        $prices = $this->collectPrices($domain, $locale, $allowedAttributes, $aliasMap);
 
-        Price::query()
-            ->forDomainAndLocale($domain, $locale)
-            ->orderBy('position')
-            ->get()
-            ->each(function (Price $price) use (&$prices, $allowedAttributes, $aliasMap) {
-                $slug = $price->slug ?: 'extra';
-                $data = Arr::only($price->toArray(), $allowedAttributes);
+        if (empty($prices)) {
+            foreach ($this->fallbackDomains($domain) as $fallbackDomain) {
+                $prices = $this->collectPrices($fallbackDomain, $locale, $allowedAttributes, $aliasMap);
 
-                $prices[$slug] = $data;
-
-                foreach ($aliasMap[$slug] ?? [] as $alias) {
-                    $prices[$alias] = $data;
+                if (! empty($prices)) {
+                    break;
                 }
-            });
+            }
+        }
 
         return Inertia::render('Prices', [
             'prices' => $prices,
@@ -85,6 +80,51 @@ class PriceController extends Controller
 
 
         return $normalized;
+    }
+
+    /**
+     * Collects prices for the given domain and locale.
+     */
+    protected function collectPrices(?string $domain, string $locale, array $allowedAttributes, array $aliasMap): array
+    {
+        $prices = [];
+
+        Price::query()
+            ->forDomainAndLocale($domain, $locale)
+            ->orderBy('position')
+            ->get()
+            ->each(function (Price $price) use (&$prices, $allowedAttributes, $aliasMap) {
+                $slug = $price->slug ?: 'extra';
+                $data = Arr::only($price->toArray(), $allowedAttributes);
+
+                $prices[$slug] = $data;
+
+                foreach ($aliasMap[$slug] ?? [] as $alias) {
+                    $prices[$alias] = $data;
+                }
+            });
+
+        return $prices;
+    }
+
+    /**
+     * Returns the list of fallback domains to try when the requested domain has no data.
+     */
+    protected function fallbackDomains(?string $currentDomain): array
+    {
+        $fallbacks = config('prices.fallback_domains', []);
+
+        if (is_string($fallbacks)) {
+            $fallbacks = array_map('trim', explode(',', $fallbacks));
+        }
+
+        return collect($fallbacks)
+            ->map(fn ($domain) => $this->normalizeDomain($domain))
+            ->filter()
+            ->unique()
+            ->reject(fn ($domain) => $domain === $currentDomain)
+            ->values()
+            ->all();
     }
 }
 
