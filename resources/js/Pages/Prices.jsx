@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Head } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
@@ -10,7 +10,13 @@ import { CONTACT_EMAIL_PLACEHOLDER } from '../lib/constants.js';
  * Props:
  *  - prices: object, kulcsok a slug-ok (pl. wordpress, woocommerce, egyedifejlesztes, marketing stb.)
  */
-export default function Prices({ prices = {}, contactEmail: sharedContactEmail = null }) {
+export default function Prices(props) {
+  const {
+    prices = {},
+    contactEmail: sharedContactEmail = null,
+    domain = null,
+    locale = null,
+  } = props;
   const { trans, t } = useTranslations();
   const tr = trans?.prices ?? {};
   const contactEmail =
@@ -37,6 +43,46 @@ export default function Prices({ prices = {}, contactEmail: sharedContactEmail =
     plugin_price: 'plugin',
     hourly_rate: 'extraFunctionsDev',
   };
+
+  useEffect(() => {
+    console.log('=== 🧩 Prices Debug Info ===');
+    console.log('Prices props:', props);
+    console.log('============================');
+  }, [props]);
+
+  const debugDump = { domain, locale, prices };
+
+  if (!prices || Object.keys(prices).length === 0) {
+    return (
+      <Layout>
+        <Head title={tr.meta_title ?? t('menu.prices', 'Prices')} />
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+          <div className="bg-[#121317] border border-red-500/50 rounded-2xl p-6 sm:p-10 text-gray-200 space-y-6">
+            <h1 className="text-2xl font-bold text-[#FF007A] flex items-center gap-2">
+              <span role="img" aria-hidden="true">
+                ⚠️
+              </span>
+              Nincs ár adat a backendtől!
+            </h1>
+            <p>
+              Ez azt jelenti, hogy a Laravel (<code>PriceController</code>) nem küldött árakat az Inertia-nak.
+            </p>
+            <ol className="list-decimal list-inside space-y-2 text-gray-300">
+              <li>Ellenőrizd a <code>storage/logs/laravel.log</code> fájlt (keresd a „Resolved domain” sort).</li>
+              <li>Győződj meg róla, hogy a <code>prices</code> táblában van adat a domainhez.</li>
+              <li>Ellenőrizd a <code>PriceController</code> végén, hogy a <code>$mappedPrices</code> nem üres-e.</li>
+            </ol>
+            <div>
+              <h2 className="text-xl font-semibold text-[#00f7ff] mb-2">Debug info (props dump)</h2>
+              <pre className="bg-black/60 border border-[#00f7ff]/40 rounded-lg p-4 text-xs overflow-auto">
+                {JSON.stringify(debugDump, null, 2)}
+              </pre>
+            </div>
+          </div>
+        </section>
+      </Layout>
+    );
+  }
 
   const formatPriceValue = (priceObj) => {
     if (!priceObj) return '';
@@ -205,6 +251,12 @@ export default function Prices({ prices = {}, contactEmail: sharedContactEmail =
               )}
             </p>
           )}
+        </div>
+        <div className="mt-12">
+          <h2 className="text-xl font-semibold text-[#00f7ff] mb-3">🔍 Raw Data Dump (Inertia props)</h2>
+          <pre className="bg-black/60 border border-[#00f7ff]/40 rounded-lg p-4 text-xs overflow-auto">
+            {JSON.stringify(debugDump, null, 2)}
+          </pre>
         </div>
       </section>
     </Layout>
