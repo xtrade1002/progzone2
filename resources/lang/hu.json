@@ -287,7 +287,7 @@
     "meta_title": "Kapcsolat",
     "title": "Kapcsolat",
     "email_label": "📧 Email",
-    "email_value": "info@progzone.de",
+    "email_value": "__CONTACT_EMAIL__",
     "fields": {
       "name": { "placeholder": "Név *" },
       "email": { "placeholder": "E-mail *" },
@@ -656,7 +656,7 @@
     "details": [
       { "label": "Név:", "value": "Xtrade" },
       { "label": "USt-IdNr.:", "value": "DE362261730" },
-      { "label": "E-mail:", "value": "info@progzone.hu", "type": "email" },
+      { "label": "E-mail:", "value": "__CONTACT_EMAIL__", "type": "email" },
       { "label": "Telefonszám:", "value": "+49 173 615 47 30", "type": "phone" },
       { "label": "Székhely:", "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland" }
     ]

@@ -127,7 +127,7 @@
   "meta_title": "Preise",
   "title": "Preise",
   "note": "Für ein genaues Angebot kontaktieren Sie mich bitte per E-Mail:",
-  "note_email": "info@progzone.de",
+  "note_email": "__CONTACT_EMAIL__",
 
   "wordpress": {
     "title": "Website-Erstellung (WordPress)",
@@ -288,7 +288,7 @@
     "meta_title": "Kontakt",
     "title": "Kontakt",
     "email_label": "📧 E-Mail",
-    "email_value": "info@progzone.de",
+    "email_value": "__CONTACT_EMAIL__",
     "fields": {
       "name": { "placeholder": "Name *" },
       "email": { "placeholder": "E-Mail *" },
@@ -657,7 +657,7 @@
     "details": [
       { "label": "Name:", "value": "Xtrade" },
       { "label": "USt-IdNr.:", "value": "DE362261730" },
-      { "label": "E-Mail:", "value": "info@progzone.hu", "type": "email" },
+      { "label": "E-Mail:", "value": "__CONTACT_EMAIL__", "type": "email" },
       { "label": "Telefon:", "value": "+49 173 615 47 30", "type": "phone" },
       { "label": "Anschrift:", "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland" }
     ]

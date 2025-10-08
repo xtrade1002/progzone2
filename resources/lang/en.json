@@ -127,7 +127,7 @@
   "meta_title": "Prices",
   "title": "Prices",
   "note": "For a detailed quote, please contact me via email:",
-  "note_email": "info@progzone.de",
+  "note_email": "__CONTACT_EMAIL__",
 
 
   "wordpress": {
@@ -289,7 +289,7 @@
     "meta_title": "Contact",
     "title": "Contact",
     "email_label": "📧 Email",
-    "email_value": "info@progzone.de",
+    "email_value": "__CONTACT_EMAIL__",
     "fields": {
       "name": { "placeholder": "Name *" },
       "email": { "placeholder": "Email *" },
@@ -658,7 +658,7 @@
     "details": [
       { "label": "Name:", "value": "Xtrade" },
       { "label": "VAT ID:", "value": "DE362261730" },
-      { "label": "Email:", "value": "info@progzone.hu", "type": "email" },
+      { "label": "Email:", "value": "__CONTACT_EMAIL__", "type": "email" },
       { "label": "Phone:", "value": "+49 173 615 47 30", "type": "phone" },
       { "label": "Address:", "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Germany" }
     ]

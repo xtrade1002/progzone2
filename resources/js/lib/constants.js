@@ -1,0 +1,1 @@
+export const CONTACT_EMAIL_PLACEHOLDER = '__CONTACT_EMAIL__';
