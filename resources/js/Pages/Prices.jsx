@@ -2,6 +2,7 @@ import React from 'react';
 import { Head } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
+import { CONTACT_EMAIL_PLACEHOLDER } from '../lib/constants.js';
 
 /**
  * Prices oldal – szövegek a fordítási fájlból, árak adatbázisból.
@@ -9,9 +10,18 @@ import useTranslations from '../lib/useTranslations.js';
  * Props:
  *  - prices: object, kulcsok a slug-ok (pl. wordpress, woocommerce, egyedifejlesztes, marketing stb.)
  */
-export default function Prices({ prices = {} }) {
+export default function Prices({ prices = {}, contactEmail: sharedContactEmail = null }) {
   const { trans, t } = useTranslations();
   const tr = trans?.prices ?? {};
+  const contactEmail =
+    typeof sharedContactEmail === 'string' && sharedContactEmail.trim() !== ''
+      ? sharedContactEmail.trim()
+      : null;
+
+  const noteEmailRaw = typeof tr.note_email === 'string' ? tr.note_email.trim() : '';
+  const noteEmailFallback =
+    noteEmailRaw && noteEmailRaw !== CONTACT_EMAIL_PLACEHOLDER ? noteEmailRaw : null;
+  const displayContactEmail = contactEmail ?? noteEmailFallback ?? null;
 
   // Fordítási kulcs → adatbázis slug leképezés
   const slugMap = {
@@ -185,12 +195,12 @@ export default function Prices({ prices = {} }) {
             {renderCard('marketing')}
           </ul>
 
-          {(tr.note || tr.note_email) && (
+          {(tr.note || displayContactEmail) && (
             <p className="mt-12 text-center text-gray-400">
               {tr.note}{' '}
-              {tr.note_email && (
+              {displayContactEmail && (
                 <span className="text-[#FF007A] font-semibold">
-                  {tr.note_email}
+                  {displayContactEmail}
                 </span>
               )}
             </p>
