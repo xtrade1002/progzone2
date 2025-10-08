@@ -57,6 +57,8 @@ class PriceController extends Controller
 
         return Inertia::render('Prices', [
             'prices' => $prices,
+            'domain' => $domain,
+            'locale' => $locale,
         ]);
     }
 
