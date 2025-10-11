@@ -31,17 +31,29 @@ export default function Prices(props) {
 
   // Fordítási kulcs → adatbázis slug leképezés
   const slugMap = {
-    wordpress: 'wordpress',
-    webshop: 'woocommerce',
-    custom: 'egyedifejlesztes',
-    marketing: 'marketing',
+    wordpress: ['wordpress', 'wordpress-website', 'wordpress_website'],
+    webshop: ['woocommerce', 'woocommerce-2'],
+    custom: ['egyedifejlesztes', 'custom'],
+    marketing: ['marketing', 'marketing-2'],
   };
 
-  const placeholderSlugMap = {
-    domain_price: 'domain',
-    hosting_price: 'hosting',
-    plugin_price: 'plugin',
-    hourly_rate: 'extraFunctionsDev',
+  const placeholderKeyMap = {
+    domain_price: ['domain', 'domain_price'],
+    hosting_price: ['hosting', 'hosting_price'],
+    plugin_price: ['plugin', 'plugin_price'],
+    hourly_rate: ['extraFunctionsDev', 'hourly_rate'],
+  };
+
+  const resolvePriceObject = (keys) => {
+    const candidates = Array.isArray(keys) ? keys : [keys];
+
+    for (const candidate of candidates) {
+      if (candidate && prices?.[candidate]) {
+        return prices[candidate];
+      }
+    }
+
+    return null;
   };
 
   useEffect(() => {
@@ -136,8 +148,8 @@ export default function Prices(props) {
 
     let result = text;
 
-    Object.entries(placeholderSlugMap).forEach(([placeholder, slug]) => {
-      const priceObj = prices?.[slug];
+    Object.entries(placeholderKeyMap).forEach(([placeholder, keys]) => {
+      const priceObj = resolvePriceObject(keys);
       const value = formatPriceValue(priceObj);
 
       if (!value) return;
@@ -161,8 +173,9 @@ export default function Prices(props) {
     const block = tr[key];
     if (!block) return null;
 
-    const slug = slugMap[key] || key;
-    const priceObj = prices[slug];
+    const slugCandidates = slugMap[key] || key;
+    const priceObj = resolvePriceObject(slugCandidates);
+    const formattedPrice = formatPriceValue(priceObj);
 
     return (
       <li
@@ -212,10 +225,9 @@ export default function Prices(props) {
           </div>
 
           {/* Az adatbázisból érkező ár kiírása */}
-          {priceObj && (
+          {formattedPrice && (
             <span className="text-lg sm:text-xl font-bold text-[#00f7ff] mt-2 md:mt-0 break-words">
-              {priceObj.price_label} {priceObj.currency}{' '}
-              {priceObj.extras}
+              {formattedPrice}
             </span>
           )}
         </div>
