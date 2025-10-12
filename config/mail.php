@@ -61,6 +61,42 @@ return [
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
 
+        'progzone_de' => [
+            'transport' => 'smtp',
+            'scheme' => env('MAIL_SCHEME_PROGZONE_DE', env('MAIL_SCHEME', env('MAIL_ENCRYPTION'))),
+            'url' => env('MAIL_URL_PROGZONE_DE', env('MAIL_URL')),
+            'host' => env('MAIL_HOST_PROGZONE_DE', env('MAIL_HOST', '127.0.0.1')),
+            'port' => env('MAIL_PORT_PROGZONE_DE', env('MAIL_PORT', 2525)),
+            'username' => env('MAIL_USERNAME_PROGZONE_DE', env('MAIL_USERNAME')),
+            'password' => env('MAIL_PASSWORD_PROGZONE_DE', env('MAIL_PASSWORD')),
+            'timeout' => env('MAIL_TIMEOUT_PROGZONE_DE'),
+            'local_domain' => env('MAIL_EHLO_DOMAIN_PROGZONE_DE', env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST))),
+        ],
+
+        'progzone_hu' => [
+            'transport' => 'smtp',
+            'scheme' => env('MAIL_SCHEME_PROGZONE_HU', env('MAIL_SCHEME', env('MAIL_ENCRYPTION'))),
+            'url' => env('MAIL_URL_PROGZONE_HU', env('MAIL_URL')),
+            'host' => env('MAIL_HOST_PROGZONE_HU', env('MAIL_HOST', '127.0.0.1')),
+            'port' => env('MAIL_PORT_PROGZONE_HU', env('MAIL_PORT', 2525)),
+            'username' => env('MAIL_USERNAME_PROGZONE_HU', env('MAIL_USERNAME')),
+            'password' => env('MAIL_PASSWORD_PROGZONE_HU', env('MAIL_PASSWORD')),
+            'timeout' => env('MAIL_TIMEOUT_PROGZONE_HU'),
+            'local_domain' => env('MAIL_EHLO_DOMAIN_PROGZONE_HU', env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST))),
+        ],
+
+        'bitbau_ch' => [
+            'transport' => 'smtp',
+            'scheme' => env('MAIL_SCHEME_BITBAU_CH', env('MAIL_SCHEME', env('MAIL_ENCRYPTION'))),
+            'url' => env('MAIL_URL_BITBAU_CH', env('MAIL_URL')),
+            'host' => env('MAIL_HOST_BITBAU_CH', env('MAIL_HOST', '127.0.0.1')),
+            'port' => env('MAIL_PORT_BITBAU_CH', env('MAIL_PORT', 2525)),
+            'username' => env('MAIL_USERNAME_BITBAU_CH', env('MAIL_USERNAME')),
+            'password' => env('MAIL_PASSWORD_BITBAU_CH', env('MAIL_PASSWORD')),
+            'timeout' => env('MAIL_TIMEOUT_BITBAU_CH'),
+            'local_domain' => env('MAIL_EHLO_DOMAIN_BITBAU_CH', env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST))),
+        ],
+
         'ses' => [
             'transport' => 'ses',
         ],
@@ -125,6 +161,43 @@ return [
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
+    ],
+
+    'domain_mailers' => [
+        'progzone.de' => [
+            'mailer' => env('MAIL_MAILER_PROGZONE_DE', 'progzone_de'),
+            'recipient' => env('MAIL_RECIPIENT_PROGZONE_DE', 'info@progzone.de'),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS_PROGZONE_DE', env('MAIL_FROM_ADDRESS', 'info@progzone.de')),
+                'name' => env('MAIL_FROM_NAME_PROGZONE_DE', env('MAIL_FROM_NAME', 'Progzone')),
+            ],
+        ],
+        'progzone.hu' => [
+            'mailer' => env('MAIL_MAILER_PROGZONE_HU', 'progzone_hu'),
+            'recipient' => env('MAIL_RECIPIENT_PROGZONE_HU', 'info@progzone.hu'),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS_PROGZONE_HU', env('MAIL_FROM_ADDRESS', 'info@progzone.hu')),
+                'name' => env('MAIL_FROM_NAME_PROGZONE_HU', env('MAIL_FROM_NAME', 'Progzone')),
+            ],
+        ],
+        'bitbau.ch' => [
+            'mailer' => env('MAIL_MAILER_BITBAU_CH', 'bitbau_ch'),
+            'recipient' => env('MAIL_RECIPIENT_BITBAU_CH', 'info@bitbau.ch'),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS_BITBAU_CH', env('MAIL_FROM_ADDRESS', 'info@bitbau.ch')),
+                'name' => env('MAIL_FROM_NAME_BITBAU_CH', env('MAIL_FROM_NAME', 'Bitbau')),
+            ],
+        ],
+    ],
+
+    'default_domain_mailer' => [
+        'domain' => env('MAIL_DEFAULT_DOMAIN', 'progzone.de'),
+        'recipient' => env('MAIL_RECIPIENT_DEFAULT', 'info@progzone.de'),
+        'mailer' => env('MAIL_MAILER_DEFAULT', env('MAIL_MAILER', 'smtp')),
+        'from' => [
+            'address' => env('MAIL_FROM_ADDRESS_DEFAULT', env('MAIL_FROM_ADDRESS', 'info@progzone.de')),
+            'name' => env('MAIL_FROM_NAME_DEFAULT', env('MAIL_FROM_NAME', 'Progzone')),
+        ],
     ],
 
 ];

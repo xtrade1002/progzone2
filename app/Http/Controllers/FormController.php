@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewContactMessage;
+use App\Mail\NewQuoteRequest;
 use App\Models\ContactMessage;
 use App\Models\QuoteRequest;
-use App\Services\MailjetService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
-    public function __construct(private MailjetService $mailjet)
-    {
-    }
-
     /**
      * Handle the incoming quote request form submission.
      */
@@ -46,9 +45,13 @@ class FormController extends Controller
 
         $data['privacy'] = true;
 
-        QuoteRequest::create($data);
+        $quoteRequest = QuoteRequest::create($data);
 
-        $this->mailjet->sendQuoteRequestNotification($data);
+        $mailSettings = $this->resolveMailSettings($request);
+
+        Mail::mailer($mailSettings['mailer'])
+            ->to($mailSettings['recipient'])
+            ->send(new NewQuoteRequest($quoteRequest, $mailSettings['domain'], $mailSettings['from']));
 
         return redirect()
             ->back()
@@ -67,12 +70,79 @@ class FormController extends Controller
             'message' => ['required', 'string'],
         ]);
 
-        ContactMessage::create($data);
+        $contactMessage = ContactMessage::create($data);
 
-        $this->mailjet->sendContactMessageNotification($data);
+        $mailSettings = $this->resolveMailSettings($request);
+
+        Mail::mailer($mailSettings['mailer'])
+            ->to($mailSettings['recipient'])
+            ->send(new NewContactMessage($contactMessage, $mailSettings['domain'], $mailSettings['from']));
 
         return redirect()
             ->back()
             ->with('success', __('flash_contact_success'));
+    }
+
+    /**
+     * Determine the recipient, mailer and from address based on the current host.
+     *
+     * @return array{domain: string, recipient: string, mailer: string, from: array<string, string|null>}
+     */
+    private function resolveMailSettings(Request $request): array
+    {
+        $host = (string) $request->getHost();
+        $domainMailers = config('mail.domain_mailers', []);
+        $defaultMailer = config('mail.default_domain_mailer', []);
+
+        $defaultFrom = Arr::get($defaultMailer, 'from');
+
+        if (! is_array($defaultFrom) || empty($defaultFrom['address'])) {
+            $defaultFrom = [
+                'address' => config('mail.from.address'),
+                'name' => config('mail.from.name'),
+            ];
+        }
+
+        $fallback = [
+            'domain' => Arr::get($defaultMailer, 'domain', 'progzone.de'),
+            'recipient' => Arr::get($defaultMailer, 'recipient') ?: 'info@progzone.de',
+            'mailer' => Arr::get($defaultMailer, 'mailer') ?: config('mail.default'),
+            'from' => $defaultFrom,
+        ];
+
+        foreach ($domainMailers as $domain => $settings) {
+            if ($host !== '' && str_contains($host, (string) $domain)) {
+                return [
+                    'domain' => (string) $domain,
+                    'recipient' => Arr::get($settings, 'recipient') ?: $fallback['recipient'],
+                    'mailer' => Arr::get($settings, 'mailer') ?: $fallback['mailer'],
+                    'from' => $this->prepareFromAddress(Arr::get($settings, 'from'), $fallback['from']),
+                ];
+            }
+        }
+
+        return array_merge($fallback, [
+            'domain' => $host ?: $fallback['domain'],
+            'from' => $this->prepareFromAddress(Arr::get($defaultMailer, 'from'), $fallback['from']),
+        ]);
+    }
+
+    /**
+     * Normalize the from configuration.
+     *
+     * @param  array<string, string|null>|null  $candidate
+     * @param  array<string, string|null>  $fallback
+     * @return array<string, string|null>
+     */
+    private function prepareFromAddress(?array $candidate, array $fallback): array
+    {
+        if (! empty($candidate['address'])) {
+            return [
+                'address' => $candidate['address'],
+                'name' => $candidate['name'] ?? $fallback['name'] ?? null,
+            ];
+        }
+
+        return $fallback;
     }
 }
