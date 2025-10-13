@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\QuoteRequest;
+use App\Models\ContactMessage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class NewQuoteRequest extends Mailable
+class NewContactMessage extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,7 +18,7 @@ class NewQuoteRequest extends Mailable
      * Create a new message instance.
      */
     public function __construct(
-        public QuoteRequest $quoteRequest,
+        public ContactMessage $contactMessage,
         private string $domain,
         private array $fromAddress = [],
     ) {
@@ -27,7 +27,7 @@ class NewQuoteRequest extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Új ajánlatkérés a {$this->domain} oldalról.",
+            subject: "Új üzenet a {$this->domain} oldalról – Contact",
             from: $this->prepareFromAddress(),
         );
     }
@@ -35,9 +35,9 @@ class NewQuoteRequest extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.quote',
+            view: 'emails.contact',
             with: [
-                'quote' => $this->quoteRequest,
+                'contact' => $this->contactMessage,
                 'domain' => $this->domain,
             ],
         );
@@ -63,6 +63,5 @@ class NewQuoteRequest extends Mailable
             $address,
             $this->fromAddress['name'] ?? null,
         );
-
     }
 }
