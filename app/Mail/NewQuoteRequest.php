@@ -63,5 +63,6 @@ class NewQuoteRequest extends Mailable
             $address,
             $this->fromAddress['name'] ?? null,
         );
+
     }
 }

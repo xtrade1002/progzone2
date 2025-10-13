@@ -1,3 +1,4 @@
+
 @php
     $fields = [
         'Név' => $quote->name,
@@ -40,3 +41,4 @@
 @if ($quote->message)
     <p><strong>Üzenet:</strong><br>{!! nl2br(e($quote->message)) !!}</p>
 @endif
+
