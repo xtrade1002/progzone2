@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PriceController;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,7 @@ Route::get('/privacy', fn () => Inertia::render('Privacy'))->name('privacy');
 Route::get('/terms', fn () => Inertia::render('Terms'))->name('terms');
 Route::get('/impressum', fn () => Inertia::render('Impressum'))->name('impressum');
 
-Route::post('/quote-request', [FormController::class, 'storeQuoteRequest'])->name('quote-request.store');
+Route::post('/quote-request', [QuoteController::class, 'store'])->name('quote-request.store');
 Route::post('/contact-message', [FormController::class, 'storeContactMessage'])->name('contact-message.store');
 Route::post('/locale', [LocaleController::class, 'update'])->name('locale.update');
 
