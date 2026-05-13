@@ -28,6 +28,30 @@ export default function Prices({ prices = {} }) {
     hourly_rate: 'extraFunctionsDev',
   };
 
+  const fixMojibake = (value) => {
+    if (typeof value !== 'string') return value;
+
+    return value
+      .replace(/Ã¡/g, 'á')
+      .replace(/Ã©/g, 'é')
+      .replace(/Ã­/g, 'í')
+      .replace(/Ã³/g, 'ó')
+      .replace(/Ã¶/g, 'ö')
+      .replace(/Å‘/g, 'ő')
+      .replace(/Ãº/g, 'ú')
+      .replace(/Ã¼/g, 'ü')
+      .replace(/Å±/g, 'ű')
+      .replace(/Ã/g, 'Á')
+      .replace(/Ã‰/g, 'É')
+      .replace(/Ã/g, 'Í')
+      .replace(/Ã“/g, 'Ó')
+      .replace(/Ã–/g, 'Ö')
+      .replace(/Å/g, 'Ő')
+      .replace(/Ãš/g, 'Ú')
+      .replace(/Ãœ/g, 'Ü')
+      .replace(/Å°/g, 'Ű');
+  };
+
   const formatPriceValue = (priceObj) => {
     if (!priceObj) return '';
 
@@ -47,21 +71,25 @@ export default function Prices({ prices = {} }) {
     const hasNumericValue = Number.isFinite(numericValue);
     const locale = currencyLocaleMap[currency] || 'hu-HU';
 
-    const formattedNumber = hasNumericValue
+    let formattedNumber = hasNumericValue
       ? new Intl.NumberFormat(locale, {
           minimumFractionDigits: Number.isInteger(numericValue) ? 0 : 2,
           maximumFractionDigits: Number.isInteger(numericValue) ? 0 : 2,
         }).format(numericValue)
-      : (price_label ?? '').trim();
+      : fixMojibake(price_label ?? '').trim();
+
+    if (locale === 'hu-HU') {
+      formattedNumber = formattedNumber.replace(/\s/g, '.');
+    }
 
     if (!formattedNumber) {
       return '';
     }
 
-    const currencyClean = typeof currency === 'string' ? currency.trim() : '';
+    const currencyClean = typeof currency === 'string' ? fixMojibake(currency).trim() : '';
     const currencyPart = currencyClean ? ` ${currencyClean}` : '';
 
-    let extrasClean = typeof extras === 'string' ? extras.trim() : '';
+    let extrasClean = typeof extras === 'string' ? fixMojibake(extras).trim() : '';
     extrasClean = extrasClean.replace(/^\/\s+/, '/').replace(/^-\s+/, '-');
 
     let extrasPart = '';
@@ -111,26 +139,26 @@ export default function Prices({ prices = {} }) {
     return (
       <li
         key={key}
-        className="border border-[#ff007a]/50 rounded-2xl p-6 sm:p-8 bg-[#121317] hover:shadow-[0_0_30px_#ff007a] transition duration-300"
+        className="pz-card rounded-2xl p-6 sm:p-8"
       >
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 w-full">
           <div className="flex-1 min-w-0">
             {/* Cím */}
-            <h2 className="text-2xl font-bold text-[#FF007A] mb-3">
+            <h2 className="mb-3 text-2xl font-black text-[var(--pz-pink)]">
               {block.title}
             </h2>
 
             {/* Leírás */}
             {block.desc && (
-              <p className="text-gray-300 whitespace-pre-line">
+              <p className="whitespace-pre-line leading-relaxed text-slate-300">
                 {replacePlaceholders(block.desc)}
               </p>
             )}
 
             {/* “Az ár NEM tartalmazza” */}
             {block.not_included && (
-              <p className="text-gray-300 mt-4">
-                <span className="font-bold text-[#FF007A] underline">
+              <p className="mt-4 text-slate-300">
+                <span className="font-bold text-[#00eaff]">
                   {block.not_included}
                 </span>
               </p>
@@ -138,7 +166,7 @@ export default function Prices({ prices = {} }) {
 
             {/* Listaelemek */}
             {Array.isArray(block.list) && (
-              <ul className="list-disc list-inside mt-2 text-gray-400 space-y-1">
+              <ul className="mt-2 list-inside list-disc space-y-1 text-slate-400">
                 {block.list.map((item, idx) => (
                   <li key={idx}>
                     {replacePlaceholders(item)}
@@ -149,7 +177,7 @@ export default function Prices({ prices = {} }) {
 
             {/* Lábjegyzet */}
             {block.footer && (
-              <p className="text-gray-300 mt-4">
+              <p className="mt-4 text-slate-300">
                 {replacePlaceholders(block.footer)}
               </p>
             )}
@@ -157,9 +185,8 @@ export default function Prices({ prices = {} }) {
 
           {/* Az adatbázisból érkező ár kiírása */}
           {priceObj && (
-            <span className="text-lg sm:text-xl font-bold text-[#00f7ff] mt-2 md:mt-0 break-words">
-              {priceObj.price_label} {priceObj.currency}{' '}
-              {priceObj.extras}
+            <span className="pz-cyan mt-2 break-words text-lg font-black sm:text-xl md:mt-0">
+              {formatPriceValue(priceObj)}
             </span>
           )}
         </div>
@@ -170,15 +197,15 @@ export default function Prices({ prices = {} }) {
   return (
     <Layout>
       <Head title={tr.meta_title ?? t('menu.prices', 'Prices')} />
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
-        <div className="rounded-2xl p-4 sm:p-10">
+      <section className="pz-section max-w-5xl">
+        <div className="pz-panel rounded-[2rem] p-5 sm:p-10">
           {tr.title && (
-            <h1 className="text-3xl font-bold text-center text-[#FF007A]">
+            <h1 className="pz-title text-center text-4xl font-black">
               {tr.title}
             </h1>
           )}
 
-          <ul className="space-y-10 mt-10">
+          <ul className="mt-10 space-y-6">
             {renderCard('wordpress')}
             {renderCard('webshop')}
             {renderCard('custom')}
@@ -186,10 +213,10 @@ export default function Prices({ prices = {} }) {
           </ul>
 
           {(tr.note || tr.note_email) && (
-            <p className="mt-12 text-center text-gray-400">
+            <p className="mt-12 text-center text-slate-400">
               {tr.note}{' '}
               {tr.note_email && (
-                <span className="text-[#FF007A] font-semibold">
+                <span className="font-bold text-[#00eaff]">
                   {tr.note_email}
                 </span>
               )}

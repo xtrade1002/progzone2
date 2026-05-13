@@ -4,9 +4,8 @@ import Layout from '../Components/Layout.jsx';
 import route from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
 
-const inputClasses =
-  'w-full rounded-lg border border-gray-600 bg-transparent p-3 text-gray-200 focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] outline-none transition';
-const selectClasses = inputClasses.replace('bg-transparent', 'bg-[#151522]');
+const inputClasses = 'pz-input';
+const selectClasses = 'pz-input bg-[#090d1d]';
 
 const createInitialFormState = () => ({
   name: '',
@@ -67,22 +66,22 @@ export default function QuoteRequest() {
   return (
     <Layout>
       <Head title={quote.meta_title ?? t('menu.quote', 'Quote request')} />
-      <section className="w-full px-6 py-20">
-        <div className="mx-auto max-w-5xl rounded-2xl border-1 border-[#ff007a]/30 bg-black/30 p-10 shadow-[0_0_45px_rgba(255,0,122,0.18)]">
+      <section className="pz-section max-w-5xl">
+        <div className="pz-panel rounded-[2rem] p-6 sm:p-10">
           <div className="mb-12 space-y-4 text-center">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#FF007A] drop-shadow-[0_0_20px_#ff007a]">
+            <h2 className="pz-title text-3xl font-black sm:text-5xl">
               {quote.title}
-              <span className="after:content-[''] after:block after:w-24 after:h-1 after:bg-[#00f7ff] after:mx-auto after:mt-4 after:rounded-full"></span>
+              <span className="pz-rule mx-auto mt-5"></span>
             </h2>
             {introParagraphs.map((paragraph, index) => (
-              <p key={index} className="text-base sm:text-lg text-gray-300 text-justify">
+              <p key={index} className="text-base leading-relaxed text-slate-300 sm:text-lg">
                 {paragraph}
               </p>
             ))}
-            {quote.hint && <p className="text-sm text-gray-400 text-justify">{quote.hint}</p>}
+            {quote.hint && <p className="text-sm text-slate-400">{quote.hint}</p>}
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8 text-justify">
+          <form onSubmit={handleSubmit} className="space-y-8">
             {/* Név + Email */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <input
@@ -155,7 +154,7 @@ export default function QuoteRequest() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="timeline" className="text-sm font-medium text-gray-300">
+              <label htmlFor="timeline" className="text-sm font-bold text-slate-300">
                 {fields.timeline?.label ?? 'Preferred timeline'}
               </label>
               <input
@@ -170,7 +169,7 @@ export default function QuoteRequest() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="message" className="text-sm font-medium text-gray-300">
+              <label htmlFor="message" className="text-sm font-bold text-slate-300">
                 {fields.message?.label ?? 'Project summary *'}
               </label>
               <textarea
@@ -185,7 +184,7 @@ export default function QuoteRequest() {
               ></textarea>
             </div>
 
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="reference_sites">
+            <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="reference_sites">
               {fields.reference_sites?.label ?? 'Inspiration / reference sites'}
               <textarea
                 id="reference_sites"
@@ -204,7 +203,7 @@ export default function QuoteRequest() {
             </label>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="target_audience">
+              <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="target_audience">
                 {fields.target_audience?.label ?? 'Primary audience'}
                 <input
                   id="target_audience"
@@ -219,7 +218,7 @@ export default function QuoteRequest() {
                   <span className="text-xs text-red-400">{errors.target_audience}</span>
                 )}
               </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="languages">
+              <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="languages">
                 {fields.languages?.label ?? 'Project languages'}
                 <input
                   id="languages"
@@ -234,7 +233,7 @@ export default function QuoteRequest() {
               </label>
             </div>
 
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="features">
+            <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="features">
               {fields.features?.label ?? 'Key features'}
               <textarea
                 id="features"
@@ -249,7 +248,7 @@ export default function QuoteRequest() {
             </label>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="content_source">
+              <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="content_source">
                 {fields.content_source?.label ?? 'Content source'}
                 <input
                   id="content_source"
@@ -264,7 +263,7 @@ export default function QuoteRequest() {
                   <span className="text-xs text-red-400">{errors.content_source}</span>
                 )}
               </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="payment_method">
+              <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="payment_method">
                 {fields.payment_method?.label ?? 'Preferred payment method'}
                 <input
                   id="payment_method"
@@ -281,7 +280,7 @@ export default function QuoteRequest() {
               </label>
             </div>
 
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="billing_info">
+            <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="billing_info">
               {fields.billing_info?.label ?? 'Billing information'}
               <textarea
                 id="billing_info"
@@ -298,7 +297,7 @@ export default function QuoteRequest() {
             </label>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="support">
+              <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="support">
                 {fields.support?.label ?? 'Support expectations'}
                 <input
                   id="support"
@@ -311,7 +310,7 @@ export default function QuoteRequest() {
                 />
                 {errors.support && <span className="text-xs text-red-400">{errors.support}</span>}
               </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="hosting_domain">
+              <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="hosting_domain">
                 {fields.hosting_domain?.label ?? 'Hosting / domain needs'}
                 <input
                   id="hosting_domain"
@@ -328,7 +327,7 @@ export default function QuoteRequest() {
               </label>
             </div>
 
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="integrations">
+            <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="integrations">
               {fields.integrations?.label ?? 'Required integrations'}
               <textarea
                 id="integrations"
@@ -344,7 +343,7 @@ export default function QuoteRequest() {
               )}
             </label>
 
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="marketing">
+            <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="marketing">
               {fields.marketing?.label ?? 'Marketing goals'}
               <textarea
                 id="marketing"
@@ -358,7 +357,7 @@ export default function QuoteRequest() {
               {errors.marketing && <span className="text-xs text-red-400">{errors.marketing}</span>}
             </label>
 
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="legal">
+            <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="legal">
               {fields.legal?.label ?? 'Legal / compliance notes'}
               <textarea
                 id="legal"
@@ -372,7 +371,7 @@ export default function QuoteRequest() {
               {errors.legal && <span className="text-xs text-red-400">{errors.legal}</span>}
             </label>
 
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="priority">
+            <label className="flex flex-col gap-2 text-sm font-bold text-slate-300" htmlFor="priority">
               {fields.priority?.label ?? 'Project priority'}
               <input
                 id="priority"
@@ -386,12 +385,12 @@ export default function QuoteRequest() {
               {errors.priority && <span className="text-xs text-red-400">{errors.priority}</span>}
             </label>
 
-            <div className="flex flex-col gap-4 text-sm text-gray-400 md:flex-row md:items-center md:justify-between">
-              <label className="inline-flex items-center gap-3 text-gray-300" htmlFor="privacy">
+            <div className="flex flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+              <label className="inline-flex items-center gap-3 text-slate-300" htmlFor="privacy">
                 <input
                   id="privacy"
                   type="checkbox"
-                  className="h-4 w-4 accent-[#FF007A]"
+                  className="h-4 w-4 accent-[var(--pz-pink)]"
                   required
                   checked={formData.privacy}
                   onChange={handleChange('privacy')}
@@ -405,7 +404,7 @@ export default function QuoteRequest() {
             <div className="flex flex-col items-stretch sm:flex-row sm:justify-end">
               <button
                 type="submit"
-                className="rounded-lg bg-[#FF007A] px-8 py-3 font-semibold text-white shadow-[0_0_25px_#ff007a] transition hover:shadow-[0_0_40px_#ff007a] disabled:cursor-not-allowed disabled:opacity-70"
+                className="pz-button disabled:cursor-not-allowed disabled:opacity-70"
                 disabled={processing}
               >
                 {processing

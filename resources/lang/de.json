@@ -26,6 +26,13 @@
   },
   "home": {
     "meta_title": "Startseite",
+    "cta_quote": "Angebot anfordern",
+    "cta_references": "Referenzen ansehen",
+    "highlights": [
+      "Modern",
+      "Responsiv",
+      "Zielorientiert"
+    ],
     "paragraphs": [
       "Professionelle Website- und Webshop-Erstellung, Webdesign und Online-Marketing an einem Ort"
     ],
@@ -124,49 +131,45 @@
     ]
   },
   "prices": {
-  "meta_title": "Preise",
-  "title": "Preise",
-  "note": "Für ein genaues Angebot kontaktieren Sie mich bitte per E-Mail:",
-  "note_email": "info@progzone.de",
-
-  "wordpress": {
-    "title": "Website-Erstellung (WordPress)",
-    "desc": "Schnelle, kostengünstige und einfach zu bearbeitende Lösung mit modernem Design und SEO. Der Preis hängt z. B. von der Anzahl der Seiten, dem Design, dem Content-Management und der Wartung ab.",
-    "not_included": "Der Preis enthält NICHT:",
-    "list": [
-      "Domainname ca. ({domain_price})",
-      "Hosting ca. ({hosting_price})",
-      "Premium-Themes und Plugins ({plugin_price})",
-      "Individuelle Funktionen"
-    ],
-    "footer": "Festpreis, zusätzliche Wünsche nach Stunden ({hourly_rate})."
+    "meta_title": "Preise",
+    "title": "Preise",
+    "note": "Für ein genaues Angebot kontaktieren Sie mich bitte per E-Mail:",
+    "note_email": "info@progzone.de",
+    "wordpress": {
+      "title": "Website-Erstellung (WordPress)",
+      "desc": "Schnelle, kostengünstige und einfach zu bearbeitende Lösung mit modernem Design und SEO. Der Preis hängt z. B. von der Anzahl der Seiten, dem Design, dem Content-Management und der Wartung ab.",
+      "not_included": "Der Preis enthält NICHT:",
+      "list": [
+        "Domainname ca. ({domain_price})",
+        "Hosting ca. ({hosting_price})",
+        "Premium-Themes und Plugins ({plugin_price})",
+        "Individuelle Funktionen"
+      ],
+      "footer": "Festpreis, zusätzliche Wünsche nach Stunden ({hourly_rate})."
+    },
+    "webshop": {
+      "title": "Onlineshop-Erstellung (WooCommerce)",
+      "desc": "Professioneller Online-Shop mit integrierten Zahlungen, Versand, Rabattverwaltung und Mehrsprachigkeit.",
+      "not_included": "Der Preis enthält NICHT:",
+      "list": [
+        "Domainname ca. ({domain_price})",
+        "Hosting ca. ({hosting_price})",
+        "Premium-Themes und Plugins ({plugin_price})",
+        "Individuelle Funktionen"
+      ],
+      "footer": "Festpreis, zusätzliche Wünsche nach Stunden ({hourly_rate})."
+    },
+    "custom": {
+      "title": "Individuell entwickelte Website",
+      "desc": "Mit speziellen Funktionen, maximaler Flexibilität und Erweiterbarkeit. Der Preis hängt von der Komplexität der Funktionen, den Integrationen, der Größe des Systems und dem Wartungsaufwand ab.",
+      "footer": "Je nach Projekt Festpreis oder Stundenabrechnung ({hourly_rate})."
+    },
+    "marketing": {
+      "title": "Marketing",
+      "desc": "Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung zur Umsatzsteigerung.",
+      "footer": "Der Preis hängt von der Anzahl, Art und Komplexität der Kampagnen ab."
+    }
   },
-
-  "webshop": {
-    "title": "Onlineshop-Erstellung (WooCommerce)",
-    "desc": "Professioneller Online-Shop mit integrierten Zahlungen, Versand, Rabattverwaltung und Mehrsprachigkeit.",
-    "not_included": "Der Preis enthält NICHT:",
-    "list": [
-      "Domainname ca. ({domain_price})",
-      "Hosting ca. ({hosting_price})",
-      "Premium-Themes und Plugins ({plugin_price})",
-      "Individuelle Funktionen"
-    ],
-    "footer": "Festpreis, zusätzliche Wünsche nach Stunden ({hourly_rate})."
-  },
-
-  "custom": {
-    "title": "Individuell entwickelte Website",
-    "desc": "Mit speziellen Funktionen, maximaler Flexibilität und Erweiterbarkeit. Der Preis hängt von der Komplexität der Funktionen, den Integrationen, der Größe des Systems und dem Wartungsaufwand ab.",
-    "footer": "Je nach Projekt Festpreis oder Stundenabrechnung ({hourly_rate})."
-  },
-
-  "marketing": {
-    "title": "Marketing",
-    "desc": "Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung zur Umsatzsteigerung.",
-    "footer": "Der Preis hängt von der Anzahl, Art und Komplexität der Kampagnen ab."
-  }
-},
   "quote": {
     "meta_title": "Angebot anfordern",
     "title": "Angebot anfordern",
@@ -196,89 +199,122 @@
         "label": "Gewünschte Leistung *",
         "placeholder": "Leistung auswählen",
         "options": [
-          { "value": "weboldal", "label": "Webseiten-Entwicklung" },
-          { "value": "webshop", "label": "Onlineshop" },
-          { "value": "design", "label": "Webdesign / UI" },
-          { "value": "logo", "label": "Logo oder Branding" },
-          { "value": "marketing", "label": "Online-Marketing" },
-          { "value": "egyedi", "label": "Individuelle Entwicklung" }
+          {
+            "value": "weboldal",
+            "label": "Webseiten-Entwicklung"
+          },
+          {
+            "value": "webshop",
+            "label": "Onlineshop"
+          },
+          {
+            "value": "design",
+            "label": "Webdesign / UI"
+          },
+          {
+            "value": "logo",
+            "label": "Logo oder Branding"
+          },
+          {
+            "value": "marketing",
+            "label": "Online-Marketing"
+          },
+          {
+            "value": "egyedi",
+            "label": "Individuelle Entwicklung"
+          }
         ]
       },
       "budget": {
         "label": "Geplantes Budget",
         "placeholder": "Budget wählen",
         "options": [
-          { "value": "0-200", "label": "€0 – €2.000" },
-          { "value": "200-500", "label": "€2.000 – €5.000" },
-          { "value": "500-1000", "label": "€5.000 – €10.000" },
-          { "value": "1000+", "label": "Über €10.000" },
-          { "value": "bizonytalan", "label": "Noch unsicher" }
+          {
+            "value": "0-200",
+            "label": "€0 – €2.000"
+          },
+          {
+            "value": "200-500",
+            "label": "€2.000 – €5.000"
+          },
+          {
+            "value": "500-1000",
+            "label": "€5.000 – €10.000"
+          },
+          {
+            "value": "1000+",
+            "label": "Über €10.000"
+          },
+          {
+            "value": "bizonytalan",
+            "label": "Noch unsicher"
+          }
         ]
       },
       "timeline": {
         "label": "Bevorzugter Zeitplan",
         "placeholder": "z. B. Ende Juni 2024"
       },
-    "message": {
-      "label": "Projektbeschreibung *",
-      "placeholder": "Beschreibe Ziele, gewünschte Funktionen und weitere Details."
+      "message": {
+        "label": "Projektbeschreibung *",
+        "placeholder": "Beschreibe Ziele, gewünschte Funktionen und weitere Details."
+      },
+      "reference_sites": {
+        "label": "Inspiration / Referenzseiten",
+        "placeholder": "Nenne Webseiten oder Produkte, die dir gefallen"
+      },
+      "target_audience": {
+        "label": "Hauptzielgruppe",
+        "placeholder": "Wer wird das Produkt nutzen oder kaufen?"
+      },
+      "languages": {
+        "label": "Projektsprachen",
+        "placeholder": "z. B. Deutsch, Englisch"
+      },
+      "features": {
+        "label": "Wichtigste Funktionen",
+        "placeholder": "Liste die wichtigsten gewünschten Funktionen auf"
+      },
+      "content_source": {
+        "label": "Quelle der Inhalte",
+        "placeholder": "Wer liefert Texte, Bilder oder Videos?"
+      },
+      "billing_info": {
+        "label": "Rechnungsinformationen",
+        "placeholder": "Firmenname, Steuernummer, Rechnungsadresse usw."
+      },
+      "payment_method": {
+        "label": "Bevorzugte Zahlungsmethode",
+        "placeholder": "z. B. Überweisung, meilensteinbasiert"
+      },
+      "support": {
+        "label": "Support-Erwartungen",
+        "placeholder": "Benötigst du Betreuung nach dem Launch?"
+      },
+      "hosting_domain": {
+        "label": "Hosting- / Domain-Bedarf",
+        "placeholder": "Brauchst du Unterstützung bei Hosting oder Domains?"
+      },
+      "integrations": {
+        "label": "Benötigte Integrationen",
+        "placeholder": "CRM, Newsletter, Zahlungsanbieter usw."
+      },
+      "marketing": {
+        "label": "Marketingziele",
+        "placeholder": "Kampagnen, KPIs oder Kanäle, auf die du dich fokussierst"
+      },
+      "legal": {
+        "label": "Rechtliche / Compliance-Hinweise",
+        "placeholder": "DSGVO, Verträge, AGB oder andere Anforderungen"
+      },
+      "priority": {
+        "label": "Projektpriorität",
+        "placeholder": "Wie dringend oder wichtig ist das Projekt?"
+      },
+      "privacy": {
+        "label": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie."
+      }
     },
-    "reference_sites": {
-      "label": "Inspiration / Referenzseiten",
-      "placeholder": "Nenne Webseiten oder Produkte, die dir gefallen"
-    },
-    "target_audience": {
-      "label": "Hauptzielgruppe",
-      "placeholder": "Wer wird das Produkt nutzen oder kaufen?"
-    },
-    "languages": {
-      "label": "Projektsprachen",
-      "placeholder": "z. B. Deutsch, Englisch"
-    },
-    "features": {
-      "label": "Wichtigste Funktionen",
-      "placeholder": "Liste die wichtigsten gewünschten Funktionen auf"
-    },
-    "content_source": {
-      "label": "Quelle der Inhalte",
-      "placeholder": "Wer liefert Texte, Bilder oder Videos?"
-    },
-    "billing_info": {
-      "label": "Rechnungsinformationen",
-      "placeholder": "Firmenname, Steuernummer, Rechnungsadresse usw."
-    },
-    "payment_method": {
-      "label": "Bevorzugte Zahlungsmethode",
-      "placeholder": "z. B. Überweisung, meilensteinbasiert"
-    },
-    "support": {
-      "label": "Support-Erwartungen",
-      "placeholder": "Benötigst du Betreuung nach dem Launch?"
-    },
-    "hosting_domain": {
-      "label": "Hosting- / Domain-Bedarf",
-      "placeholder": "Brauchst du Unterstützung bei Hosting oder Domains?"
-    },
-    "integrations": {
-      "label": "Benötigte Integrationen",
-      "placeholder": "CRM, Newsletter, Zahlungsanbieter usw."
-    },
-    "marketing": {
-      "label": "Marketingziele",
-      "placeholder": "Kampagnen, KPIs oder Kanäle, auf die du dich fokussierst"
-    },
-    "legal": {
-      "label": "Rechtliche / Compliance-Hinweise",
-      "placeholder": "DSGVO, Verträge, AGB oder andere Anforderungen"
-    },
-    "priority": {
-      "label": "Projektpriorität",
-      "placeholder": "Wie dringend oder wichtig ist das Projekt?"
-    },
-    "privacy": {
-      "label": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie."
-    }
-  },
     "button": {
       "default": "Senden",
       "processing": "Wird gesendet…"
@@ -290,10 +326,18 @@
     "email_label": "📧 E-Mail",
     "email_value": "info@progzone.de",
     "fields": {
-      "name": { "placeholder": "Name *" },
-      "email": { "placeholder": "E-Mail *" },
-      "phone": { "placeholder": "Telefon" },
-      "message": { "placeholder": "Nachricht *" }
+      "name": {
+        "placeholder": "Name *"
+      },
+      "email": {
+        "placeholder": "E-Mail *"
+      },
+      "phone": {
+        "placeholder": "Telefon"
+      },
+      "message": {
+        "placeholder": "Nachricht *"
+      }
     },
     "button": {
       "default": "Senden",
@@ -517,137 +561,150 @@
   "references": {
     "meta_title": "Referenzen",
     "title": "Referenzen",
-    "subtitle": "Eine Auswahl meiner Lieblingsprojekte",
-    "lightbox_alt": "Vorschau",
+    "subtitle": "Eine Auswahl fertiger Websites, Branding-Materialien, Flyer und kreativer Grafikarbeiten.",
+    "lightbox_alt": "Referenz-Vorschau",
+    "cta": "Website öffnen",
+    "preview_cta": "Bild vergrößern",
+    "preview_label": "Vorschau",
     "projects": [
       {
         "type": "link",
-        "url": "https://www.glamlash.hu",
-        "image": "/img/bg_women.jpeg",
-        "title": "Wimpernverlängerung",
-        "cta": "Website ansehen"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/kertmester_logo.png",
-        "title": "Logo- und Markendesign",
-        "lightboxImage": "/img/kertmester_logo.png"
-      },
-      {
-        "type": "link",
-        "url": "https://www.kertmester.eu",
-        "image": "/img/4.webp",
-        "title": "Gartenbau-Webseite",
-        "cta": "Website ansehen"
+        "url": "https://glamlash.hu",
+        "image": "/img/reference/glamlash.png",
+        "title": "GlamLash",
+        "label": "Beauty-Website",
+        "description": "Eine elegante, dienstleistungsorientierte Website für ein Beauty-Business.",
+        "tags": [
+          "Website",
+          "Beauty",
+          "Responsiv"
+        ],
+        "cta": "glamlash.hu öffnen"
       },
       {
         "type": "link",
-        "url": "https://www.versenybikini.hu",
-        "image": "/img/glamazon_logo.png",
-        "title": "Anfertigung von Wettkampfbikinis",
-        "cta": "Website ansehen"
+        "url": "https://fixappoint.de",
+        "image": "/img/reference/K%C3%A9perny%C5%91k%C3%A9p%202025-11-28%20100547.png",
+        "title": "Fixappoint",
+        "label": "Buchungssystem",
+        "description": "Eine buchungsfokussierte digitale Oberfläche für den deutschen, ungarischen und europäischen Markt.",
+        "tags": [
+          "Webapp",
+          "Buchung",
+          "Deutscher Markt"
+        ],
+        "cta": "fixappoint.de öffnen"
       },
       {
-        "type": "lightbox",
-        "image": "/img/action.jpg",
-        "title": "Flyer",
-        "lightboxImage": "/img/action.jpg"
+        "type": "link",
+        "url": "https://ohayachting.com",
+        "image": "/img/reference/ohayachting.webp",
+        "title": "Oha Yachting",
+        "label": "Yachting-Website",
+        "description": "Eine hochwertig wirkende Website für ein internationales Publikum.",
+        "tags": [
+          "Website",
+          "Premium",
+          "International"
+        ],
+        "cta": "ohayachting.com öffnen"
       },
       {
-        "type": "lightbox",
-        "image": "/img/africa.jpg",
-        "title": "Plakat",
-        "lightboxImage": "/img/africa.jpg"
+        "type": "link",
+        "url": "https://kertmester.eu",
+        "image": "/img/reference/kertmester.png",
+        "title": "Kertmester",
+        "label": "Gartenbau-Website",
+        "description": "Eine übersichtliche, vertrauensbildende Website für Gartenbau-Dienstleistungen.",
+        "tags": [
+          "Website",
+          "Service",
+          "SEO-Basis"
+        ],
+        "cta": "kertmester.eu öffnen"
       },
       {
-        "type": "lightbox",
-        "image": "/img/bakery.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/bakery.png"
+        "type": "link",
+        "url": "https://versenybikini.hu",
+        "image": "/img/reference/versenybikini.png",
+        "title": "Versenybikini",
+        "label": "Mode- und Produktwebsite",
+        "description": "Eine visuelle produktorientierte Website für individuelle Wettkampfbikinis.",
+        "tags": [
+          "Website",
+          "Mode",
+          "Produkt"
+        ],
+        "cta": "versenybikini.hu öffnen"
       },
       {
-        "type": "lightbox",
-        "image": "/img/banner.png",
-        "title": "Bannerwerbung",
-        "lightboxImage": "/img/banner.png"
+        "type": "image",
+        "image": "/img/reference/K%C3%A9perny%C5%91k%C3%A9p%202025-11-28%20101112.png",
+        "title": "Buchungsoberfläche",
+        "label": "Webapp-Screen",
+        "category": "Webapp-Screenshot",
+        "description": "Ein Referenzscreen aus der digitalen Terminbuchungsoberfläche.",
+        "tags": [
+          "UI",
+          "Webapp",
+          "Buchung"
+        ]
       },
       {
-        "type": "lightbox",
-        "image": "/img/bistro.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/bistro.png"
+        "type": "image",
+        "image": "/img/reference/flyer.png",
+        "title": "Flyer-Design",
+        "label": "Printdesign",
+        "category": "Flyer",
+        "description": "Promotionales Flyer-Design als Grafikreferenz.",
+        "tags": [
+          "Flyer",
+          "Grafik",
+          "Print"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/businesscard.jpg",
-        "title": "Visitenkarte",
-        "lightboxImage": "/img/businesscard.jpg"
+        "type": "image",
+        "image": "/img/reference/bakery.png",
+        "title": "Bakery Creative",
+        "label": "Flyer / Creative Asset",
+        "category": "Grafikarbeit",
+        "description": "Ein auffälliges Creative Asset für Gastronomie.",
+        "tags": [
+          "Grafik",
+          "Flyer",
+          "Gastronomie"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/educationday.png",
-        "title": "Plakat",
-        "lightboxImage": "/img/educationday.png"
+        "type": "image",
+        "image": "/img/reference/giftcard_christmas.jpg",
+        "title": "Weihnachtliche Geschenkkarte",
+        "label": "Gift Card Design",
+        "category": "Geschenkkarte",
+        "description": "Saisonales Geschenkkarten-Design mit festlicher Stimmung.",
+        "tags": [
+          "Gift Card",
+          "Weihnachten",
+          "Grafik"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/error.png",
-        "title": "404-Seite",
-        "lightboxImage": "/img/error.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/gaycupydo2.png",
-        "title": "Logo",
-        "lightboxImage": "/img/gaycupydo2.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/giftvoucher.jpg",
-        "title": "Geschenkgutschein",
-        "lightboxImage": "/img/giftvoucher.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/massagepass.jpg",
-        "title": "Wellness-Pass",
-        "lightboxImage": "/img/massagepass.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/sale.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/sale.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/sexxxtra_logo4.png",
-        "title": "Logo",
-        "lightboxImage": "/img/sexxxtra_logo4.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/szorolap_front.jpg",
-        "title": "Flyer",
-        "lightboxImage": "/img/szorolap_front.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/wetter.png",
-        "title": "Wetter-App-Design",
-        "lightboxImage": "/img/wetter.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/wetter2.png",
-        "title": "Wetter-App-Design",
-        "lightboxImage": "/img/wetter2.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/wine.png",
-        "title": "Webdesign",
-        "lightboxImage": "/img/wine.png"
+        "type": "image",
+        "image": "/img/reference/teahouse.png",
+        "title": "Tea House Creative",
+        "label": "Brand / Flyer Design",
+        "category": "Grafikarbeit",
+        "description": "Ein atmosphärisches Gastronomie-Grafikkonzept.",
+        "tags": [
+          "Brand",
+          "Grafik",
+          "Flyer"
+        ],
+        "imageFit": "contain"
       }
     ]
   },
@@ -655,11 +712,28 @@
     "meta_title": "Impressum",
     "title": "Impressum",
     "details": [
-      { "label": "Name:", "value": "Xtrade" },
-      { "label": "USt-IdNr.:", "value": "DE362261730" },
-      { "label": "E-Mail:", "value": "info@progzone.hu", "type": "email" },
-      { "label": "Telefon:", "value": "+49 173 615 47 30", "type": "phone" },
-      { "label": "Anschrift:", "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland" }
+      {
+        "label": "Name:",
+        "value": "Xtrade"
+      },
+      {
+        "label": "USt-IdNr.:",
+        "value": "DE362261730"
+      },
+      {
+        "label": "E-Mail:",
+        "value": "info@progzone.hu",
+        "type": "email"
+      },
+      {
+        "label": "Telefon:",
+        "value": "+49 173 615 47 30",
+        "type": "phone"
+      },
+      {
+        "label": "Anschrift:",
+        "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland"
+      }
     ]
   },
   "privacy": {

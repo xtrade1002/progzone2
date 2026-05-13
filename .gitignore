@@ -1,37 +1,58 @@
-# Laravel általános
-/vendor
-/node_modules
+# Laravel / PHP dependencies
+/vendor/
+
+# Node dependencies
+/node_modules/
+
+# Public storage symlink and local keys
 /public/storage
 /storage/*.key
+
+# Environment files
 .env
+.env.production
 .env.backup
 .env.local
 
-# Composer lock fájl (ha nem akarod verziózni)
-# composer.lock
-
-# NPM / Yarn / Vite
+# NPM / Yarn / PNPM logs and local lockfile
 npm-debug.log
 yarn-error.log
 pnpm-debug.log
 package-lock.json
 
-# IDE / Editor
-.idea
-.vscode
+# IDE / editor files
+.idea/
+.vscode/
 *.sublime-project
 *.sublime-workspace
 
-# MacOS saját fájlok
+# OS files
 .DS_Store
 .AppleDouble
 .LSOverride
+Thumbs.db
 
-# Docker
+# Docker local overrides
 docker-compose.override.yml
 *.pid
 *.seed
 *.pid.lock
 
 # Vite dev server hot file
-public/hot
+/public/hot
+
+# Laravel runtime/cache
+/bootstrap/cache/*.php
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+/storage/logs/*
+
+# Keep Laravel placeholder files
+!/bootstrap/cache/.gitignore
+!/storage/framework/cache/.gitignore
+!/storage/framework/sessions/.gitignore
+!/storage/framework/testing/.gitignore
+!/storage/framework/views/.gitignore
+!/storage/logs/.gitignore

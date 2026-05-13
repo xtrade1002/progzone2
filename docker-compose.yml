@@ -54,6 +54,7 @@ services:
   vite:
     image: node:20
     container_name: progzone2-vite
+    user: "1000:1000"
     working_dir: /var/www
     volumes:
       - .:/var/www

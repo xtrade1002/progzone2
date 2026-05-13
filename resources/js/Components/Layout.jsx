@@ -9,7 +9,7 @@ export default function Layout({ activePath, children }) {
   const successMessage = props?.flash?.success;
 
   return (
-    <div className="min-h-screen text-[#FF007A] flex flex-col">
+    <div className="pz-page min-h-screen flex flex-col text-white">
       <MainMenu activePath={currentPath} />
 
       {successMessage && (
@@ -24,7 +24,7 @@ export default function Layout({ activePath, children }) {
         </div>
       )}
 
-      <main className="flex-grow flex items-center justify-center">{children}</main>
+      <main className="relative z-10 flex-grow">{children}</main>
       <Footer />
     </div>
   );

@@ -1,0 +1,1 @@
+{"version":2,"defects":{"Tests\\Feature\\PricesPageTest::prices_page_renders_without_server_error":7},"times":{"Tests\\Feature\\PricesPageTest::prices_page_renders_without_server_error":0.087,"Tests\\Feature\\ReferencesPageTest::hungarian_references_page_uses_valid_accented_texts":0.093}}

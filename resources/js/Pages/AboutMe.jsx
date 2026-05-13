@@ -8,8 +8,6 @@ export default function AboutMe() {
   const about = trans?.about ?? {};
   const introParagraphs = Array.isArray(about.intro_paragraphs) ? about.intro_paragraphs : [];
   const serviceBlocks = Array.isArray(about.service_blocks) ? about.service_blocks : [];
-
-  // animáció állapot
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -20,84 +18,68 @@ export default function AboutMe() {
   return (
     <Layout>
       <Head title={about.meta_title ?? t('menu.about', 'About')} />
-      <section className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-16 space-y-20">
-        {/* --- Kép + bemutatkozás --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="pz-section space-y-20">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[0.9fr_1.1fr]">
           <div
-            className={`transform transition-all duration-700 ease-out ${
-              visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'
+            className={`transition-all duration-700 ease-out ${
+              visible ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'
             }`}
           >
             <img
-              src="/img/me.jpg"
+              src="/img/me-20260513.png"
               alt={about.image_alt ?? ''}
-              className="rounded-2xl shadow-[0_0_25px_#ff007a]/50"
+              className="rounded-[2rem] border border-[rgb(var(--pz-pink-rgb)/0.46)] shadow-[0_0_36px_rgb(var(--pz-pink-rgb)/0.42)]"
             />
           </div>
           <div
-            className={`transform transition-all duration-700 ease-out delay-200 ${
-              visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'
+            className={`transition-all delay-200 duration-700 ease-out ${
+              visible ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'
             }`}
           >
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-center text-[#FF007A] mb-8 drop-shadow-[0_0_15px_#ff007a]">
+            <h3 className="pz-title mb-8 text-3xl font-black sm:text-5xl">
               {about.intro_title}
             </h3>
             {introParagraphs.length > 0 ? (
               introParagraphs.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="text-gray-300 leading-relaxed mb-4 text-justify px-1"
-                >
+                <p key={index} className="mb-4 px-1 text-lg leading-relaxed text-slate-300">
                   {paragraph}
                 </p>
               ))
             ) : (
-              <p className="text-[#00f7ff] italic text-justify px-1">
-                Tartalom feltöltés alatt...
-              </p>
+              <p className="pz-cyan px-1 italic">Tartalom feltoltes alatt...</p>
             )}
           </div>
         </div>
 
-        {/* --- Mit tanultam? --- */}
         <div
-          className={`transform transition-all duration-700 ease-out delay-500 ${
-            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          className={`transition-all delay-500 duration-700 ease-out ${
+            visible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
           }`}
         >
-          <h4 className="text-3xl sm:text-4xl font-bold text-[#FF007A] mb-12 text-center relative inline-block">
+          <h4 className="pz-title relative mb-12 inline-block text-3xl font-black sm:text-4xl">
             {about.services_title}
-            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-[#00f7ff] rounded-full"></span>
+            <span className="pz-rule absolute -bottom-4 left-0" />
           </h4>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+          <div className="grid grid-cols-1 gap-6 text-left md:grid-cols-3">
             {serviceBlocks.length > 0 ? (
               serviceBlocks.map((block, index) => (
-                <div
-                  key={index}
-                  className="p-6 rounded-xl border border-[#ff007a]/30 bg-[#121317]/60 hover:shadow-[0_0_25px_#ff007a] transition duration-300"
-                >
-                  <h2 className="text-2xl font-bold text-[#FF007A] mb-4">
-                    {block.title}
-                  </h2>
-                  <p className="text-gray-300 mb-6 text-justify px-1">{block.description}</p>
-                  <ul className="space-y-4 text-gray-400">
+                <article key={index} className="pz-card rounded-2xl p-6">
+                  <h2 className="mb-4 text-2xl font-black text-[var(--pz-pink)]">{block.title}</h2>
+                  <p className="mb-6 px-1 leading-relaxed text-slate-300">{block.description}</p>
+                  <ul className="space-y-4 text-slate-400">
                     {(block.highlights ?? []).map((highlight, highlightIndex) => (
-                      <li key={highlightIndex} className="text-justify px-1">
-                        <span className="font-semibold text-white">
-                          {highlight.title}
-                        </span>
+                      <li key={highlightIndex} className="px-1">
+                        <span className="font-bold text-white">{highlight.title}</span>
                         <br />
                         {highlight.description}
                       </li>
                     ))}
                   </ul>
-                </div>
+                </article>
               ))
             ) : (
-              <p className="text-center text-[#00f7ff] italic">
-                Nincsenek szolgáltatási blokkok megadva.
-              </p>
+              <p className="pz-cyan text-center italic">Nincsenek szolgaltatasi blokkok megadva.</p>
             )}
           </div>
         </div>

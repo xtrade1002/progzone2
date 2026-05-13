@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `contact_messages`
+-- Tábla szerkezet ehhez a táblához `contact_messages` 
 --
 
 CREATE TABLE `contact_messages` (

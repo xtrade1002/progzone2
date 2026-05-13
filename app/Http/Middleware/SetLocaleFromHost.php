@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Support\LocalizedRoutes;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -13,7 +14,8 @@ class SetLocaleFromHost
      */
     public function handle(Request $request, Closure $next)
     {
-        $availableLocales = ['hu', 'de', 'en'];
+        $availableLocales = LocalizedRoutes::locales();
+        $routeLocale = LocalizedRoutes::localeForPath($request->path());
 
         $sessionLocale = null;
 
@@ -21,7 +23,9 @@ class SetLocaleFromHost
             $sessionLocale = $request->session()->get('locale');
         }
 
-        if ($sessionLocale && in_array($sessionLocale, $availableLocales, true)) {
+        if ($routeLocale && in_array($routeLocale, $availableLocales, true)) {
+            $locale = $routeLocale;
+        } elseif ($sessionLocale && in_array($sessionLocale, $availableLocales, true)) {
             $locale = $sessionLocale;
         } else {
             $host = $request->getHost();
@@ -40,9 +44,10 @@ class SetLocaleFromHost
                 $locale = config('app.fallback_locale', 'hu');
             }
 
-            if ($request->hasSession()) {
-                $request->session()->put('locale', $locale);
-            }
+        }
+
+        if ($request->hasSession()) {
+            $request->session()->put('locale', $locale);
         }
 
         App::setLocale($locale);

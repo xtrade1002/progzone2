@@ -2,24 +2,18 @@
 
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\LocaleController;
-use App\Http\Controllers\PriceController;
+use App\Support\LocalizedRoutes;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Home');
-})->name('home');
+foreach (LocalizedRoutes::PAGE_ROUTES as $name => $localizedRoute) {
+    foreach (array_unique($localizedRoute['paths']) as $path) {
+        $action = $localizedRoute['controller']
+            ?? fn () => Inertia::render($localizedRoute['component']);
 
-Route::get('/about-me', fn () => Inertia::render('AboutMe'))->name('aboutme');
-Route::get('/services', fn () => Inertia::render('Services'))->name('services');
-Route::get('/prices', [PriceController::class, 'index'])->name('prices');
-Route::get('/references', fn () => Inertia::render('References'))->name('references');
-Route::get('/infos', fn () => Inertia::render('Infos'))->name('infos');
-Route::get('/quote', fn () => Inertia::render('QuoteRequest'))->name('quote');
-Route::get('/contact', fn () => Inertia::render('Contact'))->name('contact');
-Route::get('/privacy', fn () => Inertia::render('Privacy'))->name('privacy');
-Route::get('/terms', fn () => Inertia::render('Terms'))->name('terms');
-Route::get('/impressum', fn () => Inertia::render('Impressum'))->name('impressum');
+        Route::get($path, $action);
+    }
+}
 
 Route::post('/quote-request', [FormController::class, 'storeQuoteRequest'])->name('quote-request.store');
 Route::post('/contact-message', [FormController::class, 'storeContactMessage'])->name('contact-message.store');

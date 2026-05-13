@@ -4,13 +4,15 @@ namespace Tests\Feature;
 
 use App\Models\Price;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Inertia\Testing\AssertableInertia as Assert;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class PricesPageTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[Test]
     public function prices_page_renders_without_server_error(): void
     {
         Price::create([
@@ -29,9 +31,13 @@ class PricesPageTest extends TestCase
             'is_active' => true,
         ]);
 
-        $response = $this->get('/prices');
+        $response = $this->get('/arak');
 
         $response->assertOk();
-        $response->assertSee('Kezdő csomag', false);
+        $response->assertInertia(fn (Assert $page) => $page
+            ->component('Prices')
+            ->where('prices.wordpress.price_label', 'Kezdő csomag')
+            ->where('prices.wordpress.extras', '+ áfa')
+        );
     }
 }
