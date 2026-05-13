@@ -22,7 +22,8 @@
     "terms": "Allgemeine Geschäftsbedingungen",
     "impressum": "Impressum",
     "menu_title": "Footer-Menü",
-    "copyright": "© :year Progzone. Alle Rechte vorbehalten."
+    "copyright": "© :year Progzone. Alle Rechte vorbehalten.",
+    "hunportal_copyright": "Copyright © :year Hunportal erstellt von Progzone"
   },
   "home": {
     "meta_title": "Startseite",
@@ -227,7 +228,7 @@
       },
       "budget": {
         "label": "Geplantes Budget",
-        "placeholder": "Budget wählen",
+        "placeholder": "Wie viel m?chtest du in die Website investieren?",
         "options": [
           {
             "value": "0-200",
@@ -312,7 +313,12 @@
         "placeholder": "Wie dringend oder wichtig ist das Projekt?"
       },
       "privacy": {
-        "label": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie."
+        "label": "Ich habe die AGB und die Datenschutzerkl?rung gelesen und akzeptiere sie!",
+        "prefix": "Ich habe die",
+        "terms_link": "AGB",
+        "between": "und die",
+        "privacy_link": "Datenschutzerkl?rung",
+        "suffix": " gelesen und akzeptiere sie!"
       }
     },
     "button": {
@@ -731,6 +737,86 @@
       "Nur ich habe Zugriff auf die übermittelten Daten.",
       "Die Daten werden niemals an Dritte weitergegeben.",
       "Auf Wunsch lösche ich sämtliche Kontaktdaten."
+    ],
+    "document_title": "Datenschutzerkl?rung",
+    "document_intro": "Diese Erkl?rung beschreibt, welche personenbezogenen Daten die Progzone-Website erhebt, zu welchen Zwecken sie verarbeitet werden, welche Dienstleister beteiligt sein k?nnen und welche Rechte Nutzer nach der DSGVO haben.",
+    "sections": [
+      {
+        "title": "1. Verantwortlicher",
+        "paragraphs": [
+          "Verantwortlicher: Xtrade / Progzone. Anschrift: Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland. E-Mail: info@progzone.hu. Telefon: +49 173 615 47 30. USt-IdNr.: DE362261730.",
+          "Diese Erkl?rung gilt f?r die Verarbeitung ?ber Kontakt- und Angebotsformulare auf progzone.hu, progzone.de und verbundenen Progzone-Websites."
+        ]
+      },
+      {
+        "title": "2. Welche Daten werden erhoben?",
+        "items": [
+          "Kontaktformular: Name, E-Mail-Adresse, optionale Telefonnummer und Nachricht.",
+          "Angebotsformular: Name, E-Mail-Adresse, optionale Telefonnummer, Firma oder Projektname, gew?nschte Leistung, Budget, Zeitplan, Projektbeschreibung, Referenzseiten, Zielgruppe, Projektsprachen, Funktionsw?nsche, Inhaltsquelle, Rechnungsdaten, bevorzugte Zahlungsart, Supportbedarf, Hosting-/Domainbedarf, Integrationen, Marketingziele, rechtliche Hinweise, Projektpriorit?t und Best?tigung der Annahme der rechtlichen Hinweise.",
+          "Technische Daten: f?r Betrieb und Sicherheit erforderliche Logdaten wie IP-Adresse, Browser- und Ger?teinformationen, Besuchszeit, Session-Cookies und Cloudflare-Turnstile-Pr?fdaten."
+        ]
+      },
+      {
+        "title": "3. Zwecke und Rechtsgrundlagen",
+        "items": [
+          "Beantwortung von Anfragen und Nachrichten.",
+          "Erstellung individueller Angebote und Kl?rung von Projektanforderungen.",
+          "Vertragserf?llung und Projektkommunikation.",
+          "Rechnungstellung, Buchhaltung und gesetzliche Pflichten.",
+          "Sicherheit, Spamvermeidung, Missbrauchspr?vention und Rechtsdurchsetzung."
+        ]
+      },
+      {
+        "title": "4. Empf?nger und Auftragsverarbeiter",
+        "paragraphs": [
+          "Daten k?nnen durch technische Dienstleister verarbeitet werden, die f?r Betrieb der Website und Nachrichtenversand erforderlich sind, insbesondere Hosting-, E-Mail-/SMTP-, Domain- und IT-Dienstleister.",
+          "Hostinger kann als Hosting- und E-Mail-SMTP-Anbieter eingesetzt werden und technische Daten sowie Zustelldaten als Auftragsverarbeiter verarbeiten.",
+          "Cloudflare Turnstile kann zum Schutz der Kontakt- und Angebotsformulare eingesetzt werden. Cloudflare kann technische Daten wie IP-Adresse, Browser- und Ger?teinformationen, Pr?ftoken und Nutzungsdaten zur Reduzierung von Spam und Missbrauch verarbeiten.",
+          "Eine Weitergabe an Dritte erfolgt nur, wenn sie zur Leistungserbringung erforderlich ist, gesetzlich vorgeschrieben ist oder ausdr?cklich genehmigt wurde."
+        ]
+      },
+      {
+        "title": "5. Speicherdauer",
+        "items": [
+          "Kontaktanfragen: bis zu 12 Monate, au?er daraus entsteht ein Vertrag oder Streitfall.",
+          "Angebotsanfragen und Abstimmungen: bis zu 24 Monate oder bei Vertragsschluss als Teil der Vertragsdokumentation.",
+          "Vertrags- und Projektdaten: solange dies f?r Leistung, Gew?hrleistung und Rechtsanspr?che erforderlich ist.",
+          "Rechnungsdaten: gem?? gesetzlichen steuer- und handelsrechtlichen Aufbewahrungsfristen.",
+          "Technische Logs: zeitlich begrenzt f?r Sicherheit und Fehlerbehebung."
+        ]
+      },
+      {
+        "title": "6. Cookies und Analyse",
+        "paragraphs": [
+          "Die Website kann notwendige Cookies f?r Session-Verwaltung, Sicherheit und Sprachauswahl verwenden.",
+          "Analyse- oder Marketing-Cookies werden nur verwendet, wenn solche Tools tats?chlich eingebunden sind und die erforderliche Einwilligung vorliegt. Bei sp?terer Einbindung muss diese Erkl?rung aktualisiert werden."
+        ]
+      },
+      {
+        "title": "7. Rechte der betroffenen Personen",
+        "items": [
+          "Du kannst Auskunft ?ber deine personenbezogenen Daten verlangen.",
+          "Du kannst Berichtigung, L?schung oder Einschr?nkung der Verarbeitung verlangen.",
+          "Soweit anwendbar, kannst du Daten?bertragbarkeit verlangen oder der Verarbeitung widersprechen.",
+          "Bei einwilligungsbasierter Verarbeitung kann die Einwilligung jederzeit widerrufen werden.",
+          "Anfragen k?nnen an info@progzone.hu gesendet werden und werden ohne unangemessene Verz?gerung, sp?testens innerhalb von 30 Tagen beantwortet."
+        ]
+      },
+      {
+        "title": "8. Beschwerde und Rechtsbehelf",
+        "paragraphs": [
+          "Wenn du der Ansicht bist, dass deine Daten nicht ordnungsgem?? verarbeitet werden, kontaktiere bitte zun?chst info@progzone.hu, damit die Angelegenheit schnell gekl?rt werden kann.",
+          "Du kannst dich au?erdem bei der zust?ndigen Datenschutzaufsichtsbeh?rde beschweren."
+        ]
+      },
+      {
+        "title": "9. ?nderungen und rechtlicher Hinweis",
+        "paragraphs": [
+          "Diese Datenschutzerkl?rung kann sich ?ndern, wenn sich Websitefunktionen, Dienstleister oder rechtliche Anforderungen ?ndern. Die aktuelle Fassung ist auf dieser Seite verf?gbar.",
+          "Der Inhalt dieser Datenschutzerkl?rung kann mit Hilfe eines Generators erstellt worden sein. Der Auftragnehmer ?bernimmt keine Verantwortung f?r vollst?ndige rechtliche Konformit?t. Eine Pr?fung durch einen Rechtsexperten wird empfohlen.",
+          "G?ltig ab: 13. Mai 2026."
+        ]
+      }
     ]
   },
   "terms": {
@@ -741,6 +827,149 @@
       "Projektumfang und Angebot werden schriftlich festgehalten.",
       "Die Einhaltung von Terminen ist unsere gemeinsame Verantwortung.",
       "Auch nach Projektabschluss biete ich Support und Wartung an."
+    ],
+    "document_title": "Allgemeine Gesch?ftsbedingungen",
+    "document_intro": "Diese Bedingungen gelten f?r Website-Erstellung, Webshop-Entwicklung, individuelle Webentwicklung, Webdesign, Branding und Online-Marketing-Leistungen von Progzone.",
+    "sections": [
+      {
+        "title": "1. Anbieter",
+        "paragraphs": [
+          "Anbieter: Xtrade / Progzone. Anschrift: Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland. E-Mail: info@progzone.hu. Telefon: +49 173 615 47 30. USt-IdNr.: DE362261730."
+        ]
+      },
+      {
+        "title": "2. Geltungsbereich",
+        "paragraphs": [
+          "Diese Bedingungen gelten f?r Anfragen, Angebotsanfragen sowie daraus entstehende individuelle Auftr?ge und Vertr?ge.",
+          "Informationen und Preise auf der Website sind unverbindliche Orientierung. Ein Projekt beginnt erst nach Annahme eines schriftlichen Angebots oder separaten Vertrags."
+        ]
+      },
+      {
+        "title": "3. Leistungen",
+        "items": [
+          "WordPress-Websites und Einrichtung.",
+          "WooCommerce-Shops und zugeh?rige Einstellungen.",
+          "Individuelle Websites und Webanwendungen.",
+          "Webdesign, UI-Design, Logo- und Branding-Arbeiten.",
+          "Online-Marketing wie SEO, Google Ads, Facebook-/Instagram-Kampagnen und Content-Erstellung.",
+          "Wartung, Nachbetreuung, Hosting-/Domainabwicklung und Integrationen, wenn sie im Angebot enthalten sind."
+        ]
+      },
+      {
+        "title": "4. Angebotsanfragen und Vertragsschluss",
+        "paragraphs": [
+          "Das Absenden des Angebotsformulars ist keine Bestellung und begr?ndet keine Zahlungspflicht. Es dient der Bedarfsermittlung und Angebotserstellung.",
+          "Ein Vertrag kommt zustande, wenn der Kunde das schriftliche Angebot annimmt und die Parteien die wesentlichen Projektbedingungen vereinbaren, insbesondere Umfang, Verg?tung, Zahlungsplan, Fristen und Liefergegenst?nde."
+        ]
+      },
+      {
+        "title": "5. Preise und Zahlung",
+        "items": [
+          "Preise werden individuell angeboten. Websitepreise k?nnen Sch?tzungen oder Einstiegspreise sein.",
+          "Projekte k?nnen als Festpreis, nach Stunden oder nach Meilensteinen abgerechnet werden.",
+          "Domain, Hosting, Premium-Themes, Plugins, externe Software, Werbebudget und Drittanbieterleistungen sind nur enthalten, wenn dies ausdr?cklich im Angebot steht.",
+          "Zahlung erfolgt in der Regel per Bank?berweisung. Anzahlungen oder Teilzahlungen k?nnen im Angebot festgelegt werden.",
+          "Bei Zahlungsverzug darf der Anbieter Arbeiten aussetzen und gesetzliche Verzugszinsen oder Inkassokosten geltend machen."
+        ]
+      },
+      {
+        "title": "6. Mitwirkungspflichten des Kunden",
+        "items": [
+          "Der Kunde stellt erforderliche Inhalte, Zug?nge, Branding-Materialien, Bilder, Texte, rechtliche Dokumente und Informationen rechtzeitig bereit.",
+          "Der Kunde ist f?r Rechtm??igkeit, Richtigkeit und Nutzungsrechte aller bereitgestellten Materialien verantwortlich.",
+          "Bei versp?tetem Feedback oder fehlenden Materialien k?nnen sich Fristen entsprechend verschieben.",
+          "Projektabstimmungen, ?nderungsw?nsche, Freigaben und sonstige Kommunikation erfolgen ausschlie?lich schriftlich, z. B. per E-Mail oder ?ber einen nachvollziehbaren schriftlichen Kanal, um Missverst?ndnisse zu vermeiden."
+        ]
+      },
+      {
+        "title": "7. Fristen und Lieferung",
+        "paragraphs": [
+          "Fristen beruhen auf der Zusammenarbeit der Parteien und sind nur haltbar, wenn alle Materialien, Zug?nge und Entscheidungen rechtzeitig vorliegen.",
+          "Die Lieferung kann auf einer Testseite, finalen Domain, per Datei?bergabe oder auf andere im Angebot festgelegte Weise erfolgen. Nach ?bergabe pr?ft der Kunde das Ergebnis innerhalb angemessener Frist und meldet Fehler."
+        ]
+      },
+      {
+        "title": "8. ?nderungen und Zusatzarbeit",
+        "paragraphs": [
+          "?nderungen, neue Funktionen, zus?tzliche Seiten, Integrationen, Kampagnen oder Inhaltserweiterungen au?erhalb des angenommenen Angebots k?nnen Zusatzarbeit sein.",
+          "Zusatzarbeit erfolgt gegen gesonderte Verg?tung und mit gesonderter Frist nach vorheriger Abstimmung."
+        ]
+      },
+      {
+        "title": "9. Geistiges Eigentum",
+        "items": [
+          "Nutzungsrechte an individuellen Designs, Quellcodes und kreativen Materialien gehen nach vollst?ndiger Zahlung im vereinbarten Umfang auf den Kunden ?ber.",
+          "Allgemeines Know-how, Templates, Frameworks, Entwicklerwerkzeuge und wiederverwendbare Komponenten des Anbieters werden kein ausschlie?liches Kundeneigentum.",
+          "Drittanbieter-Templates, Plugins, Schriften, Bilder, Software und Dienste unterliegen den jeweiligen Lizenzbedingungen.",
+          "Der Anbieter darf fertige Arbeiten als Referenz zeigen, sofern nicht schriftlich anders vereinbart."
+        ]
+      },
+      {
+        "title": "10. Externe Dienste",
+        "paragraphs": [
+          "F?r Projekte k?nnen Drittanbieter wie Domainregistrare, Hostinganbieter, E-Mail-SMTP-Anbieter, Zahlungsanbieter, Newsletter-Tools, Google, Meta oder andere Marketingplattformen erforderlich sein. F?r Betrieb, Preise, Verf?gbarkeit und Richtlinien ist der jeweilige Anbieter verantwortlich.",
+          "Diese Website kann Hostinger f?r Hosting und E-Mail-SMTP nutzen. F?r Betrieb, Preise, Einschr?nkungen, E-Mail-Zustellung und Verf?gbarkeit gelten die Hostinger-Bedingungen.",
+          "Cloudflare Turnstile kann zum Schutz von Kontakt- und Angebotsformularen genutzt werden. Ziel ist die Reduzierung von Bots, Spam und missbr?uchlichen Formularsendungen.",
+          "Der Anbieter kann bei der Einrichtung helfen, Vertr?ge mit externen Anbietern entstehen aber in der Regel zwischen Kunde und externem Anbieter."
+        ]
+      },
+      {
+        "title": "11. Fehlerbehebung, Wartung und Gew?hrleistung",
+        "items": [
+          "Der Anbieter behebt Fehler, die nachweislich aus seiner Arbeit stammen und innerhalb angemessener Frist nach ?bergabe gemeldet werden.",
+          "Kostenlose Fehlerbehebung umfasst keine sp?teren Inhalts?nderungen, neuen Funktionen, ?nderungen externer Anbieter, Hostingprobleme, unbefugte Eingriffe, updatebedingte Inkompatibilit?ten oder ?nderungen durch den Kunden.",
+          "Regelm??ige Updates, Backups und Wartung f?r WordPress, WooCommerce und Plugins k?nnen separat beauftragt werden."
+        ]
+      },
+      {
+        "title": "12. Widerruf und K?ndigung",
+        "paragraphs": [
+          "Verbraucher k?nnen bei Fernabsatzvertr?gen grunds?tzlich innerhalb von 14 Tagen widerrufen. Beginnt die Leistung auf ausdr?cklichen Wunsch innerhalb dieser Frist, erkennt der Kunde an, dass bereits geleistete Arbeit anteilig berechnet werden kann.",
+          "Bei individuell nach Kundenwunsch erstellten digitalen oder kreativen Leistungen kann das Widerrufsrecht gesetzlich eingeschr?nkt sein. F?r Gesch?ftskunden gelten Angebot oder separater Vertrag."
+        ]
+      },
+      {
+        "title": "13. Haftung",
+        "paragraphs": [
+          "Leistungen werden mit fachlicher Sorgfalt erbracht, es wird jedoch kein konkreter Gesch?ftserfolg, SEO-Ranking, Werbeertrag oder Verhalten von Drittplattformen garantiert.",
+          "Der Anbieter haftet nicht f?r fehlerhafte oder rechtswidrige Kundeninhalte, unvollst?ndige Informationen, versp?tetes Feedback oder Ausf?lle externer Dienstleister."
+        ]
+      },
+      {
+        "title": "14. Datenschutz",
+        "paragraphs": [
+          "Bei Bestellung, Kommunikation, Rechnungstellung und Leistungserbringung werden personenbezogene Daten verarbeitet. Details enth?lt die Datenschutzerkl?rung."
+        ]
+      },
+      {
+        "title": "15. AGB, Datenschutz und Urheberrecht",
+        "paragraphs": [
+          "AGB regeln Rechte und Pflichten zwischen Website bzw. Unternehmen und Kunden, etwa Bestellung, Zahlung, Lieferung, Leistung und Widerruf.",
+          "Die Datenschutzerkl?rung erkl?rt die Verarbeitung personenbezogener Daten nach DSGVO, einschlie?lich Zwecke, Verantwortlicher und Nutzerrechte.",
+          "Urheberrecht sch?tzt originale geistige Werke wie Texte, Bilder, Musik, Filme, Grafiken, Quellcode und andere kreative Inhalte vor unbefugtem Kopieren, Verbreiten oder Nutzen."
+        ]
+      },
+      {
+        "title": "16. Rechtlicher Hinweis f?r Kunden-Websites",
+        "items": [
+          "Datenschutzerkl?rung und AGB k?nnen mit Hilfe eines Generators erstellt werden. Der Auftragnehmer ?bernimmt keine Verantwortung f?r vollst?ndige rechtliche Konformit?t. Eine juristische Pr?fung wird empfohlen.",
+          "Auf die Website hochgeladene Bilder k?nnen KI-generiert sein, wenn dies vereinbart wurde oder im Projekt solche Bilder verwendet werden.",
+          "Der Auftragnehmer haftet nicht f?r Rechtsverletzungen durch urheberrechtlich gesch?tzte Inhalte, Bilder, Texte, Logos, Videos, Musik, Datenbanken oder sonstige Materialien, die der Kunde bereitstellt.",
+          "Der Auftragnehmer haftet nicht f?r Inhalte, die der Kunde hochl?dt, ?ndert oder freigibt, einschlie?lich deren rechtlicher Konformit?t, Richtigkeit oder daraus entstehender Fehler und Sch?den.",
+          "Wenn durch vom Kunden bereitgestellte, hochgeladene oder ge?nderte Inhalte technische Fehler oder Reparaturbedarf entstehen, kann der Auftragnehmer die Behebung zum geltenden Stundensatz durchf?hren.",
+          "Mit Annahme des Angebots oder Vertrags erkennt der Kunde die vorstehenden Punkte an."
+        ]
+      },
+      {
+        "title": "17. Anwendbares Recht und Streitigkeiten",
+        "paragraphs": [
+          "Die Parteien versuchen Streitigkeiten zun?chst einvernehmlich schriftlich zu l?sen. Gelingt dies nicht, gelten die anwendbaren Gesetze und zust?ndigen Gerichte.",
+          "G?ltig ab: 13. Mai 2026."
+        ]
+      }
     ]
+  },
+  "turnstile": {
+    "load_failed": "Die Cloudflare-Pr?fung wurde nicht geladen. Bitte lade die Seite neu."
   }
 }

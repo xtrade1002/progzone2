@@ -22,7 +22,8 @@
     "terms": "Terms & Conditions",
     "impressum": "Imprint",
     "menu_title": "Footer menu",
-    "copyright": "© :year Progzone. All rights reserved."
+    "copyright": "© :year Progzone. All rights reserved.",
+    "hunportal_copyright": "Copyright © :year Hunportal made by Progzone"
   },
   "home": {
     "meta_title": "Home",
@@ -227,7 +228,7 @@
       },
       "budget": {
         "label": "Estimated budget",
-        "placeholder": "Select a range",
+        "placeholder": "How much do you want to invest in the website?",
         "options": [
           {
             "value": "0-200",
@@ -312,7 +313,12 @@
         "placeholder": "How urgent or important is this project?"
       },
       "privacy": {
-        "label": "I have read and accept the privacy policy."
+        "label": "I have read and accept the Terms and Conditions and the Privacy Policy!",
+        "prefix": "I have read and accept the",
+        "terms_link": "Terms and Conditions",
+        "between": "and the",
+        "privacy_link": "Privacy Policy",
+        "suffix": "!"
       }
     },
     "button": {
@@ -731,6 +737,86 @@
       "Only I have access to the submitted information.",
       "Data is never shared with third parties.",
       "All contact details will be deleted on request."
+    ],
+    "document_title": "Privacy Policy",
+    "document_intro": "This notice explains what personal data the Progzone website collects, why it is processed, which service providers may be involved, and what rights users have under GDPR.",
+    "sections": [
+      {
+        "title": "1. Controller details",
+        "paragraphs": [
+          "Controller: Xtrade / Progzone. Registered address: Strasse der Jugend 18, 14974 Ludwigsfelde, Germany. Email: info@progzone.hu. Phone: +49 173 615 47 30. VAT ID: DE362261730.",
+          "This policy applies to data processing through the contact and quote request forms on progzone.hu, progzone.de and related Progzone websites."
+        ]
+      },
+      {
+        "title": "2. Data we collect",
+        "items": [
+          "Contact form: name, email address, optional phone number and message.",
+          "Quote request form: name, email address, optional phone number, company or project name, requested service, budget, timeline, project description, reference sites, target audience, project languages, feature requirements, content source, billing information, preferred payment method, support needs, hosting/domain needs, integration needs, marketing goals, legal or compliance notes, project priority and confirmation that the legal/privacy notice was accepted.",
+          "Technical data: log data required for operating and securing the website, such as IP address, browser and device information, visit time, session cookies and Cloudflare Turnstile verification data."
+        ]
+      },
+      {
+        "title": "3. Purposes and legal bases",
+        "items": [
+          "Responding to enquiries and messages.",
+          "Preparing individual quotes and clarifying project requirements.",
+          "Performing contracts and project communication.",
+          "Billing, accounting and legal obligations.",
+          "Security, spam prevention, abuse prevention and handling legal claims."
+        ]
+      },
+      {
+        "title": "4. Recipients and processors",
+        "paragraphs": [
+          "Data may be processed by technical service providers needed to operate the website and deliver messages, including hosting providers, email/SMTP providers, domain and IT service providers.",
+          "Hostinger may be used as the hosting and email SMTP provider. Hostinger may process technical and email delivery data as a processor.",
+          "Cloudflare Turnstile may be used to protect contact and quote forms. Cloudflare may process technical data such as IP address, browser and device information, verification tokens and usage data to reduce spam and abuse.",
+          "Data is shared with third parties only when necessary for service delivery, required by law or expressly approved by the data subject."
+        ]
+      },
+      {
+        "title": "5. Retention periods",
+        "items": [
+          "Contact messages: up to 12 months, unless the matter becomes contractual or disputed.",
+          "Quote requests and offer discussions: up to 24 months, or as part of contract documentation if a contract is concluded.",
+          "Contract and project data: as long as needed for performance, warranty and legal claim periods.",
+          "Billing data: for the statutory accounting and tax retention period.",
+          "Technical logs: for a limited period for security and troubleshooting."
+        ]
+      },
+      {
+        "title": "6. Cookies and analytics",
+        "paragraphs": [
+          "The website may use necessary cookies for session handling, security and language selection.",
+          "Analytics or marketing cookies are used only if such tools are actually integrated and the required consent has been obtained. If future tracking is added, this notice and cookie handling must be updated."
+        ]
+      },
+      {
+        "title": "7. User rights",
+        "items": [
+          "You may request access to your personal data.",
+          "You may request rectification, erasure or restriction of processing.",
+          "You may request data portability or object to processing where applicable.",
+          "Where processing is based on consent, consent can be withdrawn at any time.",
+          "Requests can be sent to info@progzone.hu and will be answered without undue delay, at the latest within 30 days."
+        ]
+      },
+      {
+        "title": "8. Complaints and remedies",
+        "paragraphs": [
+          "If you believe your personal data is not handled properly, please contact info@progzone.hu first so the matter can be resolved quickly.",
+          "You may also complain to the competent data protection supervisory authority in your place of residence or establishment."
+        ]
+      },
+      {
+        "title": "9. Changes and legal note",
+        "paragraphs": [
+          "This privacy policy may change if website functions, service providers or legal requirements change. The current version is available on this page.",
+          "The content of this privacy policy may have been prepared with the help of a generator. The contractor does not accept responsibility for full legal compliance. Review by a legal professional is recommended.",
+          "Effective date: May 13, 2026."
+        ]
+      }
     ]
   },
   "terms": {
@@ -741,6 +827,149 @@
       "Project scope and quotation are documented in writing.",
       "Meeting agreed timelines is a shared responsibility.",
       "Support and maintenance are available even after project completion."
+    ],
+    "document_title": "Terms and Conditions",
+    "document_intro": "These terms apply to Progzone website development, webshop development, custom development, web design, branding and online marketing services.",
+    "sections": [
+      {
+        "title": "1. Service provider",
+        "paragraphs": [
+          "Service provider: Xtrade / Progzone. Registered address: Strasse der Jugend 18, 14974 Ludwigsfelde, Germany. Email: info@progzone.hu. Phone: +49 173 615 47 30. VAT ID: DE362261730."
+        ]
+      },
+      {
+        "title": "2. Scope of the terms",
+        "paragraphs": [
+          "These terms apply to enquiries, quote requests and individual orders or contracts concluded on that basis.",
+          "Information and prices shown on the website are indicative. A project starts only after a written offer or separate contract has been accepted."
+        ]
+      },
+      {
+        "title": "3. Services",
+        "items": [
+          "WordPress website creation and setup.",
+          "WooCommerce webshop creation and related setup.",
+          "Custom websites and web applications.",
+          "Web design, UI design, logo and branding work.",
+          "Online marketing services such as SEO, Google Ads, Facebook/Instagram campaigns and content creation.",
+          "Maintenance, after-support, hosting/domain handling and integrations if included in the accepted offer."
+        ]
+      },
+      {
+        "title": "4. Quote requests and contracting",
+        "paragraphs": [
+          "Submitting a quote request form is not an order and does not create a payment obligation. The form is used to understand requirements and prepare a tailored offer.",
+          "A contract is formed when the client accepts the written offer and the parties agree on the essential project terms, including scope, fees, payment schedule, deadlines and deliverables."
+        ]
+      },
+      {
+        "title": "5. Fees and payment",
+        "items": [
+          "Fees are determined by an individual offer. Prices on the website may be estimates or starting prices.",
+          "Projects may be fixed-price, hourly or milestone-based, according to the accepted offer.",
+          "Domain, hosting, premium themes, plugins, external software, advertising spend and third-party services are included only if expressly stated in the offer.",
+          "Payment is usually made by bank transfer. Deposits or instalments may be required as set out in the offer.",
+          "In case of late payment, the provider may suspend work and claim statutory interest or collection costs."
+        ]
+      },
+      {
+        "title": "6. Client cooperation",
+        "items": [
+          "The client must provide required content, access details, branding assets, images, texts, legal documents and other information on time.",
+          "The client is responsible for the legality, accuracy and usage rights of all provided materials.",
+          "If feedback or materials are delayed, deadlines may be adjusted accordingly.",
+          "All project communication, change requests, approvals and related contact take place exclusively in writing, for example by email or another traceable written channel, to avoid misunderstandings."
+        ]
+      },
+      {
+        "title": "7. Deadlines and delivery",
+        "paragraphs": [
+          "Deadlines depend on cooperation between the parties and can be met only if all required materials, access and decisions are provided on time.",
+          "Delivery may take place on a test site, final domain, file transfer or another method defined in the offer. After delivery, the client must review the work within a reasonable time and report any issues."
+        ]
+      },
+      {
+        "title": "8. Changes and extra work",
+        "paragraphs": [
+          "Changes, new features, additional pages, integrations, campaigns or content extensions beyond the accepted offer may be treated as extra work.",
+          "Extra work can be performed for separate fees and deadlines agreed in advance."
+        ]
+      },
+      {
+        "title": "9. Intellectual property",
+        "items": [
+          "Usage rights to custom designs, source code and creative materials transfer to the client after full payment, within the scope defined in the offer.",
+          "General know-how, templates, frameworks, development tools and reusable components used by the provider do not become exclusive client property.",
+          "Third-party templates, plugins, fonts, images, software and services are governed by their own licence terms.",
+          "The provider may display completed work as a reference unless otherwise agreed in writing."
+        ]
+      },
+      {
+        "title": "10. External services",
+        "paragraphs": [
+          "Projects may require third-party services such as domain registrars, hosting providers, email SMTP providers, payment providers, newsletter tools, Google, Meta or other marketing platforms. Their operation, fees, availability and policies are the responsibility of the respective provider.",
+          "This website may use Hostinger for hosting and email SMTP. Hostinger terms apply to service operation, pricing, limitations, email delivery and availability.",
+          "Cloudflare Turnstile verification may be used to protect contact and quote request forms. Its purpose is to reduce bots, spam and abusive form submissions.",
+          "The provider may assist with setup, but contracts with external providers are generally concluded between the client and the external provider."
+        ]
+      },
+      {
+        "title": "11. Bug fixes, maintenance and warranty",
+        "items": [
+          "The provider fixes issues demonstrably caused by its own work if reported within a reasonable time after delivery.",
+          "Free fixes do not include later content changes, new features, third-party changes, hosting problems, unauthorised intervention, update-related incompatibility or client-made changes.",
+          "Regular updates, backups and maintenance for WordPress, WooCommerce and plugins can be ordered as a separate service."
+        ]
+      },
+      {
+        "title": "12. Withdrawal and termination",
+        "paragraphs": [
+          "Consumer clients may generally withdraw from distance contracts within 14 days. If performance begins at the client?s express request within this period, the client acknowledges that already completed work may be charged proportionally.",
+          "For custom digital or creative services made to the client?s individual requirements, withdrawal rights may be limited by law. For business clients, withdrawal and termination are governed by the accepted offer or separate contract."
+        ]
+      },
+      {
+        "title": "13. Liability",
+        "paragraphs": [
+          "Services are provided with professional care, but no guarantee is given for specific business results, SEO rankings, advertising returns or third-party platform decisions.",
+          "The provider is not liable for incorrect or unlawful client content, incomplete information, delayed feedback or failures of external service providers."
+        ]
+      },
+      {
+        "title": "14. Data protection",
+        "paragraphs": [
+          "Personal data is processed during ordering, communication, billing and performance. Details are set out in the Privacy Policy."
+        ]
+      },
+      {
+        "title": "15. Terms, privacy and copyright notice",
+        "paragraphs": [
+          "Terms and Conditions define rights and obligations between a website/business and its clients, including rules on orders, payment, delivery, performance and withdrawal.",
+          "The Privacy Policy explains how personal data is processed under GDPR, including purposes, controller identity and user rights.",
+          "Copyright protects original intellectual works such as texts, images, music, films, graphics, source code and other creative content against unauthorised copying, distribution or use."
+        ]
+      },
+      {
+        "title": "16. Legal notice for client websites",
+        "items": [
+          "Privacy Policy and Terms and Conditions content may be prepared with the help of a generator. The contractor does not accept responsibility for full legal compliance. Legal review is recommended.",
+          "Images uploaded to a website may be AI-generated if agreed by the parties or used during the project.",
+          "The contractor is not responsible for infringement arising from copyrighted content, images, texts, logos, videos, music, databases or other materials provided by the client.",
+          "The contractor is not responsible for content uploaded, modified or approved by the client, including its legal compliance, accuracy or resulting errors and damages.",
+          "If client-provided, uploaded or modified content causes technical errors or repair needs, the contractor may perform repairs at its applicable hourly rate.",
+          "By accepting the offer or contract, the client acknowledges and accepts the above."
+        ]
+      },
+      {
+        "title": "17. Governing law and disputes",
+        "paragraphs": [
+          "The parties first try to resolve disputes amicably in writing. If this fails, applicable law and competent courts apply.",
+          "Effective date: May 13, 2026."
+        ]
+      }
     ]
+  },
+  "turnstile": {
+    "load_failed": "Cloudflare verification did not load. Please refresh the page."
   }
 }

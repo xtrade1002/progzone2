@@ -22,7 +22,8 @@
     "terms": "ÁSZF",
     "impressum": "Impresszum",
     "menu_title": "Footer menü",
-    "copyright": "© :year Progzone. Minden jog fenntartva."
+    "copyright": "© :year Progzone. Minden jog fenntartva.",
+    "hunportal_copyright": "Copyright © :year Hunportal made by Progzone"
   },
   "home": {
     "meta_title": "Főoldal",
@@ -226,7 +227,7 @@
       },
       "budget": {
         "label": "Tervezett költségkeret",
-        "placeholder": "Mennyit szánsz a weboldalra?",
+        "placeholder": "Mennyit sz?nsz a weboldalra?",
         "options": [
           {
             "value": "0-200",
@@ -311,7 +312,12 @@
         "placeholder": "Mennyire sürgős vagy fontos ez a projekt?"
       },
       "privacy": {
-        "label": "Elolvastam és elfogadom az ÁSZF-et és az Adatvédelmi szerződést!"
+        "label": "Elolvastam ?s elfogadom az ?SZF-et ?s az Adatv?delmi szerz?d?st!",
+        "prefix": "Elolvastam ?s elfogadom az",
+        "terms_link": "?SZF-et",
+        "between": "?s az",
+        "privacy_link": "Adatv?delmi szerz?d?st",
+        "suffix": "!"
       }
     },
     "button": {
@@ -741,5 +747,8 @@
       "A határidők betartása közös felelősségünk.",
       "A projekt lezárása után is biztosítok támogatást és karbantartást."
     ]
+  },
+  "turnstile": {
+    "load_failed": "A Cloudflare ellen?rz?s nem t?lt?d?tt be. K?rlek friss?tsd az oldalt."
   }
 }

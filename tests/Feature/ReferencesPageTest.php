@@ -20,11 +20,11 @@ class ReferencesPageTest extends TestCase
             ->where('trans.references.title', 'Referenciák')
             ->where(
                 'trans.references.subtitle',
-                'Négy működő weboldal, letisztultabb bemutatással. A képek helyére jöhetnek az általad küldött screenshotok.'
+                'Válogatás elkészült weboldalakból, arculati anyagokból, flyerekből és kreatív grafikai munkákból.'
             )
             ->where('trans.references.projects.0.description', 'Elegáns, szolgáltatásközpontú weboldal szépségipari vállalkozásnak.')
             ->where('trans.references.projects.1.label', 'Időpontfoglaló rendszer')
-            ->where('trans.references.projects.1.description', 'Német, magyar és európai piacra készült online jelenlét és foglalási fókuszú digitális felület.')
+            ->where('trans.references.projects.1.description', 'Német, magyar és európai piacra készült foglalási fókuszú digitális felület.')
             ->where('trans.references.projects.2.tags.2', 'Nemzetközi')
             ->where('trans.references.projects.3.description', 'Átlátható, bizalomépítő weboldal kertészeti szolgáltatások bemutatására.')
         );
