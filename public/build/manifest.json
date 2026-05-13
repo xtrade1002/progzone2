@@ -11,7 +11,7 @@
     "name": "react"
   },
   "resources/css/app.css": {
-    "file": "assets/app-C7mXFxF3.css",
+    "file": "assets/app-DKRQy3np.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -19,7 +19,7 @@
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-DkInbFvf.js",
+    "file": "assets/app-DwmI2GUM.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,

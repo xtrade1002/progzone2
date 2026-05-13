@@ -33,7 +33,9 @@ const privacySections = [
     title: '4. Kik férhetnek hozzá az adatokhoz?',
     paragraphs: [
       'Az adatokat az adatkezelő kezeli. A weboldal működtetéséhez és az üzenetek továbbításához technikai szolgáltatók vehetnek részt adatfeldolgozóként, különösen tárhelyszolgáltató, e-mail küldő szolgáltató, levelezési szolgáltató, domain- és IT-üzemeltetési szolgáltató.',
-      'A weboldal az űrlapértesítésekhez Mailjet e-mail küldő szolgáltatást használhat. Harmadik fél részére adatot csak akkor adunk át, ha ez a szolgáltatás teljesítéséhez szükséges, jogszabály írja elő, vagy az érintett ehhez kifejezetten hozzájárult.',
+      'A weboldal tárhely- és e-mail SMTP szolgáltatója a Hostinger lehet. A Hostinger a weboldal működtetéséhez, az e-mail küldéshez és a kapcsolódó technikai szolgáltatások biztosításához szükséges adatokat kezelheti adatfeldolgozóként.',
+      'A weboldal a kapcsolatfelvételi és árajánlatkérő űrlapok védelmére Cloudflare Turnstile ellenőrzést használhat. A Cloudflare a botvédelem és visszaélések megelőzése érdekében technikai adatokat, például IP-címet, böngésző- és eszközinformációkat, ellenőrzési tokent és használati adatokat kezelhet.',
+      'Harmadik fél részére adatot csak akkor adunk át, ha ez a szolgáltatás teljesítéséhez szükséges, jogszabály írja elő, vagy az érintett ehhez kifejezetten hozzájárult.',
     ],
   },
   {
@@ -74,6 +76,7 @@ const privacySections = [
     title: '9. A tájékoztató módosítása',
     paragraphs: [
       'Az adatkezelési tájékoztató módosulhat, ha a weboldal funkciói, az igénybe vett szolgáltatók vagy a jogszabályi környezet változik. A mindenkor hatályos változat ezen az oldalon érhető el.',
+      'Az adatvédelmi tájékoztató tartalma generátor segítségével készült. A Megbízott nem vállal felelősséget annak teljes körű jogi megfelelőségéért, ezért javasolt a dokumentumot jogi szakértővel ellenőriztetni.',
       'Hatályos: 2026. május 13.',
     ],
   },

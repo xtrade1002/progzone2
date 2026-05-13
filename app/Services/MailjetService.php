@@ -5,11 +5,16 @@ namespace App\Services;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Throwable;
 
 class MailjetService
 {
     private bool $enabled = false;
+
+    private bool $mailjetEnabled = false;
+
+    private bool $smtpEnabled = false;
 
     private string $fromEmail = '';
 
@@ -26,13 +31,21 @@ class MailjetService
         $this->apiKey = (string) config('services.mailjet.key');
         $this->apiSecret = (string) config('services.mailjet.secret');
         $this->fromEmail = (string) config('services.mailjet.from_email');
-        $this->fromName = (string) (config('services.mailjet.from_name') ?: $this->fromEmail);
-        $this->toEmail = (string) config('services.mailjet.to_email');
+        $this->fromName = (string) (config('services.mailjet.from_name') ?: config('mail.from.name'));
+        $this->toEmail = (string) (config('services.mailjet.to_email') ?: config('services.form_notifications.to_email'));
 
         if ($this->apiKey && $this->apiSecret && $this->fromEmail && $this->toEmail) {
+            $this->mailjetEnabled = true;
+        }
+
+        if (config('mail.default') && config('mail.from.address') && $this->toEmail) {
+            $this->smtpEnabled = true;
+        }
+
+        if ($this->mailjetEnabled || $this->smtpEnabled) {
             $this->enabled = true;
         } else {
-            Log::warning('Mailjet credentials are not fully configured. Notification emails will be skipped.');
+            Log::warning('Notification email credentials are not fully configured. Notification emails will be skipped.');
         }
     }
 
@@ -99,6 +112,16 @@ class MailjetService
         $htmlBody = $this->buildHtmlBody($subject, $fields);
         $textBody = $this->buildTextBody($subject, $fields);
 
+        if ($this->mailjetEnabled) {
+            $this->sendWithMailjet($subject, $htmlBody, $textBody);
+            return;
+        }
+
+        $this->sendWithSmtp($subject, $htmlBody, $textBody);
+    }
+
+    private function sendWithMailjet(string $subject, string $htmlBody, string $textBody): void
+    {
         $payload = [
             'Messages' => [[
                 'From' => [
@@ -127,6 +150,21 @@ class MailjetService
             }
         } catch (Throwable $exception) {
             Log::error('Failed to send Mailjet notification email.', [
+                'exception' => $exception,
+            ]);
+        }
+    }
+
+    private function sendWithSmtp(string $subject, string $htmlBody, string $textBody): void
+    {
+        try {
+            Mail::html($htmlBody, function ($message) use ($subject, $textBody) {
+                $message->to($this->toEmail)
+                    ->subject($subject)
+                    ->text($textBody);
+            });
+        } catch (Throwable $exception) {
+            Log::error('Failed to send SMTP notification email.', [
                 'exception' => $exception,
             ]);
         }

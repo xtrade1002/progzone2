@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\ContactMessage;
 use App\Models\QuoteRequest;
 use App\Services\MailjetService;
+use App\Services\TurnstileService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class FormController extends Controller
 {
-    public function __construct(private MailjetService $mailjet)
+    public function __construct(
+        private MailjetService $mailjet,
+        private TurnstileService $turnstile,
+    )
     {
     }
 
@@ -22,7 +27,7 @@ class FormController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:255'],
+            'phone' => ['nullable', 'regex:/^[0-9]*$/', 'max:30'],
             'company' => ['nullable', 'string', 'max:255'],
             'service' => ['required', 'string', 'max:255'],
             'budget' => ['nullable', 'string', 'max:255'],
@@ -42,7 +47,11 @@ class FormController extends Controller
             'legal' => ['nullable', 'string'],
             'priority' => ['nullable', 'string', 'max:255'],
             'privacy' => ['accepted'],
+            'cf_turnstile_response' => ['nullable', 'string', 'max:2048'],
         ]);
+
+        $this->validateTurnstile($request);
+        unset($data['cf_turnstile_response']);
 
         $data['privacy'] = true;
 
@@ -63,9 +72,13 @@ class FormController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:255'],
+            'phone' => ['nullable', 'regex:/^[0-9]*$/', 'max:30'],
             'message' => ['required', 'string'],
+            'cf_turnstile_response' => ['nullable', 'string', 'max:2048'],
         ]);
+
+        $this->validateTurnstile($request);
+        unset($data['cf_turnstile_response']);
 
         ContactMessage::create($data);
 
@@ -74,5 +87,16 @@ class FormController extends Controller
         return redirect()
             ->back()
             ->with('success', __('flash_contact_success'));
+    }
+
+    private function validateTurnstile(Request $request): void
+    {
+        if ($this->turnstile->validate($request->input('cf_turnstile_response'), $request->ip())) {
+            return;
+        }
+
+        throw ValidationException::withMessages([
+            'cf_turnstile_response' => 'Kérlek erősítsd meg, hogy nem robot vagy.',
+        ]);
     }
 }

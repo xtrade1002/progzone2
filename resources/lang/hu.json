@@ -188,7 +188,7 @@
       },
       "phone": {
         "label": "Telefonszám",
-        "placeholder": "+36 20 123 4567"
+        "placeholder": "36201234567"
       },
       "company": {
         "label": "Cég / projekt neve",
@@ -226,7 +226,7 @@
       },
       "budget": {
         "label": "Tervezett költségkeret",
-        "placeholder": "Válassz kategóriát",
+        "placeholder": "Mennyit szánsz a weboldalra?",
         "options": [
           {
             "value": "0-200",
@@ -311,7 +311,7 @@
         "placeholder": "Mennyire sürgős vagy fontos ez a projekt?"
       },
       "privacy": {
-        "label": "Megismertem és elfogadom az adatkezelési tájékoztatót."
+        "label": "Elolvastam és elfogadom az ÁSZF-et és az Adatvédelmi szerződést!"
       }
     },
     "button": {
@@ -583,7 +583,7 @@
       {
         "type": "link",
         "url": "https://fixappoint.de",
-        "image": "/img/reference/K%C3%A9perny%C5%91k%C3%A9p%202025-11-28%20100547.png",
+        "image": "/img/reference/fixappoint.png",
         "title": "Fixappoint",
         "label": "Időpontfoglaló rendszer",
         "description": "Német, magyar és európai piacra készült foglalási fókuszú digitális felület.",
@@ -635,19 +635,6 @@
           "Termék"
         ],
         "cta": "versenybikini.hu megnyitása"
-      },
-      {
-        "type": "image",
-        "image": "/img/reference/K%C3%A9perny%C5%91k%C3%A9p%202025-11-28%20101112.png",
-        "title": "Foglalási felület",
-        "label": "Webapp képernyő",
-        "category": "Webapp screenshot",
-        "description": "Digitális időpontfoglaló felület referencia képernyője.",
-        "tags": [
-          "UI",
-          "Webapp",
-          "Foglalás"
-        ]
       },
       {
         "type": "image",

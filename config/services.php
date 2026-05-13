@@ -43,4 +43,14 @@ return [
         'to_email' => env('MAILJET_TO_EMAIL'),
     ],
 
+    'form_notifications' => [
+        'to_email' => env('FORM_NOTIFICATION_TO_EMAIL', env('MAIL_FROM_ADDRESS')),
+    ],
+
+    'turnstile' => [
+        'site_key' => env('CLOUDFLARE_TURNSTILE_SITE_KEY'),
+        'secret_key' => env('CLOUDFLARE_TURNSTILE_SECRET_KEY'),
+        'timeout' => env('CLOUDFLARE_TURNSTILE_TIMEOUT', 8),
+    ],
+
 ];

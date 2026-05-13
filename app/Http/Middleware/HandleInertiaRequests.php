@@ -27,6 +27,10 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'locale' => app()->getLocale(),
+            'turnstile' => [
+                'siteKey' => config('services.turnstile.site_key'),
+                'enabled' => (bool) config('services.turnstile.site_key'),
+            ],
         ]);
     }
 }

@@ -61,13 +61,14 @@ export default function MainMenu({ activePath }) {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[#00eaff]/35 bg-[#050611]/82 text-gray-300 shadow-[0_0_28px_rgba(0,234,255,0.18)] backdrop-blur-xl">
-      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-6">
-        <a href={route('home', locale)} className="group flex items-center gap-3">
-          <span className="grid h-11 w-11 place-items-center rounded-full border border-[#00eaff]/55 bg-black/40 text-sm font-black italic text-[#00eaff] shadow-[0_0_18px_rgb(var(--pz-pink-rgb)/0.55)]">
+    <>
+    <header className="sticky top-0 z-50 border-b border-[#00eaff]/35 bg-[#050611]/92 text-gray-300 shadow-[0_0_28px_rgba(0,234,255,0.18)] backdrop-blur-xl">
+      <nav className="relative mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-3 px-4 py-3 lg:px-6">
+        <a href={route('home', locale)} className="group flex min-w-0 items-center gap-2 sm:gap-3">
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#00eaff]/55 bg-black/40 text-sm font-black italic text-[#00eaff] shadow-[0_0_18px_rgb(var(--pz-pink-rgb)/0.55)]">
             PZ
           </span>
-          <span className="hidden text-xl font-black tracking-wide sm:block">
+          <span className="block truncate text-lg font-black tracking-wide sm:text-xl">
             <span className="text-[var(--pz-pink)]">PROG</span><span className="text-[#00eaff]">ZONE</span>
           </span>
         </a>
@@ -96,52 +97,36 @@ export default function MainMenu({ activePath }) {
           </ul>
         </div>
 
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:hidden">
           <LanguageSwitcher />
           <button
             type="button"
             onClick={toggleMenu}
             className="rounded-full border border-[rgb(var(--pz-pink-rgb)/0.45)] bg-black/30 p-2 text-[var(--pz-pink)] shadow-[0_0_14px_rgb(var(--pz-pink-rgb)/0.32)] transition hover:text-[#00eaff] focus:outline-none focus:ring-2 focus:ring-[#00eaff]"
-            aria-label="Open navigation menu"
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-main-menu"
           >
-            <MenuIcon className="h-7 w-7" />
+            {isMenuOpen ? <CloseIcon className="h-7 w-7" /> : <MenuIcon className="h-7 w-7" />}
           </button>
         </div>
       </nav>
+    </header>
 
-      {isMenuOpen && (
-        <button
-          type="button"
-          className="fixed inset-0 z-40 bg-black/70 lg:hidden"
-          onClick={closeMenu}
-          aria-label="Close navigation menu"
-        />
-      )}
+    {isMenuOpen && (
+      <div
+        className="fixed inset-x-0 bottom-0 top-[72px] z-40 bg-black/45 backdrop-blur-md lg:hidden"
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+    )}
 
+    {isMenuOpen && (
       <aside
         id="mobile-main-menu"
-        className={`fixed top-0 right-0 z-50 flex h-full w-80 max-w-full flex-col border-l border-[#00eaff]/30 bg-[#060815]/95 shadow-[0_0_40px_rgba(0,234,255,0.24)] backdrop-blur-xl transition-transform duration-300 ease-in-out lg:hidden ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className="fixed inset-x-0 bottom-0 top-[72px] z-50 flex flex-col overflow-hidden border-t border-[#00eaff]/30 bg-transparent lg:hidden"
       >
-        <div className="flex items-center gap-3 border-b border-[#00eaff]/20 p-4">
-          <span className="text-lg font-black text-white">PROG<span className="text-[#00eaff]">ZONE</span></span>
-          <div className="ml-auto flex items-center gap-3">
-            <LanguageSwitcher />
-            <button
-              type="button"
-              onClick={closeMenu}
-              className="rounded-full p-2 text-[var(--pz-pink)] transition hover:text-[#00eaff] focus:outline-none focus:ring-2 focus:ring-[#00eaff]"
-              aria-label="Close navigation menu"
-            >
-              <CloseIcon className="h-6 w-6" />
-            </button>
-          </div>
-        </div>
-
-        <nav className="flex-1 overflow-y-auto py-4">
+        <nav className="max-h-[calc(100dvh-72px)] overflow-y-auto border-b border-[rgb(var(--pz-pink-rgb)/0.28)] bg-[#060815]/98 py-4 shadow-[0_18px_46px_rgba(0,0,0,0.58)]">
           <ul className="space-y-1 px-4">
             {menuItems.map((item) => {
               const href = route(item.name, locale);
@@ -165,24 +150,24 @@ export default function MainMenu({ activePath }) {
               );
             })}
           </ul>
+          <div className="mt-4 border-t border-[rgb(var(--pz-pink-rgb)/0.24)] pt-4">
+            <ul className="space-y-1">
+              {footerLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={route(link.name, locale)}
+                    onClick={closeMenu}
+                    className="block rounded-lg px-4 py-2 text-base font-medium text-gray-300 transition-colors duration-200 hover:bg-white/5 hover:text-[#00eaff]"
+                  >
+                    {t(link.labelKey, link.fallback)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </nav>
-
-        <div className="border-t border-[rgb(var(--pz-pink-rgb)/0.24)] px-4 py-4">
-          <ul className="space-y-1">
-            {footerLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={route(link.name, locale)}
-                  onClick={closeMenu}
-                  className="block rounded-lg px-4 py-2 text-base font-medium text-gray-300 transition-colors duration-200 hover:bg-white/5 hover:text-[#00eaff]"
-                >
-                  {t(link.labelKey, link.fallback)}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
       </aside>
-    </header>
+    )}
+    </>
   );
 }

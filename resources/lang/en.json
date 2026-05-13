@@ -584,7 +584,7 @@
       {
         "type": "link",
         "url": "https://fixappoint.de",
-        "image": "/img/reference/K%C3%A9perny%C5%91k%C3%A9p%202025-11-28%20100547.png",
+        "image": "/img/reference/fixappoint.png",
         "title": "Fixappoint",
         "label": "Booking system",
         "description": "A booking-focused digital interface for German, Hungarian and European markets.",
@@ -636,19 +636,6 @@
           "Product"
         ],
         "cta": "Open versenybikini.hu"
-      },
-      {
-        "type": "image",
-        "image": "/img/reference/K%C3%A9perny%C5%91k%C3%A9p%202025-11-28%20101112.png",
-        "title": "Booking interface",
-        "label": "Web app screen",
-        "category": "Web app screenshot",
-        "description": "A reference screen from the digital appointment-booking interface.",
-        "tags": [
-          "UI",
-          "Web app",
-          "Booking"
-        ]
       },
       {
         "type": "image",

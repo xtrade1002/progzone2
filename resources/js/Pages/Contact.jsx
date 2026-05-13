@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Head, router, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
+import TurnstileWidget from '../Components/TurnstileWidget.jsx';
 import route from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
 
@@ -9,7 +10,47 @@ const createInitialFormState = () => ({
   email: '',
   phone: '',
   message: '',
+  cf_turnstile_response: '',
 });
+
+const onlyDigits = (value) => value.replace(/\D/g, '');
+
+const allowedControlKeys = new Set([
+  'Backspace',
+  'Delete',
+  'Tab',
+  'Escape',
+  'Enter',
+  'ArrowLeft',
+  'ArrowRight',
+  'ArrowUp',
+  'ArrowDown',
+  'Home',
+  'End',
+]);
+
+const preventNonDigitKey = (event) => {
+  if (
+    allowedControlKeys.has(event.key)
+    || event.ctrlKey
+    || event.metaKey
+    || event.altKey
+  ) {
+    return;
+  }
+
+  if (!/^[0-9]$/.test(event.key)) {
+    event.preventDefault();
+  }
+};
+
+const preventNonDigitPaste = (event) => {
+  const pastedText = event.clipboardData?.getData('text') ?? '';
+
+  if (/\D/.test(pastedText)) {
+    event.preventDefault();
+  }
+};
 
 export default function Contact() {
   const [formData, setFormData] = useState(() => createInitialFormState());
@@ -17,15 +58,27 @@ export default function Contact() {
   const { props } = usePage();
   const errors = props?.errors ?? {};
   const flash = props?.flash ?? {};
+  const turnstile = props?.turnstile ?? {};
   const { trans, t } = useTranslations();
   const contact = trans?.contact ?? {};
   const fields = contact.fields ?? {};
   const buttonLabels = contact.button ?? {};
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
+  const turnstileRequired = Boolean(turnstile.enabled);
+  const canSubmit = !processing && (!turnstileRequired || formData.cf_turnstile_response);
 
   const handleChange = (field) => (event) => {
+    const value = field === 'phone'
+      ? onlyDigits(event.target.value)
+      : event.target.value;
+
+    if (field === 'phone' && event.target.value !== value) {
+      event.target.value = value;
+    }
+
     setFormData((previous) => ({
       ...previous,
-      [field]: event.target.value,
+      [field]: value,
     }));
   };
 
@@ -35,9 +88,26 @@ export default function Contact() {
     router.post(route('contact-message.store'), formData, {
       onStart: () => setProcessing(true),
       onFinish: () => setProcessing(false),
-      onSuccess: () => setFormData(createInitialFormState()),
+      onSuccess: () => {
+        setFormData(createInitialFormState());
+        setTurnstileResetKey((value) => value + 1);
+      },
     });
   };
+
+  const handleTurnstileVerify = useCallback((token) => {
+    setFormData((previous) => ({
+      ...previous,
+      cf_turnstile_response: token,
+    }));
+  }, []);
+
+  const handleTurnstileExpire = useCallback(() => {
+    setFormData((previous) => ({
+      ...previous,
+      cf_turnstile_response: '',
+    }));
+  }, []);
 
   return (
     <Layout>
@@ -99,10 +169,16 @@ export default function Contact() {
               {/* Telefon */}
               <div className="flex flex-col gap-2">
                 <input
-                  type="tel"
+                  type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   placeholder={fields.phone?.placeholder}
                   className="pz-input"
                   value={formData.phone}
+                  onKeyDown={preventNonDigitKey}
+                  onPaste={preventNonDigitPaste}
+                  onDrop={(event) => event.preventDefault()}
+                  onInput={handleChange('phone')}
                   onChange={handleChange('phone')}
                   aria-invalid={errors.phone ? 'true' : 'false'}
                 />
@@ -127,12 +203,22 @@ export default function Contact() {
                 )}
               </div>
 
+              <TurnstileWidget
+                siteKey={turnstile.siteKey}
+                onVerify={handleTurnstileVerify}
+                onExpire={handleTurnstileExpire}
+                resetKey={turnstileResetKey}
+              />
+              {errors.cf_turnstile_response && (
+                <span className="block text-xs text-red-400">{errors.cf_turnstile_response}</span>
+              )}
+
               {/* Gomb */}
               <div className="flex justify-center">
                 <button
                   type="submit"
                   className="pz-button w-full disabled:cursor-not-allowed disabled:opacity-70 md:w-auto"
-                  disabled={processing}
+                  disabled={!canSubmit}
                 >
                   {processing ? buttonLabels.processing : buttonLabels.default}
                 </button>

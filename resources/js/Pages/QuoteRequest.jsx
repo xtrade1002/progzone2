@@ -1,11 +1,51 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Head, router, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
+import TurnstileWidget from '../Components/TurnstileWidget.jsx';
 import route from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
 
 const inputClasses = 'pz-input';
 const selectClasses = 'pz-input bg-[#090d1d]';
+
+const onlyDigits = (value) => value.replace(/\D/g, '');
+
+const allowedControlKeys = new Set([
+  'Backspace',
+  'Delete',
+  'Tab',
+  'Escape',
+  'Enter',
+  'ArrowLeft',
+  'ArrowRight',
+  'ArrowUp',
+  'ArrowDown',
+  'Home',
+  'End',
+]);
+
+const preventNonDigitKey = (event) => {
+  if (
+    allowedControlKeys.has(event.key)
+    || event.ctrlKey
+    || event.metaKey
+    || event.altKey
+  ) {
+    return;
+  }
+
+  if (!/^[0-9]$/.test(event.key)) {
+    event.preventDefault();
+  }
+};
+
+const preventNonDigitPaste = (event) => {
+  const pastedText = event.clipboardData?.getData('text') ?? '';
+
+  if (/\D/.test(pastedText)) {
+    event.preventDefault();
+  }
+};
 
 const createInitialFormState = () => ({
   name: '',
@@ -30,6 +70,7 @@ const createInitialFormState = () => ({
   legal: '',
   priority: '',
   privacy: false,
+  cf_turnstile_response: '',
 });
 
 export default function QuoteRequest() {
@@ -37,16 +78,29 @@ export default function QuoteRequest() {
   const [processing, setProcessing] = useState(false);
   const { props } = usePage();
   const errors = props?.errors ?? {};
-  const { trans, t } = useTranslations();
+  const turnstile = props?.turnstile ?? {};
+  const { trans, locale, t } = useTranslations();
   const quote = trans?.quote ?? {};
   const fields = quote.fields ?? {};
   const serviceOptions = fields.service?.options ?? [];
   const budgetOptions = fields.budget?.options ?? [];
   const button = quote.button ?? {};
   const introParagraphs = Array.isArray(quote.intro) ? quote.intro : [];
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
+  const turnstileRequired = Boolean(turnstile.enabled);
+  const canSubmit = !processing && (!turnstileRequired || formData.cf_turnstile_response);
 
   const handleChange = (field) => (event) => {
-    const value = field === 'privacy' ? event.target.checked : event.target.value;
+    const value = field === 'privacy'
+      ? event.target.checked
+      : field === 'phone'
+        ? onlyDigits(event.target.value)
+        : event.target.value;
+
+    if (field === 'phone' && event.target.value !== value) {
+      event.target.value = value;
+    }
+
     setFormData((previous) => ({
       ...previous,
       [field]: value,
@@ -59,9 +113,26 @@ export default function QuoteRequest() {
     router.post(route('quote-request.store'), formData, {
       onStart: () => setProcessing(true),
       onFinish: () => setProcessing(false),
-      onSuccess: () => setFormData(createInitialFormState()),
+      onSuccess: () => {
+        setFormData(createInitialFormState());
+        setTurnstileResetKey((value) => value + 1);
+      },
     });
   };
+
+  const handleTurnstileVerify = useCallback((token) => {
+    setFormData((previous) => ({
+      ...previous,
+      cf_turnstile_response: token,
+    }));
+  }, []);
+
+  const handleTurnstileExpire = useCallback(() => {
+    setFormData((previous) => ({
+      ...previous,
+      cf_turnstile_response: '',
+    }));
+  }, []);
 
   return (
     <Layout>
@@ -106,11 +177,17 @@ export default function QuoteRequest() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <input
-                type="tel"
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
                 placeholder={fields.phone?.placeholder ?? 'Phone'}
                 aria-label={fields.phone?.label ?? 'Phone'}
                 className={inputClasses}
                 value={formData.phone}
+                onKeyDown={preventNonDigitKey}
+                onPaste={preventNonDigitPaste}
+                onDrop={(event) => event.preventDefault()}
+                onInput={handleChange('phone')}
                 onChange={handleChange('phone')}
               />
               <input
@@ -396,16 +473,36 @@ export default function QuoteRequest() {
                   onChange={handleChange('privacy')}
                   aria-invalid={errors.privacy ? 'true' : 'false'}
                 />
-                {fields.privacy?.label ?? 'I have read and accept the privacy policy.'}
+                <span>
+                  {fields.privacy?.prefix ?? 'I have read and accept the'}{' '}
+                  <a href={route('terms', locale)} className="text-[#00eaff] underline-offset-4 hover:underline">
+                    {fields.privacy?.terms_link ?? 'Terms and Conditions'}
+                  </a>{' '}
+                  {fields.privacy?.between ?? 'and the'}{' '}
+                  <a href={route('privacy', locale)} className="text-[#00eaff] underline-offset-4 hover:underline">
+                    {fields.privacy?.privacy_link ?? 'Privacy Policy'}
+                  </a>
+                  {fields.privacy?.suffix ?? '!'}
+                </span>
               </label>
               {errors.privacy && <span className="text-xs text-red-400">{errors.privacy}</span>}
             </div>
+
+            <TurnstileWidget
+              siteKey={turnstile.siteKey}
+              onVerify={handleTurnstileVerify}
+              onExpire={handleTurnstileExpire}
+              resetKey={turnstileResetKey}
+            />
+            {errors.cf_turnstile_response && (
+              <span className="block text-xs text-red-400">{errors.cf_turnstile_response}</span>
+            )}
 
             <div className="flex flex-col items-stretch sm:flex-row sm:justify-end">
               <button
                 type="submit"
                 className="pz-button disabled:cursor-not-allowed disabled:opacity-70"
-                disabled={processing}
+                disabled={!canSubmit}
               >
                 {processing
                   ? button.processing ?? 'Sending…'

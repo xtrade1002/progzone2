@@ -143,6 +143,65 @@
         text-shadow: 0 0 28px rgb(var(--pz-pink-rgb) / 0.22);
     }
 
+    .pz-text-sweep {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pz-text-sweep::after {
+        content: "";
+        position: absolute;
+        inset: -12% auto -12% -42%;
+        width: 38%;
+        pointer-events: none;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+        transform: skewX(-18deg);
+        animation: pzTextSweep 7.2s ease-in-out infinite;
+        mix-blend-mode: screen;
+    }
+
+    .pz-copy-reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        filter: blur(8px);
+        transition: opacity 1200ms ease, transform 1200ms ease, filter 1200ms ease;
+    }
+
+    .pz-copy-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+    .pz-service-reveal {
+        opacity: 0;
+        filter: blur(10px);
+        transition:
+            opacity 1500ms cubic-bezier(0.22, 1, 0.36, 1),
+            transform 1500ms cubic-bezier(0.22, 1, 0.36, 1),
+            filter 1500ms cubic-bezier(0.22, 1, 0.36, 1),
+            border-color 220ms ease,
+            box-shadow 220ms ease;
+    }
+
+    .pz-service-reveal.from-left {
+        transform: translateX(-70px) rotate(-1.5deg);
+    }
+
+    .pz-service-reveal.from-right {
+        transform: translateX(70px) rotate(1.5deg);
+    }
+
+    .pz-service-reveal.from-bottom {
+        transform: translateY(54px) scale(0.97);
+    }
+
+    .pz-service-reveal.is-visible {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0) scale(1);
+        filter: blur(0);
+    }
+
     .pz-rule {
         display: block;
         width: 92px;
@@ -283,6 +342,20 @@
     }
 }
 
+@keyframes pzTextSweep {
+    0%, 32% {
+        left: -42%;
+        opacity: 0;
+    }
+    45% {
+        opacity: 0.8;
+    }
+    62%, 100% {
+        left: 118%;
+        opacity: 0;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -291,5 +364,12 @@
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+    }
+
+    .pz-copy-reveal,
+    .pz-service-reveal {
+        opacity: 1;
+        transform: none;
+        filter: none;
     }
 }

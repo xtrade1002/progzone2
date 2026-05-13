@@ -52,6 +52,7 @@ const termSections = [
       'Az ügyfél köteles időben átadni a projekthez szükséges tartalmakat, hozzáféréseket, arculati anyagokat, képeket, szövegeket, jogi dokumentumokat és egyéb információkat.',
       'Az átadott anyagok jogszerűségéért, pontosságáért és felhasználási jogosultságáért az ügyfél felel.',
       'Ha az ügyfél késedelmesen ad visszajelzést vagy nem biztosítja a szükséges anyagokat, a határidők ennek megfelelően módosulhatnak.',
+      'A projekttel kapcsolatos egyeztetés, módosítási kérés, jóváhagyás és egyéb kapcsolattartás kizárólag írásban, például e-mailben vagy más írásban visszakereshető csatornán történik, az esetleges félreértések elkerülése érdekében.',
     ],
   },
   {
@@ -80,7 +81,9 @@ const termSections = [
   {
     title: '10. Külső szolgáltatások',
     paragraphs: [
-      'A projektekhez szükség lehet harmadik fél szolgáltatásaira, például domainregisztrátorra, tárhelyszolgáltatóra, fizetési szolgáltatóra, hírlevélküldőre, Google, Meta vagy más marketingplatformokra. Ezek működéséért, díjaiért, rendelkezésre állásáért és szabályzatáért az adott szolgáltató felel.',
+      'A projektekhez szükség lehet harmadik fél szolgáltatásaira, például domainregisztrátorra, tárhelyszolgáltatóra, e-mail SMTP szolgáltatóra, fizetési szolgáltatóra, hírlevélküldőre, Google, Meta vagy más marketingplatformokra. Ezek működéséért, díjaiért, rendelkezésre állásáért és szabályzatáért az adott szolgáltató felel.',
+      'A jelen weboldal tárhely- és e-mail SMTP szolgáltatója Hostinger lehet. A Hostinger szolgáltatásainak működésére, díjaira, korlátozásaira, e-mail kézbesítésére és rendelkezésre állására a Hostinger saját feltételei irányadók.',
+      'A kapcsolatfelvételi és árajánlatkérő űrlapok védelméhez Cloudflare Turnstile hitelesítés használható. A Cloudflare ellenőrzés célja a robotok, spam és visszaélésszerű űrlapküldések csökkentése.',
       'A szolgáltató segíthet ezek beállításában, de a külső szolgáltatóknál létrejövő szerződés általában az ügyfél és a külső szolgáltató között jön létre.',
     ],
   },
@@ -113,7 +116,26 @@ const termSections = [
     ],
   },
   {
-    title: '15. Irányadó jog és viták rendezése',
+    title: '15. ÁSZF, adatvédelem és szerzői jogi nyilatkozat',
+    paragraphs: [
+      'Az Általános Szerződési Feltételek meghatározza a weboldal vagy vállalkozás és az ügyfelek közötti jogokat és kötelezettségeket. Tartalmazhatja többek között a vásárlás, fizetés, szállítás, teljesítés és elállás szabályait, ezzel segítve a jogbiztonságot és a fogyasztóvédelmet. Webshopok és szolgáltatást kínáló oldalak számára különösen fontos dokumentum.',
+      'Az Adatvédelmi tájékoztató leírja, hogy a weboldal hogyan kezeli a felhasználók személyes adatait a GDPR előírásai szerint. Tartalmazza az adatgyűjtés célját, az adatkezelő kilétét és a felhasználók jogait, például az adatok törléséhez, módosításához, korlátozásához vagy az adatkezelés elleni tiltakozáshoz való jogot. Minden adatkezelést végző oldal számára szükséges.',
+      'A szerzői jog olyan jogi védelem, amely az eredeti, egyéni szellemi alkotásokat, például szövegeket, képeket, zenéket, filmeket, grafikai elemeket, forráskódot vagy más kreatív tartalmakat illeti meg. A szerzői jog biztosítja, hogy a szerző vagy jogosult engedélye nélkül az alkotás ne legyen jogosulatlanul másolható, terjeszthető vagy felhasználható.',
+    ],
+  },
+  {
+    title: '16. Jogi nyilatkozat a megbízói weboldalakhoz',
+    items: [
+      'Az Adatvédelmi tájékoztató és az Általános Szerződési Feltételek tartalma generátor segítségével készülhet. A Megbízott nem vállal felelősséget annak teljes körű jogi megfelelőségéért. Javasolt, hogy a Megbízó jogi szakértővel ellenőriztesse a dokumentumokat.',
+      'A weboldalra feltöltött képek AI által generáltak lehetnek, amennyiben erről a felek így állapodnak meg vagy a projekt során ilyen képek kerülnek felhasználásra.',
+      'A Megbízott nem vállal felelősséget a Megbízó által biztosított jogvédett tartalmak, képek, szövegek, logók, videók, zenék, adatbázisok vagy egyéb anyagok felhasználásából eredő esetleges jogsértésekért.',
+      'A Megbízott nem vállal felelősséget a Megbízó által feltöltött, módosított vagy jóváhagyott tartalmakért, ezek jogi megfelelőségéért, pontosságáért, valamint az ezekből eredő hibákért vagy károkért.',
+      'Amennyiben a Megbízó által feltöltött, módosított vagy biztosított tartalom miatt technikai hiba, működési probléma vagy javítási igény merül fel, a Megbízott jogosult a javítást az általa meghatározott óradíjon elvégezni.',
+      'A fent leírtakat a Megbízó az ajánlat vagy szerződés elfogadásával tudomásul veszi és elfogadja.',
+    ],
+  },
+  {
+    title: '17. Irányadó jog és viták rendezése',
     paragraphs: [
       'A felek elsődlegesen békés, írásos egyeztetés útján rendezik vitáikat. Amennyiben ez nem vezet eredményre, a jogvita rendezésére az irányadó jogszabályok és az illetékes bíróságok szabályai alkalmazandók.',
       'Hatályos: 2026. május 13.',
