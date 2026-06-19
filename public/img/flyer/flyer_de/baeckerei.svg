@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-label="Baeckerei Flyer">
+  <rect width="900" height="1200" fill="#21130c"/>
+  <rect x="55" y="55" width="790" height="1090" rx="28" fill="#fff3df" opacity="0.08"/>
+  <text x="80" y="150" fill="#f0b15e" font-family="Arial, sans-serif" font-size="48" font-weight="800" letter-spacing="9">BAECKEREI</text>
+  <text x="80" y="320" fill="#fff7e6" font-family="Georgia, serif" font-size="108" font-weight="700">Frisch aus</text>
+  <text x="80" y="430" fill="#fff7e6" font-family="Georgia, serif" font-size="108" font-weight="700">dem Ofen</text>
+  <text x="80" y="535" fill="#f0b15e" font-family="Arial, sans-serif" font-size="62" font-weight="900">20% RABATT</text>
+  <text x="80" y="600" fill="#fff7e6" font-family="Arial, sans-serif" font-size="34">Zur Neueroeffnung</text>
+  <g fill="#d88a3d">
+    <ellipse cx="310" cy="820" rx="150" ry="78"/>
+    <ellipse cx="500" cy="825" rx="135" ry="70"/>
+    <ellipse cx="650" cy="850" rx="100" ry="58"/>
+  </g>
+  <g fill="none" stroke="#fff0d5" stroke-width="16" stroke-linecap="round">
+    <path d="M230 810c55-28 110-28 165 0"/>
+    <path d="M430 815c50-24 95-24 145 0"/>
+    <path d="M600 845c36-18 70-18 104 0"/>
+  </g>
+  <rect x="80" y="975" width="430" height="90" rx="18" fill="#f0b15e"/>
+  <text x="124" y="1033" fill="#21130c" font-family="Arial, sans-serif" font-size="34" font-weight="900">Heute besuchen</text>
+</svg>

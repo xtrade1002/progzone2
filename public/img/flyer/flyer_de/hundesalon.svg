@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-label="Hundesalon Flyer">
+  <rect width="900" height="1200" fill="#f8efe3"/>
+  <circle cx="720" cy="160" r="190" fill="#e7b27f" opacity="0.35"/>
+  <circle cx="180" cy="1040" r="230" fill="#9fd0c0" opacity="0.35"/>
+  <text x="80" y="150" fill="#4b2c1d" font-family="Arial, sans-serif" font-size="48" font-weight="800" letter-spacing="8">HUNDESALON</text>
+  <text x="80" y="325" fill="#2b211b" font-family="Georgia, serif" font-size="108" font-weight="700">Frisch</text>
+  <text x="80" y="430" fill="#2b211b" font-family="Georgia, serif" font-size="108" font-weight="700">gepflegt</text>
+  <text x="80" y="525" fill="#8f5a36" font-family="Arial, sans-serif" font-size="43" font-weight="800">Waschen, Schneiden, Stylen</text>
+  <g fill="none" stroke="#2b211b" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="450" cy="760" r="120"/>
+    <circle cx="350" cy="660" r="54"/>
+    <circle cx="550" cy="660" r="54"/>
+    <path d="M392 780c35 34 81 34 116 0"/>
+    <path d="M420 735h60"/>
+  </g>
+  <rect x="80" y="940" width="410" height="90" rx="18" fill="#8f5a36"/>
+  <text x="124" y="998" fill="#fff8ef" font-family="Arial, sans-serif" font-size="34" font-weight="900">Jetzt buchen</text>
+</svg>

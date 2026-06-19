@@ -723,9 +723,29 @@
       },
       {
         "type": "image",
+        "image": "/img/flyer/flyer_de/cafe.svg",
+        "lightboxImage": "/img/flyer/flyer_de/cafe.svg",
+        "title": "Coffee Flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
         "image": "/img/flyer/flyer_de/disco.png",
         "lightboxImage": "/img/flyer/flyer_de/disco.png",
         "title": "Disco Flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_de/fitness.svg",
+        "lightboxImage": "/img/flyer/flyer_de/fitness.svg",
+        "title": "Fitness Flyer",
         "label": "Flyer",
         "category": "Flyer",
         "categoryKey": "flyers",
@@ -746,6 +766,36 @@
         "image": "/img/flyer/flyer_de/kaffee.png",
         "lightboxImage": "/img/flyer/flyer_de/kaffee.png",
         "title": "Kaffee Flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_de/hundesalon.svg",
+        "lightboxImage": "/img/flyer/flyer_de/hundesalon.svg",
+        "title": "Hundesalon Flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_de/massage.svg",
+        "lightboxImage": "/img/flyer/flyer_de/massage.svg",
+        "title": "Massage Flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_de/baeckerei.svg",
+        "lightboxImage": "/img/flyer/flyer_de/baeckerei.svg",
+        "title": "Bäckerei Flyer",
         "label": "Flyer",
         "category": "Flyer",
         "categoryKey": "flyers",
@@ -873,8 +923,8 @@
       },
       {
         "type": "image",
-        "image": "/img/egyeb/hu/ajandekkartya.png",
-        "lightboxImage": "/img/egyeb/hu/ajandekkartya.png",
+        "image": "/img/egyeb/de/geschenkkarte.png",
+        "lightboxImage": "/img/egyeb/de/geschenkkarte.png",
         "title": "Geschenkkarte",
         "label": "Weitere Grafik",
         "category": "Weitere Grafik",
@@ -883,8 +933,8 @@
       },
       {
         "type": "image",
-        "image": "/img/egyeb/hu/ajandekkartya-2.png",
-        "lightboxImage": "/img/egyeb/hu/ajandekkartya-2.png",
+        "image": "/img/egyeb/de/karte.png",
+        "lightboxImage": "/img/egyeb/de/karte.png",
         "title": "Geschenkkarten-Design",
         "label": "Weitere Grafik",
         "category": "Weitere Grafik",
@@ -893,8 +943,8 @@
       },
       {
         "type": "image",
-        "image": "/img/egyeb/hu/belepojegy.png",
-        "lightboxImage": "/img/egyeb/hu/belepojegy.png",
+        "image": "/img/egyeb/de/eintrittskarte.png",
+        "lightboxImage": "/img/egyeb/de/eintrittskarte.png",
         "title": "Eintrittskarte",
         "label": "Weitere Grafik",
         "category": "Weitere Grafik",
@@ -903,8 +953,8 @@
       },
       {
         "type": "image",
-        "image": "/img/egyeb/hu/berlet.png",
-        "lightboxImage": "/img/egyeb/hu/berlet.png",
+        "image": "/img/egyeb/de/10er karte.png",
+        "lightboxImage": "/img/egyeb/de/10er karte.png",
         "title": "Passkarte",
         "label": "Weitere Grafik",
         "category": "Weitere Grafik",
@@ -913,8 +963,8 @@
       },
       {
         "type": "image",
-        "image": "/img/egyeb/hu/husegkartya.png",
-        "lightboxImage": "/img/egyeb/hu/husegkartya.png",
+        "image": "/img/egyeb/de/stempelkarte.png",
+        "lightboxImage": "/img/egyeb/de/stempelkarte.png",
         "title": "Treuekarte",
         "label": "Weitere Grafik",
         "category": "Weitere Grafik",
@@ -923,8 +973,8 @@
       },
       {
         "type": "image",
-        "image": "/img/egyeb/hu/kupon.png",
-        "lightboxImage": "/img/egyeb/hu/kupon.png",
+        "image": "/img/egyeb/de/gutschein.png",
+        "lightboxImage": "/img/egyeb/de/gutschein.png",
         "title": "Gutschein",
         "label": "Weitere Grafik",
         "category": "Weitere Grafik",
@@ -933,8 +983,8 @@
       },
       {
         "type": "image",
-        "image": "/img/egyeb/hu/utalvany.png",
-        "lightboxImage": "/img/egyeb/hu/utalvany.png",
+        "image": "/img/egyeb/de/gutschein2.png",
+        "lightboxImage": "/img/egyeb/de/gutschein2.png",
         "title": "Wertgutschein",
         "label": "Weitere Grafik",
         "category": "Weitere Grafik",
@@ -992,4 +1042,7 @@
     ]
   }
 }
+
+
+
 

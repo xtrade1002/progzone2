@@ -23,6 +23,7 @@ $renderWithLocale = function (string $locale, callable $render) {
 
 foreach (LocalizedRoutes::PAGE_ROUTES as $name => $localizedRoute) {
     $registeredPaths = [];
+    $pathCounts = array_count_values($localizedRoute['paths']);
 
     foreach ($localizedRoute['paths'] as $locale => $path) {
         if (isset($registeredPaths[$path])) {
@@ -30,12 +31,13 @@ foreach (LocalizedRoutes::PAGE_ROUTES as $name => $localizedRoute) {
         }
 
         $registeredPaths[$path] = true;
+        $routeLocale = ($pathCounts[$path] ?? 0) > 1 ? null : $locale;
         $routeName = isset($namedRoutes[$name]) ? null : $name;
         $namedRoutes[$name] = true;
 
         if ($name === 'prices') {
             $route = Route::get($path, fn () => $renderWithLocale(
-                $locale,
+                $routeLocale ?? LocalizedRoutes::normalizeLocale(App::getLocale()),
                 fn () => app()->call([app(PriceController::class), 'index'])
             ));
             $routeName ? $route->name($routeName) : null;
@@ -44,7 +46,7 @@ foreach (LocalizedRoutes::PAGE_ROUTES as $name => $localizedRoute) {
 
         if ($name === 'references') {
             $route = Route::get($path, fn () => $renderWithLocale(
-                $locale,
+                $routeLocale ?? LocalizedRoutes::normalizeLocale(App::getLocale()),
                 fn () => Inertia::render('References', [
                     'category' => null,
                 ])
@@ -64,7 +66,7 @@ foreach (LocalizedRoutes::PAGE_ROUTES as $name => $localizedRoute) {
         }
 
         $route = Route::get($path, fn () => $renderWithLocale(
-            $locale,
+            $routeLocale ?? LocalizedRoutes::normalizeLocale(App::getLocale()),
             fn () => Inertia::render($localizedRoute['component'])
         ));
         $routeName ? $route->name($routeName) : null;

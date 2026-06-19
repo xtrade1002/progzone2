@@ -27,7 +27,17 @@ class SetLocaleFromHost
             $sessionLocaleHost = $this->normalizeHost($request->session()->get('locale_host'));
         }
 
-        if (
+        $hostLocaleMap = [
+            'progzone.de' => 'de',
+            'bitbau.ch' => 'de-CH',
+            'progzone.hu' => 'hu',
+        ];
+
+        $hostLocale = $host !== null ? ($hostLocaleMap[$host] ?? null) : null;
+
+        if ($hostLocale !== null) {
+            $locale = $hostLocale;
+        } elseif (
             $sessionLocale
             && in_array($sessionLocale, $availableLocales, true)
             && $sessionLocaleHost !== null
@@ -35,29 +45,16 @@ class SetLocaleFromHost
         ) {
             $locale = $sessionLocale;
         } else {
-            $hostLocaleMap = [
-                'progzone.de' => 'de',
+            $locale = config('app.fallback_locale', 'hu');
+        }
 
-                'www.progzone.de' => 'de',
-                'bitbau.ch' => 'de-CH',
-                'www.bitbau.ch' => 'de-CH',
-                'progzone.hu' => 'hu',
-            ];
+        if (! in_array($locale, $availableLocales, true)) {
+            $locale = config('app.fallback_locale', 'hu');
+        }
 
-            if ($host !== null) {
-                $locale = $hostLocaleMap[$host] ?? config('app.fallback_locale', 'hu');
-            } else {
-                $locale = config('app.fallback_locale', 'hu');
-            }
-
-            if (! in_array($locale, $availableLocales, true)) {
-                $locale = config('app.fallback_locale', 'hu');
-            }
-
-            if ($request->hasSession()) {
-                $request->session()->put('locale', $locale);
-                $request->session()->put('locale_host', $host);
-            }
+        if ($request->hasSession()) {
+            $request->session()->put('locale', $locale);
+            $request->session()->put('locale_host', $host);
         }
 
         App::setLocale($locale);

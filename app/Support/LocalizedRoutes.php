@@ -100,7 +100,7 @@ class LocalizedRoutes
     public const REFERENCE_CATEGORIES = [
         'websites' => [
             'hu' => 'weboldalak',
-            'de' => 'websites',
+            'de' => 'webseiten',
             'en' => 'websites',
         ],
         'flyers' => [
@@ -199,6 +199,10 @@ class LocalizedRoutes
 
     public static function normalizeLocale(?string $locale): string
     {
+        if ($locale === 'de-CH') {
+            return 'de';
+        }
+
         return in_array($locale, self::LOCALES, true) ? $locale : 'hu';
     }
 

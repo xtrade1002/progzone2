@@ -126,9 +126,14 @@ const flyerNames = {
     'autowäsche': 'Autowäsche Flyer',
     barber: 'Barber Flyer',
     burger: 'Burger Flyer',
+    coffee: 'Coffee Flyer',
     disco: 'Disco Flyer',
+    fitness: 'Fitness Flyer',
     immobilien: 'Immobilien Flyer',
     kaffee: 'Kaffee Flyer',
+    kutyakozmetika: 'Hundesalon Flyer',
+    massage: 'Massage Flyer',
+    pekseg: 'Bäckerei Flyer',
     pizza: 'Pizza Flyer',
     yoga: 'Yoga Flyer',
   },
@@ -149,7 +154,64 @@ const flyerNames = {
   },
 };
 
-const flyerDir = (locale) => (locale === 'de' ? 'flyer_de' : 'flyer_hu');
+const germanFlyerFiles = {
+  'autowäsche': 'autowäsche.png',
+  barber: 'barber.png',
+  burger: 'burger.png',
+  coffee: 'cafe.svg',
+  disco: 'disco.png',
+  fitness: 'fitness.svg',
+  immobilien: 'immobilien.png',
+  kaffee: 'kaffee.png',
+  kutyakozmetika: 'hundesalon.svg',
+  massage: 'massage.svg',
+  pekseg: 'baeckerei.svg',
+  pizza: 'pizza.png',
+  yoga: 'yoga.png',
+};
+
+const flyerPath = (locale, name) => (
+  locale === 'de' && germanFlyerFiles[name]
+    ? `/img/flyer/flyer_de/${germanFlyerFiles[name]}`
+    : `/img/flyer/flyer_hu/${name}.png`
+);
+
+const otherDesignFiles = {
+  hu: {
+    ajandekkartya: 'ajandekkartya.png',
+    ajandekkartyaDesign: 'ajandekkartya-2.png',
+    belepojegy: 'belepojegy.png',
+    berlet: 'berlet.png',
+    husegkartya: 'husegkartya.png',
+    kupon: 'kupon.png',
+    utalvany: 'utalvany.png',
+  },
+  de: {
+    ajandekkartya: 'geschenkkarte.png',
+    ajandekkartyaDesign: 'karte.png',
+    belepojegy: 'eintrittskarte.png',
+    berlet: '10er karte.png',
+    husegkartya: 'stempelkarte.png',
+    kupon: 'gutschein.png',
+    utalvany: 'gutschein2.png',
+  },
+  en: {
+    ajandekkartya: 'ajandekkartya.png',
+    ajandekkartyaDesign: 'ajandekkartya-2.png',
+    belepojegy: 'belepojegy.png',
+    berlet: 'berlet.png',
+    husegkartya: 'husegkartya.png',
+    kupon: 'kupon.png',
+    utalvany: 'utalvany.png',
+  },
+};
+
+const otherDesignPath = (locale, key) => {
+  const folder = locale === 'de' ? 'de' : 'hu';
+  const file = otherDesignFiles[locale]?.[key] ?? otherDesignFiles.hu[key];
+
+  return `/img/egyeb/${folder}/${file}`;
+};
 
 const imageProject = (categoryKey, title, image, label, extra = {}) => ({
   type: 'image',
@@ -164,7 +226,7 @@ const imageProject = (categoryKey, title, image, label, extra = {}) => ({
 });
 
 const flyerProjects = (locale) => Object.entries(flyerNames[locale]).map(([name, title]) => (
-  imageProject('flyers', title, `/img/flyer/${flyerDir(locale)}/${name}.png`, text[locale].flyer)
+  imageProject('flyers', title, flyerPath(locale, name), text[locale].flyer)
 ));
 
 const businessCardProjects = (locale) => [
@@ -194,17 +256,17 @@ const mockupProjects = (locale) => [
 ));
 
 const otherProjects = (locale) => [
-  ['Ajándékkártya', 'Geschenkkarte', 'Gift card', 'ajandekkartya.png'],
-  ['Ajándékkártya design', 'Geschenkkarten-Design', 'Gift card design', 'ajandekkartya-2.png'],
-  ['Belépőjegy', 'Eintrittskarte', 'Admission ticket', 'belepojegy.png'],
-  ['Bérlet', 'Passkarte', 'Pass card', 'berlet.png'],
-  ['Hűségkártya', 'Treuekarte', 'Loyalty card', 'husegkartya.png'],
-  ['Kupon', 'Gutschein', 'Coupon', 'kupon.png'],
-  ['Utalvány', 'Wertgutschein', 'Voucher', 'utalvany.png'],
-].map(([hu, de, en, file]) => imageProject(
+  ['Ajándékkártya', 'Geschenkkarte', 'Gift card', 'ajandekkartya'],
+  ['Ajándékkártya design', 'Geschenkkarten-Design', 'Gift card design', 'ajandekkartyaDesign'],
+  ['Belépőjegy', 'Eintrittskarte', 'Admission ticket', 'belepojegy'],
+  ['Bérlet', 'Passkarte', 'Pass card', 'berlet'],
+  ['Hűségkártya', 'Treuekarte', 'Loyalty card', 'husegkartya'],
+  ['Kupon', 'Gutschein', 'Coupon', 'kupon'],
+  ['Utalvány', 'Wertgutschein', 'Voucher', 'utalvany'],
+].map(([hu, de, en, key]) => imageProject(
   'otherDesigns',
   ({ hu, de, en })[locale],
-  `/img/egyeb/hu/${file}`,
+  otherDesignPath(locale, key),
   text[locale].other,
 ));
 
