@@ -723,16 +723,6 @@
       },
       {
         "type": "image",
-        "image": "/img/flyer/flyer_de/cafe.svg",
-        "lightboxImage": "/img/flyer/flyer_de/cafe.svg",
-        "title": "Coffee Flyer",
-        "label": "Flyer",
-        "category": "Flyer",
-        "categoryKey": "flyers",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
         "image": "/img/flyer/flyer_de/disco.png",
         "lightboxImage": "/img/flyer/flyer_de/disco.png",
         "title": "Disco Flyer",
@@ -1042,6 +1032,7 @@
     ]
   }
 }
+
 
 
 
