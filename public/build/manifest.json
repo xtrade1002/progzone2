@@ -1,17 +1,17 @@
 {
-  "_mui-D-eXosC2.js": {
-    "file": "assets/mui-D-eXosC2.js",
+  "_mui-Cc0pJSN_.js": {
+    "file": "assets/mui-Cc0pJSN_.js",
     "name": "mui",
     "imports": [
-      "_react-BeRe0AgH.js"
+      "_react-ClZwdvRs.js"
     ]
   },
-  "_react-BeRe0AgH.js": {
-    "file": "assets/react-BeRe0AgH.js",
+  "_react-ClZwdvRs.js": {
+    "file": "assets/react-ClZwdvRs.js",
     "name": "react"
   },
   "resources/css/app.css": {
-    "file": "assets/app-dO71zmwX.css",
+    "file": "assets/app-CVijYMFw.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -19,13 +19,13 @@
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-DYgsIo5Q.js",
+    "file": "assets/app-DlSabIZ6.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
     "imports": [
-      "_mui-D-eXosC2.js",
-      "_react-BeRe0AgH.js"
+      "_mui-Cc0pJSN_.js",
+      "_react-ClZwdvRs.js"
     ]
   }
 }
