@@ -565,7 +565,9 @@
         "cta": "Megnézem a weboldalt",
         "domainOverrides": {
           "progzone.hu": {
-            "url": "https://secretlounge.hu",
+            "url": "https://secretlounge.hu/hu",
+            "image": "/img/secretlounge-hu-preview.png",
+            "lightboxImage": "/img/secretlounge-hu-preview.png",
             "title": "SecretLounge.hu"
           }
         },
