@@ -560,8 +560,8 @@
       {
         "type": "link",
         "url": "https://secretlounge.ch",
-        "image": "/img/secretlounge-preview.png",
-        "lightboxImage": "/img/secretlounge-preview.png",
+        "image": "/img/websites/secretlounge.ch.png",
+        "lightboxImage": "/img/websites/secretlounge.ch.png",
         "title": "SecretLounge.ch",
         "cta": "View website",
         "domainOverrides": {
@@ -586,8 +586,8 @@
       {
         "type": "link",
         "url": "https://hunportal.hu",
-        "image": "/img/reference/hunportal.png",
-        "lightboxImage": "/img/reference/hunportal.png",
+        "image": "/img/websites/hunportal-preview.png",
+        "lightboxImage": "/img/websites/hunportal-preview.png",
         "title": "Hunportal",
         "cta": "View website",
         "categoryKey": "websites",
@@ -604,9 +604,9 @@
       {
         "type": "link",
         "url": "https://www.kertmester.eu",
-        "image": "/img/reference/kertmester-20260606.png",
-        "lightboxImage": "/img/reference/kertmester-20260606.png",
-        "title": "Kertmester new design",
+        "image": "/img/websites/kertmester.png",
+        "lightboxImage": "/img/websites/kertmester.png",
+        "title": "Kertmester",
         "cta": "View website",
         "categoryKey": "websites",
         "label": "Website",
@@ -622,8 +622,8 @@
       {
         "type": "link",
         "url": "https://fixappoint.hu",
-        "image": "/img/reference/fixappoint.png",
-        "lightboxImage": "/img/reference/fixappoint.png",
+        "image": "/img/websites/screenshot-2025-11-28-101112.png",
+        "lightboxImage": "/img/websites/screenshot-2025-11-28-101112.png",
         "title": "Fixappoint",
         "cta": "View website",
         "categoryKey": "websites",
@@ -640,8 +640,8 @@
       {
         "type": "link",
         "url": "https://www.glamlash.hu",
-        "image": "/img/reference/glamlash.png",
-        "lightboxImage": "/img/reference/glamlash.png",
+        "image": "/img/websites/glamlash.png",
+        "lightboxImage": "/img/websites/glamlash.png",
         "title": "Glamlash",
         "cta": "View website",
         "categoryKey": "websites",
@@ -658,8 +658,8 @@
       {
         "type": "link",
         "url": "https://www.versenybikini.hu",
-        "image": "/img/reference/versenybikini.png",
-        "lightboxImage": "/img/reference/versenybikini.png",
+        "image": "/img/websites/versenybikini.png",
+        "lightboxImage": "/img/websites/versenybikini.png",
         "title": "Versenybikini",
         "cta": "View website",
         "categoryKey": "websites",
@@ -676,8 +676,8 @@
       {
         "type": "link",
         "url": "https://ohayachting.com",
-        "image": "/img/reference/ohayachting.webp",
-        "lightboxImage": "/img/reference/ohayachting.webp",
+        "image": "/img/websites/ohayachting.webp",
+        "lightboxImage": "/img/websites/ohayachting.webp",
         "title": "Oha Yachting",
         "cta": "View website",
         "categoryKey": "websites",
@@ -693,156 +693,162 @@
       },
       {
         "type": "image",
-        "image": "/img/reference/teahouse.png",
-        "lightboxImage": "/img/reference/teahouse.png",
-        "title": "Tea house website concept",
-        "cta": "View website",
-        "categoryKey": "flyers",
+        "image": "/img/flyer/flyer_hu/auto.png",
+        "lightboxImage": "/img/flyer/flyer_hu/auto.png",
+        "title": "Car wash flyer",
         "label": "Flyer",
         "category": "Flyer",
-        "description": "Flyer and graphic design reference.",
-        "tags": [
-          "Flyer",
-          "Graphic",
-          "Design"
-        ],
+        "categoryKey": "flyers",
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/reference/bakery.png",
-        "lightboxImage": "/img/reference/bakery.png",
-        "title": "Bakery website concept",
-        "cta": "View website",
-        "categoryKey": "flyers",
+        "image": "/img/flyer/flyer_hu/barber.png",
+        "lightboxImage": "/img/flyer/flyer_hu/barber.png",
+        "title": "Barber flyer",
         "label": "Flyer",
         "category": "Flyer",
-        "description": "Flyer and graphic design reference.",
-        "tags": [
-          "Flyer",
-          "Graphic",
-          "Design"
-        ],
+        "categoryKey": "flyers",
         "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/action.jpg",
-        "title": "Flyer",
-        "lightboxImage": "/img/action.jpg",
-        "categoryKey": "flyers",
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/burger.png",
+        "lightboxImage": "/img/flyer/flyer_hu/burger.png",
+        "title": "Burger flyer",
         "label": "Flyer",
         "category": "Flyer",
-        "description": "Flyer and graphic design reference.",
-        "tags": [
-          "Flyer",
-          "Graphic",
-          "Design"
-        ],
+        "categoryKey": "flyers",
         "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/bakery.png",
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/coffee.png",
+        "lightboxImage": "/img/flyer/flyer_hu/coffee.png",
+        "title": "Coffee flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/disco.png",
+        "lightboxImage": "/img/flyer/flyer_hu/disco.png",
+        "title": "Disco flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/fitness.png",
+        "lightboxImage": "/img/flyer/flyer_hu/fitness.png",
+        "title": "Fitness flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/ingatlan.png",
+        "lightboxImage": "/img/flyer/flyer_hu/ingatlan.png",
+        "title": "Real estate flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/joga.png",
+        "lightboxImage": "/img/flyer/flyer_hu/joga.png",
+        "title": "Yoga flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/kutyakozmetika.png",
+        "lightboxImage": "/img/flyer/flyer_hu/kutyakozmetika.png",
+        "title": "Dog grooming flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/massage.png",
+        "lightboxImage": "/img/flyer/flyer_hu/massage.png",
+        "title": "Massage flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/pekseg.png",
+        "lightboxImage": "/img/flyer/flyer_hu/pekseg.png",
         "title": "Bakery flyer",
-        "lightboxImage": "/img/bakery.png",
-        "categoryKey": "flyers",
         "label": "Flyer",
         "category": "Flyer",
-        "description": "Flyer and graphic design reference.",
-        "tags": [
-          "Flyer",
-          "Graphic",
-          "Design"
-        ],
-        "imageFit": "contain"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/sale.png",
-        "title": "Sale flyer",
-        "lightboxImage": "/img/sale.png",
         "categoryKey": "flyers",
-        "label": "Flyer",
-        "category": "Flyer",
-        "description": "Flyer and graphic design reference.",
-        "tags": [
-          "Flyer",
-          "Graphic",
-          "Design"
-        ],
         "imageFit": "contain"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/gaycupydo2.png",
-        "title": "Logo",
-        "lightboxImage": "/img/gaycupydo2.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/giftvoucher.jpg",
-        "title": "Gift voucher",
-        "lightboxImage": "/img/giftvoucher.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/massagepass.jpg",
-        "title": "Wellness pass",
-        "lightboxImage": "/img/massagepass.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/sexxxtra_logo4.png",
-        "title": "Logo",
-        "lightboxImage": "/img/sexxxtra_logo4.png"
       },
       {
         "type": "image",
-        "image": "/img/visitcards/visitenkarte_fixappoint.png",
-        "lightboxImage": "/img/visitcards/visitenkarte_fixappoint.png",
+        "image": "/img/flyer/flyer_hu/pizza.png",
+        "lightboxImage": "/img/flyer/flyer_hu/pizza.png",
+        "title": "Pizza flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/teahaz.png",
+        "lightboxImage": "/img/flyer/flyer_hu/teahaz.png",
+        "title": "Tea house flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/névjegykártya/visitenkarte_fixappoint.png",
+        "lightboxImage": "/img/névjegykártya/visitenkarte_fixappoint.png",
         "title": "Fixappoint business card",
         "label": "Business card",
         "category": "Business card",
         "categoryKey": "businessCards",
-        "description": "Business card design aligned with the brand identity.",
-        "tags": [
-          "Business card",
-          "Branding",
-          "Print"
-        ],
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/visitcards/visitenkarte_glamazon.png",
-        "lightboxImage": "/img/visitcards/visitenkarte_glamazon.png",
+        "image": "/img/névjegykártya/visitenkarte_glamazon.png",
+        "lightboxImage": "/img/névjegykártya/visitenkarte_glamazon.png",
         "title": "Glamazon business card",
         "label": "Business card",
         "category": "Business card",
         "categoryKey": "businessCards",
-        "description": "Business card design aligned with the brand identity.",
-        "tags": [
-          "Business card",
-          "Branding",
-          "Print"
-        ],
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/visitcards/visitenkarte_kertmester.png",
-        "lightboxImage": "/img/visitcards/visitenkarte_kertmester.png",
+        "image": "/img/névjegykártya/visitenkarte_kertmester.png",
+        "lightboxImage": "/img/névjegykártya/visitenkarte_kertmester.png",
         "title": "Kertmester business card",
         "label": "Business card",
         "category": "Business card",
         "categoryKey": "businessCards",
-        "description": "Business card design aligned with the brand identity.",
-        "tags": [
-          "Business card",
-          "Branding",
-          "Print"
-        ],
         "imageFit": "contain"
       },
       {
@@ -853,12 +859,6 @@
         "label": "Mockup",
         "category": "Mockup",
         "categoryKey": "mockups",
-        "description": "Website mockup presentation reference.",
-        "tags": [
-          "Mockup",
-          "Website",
-          "Presentation"
-        ],
         "imageFit": "contain"
       },
       {
@@ -869,12 +869,6 @@
         "label": "Mockup",
         "category": "Mockup",
         "categoryKey": "mockups",
-        "description": "Website mockup presentation reference.",
-        "tags": [
-          "Mockup",
-          "Website",
-          "Presentation"
-        ],
         "imageFit": "contain"
       },
       {
@@ -885,12 +879,6 @@
         "label": "Mockup",
         "category": "Mockup",
         "categoryKey": "mockups",
-        "description": "Website mockup presentation reference.",
-        "tags": [
-          "Mockup",
-          "Website",
-          "Presentation"
-        ],
         "imageFit": "contain"
       },
       {
@@ -901,12 +889,6 @@
         "label": "Mockup",
         "category": "Mockup",
         "categoryKey": "mockups",
-        "description": "Website mockup presentation reference.",
-        "tags": [
-          "Mockup",
-          "Website",
-          "Presentation"
-        ],
         "imageFit": "contain"
       },
       {
@@ -917,28 +899,16 @@
         "label": "Mockup",
         "category": "Mockup",
         "categoryKey": "mockups",
-        "description": "Website mockup presentation reference.",
-        "tags": [
-          "Mockup",
-          "Website",
-          "Presentation"
-        ],
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/mockup/mockup_oha2.png",
-        "lightboxImage": "/img/mockup/mockup_oha2.png",
+        "image": "/img/mockup/mockup_oha.png",
+        "lightboxImage": "/img/mockup/mockup_oha.png",
         "title": "Oha Yachting mockup",
         "label": "Mockup",
         "category": "Mockup",
         "categoryKey": "mockups",
-        "description": "Website mockup presentation reference.",
-        "tags": [
-          "Mockup",
-          "Website",
-          "Presentation"
-        ],
         "imageFit": "contain"
       },
       {
@@ -949,12 +919,76 @@
         "label": "Mockup",
         "category": "Mockup",
         "categoryKey": "mockups",
-        "description": "Website mockup presentation reference.",
-        "tags": [
-          "Mockup",
-          "Website",
-          "Presentation"
-        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/ajandekkartya.png",
+        "lightboxImage": "/img/egyeb/hu/ajandekkartya.png",
+        "title": "Gift card",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/ajandekkartya-2.png",
+        "lightboxImage": "/img/egyeb/hu/ajandekkartya-2.png",
+        "title": "Gift card design",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/belepojegy.png",
+        "lightboxImage": "/img/egyeb/hu/belepojegy.png",
+        "title": "Admission ticket",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/berlet.png",
+        "lightboxImage": "/img/egyeb/hu/berlet.png",
+        "title": "Pass card",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/husegkartya.png",
+        "lightboxImage": "/img/egyeb/hu/husegkartya.png",
+        "title": "Loyalty card",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/kupon.png",
+        "lightboxImage": "/img/egyeb/hu/kupon.png",
+        "title": "Coupon",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/utalvany.png",
+        "lightboxImage": "/img/egyeb/hu/utalvany.png",
+        "title": "Voucher",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
         "imageFit": "contain"
       }
     ]
@@ -1008,3 +1042,4 @@
     ]
   }
 }
+

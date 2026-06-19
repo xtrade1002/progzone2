@@ -10,3 +10,55 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+@layer components {
+    .flag-icon {
+        display: inline-block;
+        position: relative;
+        width: 1.35rem;
+        height: 0.9rem;
+        flex: 0 0 auto;
+        overflow: hidden;
+        border-radius: 0.12rem;
+        box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.22);
+    }
+
+    .flag-icon--hu {
+        background: linear-gradient(to bottom, #ce2939 0 33.333%, #ffffff 33.333% 66.666%, #477050 66.666% 100%);
+    }
+
+    .flag-icon--de {
+        background: linear-gradient(to bottom, #000000 0 33.333%, #dd0000 33.333% 66.666%, #ffce00 66.666% 100%);
+    }
+
+    .flag-icon--us {
+        background: repeating-linear-gradient(to bottom, #b22234 0 7.69%, #ffffff 7.69% 15.38%);
+    }
+
+    .flag-icon--us::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 42%;
+        height: 54%;
+        background: #3c3b6e;
+    }
+
+    .chevron-icon {
+        display: inline-block;
+        width: 0.7rem;
+        height: 0.7rem;
+        flex: 0 0 auto;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+    }
+
+    .chevron-icon--down {
+        transform: rotate(45deg) translateY(-0.15rem);
+    }
+
+    .chevron-icon--up {
+        transform: rotate(225deg) translateY(-0.15rem);
+    }
+}

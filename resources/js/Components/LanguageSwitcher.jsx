@@ -4,9 +4,9 @@ import route from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
 
 const locales = [
-  { code: 'hu', label: 'Magyar', flag: '🇭🇺' },
-  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
-  { code: 'en', label: 'English', flag: '🇺🇸' },
+  { code: 'hu', label: 'Magyar', flagClass: 'flag-icon--hu' },
+  { code: 'de', label: 'Deutsch', flagClass: 'flag-icon--de' },
+  { code: 'en', label: 'English', flagClass: 'flag-icon--us' },
 ];
 
 export default function LanguageSwitcher() {
@@ -53,16 +53,12 @@ export default function LanguageSwitcher() {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : 'false'}
       >
-        <span aria-hidden="true" className="text-xl">
-          {current.flag}
-        </span>
+        <span aria-hidden="true" className={`flag-icon ${current.flagClass}`} />
         <span className="sr-only">{t('common.language_switcher_label', 'Language')}</span>
       </button>
 
       {open && (
-        <ul
-          className="absolute right-0 top-full mt-2 w-40 rounded-lg border border-[#FF007A]/40 bg-[#121317] shadow-lg"
-        >
+        <ul className="absolute right-0 top-full mt-2 w-40 rounded-lg border border-[#FF007A]/40 bg-[#121317] shadow-lg">
           {locales.map((item) => (
             <li key={item.code}>
               <button
@@ -72,7 +68,7 @@ export default function LanguageSwitcher() {
                   item.code === locale ? 'bg-[#1f1f2a] font-semibold text-white' : ''
                 }`}
               >
-                <span aria-hidden="true">{item.flag}</span>
+                <span aria-hidden="true" className={`flag-icon ${item.flagClass}`} />
                 <span>{item.label}</span>
               </button>
             </li>

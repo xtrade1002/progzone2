@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Head } from "@inertiajs/react";
 import Layout from "../Components/Layout.jsx";
 import useTranslations from "../lib/useTranslations.js";
-import { ChevronDown, ChevronUp } from "lucide-react";
 
 export default function Infos() {
   const { trans, t } = useTranslations();
@@ -86,11 +85,10 @@ export default function Infos() {
                   onClick={() => toggleItem(itemIndex)}
                 >
                   <span>{item?.title ?? t("menu.infos", "Infos")}</span>
-                  {openIndex === itemIndex ? (
-                    <ChevronUp className="w-5 h-5" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5" />
-                  )}
+                  <span
+                    aria-hidden="true"
+                    className={`chevron-icon ${openIndex === itemIndex ? "chevron-icon--up" : "chevron-icon--down"}`}
+                  />
                 </button>
                 {openIndex === itemIndex && (
                   <div className="pb-6 pt-2">

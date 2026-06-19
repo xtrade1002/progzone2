@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\LocalizedRoutes;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -23,7 +24,10 @@ class LocaleController extends Controller
         $request->session()->put('locale', $locale);
         $request->session()->put('locale_host', $this->normalizeHost($request->getHost()));
 
-        return redirect()->back();
+        $previousPath = parse_url((string) $request->headers->get('referer'), PHP_URL_PATH) ?: '/';
+        $targetPath = LocalizedRoutes::localizedPathFor($previousPath, $locale);
+
+        return redirect($targetPath);
     }
 
     protected function normalizeHost(?string $host): ?string

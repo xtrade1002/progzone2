@@ -3,9 +3,11 @@
 namespace App\Http\Middleware;
 
 use App\Models\DomainSetting;
+use App\Support\LocalizedRoutes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Middleware;
+use Throwable;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -32,6 +34,7 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'locale' => app()->getLocale(),
             'contactEmail' => $this->resolveContactEmail($domain),
+            'localizedRoutes' => LocalizedRoutes::frontendRoutes(),
         ]);
     }
 
@@ -51,15 +54,19 @@ class HandleInertiaRequests extends Middleware
             ->values();
 
         foreach ($candidates as $candidate) {
-            $query = DomainSetting::query();
+            try {
+                $query = DomainSetting::query();
 
-            if ($candidate === null) {
-                $query->whereNull('domain');
-            } else {
-                $query->where('domain', $candidate);
+                if ($candidate === null) {
+                    $query->whereNull('domain');
+                } else {
+                    $query->where('domain', $candidate);
+                }
+
+                $email = $query->value('contact_email');
+            } catch (Throwable) {
+                return config('mail.from.address');
             }
-
-            $email = $query->value('contact_email');
 
             if (is_string($email) && $email !== '') {
                 return $email;

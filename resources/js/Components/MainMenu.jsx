@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import route from '../route.js';
+import { usePage } from '@inertiajs/react';
+import { localizedRoute } from '../route.js';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
 import { footerLinks } from './FooterMenu.jsx';
 import useTranslations from '../lib/useTranslations.js';
@@ -49,8 +50,10 @@ const menuItems = [
 ];
 
 export default function MainMenu({ activePath }) {
-  const { t } = useTranslations();
+  const { props } = usePage();
+  const { locale, t } = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const localizedRoutes = props?.localizedRoutes;
 
   const toggleMenu = () => {
     setIsMenuOpen((previous) => !previous);
@@ -61,12 +64,12 @@ export default function MainMenu({ activePath }) {
   };
 
   return (
-    <header className="relative bg-gradient-to-br from-[#0a0a0f] via-[#141422] to-[#0a0a0f] text-gray-400 py-4">
+    <header className="relative bg-gradient-to-br from-[#0a0a0f] via-[#141422] to-[#0a0a0f] pt-4 pb-4 text-gray-400 lg:pb-0">
       <nav className="relative">
         <div className="hidden lg:block">
           <ul className="flex items-center justify-center space-x-6 text-lg font-semibold text-[#FF007A]">
             {menuItems.map((item) => {
-              const href = route(item.name);
+              const href = localizedRoute(item.name, locale, localizedRoutes);
               const isActive = activePath === href;
               const baseClasses = 'hover:underline transition-colors';
               const activeClasses = isActive
@@ -102,7 +105,7 @@ export default function MainMenu({ activePath }) {
       </nav>
 
       {/* Neon kék vonal közvetlenül a menü alatt */}
-      <div className="hidden w-full h-[1px] bg-[#00f7ff] shadow-[0_0_15px_#00f7ff] mt-4 mb-2 lg:block" />
+      <div className="hidden w-full h-[1px] bg-[#00f7ff] shadow-[0_0_15px_#00f7ff] mt-4 lg:block" />
 
       {isMenuOpen && (
         <button
@@ -137,7 +140,7 @@ export default function MainMenu({ activePath }) {
         <nav className="flex-1 overflow-y-auto py-4">
           <ul className="space-y-1 px-4">
             {menuItems.map((item) => {
-              const href = route(item.name);
+              const href = localizedRoute(item.name, locale, localizedRoutes);
               const isActive = activePath === href;
               const baseClasses =
                 'block rounded-lg px-4 py-3 text-lg font-semibold transition-colors duration-200';
@@ -165,7 +168,7 @@ export default function MainMenu({ activePath }) {
             {footerLinks.map((link) => (
               <li key={link.name}>
                 <a
-                  href={route(link.name)}
+                  href={localizedRoute(link.name, locale, localizedRoutes)}
                   onClick={closeMenu}
                   className="block rounded-lg px-4 py-2 text-base font-medium text-gray-300 transition-colors duration-200 hover:text-[#00f7ff] hover:bg-white/5"
                 >
