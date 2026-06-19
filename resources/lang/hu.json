@@ -24,7 +24,7 @@
     "menu_title": "Footer menü",
     "copyright": "© :year Progzone. Minden jog fenntartva."
   },
-    "home": {
+  "home": {
     "meta_title": "Főoldal",
     "paragraphs": [
       "Professzionális weboldal és webshop készítés, webdesign és online marketing egy helyen"
@@ -106,66 +106,62 @@
     "meta_title": "Szolgáltatások",
     "cards": [
       {
-        "title": "Weboldal készítés (WordPress)",
-        "description": "Gyors és költséghatékony megoldás, ahol a tartalmat Te is könnyedén szerkesztheted. Ideális vállalkozásoknak, akik profi, modern és keresőoptimalizált weboldalt szeretnének rövid határidővel."
+        "title": "Weboldal készítés WordPress alapon",
+        "description": "Gyors és költséghatékony megoldás, ahol a tartalmak egyszerűen saját kezűleg is kezelhetők. Ideális vállalkozásoknak, akik professzionális, modern és SEO-barát weboldalt szeretnének rövid megvalósítási idővel."
       },
       {
-        "title": "Webshop készítés (WooCommerce)",
-        "description": "Professzionális online áruház integrált fizetéssel, szállítási megoldásokkal, akciók kezelésével és akár többnyelvű felülettel."
+        "title": "WooCommerce webshop készítés",
+        "description": "Professzionális online áruház integrált fizetéssel, szállítási megoldásokkal, akciókkal, termékkezeléssel és többnyelvű felülettel."
       },
       {
-        "title": "Egyedileg fejlesztett weboldal",
-        "description": "Teljesen személyre szabott fejlesztés speciális igényekhez és egyedi funkciókhoz, maximális rugalmassággal."
+        "title": "Egyedi webfejlesztés",
+        "description": "Teljesen személyre szabott fejlesztés speciális igényekhez, egyedi funkciókhoz és összetettebb folyamatokhoz – rugalmasan, bővíthetően és skálázhatóan."
       },
       {
         "title": "Marketing",
-        "description": "Teljes körű online marketing: Google Ads, Facebook és Instagram kampányok, SEO és tartalomkészítés. Segítünk több ügyfelet elérni és növelni a bevételeidet."
+        "description": "Teljes körű online marketing Google Ads, Facebook- és Instagram-kampányokkal, SEO-val és tartalomkészítéssel, hogy több elérést, érdeklődőt és bevételt hozzon."
       }
     ]
   },
   "prices": {
-  "meta_title": "Árak",
-  "title": "Árak",
-  "note": "Pontos árajánlatért kérlek vedd fel velem a kapcsolatot:",
-
-  "wordpress": {
-    "title": "Weboldal készítés (WordPress)",
-    "desc": "Gyors, költséghatékony és könnyen szerkeszthető megoldás modern dizájnnal és SEO-val. Az ár függ, pl. oldalak számától, design típusától, tartalomkezeléstől és karbantartástól, stb.",
-    "not_included": "Az ár NEM tartalmazza:",
-    "list": [
-      "Domain név kb. ({domain_price})",
-      "Tárhely kb. ({hosting_price})",
-      "Prémium sablonok és bővítmények ({plugin_price})",
-      "Egyedi fejlesztésű funkciók"
-    ],
-    "footer": "A projekt fő része fix áras, a plusz igények óradíj szerint ({hourly_rate})."
+    "meta_title": "Árak",
+    "title": "Árak",
+    "note": "Pontos árajánlatért kérlek vedd fel velem a kapcsolatot:",
+    "wordpress": {
+      "title": "Weboldal készítés (WordPress)",
+      "desc": "Gyors, költséghatékony és könnyen szerkeszthető megoldás modern dizájnnal és SEO-val. Az ár függ, pl. oldalak számától, design típusától, tartalomkezeléstől és karbantartástól, stb.",
+      "not_included": "Az ár NEM tartalmazza:",
+      "list": [
+        "Domain név kb. ({domain_price})",
+        "Tárhely kb. ({hosting_price})",
+        "Prémium sablonok és bővítmények ({plugin_price})",
+        "Egyedi fejlesztésű funkciók"
+      ],
+      "footer": "A projekt fő része fix áras, a plusz igények óradíj szerint ({hourly_rate})."
+    },
+    "webshop": {
+      "title": "Webshop készítés (WooCommerce)",
+      "desc": "Professzionális online bolt, integrált fizetéssel, szállítással, akciókezeléssel és többnyelvűséggel.",
+      "not_included": "Az ár NEM tartalmazza:",
+      "list": [
+        "Domain név kb. ({domain_price})",
+        "Tárhely kb. ({hosting_price})",
+        "Prémium sablonok és bővítmények ({plugin_price})",
+        "Egyedi fejlesztésű funkciók"
+      ],
+      "footer": "A projekt fő része fix áras, a plusz igények óradíj szerint ({hourly_rate})."
+    },
+    "custom": {
+      "title": "Egyedileg fejlesztett weboldal",
+      "desc": "Speciális funkciókkal, maximális rugalmassággal és bővíthetőséggel. Az ár függ a funkciók bonyolultságától, integrációktól, mérettől és karbantartástól.",
+      "footer": "A projekttől függően fix ár vagy óradíjas ({hourly_rate})."
+    },
+    "marketing": {
+      "title": "Marketing",
+      "desc": "Google Ads, Facebook és Instagram kampányok, SEO és tartalomkészítés a bevételeid növeléséhez.",
+      "footer": "Az ár a kampányok számától, típusától, bonyolultságától függ."
+    }
   },
-
-  "webshop": {
-    "title": "Webshop készítés (WooCommerce)",
-    "desc": "Professzionális online bolt, integrált fizetéssel, szállítással, akciókezeléssel és többnyelvűséggel.",
-    "not_included": "Az ár NEM tartalmazza:",
-    "list": [
-      "Domain név kb. ({domain_price})",
-      "Tárhely kb. ({hosting_price})",
-      "Prémium sablonok és bővítmények ({plugin_price})",
-      "Egyedi fejlesztésű funkciók"
-    ],
-    "footer": "A projekt fő része fix áras, a plusz igények óradíj szerint ({hourly_rate})."
-  },
-
-  "custom": {
-    "title": "Egyedileg fejlesztett weboldal",
-    "desc": "Speciális funkciókkal, maximális rugalmassággal és bővíthetőséggel. Az ár függ a funkciók bonyolultságától, integrációktól, mérettől és karbantartástól.",
-    "footer": "A projekttől függően fix ár vagy óradíjas ({hourly_rate})."
-  },
-
-  "marketing": {
-    "title": "Marketing",
-    "desc": "Google Ads, Facebook és Instagram kampányok, SEO és tartalomkészítés a bevételeid növeléséhez.",
-    "footer": "Az ár a kampányok számától, típusától, bonyolultságától függ."
-  }
-},
   "quote": {
     "meta_title": "Árajánlat kérés",
     "title": "Árajánlat kérés",
@@ -195,89 +191,122 @@
         "label": "Kívánt szolgáltatás *",
         "placeholder": "Válassz szolgáltatást",
         "options": [
-          { "value": "weboldal", "label": "Weboldal készítés" },
-          { "value": "webshop", "label": "Webshop fejlesztés" },
-          { "value": "design", "label": "Webdesign / UI" },
-          { "value": "logo", "label": "Logó- vagy arculattervezés" },
-          { "value": "marketing", "label": "Online marketing" },
-          { "value": "egyedi", "label": "Egyedi fejlesztés" }
+          {
+            "value": "weboldal",
+            "label": "Weboldal készítés"
+          },
+          {
+            "value": "webshop",
+            "label": "Webshop fejlesztés"
+          },
+          {
+            "value": "design",
+            "label": "Webdesign / UI"
+          },
+          {
+            "value": "logo",
+            "label": "Logó- vagy arculattervezés"
+          },
+          {
+            "value": "marketing",
+            "label": "Online marketing"
+          },
+          {
+            "value": "egyedi",
+            "label": "Egyedi fejlesztés"
+          }
         ]
       },
       "budget": {
         "label": "Tervezett költségkeret",
         "placeholder": "Válassz kategóriát",
         "options": [
-          { "value": "0-200", "label": "0 - 200 000 Ft" },
-          { "value": "200-500", "label": "200 000 - 500 000 Ft" },
-          { "value": "500-1000", "label": "500 000 - 1 000 000 Ft" },
-          { "value": "1000+", "label": "1 000 000 Ft felett" },
-          { "value": "bizonytalan", "label": "Még bizonytalan" }
+          {
+            "value": "0-200",
+            "label": "0 - 200 000 Ft"
+          },
+          {
+            "value": "200-500",
+            "label": "200 000 - 500 000 Ft"
+          },
+          {
+            "value": "500-1000",
+            "label": "500 000 - 1 000 000 Ft"
+          },
+          {
+            "value": "1000+",
+            "label": "1 000 000 Ft felett"
+          },
+          {
+            "value": "bizonytalan",
+            "label": "Még bizonytalan"
+          }
         ]
       },
       "timeline": {
         "label": "Tervezett határidő",
         "placeholder": "Pl. 2024. június vége"
       },
-    "message": {
-      "label": "Projekt rövid leírása *",
-      "placeholder": "Írd le, milyen megoldást szeretnél, milyen funkciókra van szükség, illetve minden egyéb hasznos információt."
+      "message": {
+        "label": "Projekt rövid leírása *",
+        "placeholder": "Írd le, milyen megoldást szeretnél, milyen funkciókra van szükség, illetve minden egyéb hasznos információt."
+      },
+      "reference_sites": {
+        "label": "Inspiráció / referencia oldalak",
+        "placeholder": "Írj meg néhány weboldalt vagy terméket, ami tetszik"
+      },
+      "target_audience": {
+        "label": "Elsődleges célközönség",
+        "placeholder": "Kik fogják használni vagy megvásárolni a terméket?"
+      },
+      "languages": {
+        "label": "Projekt nyelvei",
+        "placeholder": "Pl. magyar, angol"
+      },
+      "features": {
+        "label": "Legfontosabb funkciók",
+        "placeholder": "Sorold fel a legfontosabb elvárt funkciókat"
+      },
+      "content_source": {
+        "label": "Tartalom forrása",
+        "placeholder": "Ki biztosítja a szövegeket, képeket vagy videókat?"
+      },
+      "billing_info": {
+        "label": "Számlázási információk",
+        "placeholder": "Cégnév, adószám, számlázási cím stb."
+      },
+      "payment_method": {
+        "label": "Preferált fizetési mód",
+        "placeholder": "Pl. átutalás, mérföldkövekhez kötve"
+      },
+      "support": {
+        "label": "Utótámogatási igény",
+        "placeholder": "Szükséged lesz karbantartásra a projekt után?"
+      },
+      "hosting_domain": {
+        "label": "Tárhely / domain igény",
+        "placeholder": "Kell segítség tárhely vagy domain ügyintézésben?"
+      },
+      "integrations": {
+        "label": "Szükséges integrációk",
+        "placeholder": "CRM, hírlevél, fizetési szolgáltatók stb."
+      },
+      "marketing": {
+        "label": "Marketing célok",
+        "placeholder": "Kampányok, KPI-k vagy csatornák, amelyekre fókuszálnál"
+      },
+      "legal": {
+        "label": "Jogi / megfelelőségi tudnivalók",
+        "placeholder": "GDPR, szerződések, ÁSZF vagy egyéb elvárások"
+      },
+      "priority": {
+        "label": "Projekt prioritása",
+        "placeholder": "Mennyire sürgős vagy fontos ez a projekt?"
+      },
+      "privacy": {
+        "label": "Megismertem és elfogadom az adatkezelési tájékoztatót."
+      }
     },
-    "reference_sites": {
-      "label": "Inspiráció / referencia oldalak",
-      "placeholder": "Írj meg néhány weboldalt vagy terméket, ami tetszik"
-    },
-    "target_audience": {
-      "label": "Elsődleges célközönség",
-      "placeholder": "Kik fogják használni vagy megvásárolni a terméket?"
-    },
-    "languages": {
-      "label": "Projekt nyelvei",
-      "placeholder": "Pl. magyar, angol"
-    },
-    "features": {
-      "label": "Legfontosabb funkciók",
-      "placeholder": "Sorold fel a legfontosabb elvárt funkciókat"
-    },
-    "content_source": {
-      "label": "Tartalom forrása",
-      "placeholder": "Ki biztosítja a szövegeket, képeket vagy videókat?"
-    },
-    "billing_info": {
-      "label": "Számlázási információk",
-      "placeholder": "Cégnév, adószám, számlázási cím stb."
-    },
-    "payment_method": {
-      "label": "Preferált fizetési mód",
-      "placeholder": "Pl. átutalás, mérföldkövekhez kötve"
-    },
-    "support": {
-      "label": "Utótámogatási igény",
-      "placeholder": "Szükséged lesz karbantartásra a projekt után?"
-    },
-    "hosting_domain": {
-      "label": "Tárhely / domain igény",
-      "placeholder": "Kell segítség tárhely vagy domain ügyintézésben?"
-    },
-    "integrations": {
-      "label": "Szükséges integrációk",
-      "placeholder": "CRM, hírlevél, fizetési szolgáltatók stb."
-    },
-    "marketing": {
-      "label": "Marketing célok",
-      "placeholder": "Kampányok, KPI-k vagy csatornák, amelyekre fókuszálnál"
-    },
-    "legal": {
-      "label": "Jogi / megfelelőségi tudnivalók",
-      "placeholder": "GDPR, szerződések, ÁSZF vagy egyéb elvárások"
-    },
-    "priority": {
-      "label": "Projekt prioritása",
-      "placeholder": "Mennyire sürgős vagy fontos ez a projekt?"
-    },
-    "privacy": {
-      "label": "Megismertem és elfogadom az adatkezelési tájékoztatót."
-    }
-  },
     "button": {
       "default": "Elküldöm",
       "processing": "Küldés folyamatban…"
@@ -289,10 +318,18 @@
     "email_label": "📧 Email",
     "email_value": "__CONTACT_EMAIL__",
     "fields": {
-      "name": { "placeholder": "Név *" },
-      "email": { "placeholder": "E-mail *" },
-      "phone": { "placeholder": "Telefonszám" },
-      "message": { "placeholder": "Üzenet *" }
+      "name": {
+        "placeholder": "Név *"
+      },
+      "email": {
+        "placeholder": "E-mail *"
+      },
+      "phone": {
+        "placeholder": "Telefonszám"
+      },
+      "message": {
+        "placeholder": "Üzenet *"
+      }
     },
     "button": {
       "default": "Küldés",
@@ -521,78 +558,217 @@
     "projects": [
       {
         "type": "link",
-        "url": "https://www.glamlash.hu",
-        "image": "/img/bg_women.jpeg",
-        "title": "Műszempilla készítés",
-        "cta": "Megnézem a weboldalt"
+        "url": "https://secretlounge.ch",
+        "image": "/img/secretlounge-preview.png",
+        "lightboxImage": "/img/secretlounge-preview.png",
+        "title": "SecretLounge.ch",
+        "cta": "Megnézem a weboldalt",
+        "domainOverrides": {
+          "progzone.hu": {
+            "url": "https://secretlounge.hu",
+            "title": "SecretLounge.hu"
+          }
+        },
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Prémium hirdetési platform Laravel és Inertia alapon.",
+        "tags": [
+          "Laravel",
+          "Inertia",
+          "Hirdetések"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/kertmester_logo.png",
-        "title": "Logótervezés és arculat",
-        "lightboxImage": "/img/kertmester_logo.png"
+        "type": "link",
+        "url": "https://hunportal.hu",
+        "image": "/img/reference/hunportal.png",
+        "lightboxImage": "/img/reference/hunportal.png",
+        "title": "Hunportal",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "link",
         "url": "https://www.kertmester.eu",
-        "image": "/img/4.webp",
-        "title": "Kertészeti weboldal",
-        "cta": "Megnézem a weboldalt"
+        "image": "/img/reference/kertmester-20260606.png",
+        "lightboxImage": "/img/reference/kertmester-20260606.png",
+        "title": "Kertmester új design",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://fixappoint.hu",
+        "image": "/img/reference/fixappoint.png",
+        "lightboxImage": "/img/reference/fixappoint.png",
+        "title": "Fixappoint",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://www.glamlash.hu",
+        "image": "/img/reference/glamlash.png",
+        "lightboxImage": "/img/reference/glamlash.png",
+        "title": "Glamlash",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "link",
         "url": "https://www.versenybikini.hu",
-        "image": "/img/glamazon_logo.png",
-        "title": "Versenybikini készítés",
-        "cta": "Megnézem a weboldalt"
+        "image": "/img/reference/versenybikini.png",
+        "lightboxImage": "/img/reference/versenybikini.png",
+        "title": "Versenybikini",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://ohayachting.com",
+        "image": "/img/reference/ohayachting.webp",
+        "lightboxImage": "/img/reference/ohayachting.webp",
+        "title": "Oha Yachting",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/reference/teahouse.png",
+        "lightboxImage": "/img/reference/teahouse.png",
+        "title": "Teaház weboldal koncepció",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "flyers",
+        "label": "Szórólap",
+        "category": "Szórólap",
+        "description": "Szórólap és grafikai referencia.",
+        "tags": [
+          "Szórólap",
+          "Grafika",
+          "Design"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/reference/bakery.png",
+        "lightboxImage": "/img/reference/bakery.png",
+        "title": "Pékség weboldal koncepció",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "flyers",
+        "label": "Szórólap",
+        "category": "Szórólap",
+        "description": "Szórólap és grafikai referencia.",
+        "tags": [
+          "Szórólap",
+          "Grafika",
+          "Design"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "lightbox",
         "image": "/img/action.jpg",
         "title": "Szórólap",
-        "lightboxImage": "/img/action.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/africa.jpg",
-        "title": "Plakát",
-        "lightboxImage": "/img/africa.jpg"
+        "lightboxImage": "/img/action.jpg",
+        "categoryKey": "flyers",
+        "label": "Szórólap",
+        "category": "Szórólap",
+        "description": "Szórólap és grafikai referencia.",
+        "tags": [
+          "Szórólap",
+          "Grafika",
+          "Design"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "lightbox",
         "image": "/img/bakery.png",
-        "title": "Szórólap",
-        "lightboxImage": "/img/bakery.png"
+        "title": "Pékség szórólap",
+        "lightboxImage": "/img/bakery.png",
+        "categoryKey": "flyers",
+        "label": "Szórólap",
+        "category": "Szórólap",
+        "description": "Szórólap és grafikai referencia.",
+        "tags": [
+          "Szórólap",
+          "Grafika",
+          "Design"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "lightbox",
-        "image": "/img/banner.png",
-        "title": "Banner hirdetés",
-        "lightboxImage": "/img/banner.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/bistro.png",
-        "title": "Szórólap",
-        "lightboxImage": "/img/bistro.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/businesscard.jpg",
-        "title": "Névjegykártya",
-        "lightboxImage": "/img/businesscard.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/educationday.png",
-        "title": "Plakát",
-        "lightboxImage": "/img/educationday.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/error.png",
-        "title": "404 oldal",
-        "lightboxImage": "/img/error.png"
+        "image": "/img/sale.png",
+        "title": "Akciós szórólap",
+        "lightboxImage": "/img/sale.png",
+        "categoryKey": "flyers",
+        "label": "Szórólap",
+        "category": "Szórólap",
+        "description": "Szórólap és grafikai referencia.",
+        "tags": [
+          "Szórólap",
+          "Grafika",
+          "Design"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "lightbox",
@@ -614,39 +790,169 @@
       },
       {
         "type": "lightbox",
-        "image": "/img/sale.png",
-        "title": "Szórólap",
-        "lightboxImage": "/img/sale.png"
-      },
-      {
-        "type": "lightbox",
         "image": "/img/sexxxtra_logo4.png",
         "title": "Logó",
         "lightboxImage": "/img/sexxxtra_logo4.png"
       },
       {
-        "type": "lightbox",
-        "image": "/img/szorolap_front.jpg",
-        "title": "Szórólap",
-        "lightboxImage": "/img/szorolap_front.jpg"
+        "type": "image",
+        "image": "/img/visitcards/visitenkarte_fixappoint.png",
+        "lightboxImage": "/img/visitcards/visitenkarte_fixappoint.png",
+        "title": "Fixappoint névjegykártya",
+        "label": "Névjegykártya",
+        "category": "Névjegykártya",
+        "categoryKey": "businessCards",
+        "description": "Arculathoz illeszkedő névjegykártya design.",
+        "tags": [
+          "Névjegykártya",
+          "Arculat",
+          "Nyomdai anyag"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/wetter.png",
-        "title": "Időjárás app design",
-        "lightboxImage": "/img/wetter.png"
+        "type": "image",
+        "image": "/img/visitcards/visitenkarte_glamazon.png",
+        "lightboxImage": "/img/visitcards/visitenkarte_glamazon.png",
+        "title": "Glamazon névjegykártya",
+        "label": "Névjegykártya",
+        "category": "Névjegykártya",
+        "categoryKey": "businessCards",
+        "description": "Arculathoz illeszkedő névjegykártya design.",
+        "tags": [
+          "Névjegykártya",
+          "Arculat",
+          "Nyomdai anyag"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/wetter2.png",
-        "title": "Időjárás app design",
-        "lightboxImage": "/img/wetter2.png"
+        "type": "image",
+        "image": "/img/visitcards/visitenkarte_kertmester.png",
+        "lightboxImage": "/img/visitcards/visitenkarte_kertmester.png",
+        "title": "Kertmester névjegykártya",
+        "label": "Névjegykártya",
+        "category": "Névjegykártya",
+        "categoryKey": "businessCards",
+        "description": "Arculathoz illeszkedő névjegykártya design.",
+        "tags": [
+          "Névjegykártya",
+          "Arculat",
+          "Nyomdai anyag"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/wine.png",
-        "title": "Weboldal design",
-        "lightboxImage": "/img/wine.png"
+        "type": "image",
+        "image": "/img/mockup/mockup_fixappoint.png",
+        "lightboxImage": "/img/mockup/mockup_fixappoint.png",
+        "title": "Fixappoint mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Weboldal mockup prezentációs referencia.",
+        "tags": [
+          "Mockup",
+          "Weboldal",
+          "Prezentáció"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_glamazon.png",
+        "lightboxImage": "/img/mockup/mockup_glamazon.png",
+        "title": "Glamazon mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Weboldal mockup prezentációs referencia.",
+        "tags": [
+          "Mockup",
+          "Weboldal",
+          "Prezentáció"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_glamlash.png",
+        "lightboxImage": "/img/mockup/mockup_glamlash.png",
+        "title": "Glamlash mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Weboldal mockup prezentációs referencia.",
+        "tags": [
+          "Mockup",
+          "Weboldal",
+          "Prezentáció"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_hunportal.png",
+        "lightboxImage": "/img/mockup/mockup_hunportal.png",
+        "title": "Hunportal mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Weboldal mockup prezentációs referencia.",
+        "tags": [
+          "Mockup",
+          "Weboldal",
+          "Prezentáció"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_kertmester.png",
+        "lightboxImage": "/img/mockup/mockup_kertmester.png",
+        "title": "Kertmester mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Weboldal mockup prezentációs referencia.",
+        "tags": [
+          "Mockup",
+          "Weboldal",
+          "Prezentáció"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_oha2.png",
+        "lightboxImage": "/img/mockup/mockup_oha2.png",
+        "title": "Oha Yachting mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Weboldal mockup prezentációs referencia.",
+        "tags": [
+          "Mockup",
+          "Weboldal",
+          "Prezentáció"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_ugyved.png",
+        "lightboxImage": "/img/mockup/mockup_ugyved.png",
+        "title": "Ügyvéd mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Weboldal mockup prezentációs referencia.",
+        "tags": [
+          "Mockup",
+          "Weboldal",
+          "Prezentáció"
+        ],
+        "imageFit": "contain"
       }
     ]
   },
@@ -654,11 +960,28 @@
     "meta_title": "Impresszum",
     "title": "Impresszum",
     "details": [
-      { "label": "Név:", "value": "Xtrade" },
-      { "label": "USt-IdNr.:", "value": "DE362261730" },
-      { "label": "E-mail:", "value": "__CONTACT_EMAIL__", "type": "email" },
-      { "label": "Telefonszám:", "value": "+49 173 615 47 30", "type": "phone" },
-      { "label": "Székhely:", "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland" }
+      {
+        "label": "Név:",
+        "value": "Xtrade"
+      },
+      {
+        "label": "USt-IdNr.:",
+        "value": "DE362261730"
+      },
+      {
+        "label": "E-mail:",
+        "value": "__CONTACT_EMAIL__",
+        "type": "email"
+      },
+      {
+        "label": "Telefonszám:",
+        "value": "+49 173 615 47 30",
+        "type": "phone"
+      },
+      {
+        "label": "Székhely:",
+        "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland"
+      }
     ]
   },
   "privacy": {

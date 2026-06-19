@@ -16,18 +16,25 @@ class SetLocaleFromHost
     {
         $availableLocales = ['hu', 'de', 'de-CH', 'en'];
 
+        $host = $this->normalizeHost($request->getSchemeAndHttpHost())
+            ?? $this->normalizeHost($request->getHost());
+
         $sessionLocale = null;
+        $sessionLocaleHost = null;
 
         if ($request->hasSession()) {
             $sessionLocale = $request->session()->get('locale');
+            $sessionLocaleHost = $this->normalizeHost($request->session()->get('locale_host'));
         }
 
-        if ($sessionLocale && in_array($sessionLocale, $availableLocales, true)) {
+        if (
+            $sessionLocale
+            && in_array($sessionLocale, $availableLocales, true)
+            && $sessionLocaleHost !== null
+            && $sessionLocaleHost === $host
+        ) {
             $locale = $sessionLocale;
         } else {
-            $host = $this->normalizeHost($request->getSchemeAndHttpHost())
-                ?? $this->normalizeHost($request->getHost());
-
             $hostLocaleMap = [
                 'progzone.de' => 'de',
 
@@ -49,6 +56,7 @@ class SetLocaleFromHost
 
             if ($request->hasSession()) {
                 $request->session()->put('locale', $locale);
+                $request->session()->put('locale_host', $host);
             }
         }
 

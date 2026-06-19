@@ -24,7 +24,7 @@
     "menu_title": "Footer-Menü",
     "copyright": "© :year Progzone. Alle Rechte vorbehalten."
   },
-   "home": {
+  "home": {
     "meta_title": "Startseite",
     "paragraphs": [
       "Professionelle Website- und Webshop-Erstellung, Webdesign und Online-Marketing an einem Ort"
@@ -107,66 +107,62 @@
     "cards": [
       {
         "title": "WordPress-Webseite",
-        "description": "Schnelle und kosteneffiziente Lösung, bei der du Inhalte selbst pflegen kannst. Ideal für Unternehmen, die einen professionellen und SEO-optimierten Auftritt wünschen."
+        "description": "Schnelle und kosteneffiziente Lösung, bei der Inhalte einfach selbst gepflegt werden können. Ideal für Unternehmen, die eine professionelle, moderne und SEO-freundliche Website mit kurzer Umsetzungszeit benötigen."
       },
       {
         "title": "WooCommerce-Onlineshop",
-        "description": "Professioneller Onlineshop mit integrierten Zahlungen, Versandlösungen, Aktionen und mehrsprachigen Oberflächen."
+        "description": "Professioneller Onlineshop mit integrierten Zahlungen, Versandlösungen, Aktionen, Produktverwaltung und mehrsprachiger Oberfläche."
       },
       {
         "title": "Individuelle Webentwicklung",
-        "description": "Komplett maßgeschneiderte Entwicklung für besondere Anforderungen und komplexe Funktionen – maximal flexibel und skalierbar."
+        "description": "Vollständig maßgeschneiderte Entwicklung für besondere Anforderungen, individuelle Funktionen und komplexere Abläufe – flexibel, erweiterbar und skalierbar."
       },
       {
         "title": "Marketing",
-        "description": "Ganzheitliches Online-Marketing: Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung für mehr Reichweite und Umsatz."
+        "description": "Ganzheitliches Online-Marketing mit Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung, um mehr Reichweite, Anfragen und Umsatz zu erzielen."
       }
     ]
   },
   "prices": {
-  "meta_title": "Preise",
-  "title": "Preise",
-  "note": "Für ein genaues Angebot kontaktieren Sie mich bitte per E-Mail:",
-  "note_email": "__CONTACT_EMAIL__",
-
-  "wordpress": {
-    "title": "Website-Erstellung (WordPress)",
-    "desc": "Schnelle, kostengünstige und einfach zu bearbeitende Lösung mit modernem Design und SEO. Der Preis hängt z. B. von der Anzahl der Seiten, dem Design, dem Content-Management und der Wartung ab.",
-    "not_included": "Der Preis enthält NICHT:",
-    "list": [
-      "Domainname ca. ({domain_price})",
-      "Hosting ca. ({hosting_price})",
-      "Premium-Themes und Plugins ({plugin_price})",
-      "Individuelle Funktionen"
-    ],
-    "footer": "Festpreis, zusätzliche Wünsche nach Stunden ({hourly_rate})."
+    "meta_title": "Preise",
+    "title": "Preise",
+    "note": "Für ein genaues Angebot kontaktieren Sie mich bitte per E-Mail:",
+    "note_email": "__CONTACT_EMAIL__",
+    "wordpress": {
+      "title": "Website-Erstellung (WordPress)",
+      "desc": "Schnelle, kostengünstige und einfach zu bearbeitende Lösung mit modernem Design und SEO. Der Preis hängt z. B. von der Anzahl der Seiten, dem Design, dem Content-Management und der Wartung ab.",
+      "not_included": "Der Preis enthält NICHT:",
+      "list": [
+        "Domainname ca. ({domain_price})",
+        "Hosting ca. ({hosting_price})",
+        "Premium-Themes und Plugins ({plugin_price})",
+        "Individuelle Funktionen"
+      ],
+      "footer": "Festpreis, zusätzliche Wünsche nach Stunden ({hourly_rate})."
+    },
+    "webshop": {
+      "title": "Onlineshop-Erstellung (WooCommerce)",
+      "desc": "Professioneller Online-Shop mit integrierten Zahlungen, Versand, Rabattverwaltung und Mehrsprachigkeit.",
+      "not_included": "Der Preis enthält NICHT:",
+      "list": [
+        "Domainname ca. ({domain_price})",
+        "Hosting ca. ({hosting_price})",
+        "Premium-Themes und Plugins ({plugin_price})",
+        "Individuelle Funktionen"
+      ],
+      "footer": "Festpreis, zusätzliche Wünsche nach Stunden ({hourly_rate})."
+    },
+    "custom": {
+      "title": "Individuell entwickelte Website",
+      "desc": "Mit speziellen Funktionen, maximaler Flexibilität und Erweiterbarkeit. Der Preis hängt von der Komplexität der Funktionen, den Integrationen, der Größe des Systems und dem Wartungsaufwand ab.",
+      "footer": "Je nach Projekt Festpreis oder Stundenabrechnung ({hourly_rate})."
+    },
+    "marketing": {
+      "title": "Marketing",
+      "desc": "Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung zur Umsatzsteigerung.",
+      "footer": "Der Preis hängt von der Anzahl, Art und Komplexität der Kampagnen ab."
+    }
   },
-
-  "webshop": {
-    "title": "Onlineshop-Erstellung (WooCommerce)",
-    "desc": "Professioneller Online-Shop mit integrierten Zahlungen, Versand, Rabattverwaltung und Mehrsprachigkeit.",
-    "not_included": "Der Preis enthält NICHT:",
-    "list": [
-      "Domainname ca. ({domain_price})",
-      "Hosting ca. ({hosting_price})",
-      "Premium-Themes und Plugins ({plugin_price})",
-      "Individuelle Funktionen"
-    ],
-    "footer": "Festpreis, zusätzliche Wünsche nach Stunden ({hourly_rate})."
-  },
-
-  "custom": {
-    "title": "Individuell entwickelte Website",
-    "desc": "Mit speziellen Funktionen, maximaler Flexibilität und Erweiterbarkeit. Der Preis hängt von der Komplexität der Funktionen, den Integrationen, der Größe des Systems und dem Wartungsaufwand ab.",
-    "footer": "Je nach Projekt Festpreis oder Stundenabrechnung ({hourly_rate})."
-  },
-
-  "marketing": {
-    "title": "Marketing",
-    "desc": "Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung zur Umsatzsteigerung.",
-    "footer": "Der Preis hängt von der Anzahl, Art und Komplexität der Kampagnen ab."
-  }
-},
   "quote": {
     "meta_title": "Angebot anfordern",
     "title": "Angebot anfordern",
@@ -196,89 +192,122 @@
         "label": "Gewünschte Leistung *",
         "placeholder": "Leistung auswählen",
         "options": [
-          { "value": "weboldal", "label": "Webseiten-Entwicklung" },
-          { "value": "webshop", "label": "Onlineshop" },
-          { "value": "design", "label": "Webdesign / UI" },
-          { "value": "logo", "label": "Logo oder Branding" },
-          { "value": "marketing", "label": "Online-Marketing" },
-          { "value": "egyedi", "label": "Individuelle Entwicklung" }
+          {
+            "value": "weboldal",
+            "label": "Webseiten-Entwicklung"
+          },
+          {
+            "value": "webshop",
+            "label": "Onlineshop"
+          },
+          {
+            "value": "design",
+            "label": "Webdesign / UI"
+          },
+          {
+            "value": "logo",
+            "label": "Logo oder Branding"
+          },
+          {
+            "value": "marketing",
+            "label": "Online-Marketing"
+          },
+          {
+            "value": "egyedi",
+            "label": "Individuelle Entwicklung"
+          }
         ]
       },
       "budget": {
         "label": "Geplantes Budget",
         "placeholder": "Budget wählen",
         "options": [
-          { "value": "0-200", "label": "€0 – €2.000" },
-          { "value": "200-500", "label": "€2.000 – €5.000" },
-          { "value": "500-1000", "label": "€5.000 – €10.000" },
-          { "value": "1000+", "label": "Über €10.000" },
-          { "value": "bizonytalan", "label": "Noch unsicher" }
+          {
+            "value": "0-200",
+            "label": "€0 – €2.000"
+          },
+          {
+            "value": "200-500",
+            "label": "€2.000 – €5.000"
+          },
+          {
+            "value": "500-1000",
+            "label": "€5.000 – €10.000"
+          },
+          {
+            "value": "1000+",
+            "label": "Über €10.000"
+          },
+          {
+            "value": "bizonytalan",
+            "label": "Noch unsicher"
+          }
         ]
       },
       "timeline": {
         "label": "Bevorzugter Zeitplan",
         "placeholder": "z. B. Ende Juni 2024"
       },
-    "message": {
-      "label": "Projektbeschreibung *",
-      "placeholder": "Beschreibe Ziele, gewünschte Funktionen und weitere Details."
+      "message": {
+        "label": "Projektbeschreibung *",
+        "placeholder": "Beschreibe Ziele, gewünschte Funktionen und weitere Details."
+      },
+      "reference_sites": {
+        "label": "Inspiration / Referenzseiten",
+        "placeholder": "Nenne Webseiten oder Produkte, die dir gefallen"
+      },
+      "target_audience": {
+        "label": "Hauptzielgruppe",
+        "placeholder": "Wer wird das Produkt nutzen oder kaufen?"
+      },
+      "languages": {
+        "label": "Projektsprachen",
+        "placeholder": "z. B. Deutsch, Englisch"
+      },
+      "features": {
+        "label": "Wichtigste Funktionen",
+        "placeholder": "Liste die wichtigsten gewünschten Funktionen auf"
+      },
+      "content_source": {
+        "label": "Quelle der Inhalte",
+        "placeholder": "Wer liefert Texte, Bilder oder Videos?"
+      },
+      "billing_info": {
+        "label": "Rechnungsinformationen",
+        "placeholder": "Firmenname, Steuernummer, Rechnungsadresse usw."
+      },
+      "payment_method": {
+        "label": "Bevorzugte Zahlungsmethode",
+        "placeholder": "z. B. Überweisung, meilensteinbasiert"
+      },
+      "support": {
+        "label": "Support-Erwartungen",
+        "placeholder": "Benötigst du Betreuung nach dem Launch?"
+      },
+      "hosting_domain": {
+        "label": "Hosting- / Domain-Bedarf",
+        "placeholder": "Brauchst du Unterstützung bei Hosting oder Domains?"
+      },
+      "integrations": {
+        "label": "Benötigte Integrationen",
+        "placeholder": "CRM, Newsletter, Zahlungsanbieter usw."
+      },
+      "marketing": {
+        "label": "Marketingziele",
+        "placeholder": "Kampagnen, KPIs oder Kanäle, auf die du dich fokussierst"
+      },
+      "legal": {
+        "label": "Rechtliche / Compliance-Hinweise",
+        "placeholder": "DSGVO, Verträge, AGB oder andere Anforderungen"
+      },
+      "priority": {
+        "label": "Projektpriorität",
+        "placeholder": "Wie dringend oder wichtig ist das Projekt?"
+      },
+      "privacy": {
+        "label": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie."
+      }
     },
-    "reference_sites": {
-      "label": "Inspiration / Referenzseiten",
-      "placeholder": "Nenne Webseiten oder Produkte, die dir gefallen"
-    },
-    "target_audience": {
-      "label": "Hauptzielgruppe",
-      "placeholder": "Wer wird das Produkt nutzen oder kaufen?"
-    },
-    "languages": {
-      "label": "Projektsprachen",
-      "placeholder": "z. B. Deutsch, Englisch"
-    },
-    "features": {
-      "label": "Wichtigste Funktionen",
-      "placeholder": "Liste die wichtigsten gewünschten Funktionen auf"
-    },
-    "content_source": {
-      "label": "Quelle der Inhalte",
-      "placeholder": "Wer liefert Texte, Bilder oder Videos?"
-    },
-    "billing_info": {
-      "label": "Rechnungsinformationen",
-      "placeholder": "Firmenname, Steuernummer, Rechnungsadresse usw."
-    },
-    "payment_method": {
-      "label": "Bevorzugte Zahlungsmethode",
-      "placeholder": "z. B. Überweisung, meilensteinbasiert"
-    },
-    "support": {
-      "label": "Support-Erwartungen",
-      "placeholder": "Benötigst du Betreuung nach dem Launch?"
-    },
-    "hosting_domain": {
-      "label": "Hosting- / Domain-Bedarf",
-      "placeholder": "Brauchst du Unterstützung bei Hosting oder Domains?"
-    },
-    "integrations": {
-      "label": "Benötigte Integrationen",
-      "placeholder": "CRM, Newsletter, Zahlungsanbieter usw."
-    },
-    "marketing": {
-      "label": "Marketingziele",
-      "placeholder": "Kampagnen, KPIs oder Kanäle, auf die du dich fokussierst"
-    },
-    "legal": {
-      "label": "Rechtliche / Compliance-Hinweise",
-      "placeholder": "DSGVO, Verträge, AGB oder andere Anforderungen"
-    },
-    "priority": {
-      "label": "Projektpriorität",
-      "placeholder": "Wie dringend oder wichtig ist das Projekt?"
-    },
-    "privacy": {
-      "label": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie."
-    }
-  },
     "button": {
       "default": "Senden",
       "processing": "Wird gesendet…"
@@ -290,10 +319,18 @@
     "email_label": "📧 E-Mail",
     "email_value": "__CONTACT_EMAIL__",
     "fields": {
-      "name": { "placeholder": "Name *" },
-      "email": { "placeholder": "E-Mail *" },
-      "phone": { "placeholder": "Telefon" },
-      "message": { "placeholder": "Nachricht *" }
+      "name": {
+        "placeholder": "Name *"
+      },
+      "email": {
+        "placeholder": "E-Mail *"
+      },
+      "phone": {
+        "placeholder": "Telefon"
+      },
+      "message": {
+        "placeholder": "Nachricht *"
+      }
     },
     "button": {
       "default": "Senden",
@@ -522,78 +559,217 @@
     "projects": [
       {
         "type": "link",
-        "url": "https://www.glamlash.hu",
-        "image": "/img/bg_women.jpeg",
-        "title": "Wimpernverlängerung",
-        "cta": "Website ansehen"
+        "url": "https://secretlounge.ch",
+        "image": "/img/secretlounge-preview.png",
+        "lightboxImage": "/img/secretlounge-preview.png",
+        "title": "SecretLounge.ch",
+        "cta": "Website ansehen",
+        "domainOverrides": {
+          "progzone.hu": {
+            "url": "https://secretlounge.hu",
+            "title": "SecretLounge.hu"
+          }
+        },
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Premium-Anzeigenplattform mit Laravel und Inertia umgesetzt.",
+        "tags": [
+          "Laravel",
+          "Inertia",
+          "Anzeigen"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/kertmester_logo.png",
-        "title": "Logo- und Markendesign",
-        "lightboxImage": "/img/kertmester_logo.png"
+        "type": "link",
+        "url": "https://hunportal.hu",
+        "image": "/img/reference/hunportal.png",
+        "lightboxImage": "/img/reference/hunportal.png",
+        "title": "Hunportal",
+        "cta": "Website ansehen",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Referenz für Webdesign und Entwicklung.",
+        "tags": [
+          "Website",
+          "Webdesign",
+          "Entwicklung"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "link",
         "url": "https://www.kertmester.eu",
-        "image": "/img/4.webp",
-        "title": "Gartenbau-Webseite",
-        "cta": "Website ansehen"
+        "image": "/img/reference/kertmester-20260606.png",
+        "lightboxImage": "/img/reference/kertmester-20260606.png",
+        "title": "Kertmester neues Design",
+        "cta": "Website ansehen",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Referenz für Webdesign und Entwicklung.",
+        "tags": [
+          "Website",
+          "Webdesign",
+          "Entwicklung"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://fixappoint.hu",
+        "image": "/img/reference/fixappoint.png",
+        "lightboxImage": "/img/reference/fixappoint.png",
+        "title": "Fixappoint",
+        "cta": "Website ansehen",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Referenz für Webdesign und Entwicklung.",
+        "tags": [
+          "Website",
+          "Webdesign",
+          "Entwicklung"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://www.glamlash.hu",
+        "image": "/img/reference/glamlash.png",
+        "lightboxImage": "/img/reference/glamlash.png",
+        "title": "Glamlash",
+        "cta": "Website ansehen",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Referenz für Webdesign und Entwicklung.",
+        "tags": [
+          "Website",
+          "Webdesign",
+          "Entwicklung"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "link",
         "url": "https://www.versenybikini.hu",
-        "image": "/img/glamazon_logo.png",
-        "title": "Anfertigung von Wettkampfbikinis",
-        "cta": "Website ansehen"
+        "image": "/img/reference/versenybikini.png",
+        "lightboxImage": "/img/reference/versenybikini.png",
+        "title": "Versenybikini",
+        "cta": "Website ansehen",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Referenz für Webdesign und Entwicklung.",
+        "tags": [
+          "Website",
+          "Webdesign",
+          "Entwicklung"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://ohayachting.com",
+        "image": "/img/reference/ohayachting.webp",
+        "lightboxImage": "/img/reference/ohayachting.webp",
+        "title": "Oha Yachting",
+        "cta": "Website ansehen",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Referenz für Webdesign und Entwicklung.",
+        "tags": [
+          "Website",
+          "Webdesign",
+          "Entwicklung"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/reference/teahouse.png",
+        "lightboxImage": "/img/reference/teahouse.png",
+        "title": "Teehaus Website-Konzept",
+        "cta": "Website ansehen",
+        "categoryKey": "flyers",
+        "label": "Flyer",
+        "category": "Flyer",
+        "description": "Referenz für Flyer und Grafikdesign.",
+        "tags": [
+          "Flyer",
+          "Grafik",
+          "Design"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/reference/bakery.png",
+        "lightboxImage": "/img/reference/bakery.png",
+        "title": "Bäckerei Website-Konzept",
+        "cta": "Website ansehen",
+        "categoryKey": "flyers",
+        "label": "Flyer",
+        "category": "Flyer",
+        "description": "Referenz für Flyer und Grafikdesign.",
+        "tags": [
+          "Flyer",
+          "Grafik",
+          "Design"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "lightbox",
         "image": "/img/action.jpg",
         "title": "Flyer",
-        "lightboxImage": "/img/action.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/africa.jpg",
-        "title": "Plakat",
-        "lightboxImage": "/img/africa.jpg"
+        "lightboxImage": "/img/action.jpg",
+        "categoryKey": "flyers",
+        "label": "Flyer",
+        "category": "Flyer",
+        "description": "Referenz für Flyer und Grafikdesign.",
+        "tags": [
+          "Flyer",
+          "Grafik",
+          "Design"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "lightbox",
         "image": "/img/bakery.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/bakery.png"
+        "title": "Bäckerei Flyer",
+        "lightboxImage": "/img/bakery.png",
+        "categoryKey": "flyers",
+        "label": "Flyer",
+        "category": "Flyer",
+        "description": "Referenz für Flyer und Grafikdesign.",
+        "tags": [
+          "Flyer",
+          "Grafik",
+          "Design"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "lightbox",
-        "image": "/img/banner.png",
-        "title": "Bannerwerbung",
-        "lightboxImage": "/img/banner.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/bistro.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/bistro.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/businesscard.jpg",
-        "title": "Visitenkarte",
-        "lightboxImage": "/img/businesscard.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/educationday.png",
-        "title": "Plakat",
-        "lightboxImage": "/img/educationday.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/error.png",
-        "title": "404-Seite",
-        "lightboxImage": "/img/error.png"
+        "image": "/img/sale.png",
+        "title": "Sale Flyer",
+        "lightboxImage": "/img/sale.png",
+        "categoryKey": "flyers",
+        "label": "Flyer",
+        "category": "Flyer",
+        "description": "Referenz für Flyer und Grafikdesign.",
+        "tags": [
+          "Flyer",
+          "Grafik",
+          "Design"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "lightbox",
@@ -615,39 +791,169 @@
       },
       {
         "type": "lightbox",
-        "image": "/img/sale.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/sale.png"
-      },
-      {
-        "type": "lightbox",
         "image": "/img/sexxxtra_logo4.png",
         "title": "Logo",
         "lightboxImage": "/img/sexxxtra_logo4.png"
       },
       {
-        "type": "lightbox",
-        "image": "/img/szorolap_front.jpg",
-        "title": "Flyer",
-        "lightboxImage": "/img/szorolap_front.jpg"
+        "type": "image",
+        "image": "/img/visitcards/visitenkarte_fixappoint.png",
+        "lightboxImage": "/img/visitcards/visitenkarte_fixappoint.png",
+        "title": "Fixappoint Visitenkarte",
+        "label": "Visitenkarte",
+        "category": "Visitenkarte",
+        "categoryKey": "businessCards",
+        "description": "Visitenkarten-Design passend zur Markenidentität.",
+        "tags": [
+          "Visitenkarte",
+          "Branding",
+          "Print"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/wetter.png",
-        "title": "Wetter-App-Design",
-        "lightboxImage": "/img/wetter.png"
+        "type": "image",
+        "image": "/img/visitcards/visitenkarte_glamazon.png",
+        "lightboxImage": "/img/visitcards/visitenkarte_glamazon.png",
+        "title": "Glamazon Visitenkarte",
+        "label": "Visitenkarte",
+        "category": "Visitenkarte",
+        "categoryKey": "businessCards",
+        "description": "Visitenkarten-Design passend zur Markenidentität.",
+        "tags": [
+          "Visitenkarte",
+          "Branding",
+          "Print"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/wetter2.png",
-        "title": "Wetter-App-Design",
-        "lightboxImage": "/img/wetter2.png"
+        "type": "image",
+        "image": "/img/visitcards/visitenkarte_kertmester.png",
+        "lightboxImage": "/img/visitcards/visitenkarte_kertmester.png",
+        "title": "Kertmester Visitenkarte",
+        "label": "Visitenkarte",
+        "category": "Visitenkarte",
+        "categoryKey": "businessCards",
+        "description": "Visitenkarten-Design passend zur Markenidentität.",
+        "tags": [
+          "Visitenkarte",
+          "Branding",
+          "Print"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/wine.png",
-        "title": "Webdesign",
-        "lightboxImage": "/img/wine.png"
+        "type": "image",
+        "image": "/img/mockup/mockup_fixappoint.png",
+        "lightboxImage": "/img/mockup/mockup_fixappoint.png",
+        "title": "Fixappoint Mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Website-Mockup als Präsentationsreferenz.",
+        "tags": [
+          "Mockup",
+          "Website",
+          "Präsentation"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_glamazon.png",
+        "lightboxImage": "/img/mockup/mockup_glamazon.png",
+        "title": "Glamazon Mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Website-Mockup als Präsentationsreferenz.",
+        "tags": [
+          "Mockup",
+          "Website",
+          "Präsentation"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_glamlash.png",
+        "lightboxImage": "/img/mockup/mockup_glamlash.png",
+        "title": "Glamlash Mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Website-Mockup als Präsentationsreferenz.",
+        "tags": [
+          "Mockup",
+          "Website",
+          "Präsentation"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_hunportal.png",
+        "lightboxImage": "/img/mockup/mockup_hunportal.png",
+        "title": "Hunportal Mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Website-Mockup als Präsentationsreferenz.",
+        "tags": [
+          "Mockup",
+          "Website",
+          "Präsentation"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_kertmester.png",
+        "lightboxImage": "/img/mockup/mockup_kertmester.png",
+        "title": "Kertmester Mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Website-Mockup als Präsentationsreferenz.",
+        "tags": [
+          "Mockup",
+          "Website",
+          "Präsentation"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_oha2.png",
+        "lightboxImage": "/img/mockup/mockup_oha2.png",
+        "title": "Oha Yachting Mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Website-Mockup als Präsentationsreferenz.",
+        "tags": [
+          "Mockup",
+          "Website",
+          "Präsentation"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_ugyved.png",
+        "lightboxImage": "/img/mockup/mockup_ugyved.png",
+        "title": "Anwalt Mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "description": "Website-Mockup als Präsentationsreferenz.",
+        "tags": [
+          "Mockup",
+          "Website",
+          "Präsentation"
+        ],
+        "imageFit": "contain"
       }
     ]
   },
@@ -655,11 +961,28 @@
     "meta_title": "Impressum",
     "title": "Impressum",
     "details": [
-      { "label": "Name:", "value": "Xtrade" },
-      { "label": "USt-IdNr.:", "value": "DE362261730" },
-      { "label": "E-Mail:", "value": "__CONTACT_EMAIL__", "type": "email" },
-      { "label": "Telefon:", "value": "+49 173 615 47 30", "type": "phone" },
-      { "label": "Anschrift:", "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland" }
+      {
+        "label": "Name:",
+        "value": "Xtrade"
+      },
+      {
+        "label": "USt-IdNr.:",
+        "value": "DE362261730"
+      },
+      {
+        "label": "E-Mail:",
+        "value": "__CONTACT_EMAIL__",
+        "type": "email"
+      },
+      {
+        "label": "Telefon:",
+        "value": "+49 173 615 47 30",
+        "type": "phone"
+      },
+      {
+        "label": "Anschrift:",
+        "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland"
+      }
     ]
   },
   "privacy": {
