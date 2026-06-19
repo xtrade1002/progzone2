@@ -124,50 +124,45 @@
     ]
   },
   "prices": {
-  "meta_title": "Prices",
-  "title": "Prices",
-  "note": "For a detailed quote, please contact me via email:",
-  "note_email": "__CONTACT_EMAIL__",
-
-
-  "wordpress": {
-    "title": "Website Development (WordPress)",
-    "desc": "Fast, cost-effective and easy-to-edit solution with modern design and SEO. The price depends on the number of pages, design type, content management and maintenance.",
-    "not_included": "The price does NOT include:",
-    "list": [
-      "Domain name approx. ({domain_price})",
-      "Hosting approx. ({hosting_price})",
-      "Premium themes and plugins ({plugin_price})",
-      "Custom functions (e.g. booking system, invoicing)"
-    ],
-    "footer": "The main project is fixed price, extras are billed hourly ({hourly_rate})."
+    "meta_title": "Prices",
+    "title": "Prices",
+    "note": "For a detailed quote, please contact me via email:",
+    "note_email": "__CONTACT_EMAIL__",
+    "wordpress": {
+      "title": "Website Development (WordPress)",
+      "desc": "Fast, cost-effective and easy-to-edit solution with modern design and SEO. The price depends on the number of pages, design type, content management and maintenance.",
+      "not_included": "The price does NOT include:",
+      "list": [
+        "Domain name approx. ({domain_price})",
+        "Hosting approx. ({hosting_price})",
+        "Premium themes and plugins ({plugin_price})",
+        "Custom functions (e.g. booking system, invoicing)"
+      ],
+      "footer": "The main project is fixed price, extras are billed hourly ({hourly_rate})."
+    },
+    "webshop": {
+      "title": "Webshop Development (WooCommerce)",
+      "desc": "Professional online store with integrated payments, shipping, discount management and multilingual support.",
+      "not_included": "The price does NOT include:",
+      "list": [
+        "Domain name approx. ({domain_price})",
+        "Hosting approx. ({hosting_price})",
+        "Premium themes and plugins ({plugin_price})",
+        "Custom functions (e.g. booking system, invoicing)"
+      ],
+      "footer": "The main project is fixed price, extras are billed hourly ({hourly_rate})."
+    },
+    "custom": {
+      "title": "Custom Developed Website",
+      "desc": "With special functions, maximum flexibility and expandability. The price depends on the complexity of the functions, the integrations, the size of the system and the maintenance needs.",
+      "footer": "Depending on the project: fixed price or hourly billing ({hourly_rate})."
+    },
+    "marketing": {
+      "title": "Marketing",
+      "desc": "Google Ads, Facebook and Instagram campaigns, SEO and content creation to increase your revenue.",
+      "footer": "The price depends on the number, type and complexity of the campaigns."
+    }
   },
-
-  "webshop": {
-    "title": "Webshop Development (WooCommerce)",
-    "desc": "Professional online store with integrated payments, shipping, discount management and multilingual support.",
-    "not_included": "The price does NOT include:",
-    "list": [
-      "Domain name approx. ({domain_price})",
-      "Hosting approx. ({hosting_price})",
-      "Premium themes and plugins ({plugin_price})",
-      "Custom functions (e.g. booking system, invoicing)"
-    ],
-    "footer": "The main project is fixed price, extras are billed hourly ({hourly_rate})."
-  },
-
-  "custom": {
-    "title": "Custom Developed Website",
-    "desc": "With special functions, maximum flexibility and expandability. The price depends on the complexity of the functions, the integrations, the size of the system and the maintenance needs.",
-    "footer": "Depending on the project: fixed price or hourly billing ({hourly_rate})."
-  },
-
-  "marketing": {
-    "title": "Marketing",
-    "desc": "Google Ads, Facebook and Instagram campaigns, SEO and content creation to increase your revenue.",
-    "footer": "The price depends on the number, type and complexity of the campaigns."
-  }
-},
   "quote": {
     "meta_title": "Request a quote",
     "title": "Request a quote",
@@ -197,89 +192,122 @@
         "label": "Desired service *",
         "placeholder": "Choose a service",
         "options": [
-          { "value": "weboldal", "label": "Website development" },
-          { "value": "webshop", "label": "Online store" },
-          { "value": "design", "label": "Web design / UI" },
-          { "value": "logo", "label": "Logo or branding" },
-          { "value": "marketing", "label": "Online marketing" },
-          { "value": "egyedi", "label": "Custom development" }
+          {
+            "value": "weboldal",
+            "label": "Website development"
+          },
+          {
+            "value": "webshop",
+            "label": "Online store"
+          },
+          {
+            "value": "design",
+            "label": "Web design / UI"
+          },
+          {
+            "value": "logo",
+            "label": "Logo or branding"
+          },
+          {
+            "value": "marketing",
+            "label": "Online marketing"
+          },
+          {
+            "value": "egyedi",
+            "label": "Custom development"
+          }
         ]
       },
       "budget": {
         "label": "Estimated budget",
         "placeholder": "Select a range",
         "options": [
-          { "value": "0-200", "label": "€0 – €2,000" },
-          { "value": "200-500", "label": "€2,000 – €5,000" },
-          { "value": "500-1000", "label": "€5,000 – €10,000" },
-          { "value": "1000+", "label": "Over €10,000" },
-          { "value": "bizonytalan", "label": "Not sure yet" }
+          {
+            "value": "0-200",
+            "label": "€0 – €2,000"
+          },
+          {
+            "value": "200-500",
+            "label": "€2,000 – €5,000"
+          },
+          {
+            "value": "500-1000",
+            "label": "€5,000 – €10,000"
+          },
+          {
+            "value": "1000+",
+            "label": "Over €10,000"
+          },
+          {
+            "value": "bizonytalan",
+            "label": "Not sure yet"
+          }
         ]
       },
       "timeline": {
         "label": "Preferred timeline",
         "placeholder": "e.g. end of June 2024"
       },
-    "message": {
-      "label": "Project summary *",
-      "placeholder": "Describe the goals, required features and any other helpful details."
+      "message": {
+        "label": "Project summary *",
+        "placeholder": "Describe the goals, required features and any other helpful details."
+      },
+      "reference_sites": {
+        "label": "Inspiration / reference sites",
+        "placeholder": "Share any websites or products you like"
+      },
+      "target_audience": {
+        "label": "Primary audience",
+        "placeholder": "Who will use or buy the product?"
+      },
+      "languages": {
+        "label": "Project languages",
+        "placeholder": "e.g. English, German"
+      },
+      "features": {
+        "label": "Key features",
+        "placeholder": "List the most important functionality"
+      },
+      "content_source": {
+        "label": "Content source",
+        "placeholder": "Who will provide copy, images or videos?"
+      },
+      "billing_info": {
+        "label": "Billing information",
+        "placeholder": "Company name, tax number, address, etc."
+      },
+      "payment_method": {
+        "label": "Preferred payment method",
+        "placeholder": "e.g. bank transfer, milestone-based"
+      },
+      "support": {
+        "label": "Support expectations",
+        "placeholder": "Do you need maintenance after launch?"
+      },
+      "hosting_domain": {
+        "label": "Hosting / domain needs",
+        "placeholder": "Do you need help with hosting or domains?"
+      },
+      "integrations": {
+        "label": "Required integrations",
+        "placeholder": "CRM, newsletter, payment gateways, etc."
+      },
+      "marketing": {
+        "label": "Marketing goals",
+        "placeholder": "Campaigns, KPIs or channels to focus on"
+      },
+      "legal": {
+        "label": "Legal / compliance notes",
+        "placeholder": "GDPR, contracts, terms, other requirements"
+      },
+      "priority": {
+        "label": "Project priority",
+        "placeholder": "How urgent or important is this project?"
+      },
+      "privacy": {
+        "label": "I have read and accept the privacy policy."
+      }
     },
-    "reference_sites": {
-      "label": "Inspiration / reference sites",
-      "placeholder": "Share any websites or products you like"
-    },
-    "target_audience": {
-      "label": "Primary audience",
-      "placeholder": "Who will use or buy the product?"
-    },
-    "languages": {
-      "label": "Project languages",
-      "placeholder": "e.g. English, German"
-    },
-    "features": {
-      "label": "Key features",
-      "placeholder": "List the most important functionality"
-    },
-    "content_source": {
-      "label": "Content source",
-      "placeholder": "Who will provide copy, images or videos?"
-    },
-    "billing_info": {
-      "label": "Billing information",
-      "placeholder": "Company name, tax number, address, etc."
-    },
-    "payment_method": {
-      "label": "Preferred payment method",
-      "placeholder": "e.g. bank transfer, milestone-based"
-    },
-    "support": {
-      "label": "Support expectations",
-      "placeholder": "Do you need maintenance after launch?"
-    },
-    "hosting_domain": {
-      "label": "Hosting / domain needs",
-      "placeholder": "Do you need help with hosting or domains?"
-    },
-    "integrations": {
-      "label": "Required integrations",
-      "placeholder": "CRM, newsletter, payment gateways, etc."
-    },
-    "marketing": {
-      "label": "Marketing goals",
-      "placeholder": "Campaigns, KPIs or channels to focus on"
-    },
-    "legal": {
-      "label": "Legal / compliance notes",
-      "placeholder": "GDPR, contracts, terms, other requirements"
-    },
-    "priority": {
-      "label": "Project priority",
-      "placeholder": "How urgent or important is this project?"
-    },
-    "privacy": {
-      "label": "I have read and accept the privacy policy."
-    }
-  },
     "button": {
       "default": "Send",
       "processing": "Sending…"
@@ -291,10 +319,18 @@
     "email_label": "📧 Email",
     "email_value": "__CONTACT_EMAIL__",
     "fields": {
-      "name": { "placeholder": "Name *" },
-      "email": { "placeholder": "Email *" },
-      "phone": { "placeholder": "Phone" },
-      "message": { "placeholder": "Message *" }
+      "name": {
+        "placeholder": "Name *"
+      },
+      "email": {
+        "placeholder": "Email *"
+      },
+      "phone": {
+        "placeholder": "Phone"
+      },
+      "message": {
+        "placeholder": "Message *"
+      }
     },
     "button": {
       "default": "Send",
@@ -526,129 +562,123 @@
         "url": "https://www.glamlash.hu",
         "image": "/img/bg_women.jpeg",
         "title": "Eyelash extension services",
-        "cta": "View website"
+        "cta": "View website",
+        "categoryKey": "websites"
       },
       {
-        "type": "lightbox",
-        "image": "/img/kertmester_logo.png",
-        "title": "Logo and brand design",
-        "lightboxImage": "/img/kertmester_logo.png"
+        "type": "image",
+        "image": "/img/egyeb/de/screenshot-155252.png",
+        "title": "Graphic design",
+        "categoryKey": "otherDesigns",
+        "lightboxImage": "/img/egyeb/de/screenshot-155252.png",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/de/screenshot-155303.png",
+        "title": "Graphic design",
+        "categoryKey": "otherDesigns",
+        "lightboxImage": "/img/egyeb/de/screenshot-155303.png",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/de/screenshot-155315.png",
+        "title": "Graphic design",
+        "categoryKey": "otherDesigns",
+        "lightboxImage": "/img/egyeb/de/screenshot-155315.png",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/de/screenshot-155320.png",
+        "title": "Graphic design",
+        "categoryKey": "otherDesigns",
+        "lightboxImage": "/img/egyeb/de/screenshot-155320.png",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/de/screenshot-155330.png",
+        "title": "Graphic design",
+        "categoryKey": "otherDesigns",
+        "lightboxImage": "/img/egyeb/de/screenshot-155330.png",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/de/screenshot-155340.png",
+        "title": "Graphic design",
+        "categoryKey": "otherDesigns",
+        "lightboxImage": "/img/egyeb/de/screenshot-155340.png",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/de/screenshot-155349.png",
+        "title": "Graphic design",
+        "categoryKey": "otherDesigns",
+        "lightboxImage": "/img/egyeb/de/screenshot-155349.png",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/de/screenshot-155359.png",
+        "title": "Graphic design",
+        "categoryKey": "otherDesigns",
+        "lightboxImage": "/img/egyeb/de/screenshot-155359.png",
+        "imageFit": "contain"
       },
       {
         "type": "link",
         "url": "https://www.kertmester.eu",
         "image": "/img/4.webp",
         "title": "Gardening website",
-        "cta": "View website"
+        "cta": "View website",
+        "categoryKey": "websites"
       },
       {
         "type": "link",
         "url": "https://www.versenybikini.hu",
         "image": "/img/glamazon_logo.png",
         "title": "Competition bikini",
-        "cta": "View website"
+        "cta": "View website",
+        "categoryKey": "websites"
       },
       {
         "type": "lightbox",
         "image": "/img/action.jpg",
         "title": "Flyer",
+        "categoryKey": "flyers",
         "lightboxImage": "/img/action.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/africa.jpg",
-        "title": "Poster",
-        "lightboxImage": "/img/africa.jpg"
       },
       {
         "type": "lightbox",
         "image": "/img/bakery.png",
         "title": "Flyer",
+        "categoryKey": "flyers",
         "lightboxImage": "/img/bakery.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/banner.png",
-        "title": "Banner advertisement",
-        "lightboxImage": "/img/banner.png"
       },
       {
         "type": "lightbox",
         "image": "/img/bistro.png",
         "title": "Flyer",
+        "categoryKey": "flyers",
         "lightboxImage": "/img/bistro.png"
       },
       {
         "type": "lightbox",
         "image": "/img/businesscard.jpg",
         "title": "Business card",
+        "categoryKey": "businessCards",
         "lightboxImage": "/img/businesscard.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/educationday.png",
-        "title": "Poster",
-        "lightboxImage": "/img/educationday.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/error.png",
-        "title": "404 page",
-        "lightboxImage": "/img/error.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/gaycupydo2.png",
-        "title": "Logo",
-        "lightboxImage": "/img/gaycupydo2.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/giftvoucher.jpg",
-        "title": "Gift voucher",
-        "lightboxImage": "/img/giftvoucher.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/massagepass.jpg",
-        "title": "Wellness pass",
-        "lightboxImage": "/img/massagepass.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/sale.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/sale.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/sexxxtra_logo4.png",
-        "title": "Logo",
-        "lightboxImage": "/img/sexxxtra_logo4.png"
       },
       {
         "type": "lightbox",
         "image": "/img/szorolap_front.jpg",
         "title": "Flyer",
+        "categoryKey": "flyers",
         "lightboxImage": "/img/szorolap_front.jpg"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/wetter.png",
-        "title": "Weather app design",
-        "lightboxImage": "/img/wetter.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/wetter2.png",
-        "title": "Weather app design",
-        "lightboxImage": "/img/wetter2.png"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/wine.png",
-        "title": "Website design",
-        "lightboxImage": "/img/wine.png"
       }
     ]
   },
@@ -656,11 +686,28 @@
     "meta_title": "Imprint",
     "title": "Imprint",
     "details": [
-      { "label": "Name:", "value": "Xtrade" },
-      { "label": "VAT ID:", "value": "DE362261730" },
-      { "label": "Email:", "value": "__CONTACT_EMAIL__", "type": "email" },
-      { "label": "Phone:", "value": "+49 173 615 47 30", "type": "phone" },
-      { "label": "Address:", "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Germany" }
+      {
+        "label": "Name:",
+        "value": "Xtrade"
+      },
+      {
+        "label": "VAT ID:",
+        "value": "DE362261730"
+      },
+      {
+        "label": "Email:",
+        "value": "__CONTACT_EMAIL__",
+        "type": "email"
+      },
+      {
+        "label": "Phone:",
+        "value": "+49 173 615 47 30",
+        "type": "phone"
+      },
+      {
+        "label": "Address:",
+        "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Germany"
+      }
     ]
   },
   "privacy": {

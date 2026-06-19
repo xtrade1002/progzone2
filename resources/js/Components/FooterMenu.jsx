@@ -1,6 +1,7 @@
 
 import React from 'react';
-import route from '../route.js';
+import { usePage } from '@inertiajs/react';
+import { localizedRoute } from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
 
 export const footerLinks = [
@@ -10,7 +11,9 @@ export const footerLinks = [
 ];
 
 export default function FooterMenu() {
-  const { t } = useTranslations();
+  const { props } = usePage();
+  const { locale, t } = useTranslations();
+  const localizedRoutes = props?.localizedRoutes;
   const year = new Date().getFullYear();
   const copyright = t('footer.copyright', `© ${year} Progzone. All rights reserved.`).replace(':year', year);
   const footerMenuTitle = t('footer.menu_title', 'Footer Menu');
@@ -23,7 +26,7 @@ export default function FooterMenu() {
 
           <div className="flex space-x-6">
             {footerLinks.map((link) => (
-              <a key={link.name} href={route(link.name)} className="hover:text-pink-400">
+              <a key={link.name} href={localizedRoute(link.name, locale, localizedRoutes)} className="hover:text-pink-400">
                 {t(link.labelKey, link.fallback)}
               </a>
             ))}
