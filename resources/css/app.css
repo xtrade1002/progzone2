@@ -61,4 +61,37 @@
     .chevron-icon--up {
         transform: rotate(225deg) translateY(-0.15rem);
     }
+
+    .service-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        border: 1px solid rgb(0 247 255 / 0.25);
+        background: rgb(7 11 24 / 0.85);
+        padding: 1.5rem;
+        box-shadow: 0 0 28px rgb(0 247 255 / 0.08);
+        transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+    }
+
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #00f7ff, transparent);
+        opacity: 0.5;
+        transition: opacity 300ms ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-0.25rem);
+        border-color: #00f7ff;
+        box-shadow: 0 0 36px rgb(0 247 255 / 0.22);
+    }
+
+    .service-card:hover::before {
+        opacity: 1;
+    }
 }

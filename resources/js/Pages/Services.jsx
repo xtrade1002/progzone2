@@ -15,7 +15,7 @@ export default function Services() {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="group relative overflow-hidden rounded-lg border border-[#00f7ff]/25 bg-[#070b18]/85 p-6 shadow-[0_0_28px_rgba(0,247,255,0.08)] transition duration-300 hover:-translate-y-1 hover:border-[#00f7ff] hover:shadow-[0_0_36px_rgba(0,247,255,0.22)]"
+            className="service-card group"
           >
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00f7ff] to-transparent opacity-50 transition group-hover:opacity-100" aria-hidden="true"></div>
             <h2 className="text-2xl font-bold text-[#FF007A] mb-4">{card.title}</h2>

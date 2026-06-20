@@ -16,40 +16,45 @@ class SetLocaleFromHost
     {
         $availableLocales = ['hu', 'de', 'de-CH', 'en'];
 
+        $host = $this->normalizeHost($request->getSchemeAndHttpHost())
+            ?? $this->normalizeHost($request->getHost());
+
         $sessionLocale = null;
+        $sessionLocaleHost = null;
 
         if ($request->hasSession()) {
             $sessionLocale = $request->session()->get('locale');
+            $sessionLocaleHost = $this->normalizeHost($request->session()->get('locale_host'));
         }
 
-        if ($sessionLocale && in_array($sessionLocale, $availableLocales, true)) {
+        $hostLocaleMap = [
+            'progzone.de' => 'de',
+            'bitbau.ch' => 'de-CH',
+            'progzone.hu' => 'hu',
+        ];
+
+        $hostLocale = $host !== null ? ($hostLocaleMap[$host] ?? null) : null;
+
+        if ($hostLocale !== null) {
+            $locale = $hostLocale;
+        } elseif (
+            $sessionLocale
+            && in_array($sessionLocale, $availableLocales, true)
+            && $sessionLocaleHost !== null
+            && $sessionLocaleHost === $host
+        ) {
             $locale = $sessionLocale;
         } else {
-            $host = $this->normalizeHost($request->getSchemeAndHttpHost())
-                ?? $this->normalizeHost($request->getHost());
+            $locale = config('app.fallback_locale', 'hu');
+        }
 
-            $hostLocaleMap = [
-                'progzone.de' => 'de',
+        if (! in_array($locale, $availableLocales, true)) {
+            $locale = config('app.fallback_locale', 'hu');
+        }
 
-                'www.progzone.de' => 'de',
-                'bitbau.ch' => 'de-CH',
-                'www.bitbau.ch' => 'de-CH',
-                'progzone.hu' => 'hu',
-            ];
-
-            if ($host !== null) {
-                $locale = $hostLocaleMap[$host] ?? config('app.fallback_locale', 'hu');
-            } else {
-                $locale = config('app.fallback_locale', 'hu');
-            }
-
-            if (! in_array($locale, $availableLocales, true)) {
-                $locale = config('app.fallback_locale', 'hu');
-            }
-
-            if ($request->hasSession()) {
-                $request->session()->put('locale', $locale);
-            }
+        if ($request->hasSession()) {
+            $request->session()->put('locale', $locale);
+            $request->session()->put('locale_host', $host);
         }
 
         App::setLocale($locale);

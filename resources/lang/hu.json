@@ -106,20 +106,20 @@
     "meta_title": "Szolgáltatások",
     "cards": [
       {
-        "title": "Weboldal készítés (WordPress)",
-        "description": "Gyors és költséghatékony megoldás, ahol a tartalmat Te is könnyedén szerkesztheted. Ideális vállalkozásoknak, akik profi, modern és keresőoptimalizált weboldalt szeretnének rövid határidővel."
+        "title": "Weboldal készítés WordPress alapon",
+        "description": "Gyors és költséghatékony megoldás, ahol a tartalmak egyszerűen saját kezűleg is kezelhetők. Ideális vállalkozásoknak, akik professzionális, modern és SEO-barát weboldalt szeretnének rövid megvalósítási idővel."
       },
       {
-        "title": "Webshop készítés (WooCommerce)",
-        "description": "Professzionális online áruház integrált fizetéssel, szállítási megoldásokkal, akciók kezelésével és akár többnyelvű felülettel."
+        "title": "WooCommerce webshop készítés",
+        "description": "Professzionális online áruház integrált fizetéssel, szállítási megoldásokkal, akciókkal, termékkezeléssel és többnyelvű felülettel."
       },
       {
-        "title": "Egyedileg fejlesztett weboldal",
-        "description": "Teljesen személyre szabott fejlesztés speciális igényekhez és egyedi funkciókhoz, maximális rugalmassággal."
+        "title": "Egyedi webfejlesztés",
+        "description": "Teljesen személyre szabott fejlesztés speciális igényekhez, egyedi funkciókhoz és összetettebb folyamatokhoz – rugalmasan, bővíthetően és skálázhatóan."
       },
       {
         "title": "Marketing",
-        "description": "Teljes körű online marketing: Google Ads, Facebook és Instagram kampányok, SEO és tartalomkészítés. Segítünk több ügyfelet elérni és növelni a bevételeidet."
+        "description": "Teljes körű online marketing Google Ads, Facebook- és Instagram-kampányokkal, SEO-val és tartalomkészítéssel, hogy több elérést, érdeklődőt és bevételt hozzon."
       }
     ]
   },
@@ -557,6 +557,7 @@
     "lightbox_alt": "Előnézet",
     "projects": [
       {
+<<<<<<< HEAD
         "type": "image",
         "image": "/img/websites/glamlash.png",
         "categoryKey": "websites",
@@ -606,10 +607,53 @@
         "categoryKey": "websites",
         "lightboxImage": "/img/websites/hunportal-preview.png",
         "imageFit": "contain",
-        "url": "https://hunportal.hu",
-        "cta": "Megnézem a weboldalt"
+=======
+        "type": "link",
+        "url": "https://secretlounge.ch",
+        "image": "/img/websites/secretlounge.ch.png",
+        "lightboxImage": "/img/websites/secretlounge.ch.png",
+        "title": "SecretLounge.ch",
+        "cta": "Megnézem a weboldalt",
+        "domainOverrides": {
+          "progzone.hu": {
+            "url": "https://secretlounge.hu/hu",
+            "image": "/img/secretlounge-hu-preview.png",
+            "lightboxImage": "/img/secretlounge-hu-preview.png",
+            "title": "SecretLounge.hu"
+          }
+        },
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Prémium hirdetési platform Laravel és Inertia alapon.",
+        "tags": [
+          "Laravel",
+          "Inertia",
+          "Hirdetések"
+        ],
+        "imageFit": "contain"
       },
       {
+        "type": "link",
+>>>>>>> caaa4e5e84514709ffdecbae6be948b916f2101d
+        "url": "https://hunportal.hu",
+        "image": "/img/websites/hunportal-preview.png",
+        "lightboxImage": "/img/websites/hunportal-preview.png",
+        "title": "Hunportal",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
+      },
+      {
+<<<<<<< HEAD
         "type": "image",
         "image": "/img/websites/secretlounge.ch.png",
         "categoryKey": "websites",
@@ -624,226 +668,395 @@
         "title": "Egyéb grafika",
         "categoryKey": "otherDesigns",
         "lightboxImage": "/img/egyeb/de/screenshot-155252.png",
+=======
+        "type": "link",
+        "url": "https://www.kertmester.eu",
+        "image": "/img/websites/kertmester.png",
+        "lightboxImage": "/img/websites/kertmester.png",
+        "title": "Kertmester",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://fixappoint.hu",
+        "image": "/img/websites/screenshot-2025-11-28-101112.png",
+        "lightboxImage": "/img/websites/screenshot-2025-11-28-101112.png",
+        "title": "Fixappoint",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://www.glamlash.hu",
+        "image": "/img/websites/glamlash.png",
+        "lightboxImage": "/img/websites/glamlash.png",
+        "title": "Glamlash",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://www.versenybikini.hu",
+        "image": "/img/websites/versenybikini.png",
+        "lightboxImage": "/img/websites/versenybikini.png",
+        "title": "Versenybikini",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://ohayachting.com",
+        "image": "/img/websites/ohayachting.webp",
+        "lightboxImage": "/img/websites/ohayachting.webp",
+        "title": "Oha Yachting",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+>>>>>>> caaa4e5e84514709ffdecbae6be948b916f2101d
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/egyeb/de/screenshot-155303.png",
-        "title": "Egyéb grafika",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155303.png",
+        "image": "/img/flyer/flyer_hu/auto.png",
+        "lightboxImage": "/img/flyer/flyer_hu/auto.png",
+        "title": "Autómosó flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/egyeb/de/screenshot-155315.png",
-        "title": "Egyéb grafika",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155315.png",
+        "image": "/img/flyer/flyer_hu/barber.png",
+        "lightboxImage": "/img/flyer/flyer_hu/barber.png",
+        "title": "Barber flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/egyeb/de/screenshot-155320.png",
-        "title": "Egyéb grafika",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155320.png",
+        "image": "/img/flyer/flyer_hu/burger.png",
+        "lightboxImage": "/img/flyer/flyer_hu/burger.png",
+        "title": "Burger flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/egyeb/de/screenshot-155330.png",
-        "title": "Egyéb grafika",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155330.png",
+        "image": "/img/flyer/flyer_hu/coffee.png",
+        "lightboxImage": "/img/flyer/flyer_hu/coffee.png",
+        "title": "Kávézó flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/egyeb/de/screenshot-155340.png",
-        "title": "Egyéb grafika",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155340.png",
+        "image": "/img/flyer/flyer_hu/disco.png",
+        "lightboxImage": "/img/flyer/flyer_hu/disco.png",
+        "title": "Disco flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/egyeb/de/screenshot-155349.png",
-        "title": "Egyéb grafika",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155349.png",
+        "image": "/img/flyer/flyer_hu/fitness.png",
+        "lightboxImage": "/img/flyer/flyer_hu/fitness.png",
+        "title": "Fitness flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
         "imageFit": "contain"
       },
       {
         "type": "image",
-        "image": "/img/egyeb/de/screenshot-155359.png",
-        "title": "Egyéb grafika",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155359.png",
+        "image": "/img/flyer/flyer_hu/ingatlan.png",
+        "lightboxImage": "/img/flyer/flyer_hu/ingatlan.png",
+        "title": "Ingatlan flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
         "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/action.jpg",
-        "title": "Flyer",
-        "lightboxImage": "/img/action.jpg",
-        "categoryKey": "flyers"
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/joga.png",
+        "lightboxImage": "/img/flyer/flyer_hu/joga.png",
+        "title": "Jóga flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/bakery.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/bakery.png",
-        "categoryKey": "flyers"
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/kutyakozmetika.png",
+        "lightboxImage": "/img/flyer/flyer_hu/kutyakozmetika.png",
+        "title": "Kutyakozmetika flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/bistro.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/bistro.png",
-        "categoryKey": "flyers"
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/massage.png",
+        "lightboxImage": "/img/flyer/flyer_hu/massage.png",
+        "title": "Masszázs flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/flyer/flyer_de/autowäsche.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/flyer/flyer_de/autowäsche.png",
-        "categoryKey": "flyers"
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/pekseg.png",
+        "lightboxImage": "/img/flyer/flyer_hu/pekseg.png",
+        "title": "Pékség flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/flyer/flyer_de/barber.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/flyer/flyer_de/barber.png",
-        "categoryKey": "flyers"
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/pizza.png",
+        "lightboxImage": "/img/flyer/flyer_hu/pizza.png",
+        "title": "Pizza flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/flyer/flyer_de/burger.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/flyer/flyer_de/burger.png",
-        "categoryKey": "flyers"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/flyer/flyer_de/disco.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/flyer/flyer_de/disco.png",
-        "categoryKey": "flyers"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/flyer/flyer_de/immobilien.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/flyer/flyer_de/immobilien.png",
-        "categoryKey": "flyers"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/flyer/flyer_de/kaffee.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/flyer/flyer_de/kaffee.png",
-        "categoryKey": "flyers"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/flyer/flyer_de/pizza.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/flyer/flyer_de/pizza.png",
-        "categoryKey": "flyers"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/flyer/flyer_de/yoga.png",
-        "title": "Flyer",
-        "lightboxImage": "/img/flyer/flyer_de/yoga.png",
-        "categoryKey": "flyers"
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/teahaz.png",
+        "lightboxImage": "/img/flyer/flyer_hu/teahaz.png",
+        "title": "Teaház flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
       },
       {
         "type": "image",
         "image": "/img/névjegykártya/visitenkarte_fixappoint.png",
-        "title": "Névjegykártya",
-        "categoryKey": "businessCards",
         "lightboxImage": "/img/névjegykártya/visitenkarte_fixappoint.png",
+        "title": "Fixappoint névjegykártya",
+        "label": "Névjegykártya",
+        "category": "Névjegykártya",
+        "categoryKey": "businessCards",
         "imageFit": "contain"
       },
       {
         "type": "image",
         "image": "/img/névjegykártya/visitenkarte_glamazon.png",
-        "title": "Névjegykártya",
-        "categoryKey": "businessCards",
         "lightboxImage": "/img/névjegykártya/visitenkarte_glamazon.png",
+        "title": "Glamazon névjegykártya",
+        "label": "Névjegykártya",
+        "category": "Névjegykártya",
+        "categoryKey": "businessCards",
         "imageFit": "contain"
       },
       {
         "type": "image",
         "image": "/img/névjegykártya/visitenkarte_kertmester.png",
-        "title": "Névjegykártya",
-        "categoryKey": "businessCards",
         "lightboxImage": "/img/névjegykártya/visitenkarte_kertmester.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "lightbox",
-        "image": "/img/szorolap_front.jpg",
-        "title": "Flyer",
-        "lightboxImage": "/img/szorolap_front.jpg",
-        "categoryKey": "flyers"
-      },
-      {
-        "type": "image",
-        "image": "/img/mockup/mockup_oha.png",
-        "title": "Mockup",
-        "categoryKey": "mockups",
-        "lightboxImage": "/img/mockup/mockup_oha.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/mockup/mockup_kertmester.png",
-        "title": "Mockup",
-        "categoryKey": "mockups",
-        "lightboxImage": "/img/mockup/mockup_kertmester.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/mockup/mockup_hunportal.png",
-        "title": "Mockup",
-        "categoryKey": "mockups",
-        "lightboxImage": "/img/mockup/mockup_hunportal.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/mockup/mockup_glamlash.png",
-        "title": "Mockup",
-        "categoryKey": "mockups",
-        "lightboxImage": "/img/mockup/mockup_glamlash.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/mockup/mockup_glamazon.png",
-        "title": "Mockup",
-        "categoryKey": "mockups",
-        "lightboxImage": "/img/mockup/mockup_glamazon.png",
+        "title": "Kertmester névjegykártya",
+        "label": "Névjegykártya",
+        "category": "Névjegykártya",
+        "categoryKey": "businessCards",
         "imageFit": "contain"
       },
       {
         "type": "image",
         "image": "/img/mockup/mockup_fixappoint.png",
-        "title": "Mockup",
-        "categoryKey": "mockups",
         "lightboxImage": "/img/mockup/mockup_fixappoint.png",
+        "title": "Fixappoint mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_glamazon.png",
+        "lightboxImage": "/img/mockup/mockup_glamazon.png",
+        "title": "Glamazon mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_glamlash.png",
+        "lightboxImage": "/img/mockup/mockup_glamlash.png",
+        "title": "Glamlash mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_hunportal.png",
+        "lightboxImage": "/img/mockup/mockup_hunportal.png",
+        "title": "Hunportal mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_kertmester.png",
+        "lightboxImage": "/img/mockup/mockup_kertmester.png",
+        "title": "Kertmester mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_oha.png",
+        "lightboxImage": "/img/mockup/mockup_oha.png",
+        "title": "Oha Yachting mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
         "imageFit": "contain"
       },
       {
         "type": "image",
         "image": "/img/mockup/mockup_ugyved.png",
-        "title": "Mockup",
-        "categoryKey": "mockups",
         "lightboxImage": "/img/mockup/mockup_ugyved.png",
+        "title": "Ügyvéd mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/ajandekkartya.png",
+        "lightboxImage": "/img/egyeb/hu/ajandekkartya.png",
+        "title": "Ajándékkártya",
+        "label": "Egyéb grafika",
+        "category": "Egyéb grafika",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/ajandekkartya-2.png",
+        "lightboxImage": "/img/egyeb/hu/ajandekkartya-2.png",
+        "title": "Ajándékkártya design",
+        "label": "Egyéb grafika",
+        "category": "Egyéb grafika",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/belepojegy.png",
+        "lightboxImage": "/img/egyeb/hu/belepojegy.png",
+        "title": "Belépőjegy",
+        "label": "Egyéb grafika",
+        "category": "Egyéb grafika",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/berlet.png",
+        "lightboxImage": "/img/egyeb/hu/berlet.png",
+        "title": "Bérlet",
+        "label": "Egyéb grafika",
+        "category": "Egyéb grafika",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/husegkartya.png",
+        "lightboxImage": "/img/egyeb/hu/husegkartya.png",
+        "title": "Hűségkártya",
+        "label": "Egyéb grafika",
+        "category": "Egyéb grafika",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/kupon.png",
+        "lightboxImage": "/img/egyeb/hu/kupon.png",
+        "title": "Kupon",
+        "label": "Egyéb grafika",
+        "category": "Egyéb grafika",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/utalvany.png",
+        "lightboxImage": "/img/egyeb/hu/utalvany.png",
+        "title": "Utalvány",
+        "label": "Egyéb grafika",
+        "category": "Egyéb grafika",
+        "categoryKey": "otherDesigns",
         "imageFit": "contain"
       }
     ]
@@ -897,3 +1110,8 @@
     ]
   }
 }
+
+
+
+
+

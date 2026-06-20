@@ -107,19 +107,19 @@
     "cards": [
       {
         "title": "WordPress website",
-        "description": "Fast and budget-friendly solution where you can manage content easily. Perfect for businesses that need a professional, SEO-ready website on a tight timeline."
+        "description": "A fast and cost-effective solution where content can be managed easily in-house. Ideal for businesses that need a professional, modern and SEO-friendly website with a short implementation timeline."
       },
       {
         "title": "WooCommerce online store",
-        "description": "A professional e-commerce experience with integrated payments, shipping options, promotions and multilingual support."
+        "description": "A professional online store with integrated payments, shipping solutions, promotions, product management and multilingual interface support."
       },
       {
         "title": "Custom web development",
-        "description": "Fully tailored development for unique requirements and complex features – flexible and scalable."
+        "description": "Fully tailored development for special requirements, custom features and more complex workflows – flexible, expandable and scalable."
       },
       {
         "title": "Marketing",
-        "description": "End-to-end online marketing: Google Ads, Facebook and Instagram campaigns, SEO and content creation to grow your reach and revenue."
+        "description": "End-to-end online marketing with Google Ads, Facebook and Instagram campaigns, SEO and content creation to generate more reach, leads and revenue."
       }
     ]
   },
@@ -559,126 +559,437 @@
     "projects": [
       {
         "type": "link",
-        "url": "https://www.glamlash.hu",
-        "image": "/img/bg_women.jpeg",
-        "title": "Eyelash extension services",
+        "url": "https://secretlounge.ch",
+        "image": "/img/websites/secretlounge.ch.png",
+        "lightboxImage": "/img/websites/secretlounge.ch.png",
+        "title": "SecretLounge.ch",
         "cta": "View website",
-        "categoryKey": "websites"
-      },
-      {
-        "type": "image",
-        "image": "/img/egyeb/de/screenshot-155252.png",
-        "title": "Graphic design",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155252.png",
+        "domainOverrides": {
+          "progzone.hu": {
+            "url": "https://secretlounge.hu/hu",
+            "image": "/img/secretlounge-hu-preview.png",
+            "lightboxImage": "/img/secretlounge-hu-preview.png",
+            "title": "SecretLounge.hu"
+          }
+        },
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Premium listing platform built with Laravel and Inertia.",
+        "tags": [
+          "Laravel",
+          "Inertia",
+          "Listings"
+        ],
         "imageFit": "contain"
       },
       {
-        "type": "image",
-        "image": "/img/egyeb/de/screenshot-155303.png",
-        "title": "Graphic design",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155303.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/egyeb/de/screenshot-155315.png",
-        "title": "Graphic design",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155315.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/egyeb/de/screenshot-155320.png",
-        "title": "Graphic design",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155320.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/egyeb/de/screenshot-155330.png",
-        "title": "Graphic design",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155330.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/egyeb/de/screenshot-155340.png",
-        "title": "Graphic design",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155340.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/egyeb/de/screenshot-155349.png",
-        "title": "Graphic design",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155349.png",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/egyeb/de/screenshot-155359.png",
-        "title": "Graphic design",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155359.png",
+        "type": "link",
+        "url": "https://hunportal.hu",
+        "image": "/img/websites/hunportal-preview.png",
+        "lightboxImage": "/img/websites/hunportal-preview.png",
+        "title": "Hunportal",
+        "cta": "View website",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Website design and development reference.",
+        "tags": [
+          "Website",
+          "Web design",
+          "Development"
+        ],
         "imageFit": "contain"
       },
       {
         "type": "link",
         "url": "https://www.kertmester.eu",
-        "image": "/img/4.webp",
-        "title": "Gardening website",
+        "image": "/img/websites/kertmester.png",
+        "lightboxImage": "/img/websites/kertmester.png",
+        "title": "Kertmester",
         "cta": "View website",
-        "categoryKey": "websites"
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Website design and development reference.",
+        "tags": [
+          "Website",
+          "Web design",
+          "Development"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://fixappoint.hu",
+        "image": "/img/websites/screenshot-2025-11-28-101112.png",
+        "lightboxImage": "/img/websites/screenshot-2025-11-28-101112.png",
+        "title": "Fixappoint",
+        "cta": "View website",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Website design and development reference.",
+        "tags": [
+          "Website",
+          "Web design",
+          "Development"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://www.glamlash.hu",
+        "image": "/img/websites/glamlash.png",
+        "lightboxImage": "/img/websites/glamlash.png",
+        "title": "Glamlash",
+        "cta": "View website",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Website design and development reference.",
+        "tags": [
+          "Website",
+          "Web design",
+          "Development"
+        ],
+        "imageFit": "contain"
       },
       {
         "type": "link",
         "url": "https://www.versenybikini.hu",
-        "image": "/img/glamazon_logo.png",
-        "title": "Competition bikini",
+        "image": "/img/websites/versenybikini.png",
+        "lightboxImage": "/img/websites/versenybikini.png",
+        "title": "Versenybikini",
         "cta": "View website",
-        "categoryKey": "websites"
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Website design and development reference.",
+        "tags": [
+          "Website",
+          "Web design",
+          "Development"
+        ],
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/action.jpg",
-        "title": "Flyer",
+        "type": "link",
+        "url": "https://ohayachting.com",
+        "image": "/img/websites/ohayachting.webp",
+        "lightboxImage": "/img/websites/ohayachting.webp",
+        "title": "Oha Yachting",
+        "cta": "View website",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Website design and development reference.",
+        "tags": [
+          "Website",
+          "Web design",
+          "Development"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/auto.png",
+        "lightboxImage": "/img/flyer/flyer_hu/auto.png",
+        "title": "Car wash flyer",
+        "label": "Flyer",
+        "category": "Flyer",
         "categoryKey": "flyers",
-        "lightboxImage": "/img/action.jpg"
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/bakery.png",
-        "title": "Flyer",
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/barber.png",
+        "lightboxImage": "/img/flyer/flyer_hu/barber.png",
+        "title": "Barber flyer",
+        "label": "Flyer",
+        "category": "Flyer",
         "categoryKey": "flyers",
-        "lightboxImage": "/img/bakery.png"
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/bistro.png",
-        "title": "Flyer",
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/burger.png",
+        "lightboxImage": "/img/flyer/flyer_hu/burger.png",
+        "title": "Burger flyer",
+        "label": "Flyer",
+        "category": "Flyer",
         "categoryKey": "flyers",
-        "lightboxImage": "/img/bistro.png"
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/businesscard.jpg",
-        "title": "Business card",
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/coffee.png",
+        "lightboxImage": "/img/flyer/flyer_hu/coffee.png",
+        "title": "Coffee flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/disco.png",
+        "lightboxImage": "/img/flyer/flyer_hu/disco.png",
+        "title": "Disco flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/fitness.png",
+        "lightboxImage": "/img/flyer/flyer_hu/fitness.png",
+        "title": "Fitness flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/ingatlan.png",
+        "lightboxImage": "/img/flyer/flyer_hu/ingatlan.png",
+        "title": "Real estate flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/joga.png",
+        "lightboxImage": "/img/flyer/flyer_hu/joga.png",
+        "title": "Yoga flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/kutyakozmetika.png",
+        "lightboxImage": "/img/flyer/flyer_hu/kutyakozmetika.png",
+        "title": "Dog grooming flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/massage.png",
+        "lightboxImage": "/img/flyer/flyer_hu/massage.png",
+        "title": "Massage flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/pekseg.png",
+        "lightboxImage": "/img/flyer/flyer_hu/pekseg.png",
+        "title": "Bakery flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/pizza.png",
+        "lightboxImage": "/img/flyer/flyer_hu/pizza.png",
+        "title": "Pizza flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/flyer/flyer_hu/teahaz.png",
+        "lightboxImage": "/img/flyer/flyer_hu/teahaz.png",
+        "title": "Tea house flyer",
+        "label": "Flyer",
+        "category": "Flyer",
+        "categoryKey": "flyers",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/névjegykártya/visitenkarte_fixappoint.png",
+        "lightboxImage": "/img/névjegykártya/visitenkarte_fixappoint.png",
+        "title": "Fixappoint business card",
+        "label": "Business card",
+        "category": "Business card",
         "categoryKey": "businessCards",
-        "lightboxImage": "/img/businesscard.jpg"
+        "imageFit": "contain"
       },
       {
-        "type": "lightbox",
-        "image": "/img/szorolap_front.jpg",
-        "title": "Flyer",
-        "categoryKey": "flyers",
-        "lightboxImage": "/img/szorolap_front.jpg"
+        "type": "image",
+        "image": "/img/névjegykártya/visitenkarte_glamazon.png",
+        "lightboxImage": "/img/névjegykártya/visitenkarte_glamazon.png",
+        "title": "Glamazon business card",
+        "label": "Business card",
+        "category": "Business card",
+        "categoryKey": "businessCards",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/névjegykártya/visitenkarte_kertmester.png",
+        "lightboxImage": "/img/névjegykártya/visitenkarte_kertmester.png",
+        "title": "Kertmester business card",
+        "label": "Business card",
+        "category": "Business card",
+        "categoryKey": "businessCards",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_fixappoint.png",
+        "lightboxImage": "/img/mockup/mockup_fixappoint.png",
+        "title": "Fixappoint mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_glamazon.png",
+        "lightboxImage": "/img/mockup/mockup_glamazon.png",
+        "title": "Glamazon mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_glamlash.png",
+        "lightboxImage": "/img/mockup/mockup_glamlash.png",
+        "title": "Glamlash mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_hunportal.png",
+        "lightboxImage": "/img/mockup/mockup_hunportal.png",
+        "title": "Hunportal mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_kertmester.png",
+        "lightboxImage": "/img/mockup/mockup_kertmester.png",
+        "title": "Kertmester mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_oha.png",
+        "lightboxImage": "/img/mockup/mockup_oha.png",
+        "title": "Oha Yachting mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/mockup/mockup_ugyved.png",
+        "lightboxImage": "/img/mockup/mockup_ugyved.png",
+        "title": "Lawyer mockup",
+        "label": "Mockup",
+        "category": "Mockup",
+        "categoryKey": "mockups",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/ajandekkartya.png",
+        "lightboxImage": "/img/egyeb/hu/ajandekkartya.png",
+        "title": "Gift card",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/ajandekkartya-2.png",
+        "lightboxImage": "/img/egyeb/hu/ajandekkartya-2.png",
+        "title": "Gift card design",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/belepojegy.png",
+        "lightboxImage": "/img/egyeb/hu/belepojegy.png",
+        "title": "Admission ticket",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/berlet.png",
+        "lightboxImage": "/img/egyeb/hu/berlet.png",
+        "title": "Pass card",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/husegkartya.png",
+        "lightboxImage": "/img/egyeb/hu/husegkartya.png",
+        "title": "Loyalty card",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/kupon.png",
+        "lightboxImage": "/img/egyeb/hu/kupon.png",
+        "title": "Coupon",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
+      },
+      {
+        "type": "image",
+        "image": "/img/egyeb/hu/utalvany.png",
+        "lightboxImage": "/img/egyeb/hu/utalvany.png",
+        "title": "Voucher",
+        "label": "Other graphic",
+        "category": "Other graphic",
+        "categoryKey": "otherDesigns",
+        "imageFit": "contain"
       }
     ]
   },
@@ -731,3 +1042,8 @@
     ]
   }
 }
+
+
+
+
+
