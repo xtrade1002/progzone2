@@ -236,7 +236,7 @@ export default function References() {
                 rel="noopener noreferrer"
                 className="inline-flex rounded-md bg-[#FF007A] px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:shadow-[0_0_15px_#ff007a]"
               >
-                {project.cta ?? 'Website ansehen'}
+                Preview
               </a>
             </div>
           )}

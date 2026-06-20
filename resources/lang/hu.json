@@ -593,15 +593,6 @@
       },
       {
         "type": "image",
-        "image": "/img/websites/secretlounge.ch.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/secretlounge.ch.png",
-        "imageFit": "contain",
-        "url": "https://secretlounge.ch",
-        "cta": "Megnézem a weboldalt"
-      },
-      {
-        "type": "image",
         "image": "/img/websites/versenybikini.png",
         "categoryKey": "websites",
         "lightboxImage": "/img/websites/versenybikini.png",
@@ -616,6 +607,15 @@
         "lightboxImage": "/img/websites/hunportal-preview.png",
         "imageFit": "contain",
         "url": "https://hunportal.hu",
+        "cta": "Megnézem a weboldalt"
+      },
+      {
+        "type": "image",
+        "image": "/img/websites/secretlounge.ch.png",
+        "categoryKey": "websites",
+        "lightboxImage": "/img/websites/secretlounge.ch.png",
+        "imageFit": "contain",
+        "url": "https://secretlounge.ch",
         "cta": "Megnézem a weboldalt"
       },
       {
