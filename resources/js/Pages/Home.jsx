@@ -931,10 +931,10 @@ export default function Home() {
 
               <div className="pz-home-portrait-frame">
                 <img
-                  src="/img/progzone-neon-portrait-lcp.jpg"
+                  src="/img/me.png"
                   alt=""
-                  width="402"
-                  height="660"
+                  width="1123"
+                  height="1401"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"

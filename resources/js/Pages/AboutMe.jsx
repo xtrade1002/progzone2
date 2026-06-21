@@ -47,8 +47,10 @@ export default function AboutMe() {
             }`}
           >
             <img
-              src="/img/progzone-neon-portrait.png"
+              src="/img/me.png"
               alt={about.image_alt ?? ''}
+              width="1123"
+              height="1401"
               className="mx-auto max-h-[560px] rounded-[1.25rem] border border-[rgb(var(--pz-pink-rgb)/0.58)] object-cover shadow-[0_0_38px_rgb(var(--pz-pink-rgb)/0.44),0_0_36px_rgba(0,231,255,0.18)]"
             />
           </div>

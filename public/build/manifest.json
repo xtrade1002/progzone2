@@ -1,6 +1,6 @@
 {
-  "_Layout-nrSmXYeW.js": {
-    "file": "assets/Layout-nrSmXYeW.js",
+  "_Layout-BsaNWCVh.js": {
+    "file": "assets/Layout-BsaNWCVh.js",
     "name": "Layout",
     "imports": [
       "resources/js/app.jsx"
@@ -23,130 +23,130 @@
     ]
   },
   "resources/js/Pages/AboutMe.jsx": {
-    "file": "assets/AboutMe-qN_9dEmX.js",
+    "file": "assets/AboutMe-_UuqvZBy.js",
     "name": "AboutMe",
     "src": "resources/js/Pages/AboutMe.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/Pages/Contact.jsx": {
-    "file": "assets/Contact-DeSKcW4S.js",
+    "file": "assets/Contact-DiGgEwTz.js",
     "name": "Contact",
     "src": "resources/js/Pages/Contact.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/Pages/Home.jsx": {
-    "file": "assets/Home-kM9pNwFi.js",
+    "file": "assets/Home-B8zUJFZ_.js",
     "name": "Home",
     "src": "resources/js/Pages/Home.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/Pages/Impressum.jsx": {
-    "file": "assets/Impressum-DvVVeAfk.js",
+    "file": "assets/Impressum-Dicz1D-A.js",
     "name": "Impressum",
     "src": "resources/js/Pages/Impressum.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_constants-CHKLk53u.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/Pages/Infos.jsx": {
-    "file": "assets/Infos-p2xd4sYt.js",
+    "file": "assets/Infos-Q56ELrsv.js",
     "name": "Infos",
     "src": "resources/js/Pages/Infos.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/Pages/Prices.jsx": {
-    "file": "assets/Prices-BCKTsvRR.js",
+    "file": "assets/Prices-DNDM6WNI.js",
     "name": "Prices",
     "src": "resources/js/Pages/Prices.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_constants-CHKLk53u.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/Pages/Privacy.jsx": {
-    "file": "assets/Privacy-TrPTQoOn.js",
+    "file": "assets/Privacy-DymdwP3m.js",
     "name": "Privacy",
     "src": "resources/js/Pages/Privacy.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/Pages/QuoteRequest.jsx": {
-    "file": "assets/QuoteRequest-BQJCRy-C.js",
+    "file": "assets/QuoteRequest-1nFNg0Ph.js",
     "name": "QuoteRequest",
     "src": "resources/js/Pages/QuoteRequest.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/Pages/References.jsx": {
-    "file": "assets/References-D-0UU-G4.js",
+    "file": "assets/References-DyR0_cc3.js",
     "name": "References",
     "src": "resources/js/Pages/References.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/Pages/Services.jsx": {
-    "file": "assets/Services-CirJaR4j.js",
+    "file": "assets/Services-DU4fCp8E.js",
     "name": "Services",
     "src": "resources/js/Pages/Services.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/Pages/Terms.jsx": {
-    "file": "assets/Terms-B40eRLdX.js",
+    "file": "assets/Terms-DmBlQFre.js",
     "name": "Terms",
     "src": "resources/js/Pages/Terms.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-nrSmXYeW.js",
+      "_Layout-BsaNWCVh.js",
       "_react-CjZsb-BP.js"
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-CDeWlDaO.js",
+    "file": "assets/app-CpIluZty.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
