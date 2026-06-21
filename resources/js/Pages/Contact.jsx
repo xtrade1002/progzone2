@@ -11,21 +11,24 @@ const createInitialFormState = () => ({
   message: '',
 });
 
+const digitsOnly = (value) => value.replace(/\D/g, '');
+
 export default function Contact() {
   const [formData, setFormData] = useState(() => createInitialFormState());
   const [processing, setProcessing] = useState(false);
   const { props } = usePage();
   const errors = props?.errors ?? {};
-  const flash = props?.flash ?? {};
   const { trans, t } = useTranslations();
   const contact = trans?.contact ?? {};
   const fields = contact.fields ?? {};
   const buttonLabels = contact.button ?? {};
 
   const handleChange = (field) => (event) => {
+    const value = field === 'phone' ? digitsOnly(event.target.value) : event.target.value;
+
     setFormData((previous) => ({
       ...previous,
-      [field]: event.target.value,
+      [field]: value,
     }));
   };
 
@@ -50,11 +53,6 @@ export default function Contact() {
           </h2>
 
           {/* Flash üzenetek */}
-          {flash.success && (
-            <div className="mt-8 p-4 rounded-lg bg-green-900/50 border border-green-500 text-green-300 shadow-[0_0_10px_#00ff9d]">
-              {flash.success}
-            </div>
-          )}
           {Object.keys(errors).length > 0 && (
             <div className="mt-8 p-4 rounded-lg bg-red-900/50 border border-red-500 text-red-300 shadow-[0_0_10px_#ff0000]">
               Kérlek javítsd a hibákat a mezőkben.
@@ -100,15 +98,26 @@ export default function Contact() {
 
               {/* Telefon */}
               <div className="flex flex-col gap-2">
-                <input
-                  type="tel"
-                  placeholder={fields.phone?.placeholder}
-                  className="w-full rounded-lg bg-transparent border border-gray-600 p-3 text-gray-200 placeholder-gray-400 
-                             focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] focus:placeholder-transparent transition"
-                  value={formData.phone}
-                  onChange={handleChange('phone')}
-                  aria-invalid={errors.phone ? 'true' : 'false'}
-                />
+                <div className="relative">
+                  <span
+                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-200"
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                  <input
+                    type="tel"
+                    placeholder={fields.phone?.placeholder ?? '49 XXXXXXXXXX'}
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    maxLength={20}
+                    className="w-full rounded-lg bg-transparent border border-gray-600 p-3 pl-8 text-gray-200 placeholder-gray-400 
+                               focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] focus:placeholder-transparent transition"
+                    value={formData.phone}
+                    onChange={handleChange('phone')}
+                    aria-invalid={errors.phone ? 'true' : 'false'}
+                  />
+                </div>
                 {errors.phone && (
                   <span className="text-xs text-red-400 text-left">{errors.phone}</span>
                 )}

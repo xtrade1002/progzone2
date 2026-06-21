@@ -182,7 +182,7 @@
       },
       "phone": {
         "label": "Phone",
-        "placeholder": "+44 7700 900123"
+        "placeholder": "44 7700 900123"
       },
       "company": {
         "label": "Company / project",
@@ -326,7 +326,7 @@
         "placeholder": "Email *"
       },
       "phone": {
-        "placeholder": "Phone"
+        "placeholder": "49 XXXXXXXXXX"
       },
       "message": {
         "placeholder": "Message *"

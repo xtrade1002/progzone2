@@ -23,27 +23,25 @@ class FormController extends Controller
         $data = $request->validate([
             'name' => $this->safeTextRules(required: true, max: 255),
             'email' => ['required', 'email', 'max:255'],
-            'phone' => $this->safeTextRules(max: 255),
-            'company' => $this->safeTextRules(max: 255),
+            'phone' => $this->phoneRules(required: true),
+            'company' => $this->safeTextRules(required: true, max: 255),
             'service' => $this->safeTextRules(required: true, max: 255),
-            'budget' => $this->safeTextRules(max: 255),
-            'timeline' => $this->safeTextRules(max: 255),
+            'budget' => $this->safeTextRules(required: true, max: 255),
+            'timeline' => $this->futureDateRules(required: true),
             'message' => $this->safeTextRules(required: true),
-            'reference_sites' => $this->safeTextRules(),
+            'reference_sites' => $this->referenceSiteRules(required: true),
             'target_audience' => $this->safeTextRules(max: 255),
-            'languages' => $this->safeTextRules(max: 100),
-            'features' => $this->safeTextRules(),
+            'languages' => $this->safeTextRules(required: true, max: 100),
+            'features' => $this->safeTextRules(required: true),
             'content_source' => $this->safeTextRules(max: 255),
-            'billing_info' => $this->safeTextRules(),
             'payment_method' => $this->safeTextRules(max: 100),
             'support' => $this->safeTextRules(max: 255),
-            'hosting_domain' => $this->safeTextRules(max: 255),
+            'hosting_domain' => $this->safeTextRules(required: true, max: 255),
             'integrations' => $this->safeTextRules(),
             'marketing' => $this->safeTextRules(),
             'legal' => $this->safeTextRules(),
-            'priority' => $this->safeTextRules(max: 255),
             'privacy' => ['accepted'],
-        ]);
+        ], $this->validationMessages());
 
         $data = $this->sanitizeFormData($data);
         $data['privacy'] = true;
@@ -73,7 +71,7 @@ class FormController extends Controller
         $data = $request->validate([
             'name' => $this->safeTextRules(required: true, max: 255),
             'email' => ['required', 'email', 'max:255'],
-            'phone' => $this->safeTextRules(max: 255),
+            'phone' => $this->phoneRules(),
             'message' => $this->safeTextRules(required: true),
         ]);
 
@@ -180,6 +178,105 @@ class FormController extends Controller
             if (preg_match('/<\s*\/?\s*(script|iframe|object|embed|link|meta|style)\b|javascript\s*:|data\s*:\s*text\/html|on[a-z]+\s*=/i', $value)) {
                 $fail('A mező nem tartalmazhat HTML vagy JavaScript kódot.');
             }
+        };
+    }
+
+    /**
+     * @return array<int, mixed>
+     */
+    private function phoneRules(bool $required = false): array
+    {
+        return [
+            $required ? 'required' : 'nullable',
+            'string',
+            'max:20',
+            function (string $attribute, mixed $value, Closure $fail): void {
+                if ($value === null || $value === '') {
+                    return;
+                }
+
+                if (! is_string($value) || ! preg_match('/^[0-9]+$/', $value)) {
+                    $fail($this->phoneDigitsMessage());
+                }
+            },
+        ];
+    }
+
+    private function phoneDigitsMessage(): string
+    {
+        return match (app()->getLocale()) {
+            'de', 'de-CH' => 'Bitte gib nur Zahlen ein.',
+            'en' => 'Please use digits only.',
+            default => 'A telefonszam mezo csak szamokat tartalmazhat.',
+        };
+    }
+
+    /**
+     * @return array<int, mixed>
+     */
+    private function futureDateRules(bool $required = false): array
+    {
+        return [
+            $required ? 'required' : 'nullable',
+            'date',
+            'after:today',
+        ];
+    }
+
+    /**
+     * @return array<int, mixed>
+     */
+    private function referenceSiteRules(bool $required = false): array
+    {
+        return [
+            ...$this->safeTextRules(required: $required),
+            function (string $attribute, mixed $value, Closure $fail): void {
+                if (! is_string($value) || $value === '') {
+                    return;
+                }
+
+                if (substr_count(str_replace("\r\n", "\n", trim($value)), "\n") + 1 > 5) {
+                    $fail($this->referenceSitesLineMessage());
+                }
+            },
+        ];
+    }
+
+    private function referenceSitesLineMessage(): string
+    {
+        return match (app()->getLocale()) {
+            'de', 'de-CH' => 'Bitte gib maximal 5 Website-Adressen an.',
+            'en' => 'Please enter up to 5 website addresses.',
+            default => 'Legfeljebb 5 weboldal címet adhatsz meg.',
+        };
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function validationMessages(): array
+    {
+        return [
+            'timeline.date' => $this->timelineDateMessage(),
+            'timeline.after' => $this->timelineFutureMessage(),
+        ];
+    }
+
+    private function timelineDateMessage(): string
+    {
+        return match (app()->getLocale()) {
+            'de', 'de-CH' => 'Bitte wähle ein gültiges Datum aus.',
+            'en' => 'Please choose a valid date.',
+            default => 'Kérlek válassz érvényes dátumot.',
+        };
+    }
+
+    private function timelineFutureMessage(): string
+    {
+        return match (app()->getLocale()) {
+            'de', 'de-CH' => 'Bitte wähle ein zukünftiges Datum aus.',
+            'en' => 'Please choose a future date.',
+            default => 'Kérlek jövőbeli dátumot válassz.',
         };
     }
 

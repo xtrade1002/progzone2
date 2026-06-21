@@ -31,8 +31,12 @@ class QuoteRequestMailTest extends TestCase
             'company' => 'Teszt Kft.',
             'service' => 'weboldal',
             'budget' => '0-200',
-            'timeline' => '2 het',
+            'timeline' => now()->addDay()->toDateString(),
             'message' => 'Szeretnek egy weboldalt.',
+            'reference_sites' => 'https://example.test',
+            'languages' => 'magyar',
+            'features' => 'Kapcsolatfelveteli urlap',
+            'hosting_domain' => 'Kerek segitseget domainnel.',
             'privacy' => '1',
         ], [
             'HTTP_HOST' => 'progzone.hu',

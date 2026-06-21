@@ -211,12 +211,12 @@ export default function References() {
     return (
       <article
         key={project.url ?? index}
-        className="group grid h-full items-stretch overflow-hidden rounded-xl border border-[#00eaff]/18 bg-[#040b1c]/88 shadow-[0_12px_42px_rgba(0,0,0,0.32)] transition duration-300 hover:-translate-y-1 hover:border-[#00eaff]/46 hover:shadow-[0_16px_52px_rgba(0,234,255,0.12)] md:grid-cols-[minmax(0,1fr)_minmax(220px,0.72fr)]"
+        className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#00eaff]/18 bg-[#040b1c]/88 shadow-[0_12px_42px_rgba(0,0,0,0.32)] transition duration-300 hover:-translate-y-1 hover:border-[#00eaff]/46 hover:shadow-[0_16px_52px_rgba(0,234,255,0.12)]"
       >
         <button
           type="button"
           onClick={() => lightbox && openLightbox(project)}
-          className="relative aspect-[16/10] w-full overflow-hidden bg-[#061327] text-left lg:aspect-auto lg:h-[320px] xl:h-[340px]"
+          className="relative aspect-video w-full overflow-hidden bg-[#061327] text-left"
           aria-label={project.previewLabel ?? project.title}
         >
           <div className="absolute left-0 right-0 top-0 z-10 flex h-8 items-center gap-2 border-b border-white/10 bg-[#071025]/94 px-4">
@@ -252,7 +252,7 @@ export default function References() {
           ) : null}
         </button>
 
-        <div className="flex flex-col justify-between gap-5 p-5 sm:p-6">
+        <div className="flex flex-1 flex-col justify-between gap-5 p-5 sm:p-6">
           <div>
             {project.label && (
               <p className="mb-3 text-[11px] font-black uppercase tracking-[0.18em] text-[#00eaff]">
@@ -280,14 +280,13 @@ export default function References() {
           <div className="flex flex-col items-start gap-3">
             {project.url && (
               <>
-                <p className="text-sm font-black text-white">{project.cta ?? references.cta ?? 'View website'}</p>
                 <a
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-0 w-full max-w-[190px] items-center justify-center rounded-xl border border-[#00eaff]/70 bg-transparent px-4 py-2.5 text-sm font-black text-[#00eaff] shadow-[0_0_14px_rgba(0,234,255,0.14)] transition hover:-translate-y-0.5 hover:border-[#00eaff] hover:text-white hover:shadow-[0_0_24px_rgba(0,234,255,0.28)] sm:w-auto"
                 >
-                  Preview
+                  {locale === 'hu' ? 'Megtekintés' : locale === 'de' ? 'Ansehen' : 'Preview'}
                 </a>
               </>
             )}

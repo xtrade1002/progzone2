@@ -182,7 +182,7 @@
       },
       "phone": {
         "label": "Telefon",
-        "placeholder": "+49 170 1234567"
+        "placeholder": "49 170 1234567"
       },
       "company": {
         "label": "Firma / Projekt",
@@ -326,7 +326,7 @@
         "placeholder": "E-Mail *"
       },
       "phone": {
-        "placeholder": "Telefon"
+        "placeholder": "49 XXXXXXXXXX"
       },
       "message": {
         "placeholder": "Nachricht *"
@@ -558,84 +558,7 @@
     "lightbox_alt": "Vorschau",
     "projects": [
       {
-<<<<<<< HEAD
-        "type": "image",
-        "image": "/img/websites/glamlash.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/glamlash.png",
-        "imageFit": "contain",
-        "url": "https://www.glamlash.hu",
-        "cta": "Website ansehen"
-      },
-      {
-        "type": "image",
-        "image": "/img/websites/screenshot-2025-11-28-101112.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/screenshot-2025-11-28-101112.png",
-        "imageFit": "contain",
-        "url": "https://fixappoint.hu",
-        "cta": "Website ansehen"
-      },
-      {
-        "type": "image",
-        "image": "/img/websites/kertmester.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/kertmester.png",
-        "imageFit": "contain",
-        "url": "https://www.kertmester.eu",
-        "cta": "Website ansehen"
-      },
-      {
-        "type": "image",
-        "image": "/img/websites/ohayachting.webp",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/ohayachting.webp",
-        "imageFit": "contain"
-      },
-      {
-        "type": "image",
-        "image": "/img/websites/versenybikini.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/versenybikini.png",
-        "imageFit": "contain",
-        "url": "https://www.versenybikini.hu",
-        "cta": "Website ansehen"
-      },
-      {
-        "type": "image",
-        "image": "/img/websites/hunportal-preview.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/hunportal-preview.png",
-        "imageFit": "contain",
-=======
         "type": "link",
-        "url": "https://secretlounge.ch",
-        "image": "/img/websites/secretlounge.ch.png",
-        "lightboxImage": "/img/websites/secretlounge.ch.png",
-        "title": "SecretLounge.ch",
-        "cta": "Website ansehen",
-        "domainOverrides": {
-          "progzone.hu": {
-            "url": "https://secretlounge.hu/hu",
-            "image": "/img/secretlounge-hu-preview.png",
-            "lightboxImage": "/img/secretlounge-hu-preview.png",
-            "title": "SecretLounge.hu"
-          }
-        },
-        "categoryKey": "websites",
-        "label": "Website",
-        "category": "Website",
-        "description": "Premium-Anzeigenplattform mit Laravel und Inertia umgesetzt.",
-        "tags": [
-          "Laravel",
-          "Inertia",
-          "Anzeigen"
-        ],
-        "imageFit": "contain"
-      },
-      {
-        "type": "link",
->>>>>>> caaa4e5e84514709ffdecbae6be948b916f2101d
         "url": "https://hunportal.hu",
         "image": "/img/websites/hunportal-preview.png",
         "lightboxImage": "/img/websites/hunportal-preview.png",
@@ -653,22 +576,6 @@
         "imageFit": "contain"
       },
       {
-<<<<<<< HEAD
-        "type": "image",
-        "image": "/img/websites/secretlounge.ch.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/secretlounge.ch.png",
-        "imageFit": "contain",
-        "url": "https://secretlounge.ch",
-        "cta": "Website ansehen"
-      },
-      {
-        "type": "image",
-        "image": "/img/egyeb/de/screenshot-155252.png",
-        "title": "Grafikdesign",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155252.png",
-=======
         "type": "link",
         "url": "https://www.kertmester.eu",
         "image": "/img/websites/kertmester.png",
@@ -756,7 +663,35 @@
           "Webdesign",
           "Entwicklung"
         ],
->>>>>>> caaa4e5e84514709ffdecbae6be948b916f2101d
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://secretlounge.ch",
+        "image": "/img/websites/secretlounge.ch.png",
+        "lightboxImage": "/img/websites/secretlounge.ch.png",
+        "title": "SecretLounge.ch",
+        "cta": "Website ansehen",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Premium-Anzeigenplattform mit Laravel und Inertia umgesetzt.",
+        "tags": [
+          "Website",
+          "Webdesign",
+          "Entwicklung"
+        ],
+        "imageFit": "contain",
+        "domainOverrides": {
+          "progzone.hu": {
+            "url": "https://secretlounge.hu/hu",
+            "image": "/img/secretlounge-hu-preview.png",
+            "lightboxImage": "/img/secretlounge-hu-preview.png",
+            "title": "SecretLounge.hu"
+          }
+        }
+      },
+      {
         "imageFit": "contain"
       },
       {
@@ -1100,8 +1035,3 @@
     ]
   }
 }
-
-
-
-
-

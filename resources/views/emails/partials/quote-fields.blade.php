@@ -12,14 +12,12 @@
         'Projekt nyelvei' => $quote->languages,
         'Kulcsfunkciók' => $quote->features,
         'Tartalom forrása' => $quote->content_source,
-        'Számlázási információk' => $quote->billing_info,
         'Preferált fizetési mód' => $quote->payment_method,
         'Utótámogatási igény' => $quote->support,
         'Tárhely / domain igény' => $quote->hosting_domain,
         'Szükséges integrációk' => $quote->integrations,
         'Marketing célok' => $quote->marketing,
         'Jogi / megfelelőségi elvárások' => $quote->legal,
-        'Prioritás' => $quote->priority,
         'Adatkezelési tájékoztató elfogadva' => $quote->privacy ? 'Igen' : 'Nem',
     ];
 

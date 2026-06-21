@@ -24,7 +24,10 @@ class LocaleController extends Controller
         $request->session()->put('locale', $locale);
         $request->session()->put('locale_host', $this->normalizeHost($request->getHost()));
 
-        $previousPath = parse_url((string) $request->headers->get('referer'), PHP_URL_PATH) ?: '/';
+        $previousPath = (string) $request->input('current_path', '');
+        $previousPath = $previousPath !== ''
+            ? (parse_url($previousPath, PHP_URL_PATH) ?: '/')
+            : (parse_url((string) $request->headers->get('referer'), PHP_URL_PATH) ?: '/');
         $targetPath = LocalizedRoutes::localizedPathFor($previousPath, $locale);
 
         return redirect($targetPath);

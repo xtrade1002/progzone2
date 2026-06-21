@@ -57,14 +57,12 @@ class MailjetService
             'Projekt nyelvei' => Arr::get($data, 'languages'),
             'Kulcsfunkciók' => Arr::get($data, 'features'),
             'Tartalom forrása' => Arr::get($data, 'content_source'),
-            'Számlázási információk' => Arr::get($data, 'billing_info'),
             'Preferált fizetési mód' => Arr::get($data, 'payment_method'),
             'Utótámogatási igény' => Arr::get($data, 'support'),
             'Tárhely / domain igény' => Arr::get($data, 'hosting_domain'),
             'Szükséges integrációk' => Arr::get($data, 'integrations'),
             'Marketing célok' => Arr::get($data, 'marketing'),
             'Jogi / megfelelőségi elvárások' => Arr::get($data, 'legal'),
-            'Prioritás' => Arr::get($data, 'priority'),
         ];
 
         $this->send($subject, $fields);

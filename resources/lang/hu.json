@@ -181,7 +181,7 @@
       },
       "phone": {
         "label": "Telefonszám",
-        "placeholder": "+36 20 123 4567"
+        "placeholder": "36 XXXXXXXXX"
       },
       "company": {
         "label": "Cég / projekt neve",
@@ -325,7 +325,7 @@
         "placeholder": "E-mail *"
       },
       "phone": {
-        "placeholder": "Telefonszám"
+        "placeholder": "36 XXXXXXXXX"
       },
       "message": {
         "placeholder": "Üzenet *"
@@ -557,85 +557,7 @@
     "lightbox_alt": "Előnézet",
     "projects": [
       {
-<<<<<<< HEAD
-        "type": "image",
-        "image": "/img/websites/glamlash.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/glamlash.png",
-        "imageFit": "contain",
-        "url": "https://www.glamlash.hu",
-        "cta": "Megnézem a weboldalt"
-      },
-      {
-        "type": "image",
-        "image": "/img/websites/screenshot-2025-11-28-101112.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/screenshot-2025-11-28-101112.png",
-        "imageFit": "contain",
-        "url": "https://fixappoint.hu",
-        "cta": "Megnézem a weboldalt"
-      },
-      {
-        "type": "image",
-        "image": "/img/websites/kertmester.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/kertmester.png",
-        "imageFit": "contain",
-        "url": "https://www.kertmester.eu",
-        "cta": "Megnézem a weboldalt"
-      },
-      {
-        "type": "image",
-        "image": "/img/websites/ohayachting.webp",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/ohayachting.webp",
-        "imageFit": "contain",
-        "cta": "Megnézem a weboldalt"
-      },
-      {
-        "type": "image",
-        "image": "/img/websites/versenybikini.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/versenybikini.png",
-        "imageFit": "contain",
-        "url": "https://www.versenybikini.hu",
-        "cta": "Megnézem a weboldalt"
-      },
-      {
-        "type": "image",
-        "image": "/img/websites/hunportal-preview.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/hunportal-preview.png",
-        "imageFit": "contain",
-=======
         "type": "link",
-        "url": "https://secretlounge.ch",
-        "image": "/img/websites/secretlounge.ch.png",
-        "lightboxImage": "/img/websites/secretlounge.ch.png",
-        "title": "SecretLounge.ch",
-        "cta": "Megnézem a weboldalt",
-        "domainOverrides": {
-          "progzone.hu": {
-            "url": "https://secretlounge.hu/hu",
-            "image": "/img/secretlounge-hu-preview.png",
-            "lightboxImage": "/img/secretlounge-hu-preview.png",
-            "title": "SecretLounge.hu"
-          }
-        },
-        "categoryKey": "websites",
-        "label": "Weboldal",
-        "category": "Weboldal",
-        "description": "Prémium hirdetési platform Laravel és Inertia alapon.",
-        "tags": [
-          "Laravel",
-          "Inertia",
-          "Hirdetések"
-        ],
-        "imageFit": "contain"
-      },
-      {
-        "type": "link",
->>>>>>> caaa4e5e84514709ffdecbae6be948b916f2101d
         "url": "https://hunportal.hu",
         "image": "/img/websites/hunportal-preview.png",
         "lightboxImage": "/img/websites/hunportal-preview.png",
@@ -653,22 +575,6 @@
         "imageFit": "contain"
       },
       {
-<<<<<<< HEAD
-        "type": "image",
-        "image": "/img/websites/secretlounge.ch.png",
-        "categoryKey": "websites",
-        "lightboxImage": "/img/websites/secretlounge.ch.png",
-        "imageFit": "contain",
-        "url": "https://secretlounge.ch",
-        "cta": "Megnézem a weboldalt"
-      },
-      {
-        "type": "image",
-        "image": "/img/egyeb/de/screenshot-155252.png",
-        "title": "Egyéb grafika",
-        "categoryKey": "otherDesigns",
-        "lightboxImage": "/img/egyeb/de/screenshot-155252.png",
-=======
         "type": "link",
         "url": "https://www.kertmester.eu",
         "image": "/img/websites/kertmester.png",
@@ -756,7 +662,35 @@
           "Webdesign",
           "Fejlesztés"
         ],
->>>>>>> caaa4e5e84514709ffdecbae6be948b916f2101d
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://secretlounge.hu/hu",
+        "image": "/img/secretlounge-hu-preview.png",
+        "lightboxImage": "/img/secretlounge-hu-preview.png",
+        "title": "SecretLounge.hu",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "Prémium hirdetési platform Laravel és Inertia alapon.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain",
+        "domainOverrides": {
+          "progzone.hu": {
+            "url": "https://secretlounge.hu/hu",
+            "image": "/img/secretlounge-hu-preview.png",
+            "lightboxImage": "/img/secretlounge-hu-preview.png",
+            "title": "SecretLounge.hu"
+          }
+        }
+      },
+      {
         "imageFit": "contain"
       },
       {
@@ -1110,8 +1044,3 @@
     ]
   }
 }
-
-
-
-
-

@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
 import { Head, router, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
-import route from '../route.js';
+import route, { localizedRoute } from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
 
 const inputClasses =
   'w-full rounded-lg border border-gray-600 bg-transparent p-3 text-gray-200 focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] outline-none transition';
 const selectClasses = inputClasses.replace('bg-transparent', 'bg-[#151522]');
+
+const addDays = (date, days) => {
+  const nextDate = new Date(date);
+  nextDate.setDate(nextDate.getDate() + days);
+  return nextDate;
+};
+
+const toDateInputValue = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+};
 
 const createInitialFormState = () => ({
   name: '',
@@ -22,32 +36,67 @@ const createInitialFormState = () => ({
   languages: '',
   features: '',
   content_source: '',
-  billing_info: '',
   payment_method: '',
   support: '',
   hosting_domain: '',
   integrations: '',
   marketing: '',
   legal: '',
-  priority: '',
   privacy: false,
 });
+
+const digitsOnly = (value) => value.replace(/\D/g, '');
+const limitLines = (value, maxLines) => value.split(/\r?\n/).slice(0, maxLines).join('\n');
+const withRequiredMark = (value) => {
+  const text = value ?? '';
+
+  return text.trim().endsWith('*') ? text : `${text} *`;
+};
 
 export default function QuoteRequest() {
   const [formData, setFormData] = useState(() => createInitialFormState());
   const [processing, setProcessing] = useState(false);
   const { props } = usePage();
   const errors = props?.errors ?? {};
-  const { trans, t } = useTranslations();
+  const localizedRoutes = props?.localizedRoutes;
+  const { trans, locale, t } = useTranslations();
   const quote = trans?.quote ?? {};
   const fields = quote.fields ?? {};
   const serviceOptions = fields.service?.options ?? [];
   const budgetOptions = fields.budget?.options ?? [];
   const button = quote.button ?? {};
   const introParagraphs = Array.isArray(quote.intro) ? quote.intro : [];
+  const dateLocale = locale === 'hu' ? 'hu-HU' : locale === 'de' || locale === 'de-CH' ? 'de-DE' : 'en-GB';
+  const minTimelineDate = toDateInputValue(addDays(new Date(), 1));
+  const selectedTimelineDate = formData.timeline
+    ? new Intl.DateTimeFormat(dateLocale, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }).format(new Date(`${formData.timeline}T00:00:00`))
+    : null;
+  const privacyHref = localizedRoute('privacy', locale, localizedRoutes);
+  const privacyText = locale === 'hu'
+    ? {
+        prefix: 'Megismertem és elfogadom az',
+        link: 'adatkezelési tájékoztatót',
+        suffix: '',
+      }
+    : {
+        prefix: 'Ich habe die',
+        link: 'Datenschutzerklärung',
+        suffix: 'gelesen und akzeptiere sie.',
+      };
 
   const handleChange = (field) => (event) => {
-    const value = field === 'privacy' ? event.target.checked : event.target.value;
+    const value = field === 'privacy'
+      ? event.target.checked
+      : field === 'phone'
+        ? digitsOnly(event.target.value)
+        : field === 'reference_sites'
+          ? limitLines(event.target.value, 5)
+        : event.target.value;
+
     setFormData((previous) => ({
       ...previous,
       [field]: value,
@@ -87,7 +136,7 @@ export default function QuoteRequest() {
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <input
                 type="text"
-                placeholder={fields.name?.placeholder ?? 'Full name *'}
+                placeholder={withRequiredMark(fields.name?.placeholder ?? 'Full name')}
                 aria-label={fields.name?.label ?? 'Full name'}
                 required
                 className={inputClasses}
@@ -96,7 +145,7 @@ export default function QuoteRequest() {
               />
               <input
                 type="email"
-                placeholder={fields.email?.placeholder ?? 'Email address *'}
+                placeholder={withRequiredMark(fields.email?.placeholder ?? 'Email address')}
                 aria-label={fields.email?.label ?? 'Email address'}
                 required
                 className={inputClasses}
@@ -106,18 +155,31 @@ export default function QuoteRequest() {
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <input
-                type="tel"
-                placeholder={fields.phone?.placeholder ?? 'Phone'}
-                aria-label={fields.phone?.label ?? 'Phone'}
-                className={inputClasses}
-                value={formData.phone}
-                onChange={handleChange('phone')}
-              />
+              <div className="relative">
+                <span
+                  className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-200"
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                <input
+                  type="tel"
+                  placeholder={withRequiredMark(fields.phone?.placeholder ?? '49 XXXXXXXXXX')}
+                  aria-label={fields.phone?.label ?? 'Phone'}
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  maxLength={20}
+                  required
+                  className={`${inputClasses} pl-8`}
+                  value={formData.phone}
+                  onChange={handleChange('phone')}
+                />
+              </div>
               <input
                 type="text"
-                placeholder={fields.company?.placeholder ?? 'Company / project'}
+                placeholder={withRequiredMark(fields.company?.placeholder ?? 'Company / project')}
                 aria-label={fields.company?.label ?? 'Company / project'}
+                required
                 className={inputClasses}
                 value={formData.company}
                 onChange={handleChange('company')}
@@ -132,7 +194,7 @@ export default function QuoteRequest() {
                 className={selectClasses}
                 aria-label={fields.service?.label ?? 'Desired service'}
               >
-                <option value="">{fields.service?.placeholder ?? 'Choose a service'}</option>
+                <option value="">{withRequiredMark(fields.service?.placeholder ?? 'Choose a service')}</option>
                 {serviceOptions.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
@@ -145,7 +207,7 @@ export default function QuoteRequest() {
                 className={selectClasses}
                 aria-label={fields.budget?.label ?? 'Estimated budget'}
               >
-                <option value="">{fields.budget?.placeholder ?? 'Select a budget'}</option>
+                <option value="">{withRequiredMark(fields.budget?.placeholder ?? 'Select a budget')}</option>
                 {budgetOptions.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
@@ -156,22 +218,29 @@ export default function QuoteRequest() {
 
             <div className="flex flex-col gap-2">
               <label htmlFor="timeline" className="text-sm font-medium text-gray-300">
-                {fields.timeline?.label ?? 'Preferred timeline'}
+                {withRequiredMark(fields.timeline?.label ?? 'Preferred timeline')}
               </label>
               <input
                 id="timeline"
-                type="text"
-                placeholder={fields.timeline?.placeholder ?? 'Preferred timeline'}
+                type="date"
+                min={minTimelineDate}
+                lang={dateLocale}
                 aria-label={fields.timeline?.label ?? 'Preferred timeline'}
+                required
                 className={inputClasses}
                 value={formData.timeline}
                 onChange={handleChange('timeline')}
               />
+              {selectedTimelineDate && (
+                <span className="text-left text-xs text-gray-400">
+                  {selectedTimelineDate}
+                </span>
+              )}
             </div>
 
             <div className="flex flex-col gap-2">
               <label htmlFor="message" className="text-sm font-medium text-gray-300">
-                {fields.message?.label ?? 'Project summary *'}
+                {withRequiredMark(fields.message?.label ?? 'Project summary')}
               </label>
               <textarea
                 id="message"
@@ -186,18 +255,36 @@ export default function QuoteRequest() {
             </div>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="reference_sites">
-              {fields.reference_sites?.label ?? 'Inspiration / reference sites'}
-              <textarea
-                id="reference_sites"
-                rows="4"
-                placeholder={
-                  fields.reference_sites?.placeholder ?? 'Share any websites or products you like'
-                }
-                className={`${inputClasses} min-h-[120px]`}
-                value={formData.reference_sites}
-                onChange={handleChange('reference_sites')}
-                aria-invalid={errors.reference_sites ? 'true' : 'false'}
-              ></textarea>
+              {withRequiredMark(fields.reference_sites?.label ?? 'Inspiration / reference sites')}
+              <div className="relative">
+                <svg
+                  aria-hidden="true"
+                  className="pointer-events-none absolute left-3 top-3.5 h-5 w-5 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M2 12h20" />
+                  <path d="M12 2a15.3 15.3 0 0 1 0 20" />
+                  <path d="M12 2a15.3 15.3 0 0 0 0 20" />
+                </svg>
+                <textarea
+                  id="reference_sites"
+                  rows="5"
+                  placeholder={
+                    fields.reference_sites?.placeholder ?? 'Share any websites or products you like'
+                  }
+                  required
+                  className={`${inputClasses} min-h-[150px] pl-11`}
+                  value={formData.reference_sites}
+                  onChange={handleChange('reference_sites')}
+                  aria-invalid={errors.reference_sites ? 'true' : 'false'}
+                ></textarea>
+              </div>
               {errors.reference_sites && (
                 <span className="text-xs text-red-400">{errors.reference_sites}</span>
               )}
@@ -220,11 +307,12 @@ export default function QuoteRequest() {
                 )}
               </label>
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="languages">
-                {fields.languages?.label ?? 'Project languages'}
+                {withRequiredMark(fields.languages?.label ?? 'Project languages')}
                 <input
                   id="languages"
                   type="text"
                   placeholder={fields.languages?.placeholder ?? 'e.g. English, German'}
+                  required
                   className={inputClasses}
                   value={formData.languages}
                   onChange={handleChange('languages')}
@@ -235,11 +323,12 @@ export default function QuoteRequest() {
             </div>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="features">
-              {fields.features?.label ?? 'Key features'}
+              {withRequiredMark(fields.features?.label ?? 'Key features')}
               <textarea
                 id="features"
                 rows="4"
                 placeholder={fields.features?.placeholder ?? 'List the most important functionality'}
+                required
                 className={`${inputClasses} min-h-[120px]`}
                 value={formData.features}
                 onChange={handleChange('features')}
@@ -281,22 +370,6 @@ export default function QuoteRequest() {
               </label>
             </div>
 
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="billing_info">
-              {fields.billing_info?.label ?? 'Billing information'}
-              <textarea
-                id="billing_info"
-                rows="4"
-                placeholder={fields.billing_info?.placeholder ?? 'Company name, tax number, address, etc.'}
-                className={`${inputClasses} min-h-[120px]`}
-                value={formData.billing_info}
-                onChange={handleChange('billing_info')}
-                aria-invalid={errors.billing_info ? 'true' : 'false'}
-              ></textarea>
-              {errors.billing_info && (
-                <span className="text-xs text-red-400">{errors.billing_info}</span>
-              )}
-            </label>
-
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="support">
                 {fields.support?.label ?? 'Support expectations'}
@@ -312,11 +385,12 @@ export default function QuoteRequest() {
                 {errors.support && <span className="text-xs text-red-400">{errors.support}</span>}
               </label>
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="hosting_domain">
-                {fields.hosting_domain?.label ?? 'Hosting / domain needs'}
+                {withRequiredMark(fields.hosting_domain?.label ?? 'Hosting / domain needs')}
                 <input
                   id="hosting_domain"
                   type="text"
                   placeholder={fields.hosting_domain?.placeholder ?? 'Do you need help with hosting or domains?'}
+                  required
                   className={inputClasses}
                   value={formData.hosting_domain}
                   onChange={handleChange('hosting_domain')}
@@ -372,20 +446,6 @@ export default function QuoteRequest() {
               {errors.legal && <span className="text-xs text-red-400">{errors.legal}</span>}
             </label>
 
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="priority">
-              {fields.priority?.label ?? 'Project priority'}
-              <input
-                id="priority"
-                type="text"
-                placeholder={fields.priority?.placeholder ?? 'How urgent or important is this project?'}
-                className={inputClasses}
-                value={formData.priority}
-                onChange={handleChange('priority')}
-                aria-invalid={errors.priority ? 'true' : 'false'}
-              />
-              {errors.priority && <span className="text-xs text-red-400">{errors.priority}</span>}
-            </label>
-
             <div className="flex flex-col gap-4 text-sm text-gray-400 md:flex-row md:items-center md:justify-between">
               <label className="inline-flex items-center gap-3 text-gray-300" htmlFor="privacy">
                 <input
@@ -397,7 +457,16 @@ export default function QuoteRequest() {
                   onChange={handleChange('privacy')}
                   aria-invalid={errors.privacy ? 'true' : 'false'}
                 />
-                {fields.privacy?.label ?? 'I have read and accept the privacy policy.'}
+                <span>
+                  {privacyText.prefix}{' '}
+                  <a
+                    href={privacyHref}
+                    className="text-[#00f7ff] underline underline-offset-4 transition hover:text-[#FF007A]"
+                  >
+                    {privacyText.link}
+                  </a>
+                  {privacyText.suffix ? ` ${privacyText.suffix}` : ''} *
+                </span>
               </label>
               {errors.privacy && <span className="text-xs text-red-400">{errors.privacy}</span>}
             </div>
