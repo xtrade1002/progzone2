@@ -60,7 +60,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={containerRef}>
       <button
         type="button"
-        className="flex items-center gap-2 rounded-full border border-transparent bg-[#1b1b2f] px-3 py-1 text-lg shadow hover:border-[#FF007A] focus:outline-none focus:ring-2 focus:ring-[#FF007A]"
+        className="flex items-center gap-2 rounded-full border border-[#00eaff]/20 bg-black/35 px-2.5 py-1.5 text-lg shadow-[0_0_16px_rgba(0,234,255,0.12)] transition hover:border-[#00eaff]/60 focus:outline-none focus:ring-2 focus:ring-[#00eaff]/60 sm:px-3"
         onClick={() => setOpen((previous) => !previous)}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : 'false'}
@@ -70,14 +70,14 @@ export default function LanguageSwitcher() {
       </button>
 
       {open && (
-        <ul className="absolute right-0 top-full mt-2 w-40 rounded-lg border border-[#FF007A]/40 bg-[#121317] shadow-lg">
+        <ul className="absolute right-0 top-full z-50 mt-2 w-40 overflow-hidden rounded-xl border border-[#00eaff]/25 bg-[#050611]/95 shadow-[0_18px_42px_rgba(0,0,0,0.45)] backdrop-blur-xl">
           {locales.map((item) => (
             <li key={item.code}>
               <button
                 type="button"
                 onClick={() => handleSelect(item.code)}
-                className={`flex w-full items-center gap-2 px-4 py-2 text-left text-sm text-gray-200 hover:bg-[#1f2030] ${
-                  item.code === currentLocale ? 'bg-[#1f1f2a] font-semibold text-white' : ''
+                className={`flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm text-gray-200 transition hover:bg-[#00eaff]/10 hover:text-white ${
+                  item.code === currentLocale ? 'bg-[#00eaff]/12 font-semibold text-white' : ''
                 }`}
               >
                 <span aria-hidden="true" className={`flag-icon ${item.flagClass}`} />

@@ -64,16 +64,28 @@ export default function MainMenu({ activePath }) {
   };
 
   return (
-    <header className="relative bg-gradient-to-br from-[#0a0a0f] via-[#141422] to-[#0a0a0f] pt-4 pb-4 text-gray-400 lg:pb-0">
-      <nav className="relative">
+    <>
+    <header className="sticky top-0 z-50 border-b border-white/8 bg-[#02040c]/88 text-gray-300 shadow-[0_0_34px_rgba(0,231,255,0.16)] backdrop-blur-xl">
+      <nav className="relative mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-2 px-3 py-3 sm:gap-3 sm:px-4 lg:px-6">
+        <a href={localizedRoute('home', locale, localizedRoutes)} className="group flex min-w-0 items-center gap-2 sm:gap-3">
+          <img
+            src="/img/pz.png"
+            alt="Progzone"
+            className="h-10 w-10 shrink-0 rounded-full object-contain shadow-[0_0_20px_rgb(var(--pz-pink-rgb)/0.55)] transition duration-300 group-hover:scale-105 sm:h-11 sm:w-11"
+          />
+          <span className="hidden truncate text-lg font-black sm:block sm:text-xl">
+            <span className="text-white">PROG</span><span className="text-white drop-shadow-[0_0_10px_rgb(var(--pz-pink-rgb)/0.9)]">ZONE</span>
+          </span>
+        </a>
+
         <div className="hidden lg:block">
-          <ul className="flex items-center justify-center space-x-6 text-lg font-semibold text-[#FF007A]">
+          <ul className="flex items-center justify-center gap-5 text-[0.95rem] font-bold text-white xl:gap-7">
             {menuItems.map((item) => {
               const href = localizedRoute(item.name, locale, localizedRoutes);
               const isActive = activePath === href;
-              const baseClasses = 'hover:underline transition-colors';
+              const baseClasses = 'relative py-2 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--pz-pink)] after:shadow-[0_0_14px_var(--pz-pink)] after:transition-transform hover:text-[var(--pz-pink)] hover:after:scale-x-100';
               const activeClasses = isActive
-                ? 'text-white underline decoration-[#FF007A] decoration-2 underline-offset-4'
+                ? 'text-[var(--pz-pink)] after:scale-x-100'
                 : '';
 
               return (
@@ -90,63 +102,45 @@ export default function MainMenu({ activePath }) {
           </ul>
         </div>
 
-        <div className="flex items-center justify-end px-4 lg:hidden">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:hidden">
+          <LanguageSwitcher />
           <button
             type="button"
             onClick={toggleMenu}
-            className="rounded-md p-2 text-[#FF007A] transition hover:text-[#00f7ff] focus:outline-none focus:ring-2 focus:ring-[#00f7ff] focus:ring-offset-2 focus:ring-offset-[#141422]"
-            aria-label="Open navigation menu"
+            className="rounded-full border border-[rgb(var(--pz-pink-rgb)/0.45)] bg-black/30 p-2 text-[var(--pz-pink)] shadow-[0_0_14px_rgb(var(--pz-pink-rgb)/0.32)] transition hover:text-[#00eaff] focus:outline-none focus:ring-2 focus:ring-[#00eaff]"
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-main-menu"
           >
-            <MenuIcon className="h-7 w-7" />
+            {isMenuOpen ? <CloseIcon className="h-7 w-7" /> : <MenuIcon className="h-7 w-7" />}
           </button>
         </div>
       </nav>
+    </header>
 
-      {/* Neon kék vonal közvetlenül a menü alatt */}
-      <div className="hidden w-full h-[1px] bg-[#00f7ff] shadow-[0_0_15px_#00f7ff] mt-4 lg:block" />
+    {isMenuOpen && (
+      <div
+        className="fixed inset-x-0 bottom-0 top-[72px] z-40 bg-black/45 backdrop-blur-md lg:hidden"
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+    )}
 
-      {isMenuOpen && (
-        <button
-          type="button"
-          className="fixed inset-0 z-40 bg-black/70 lg:hidden"
-          onClick={closeMenu}
-          aria-label="Close navigation menu"
-        />
-      )}
-
+    {isMenuOpen && (
       <aside
         id="mobile-main-menu"
-        className={`fixed top-0 right-0 z-50 flex h-full w-72 max-w-full flex-col bg-gradient-to-b from-[#141422] to-[#0a0a0f] shadow-[0_0_25px_rgba(0,247,255,0.3)] transition-transform duration-300 ease-in-out lg:hidden ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className="fixed inset-x-0 bottom-0 top-[72px] z-50 flex flex-col overflow-hidden border-t border-[#00eaff]/30 bg-transparent lg:hidden"
       >
-        <div className="flex items-center gap-3 border-b border-white/10 p-4">
-          <span className="text-lg font-semibold text-white">{t('menu.title', 'Menu')}</span>
-          <div className="ml-auto flex items-center gap-3">
-            <LanguageSwitcher />
-            <button
-              type="button"
-              onClick={closeMenu}
-              className="rounded-md p-2 text-[#FF007A] transition hover:text-[#00f7ff] focus:outline-none focus:ring-2 focus:ring-[#00f7ff] focus:ring-offset-2 focus:ring-offset-[#141422]"
-              aria-label="Close navigation menu"
-            >
-              <CloseIcon className="h-6 w-6" />
-            </button>
-          </div>
-        </div>
-
-        <nav className="flex-1 overflow-y-auto py-4">
+        <nav className="max-h-[calc(100dvh-72px)] overflow-y-auto border-b border-[rgb(var(--pz-pink-rgb)/0.28)] bg-[#060815]/98 py-4 shadow-[0_18px_46px_rgba(0,0,0,0.58)]">
           <ul className="space-y-1 px-4">
             {menuItems.map((item) => {
               const href = localizedRoute(item.name, locale, localizedRoutes);
               const isActive = activePath === href;
               const baseClasses =
-                'block rounded-lg px-4 py-3 text-lg font-semibold transition-colors duration-200';
+                'block rounded-xl border px-4 py-3 text-lg font-bold transition-colors duration-200';
               const activeClasses = isActive
-                ? 'text-[#00f7ff] shadow-[0_0_12px_rgba(0,247,255,0.35)] bg-white/5'
-                : 'text-gray-200 hover:text-[#00f7ff] hover:bg-white/5';
+                ? 'border-[#00eaff]/45 bg-[#00eaff]/10 text-[#00eaff] shadow-[0_0_16px_rgba(0,234,255,0.25)]'
+                : 'border-transparent text-gray-200 hover:border-[rgb(var(--pz-pink-rgb)/0.4)] hover:bg-white/5 hover:text-[#00eaff]';
 
               return (
                 <li key={item.name}>
@@ -161,24 +155,24 @@ export default function MainMenu({ activePath }) {
               );
             })}
           </ul>
+          <div className="mt-4 border-t border-[rgb(var(--pz-pink-rgb)/0.24)] pt-4">
+            <ul className="space-y-1">
+              {footerLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={localizedRoute(link.name, locale, localizedRoutes)}
+                    onClick={closeMenu}
+                    className="block rounded-lg px-4 py-2 text-base font-medium text-gray-300 transition-colors duration-200 hover:bg-white/5 hover:text-[#00eaff]"
+                  >
+                    {t(link.labelKey, link.fallback)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </nav>
-
-        <div className="border-t border-white/10 px-4 py-4">
-          <ul className="space-y-1">
-            {footerLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={localizedRoute(link.name, locale, localizedRoutes)}
-                  onClick={closeMenu}
-                  className="block rounded-lg px-4 py-2 text-base font-medium text-gray-300 transition-colors duration-200 hover:text-[#00f7ff] hover:bg-white/5"
-                >
-                  {t(link.labelKey, link.fallback)}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
       </aside>
-    </header>
+    )}
+    </>
   );
 }

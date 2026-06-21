@@ -45,21 +45,21 @@ export default function Contact() {
   return (
     <Layout>
       <Head title={contact.meta_title ?? t('menu.contact', 'Contact')} />
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-20 py-20">
-        <div className="rounded-2xl p-6 sm:p-10 text-center border-1 border-[#ff007a] bg-[#0a0a0f]/60 shadow-[0_0_30px_#ff007a55] backdrop-blur">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#FF007A] drop-shadow-[0_0_15px_#ff007a] relative">
+      <section className="pz-section max-w-6xl">
+        <div className="pz-panel rounded-[2rem] p-6 text-center sm:p-10">
+          <h2 className="pz-title relative text-3xl font-black sm:text-5xl">
             {contact.title}
-            <span className="after:content-[''] after:block after:w-24 after:h-1 after:bg-[#00f7ff] after:mx-auto after:mt-4 after:rounded-full"></span>
+            <span className="pz-rule mx-auto mt-5"></span>
           </h2>
 
           {/* Flash üzenetek */}
           {Object.keys(errors).length > 0 && (
-            <div className="mt-8 p-4 rounded-lg bg-red-900/50 border border-red-500 text-red-300 shadow-[0_0_10px_#ff0000]">
+            <div className="mt-8 rounded-lg border border-red-400/50 bg-red-500/10 p-4 text-red-200 shadow-[0_0_18px_rgb(var(--pz-pink-rgb)/0.22)]">
               Kérlek javítsd a hibákat a mezőkben.
             </div>
           )}
 
-          <div className="mt-12  rounded-xl px-6 sm:px-10 md:px-16 py-10 sm:py-12 max-w-5xl mx-auto">
+          <div className="mx-auto mt-12 max-w-5xl rounded-2xl border border-[#00eaff]/15 bg-black/18 px-6 py-10 sm:px-10 sm:py-12 md:px-16">
             <form className="space-y-6 w-full" onSubmit={handleSubmit}>
               {/* Név + Email */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -67,8 +67,7 @@ export default function Contact() {
                   <input
                     type="text"
                     placeholder={fields.name?.placeholder}
-                    className="w-full rounded-lg bg-transparent border border-gray-600 p-3 text-gray-200 placeholder-gray-400 
-                               focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] focus:placeholder-transparent transition"
+                    className="pz-input"
                     required
                     value={formData.name}
                     onChange={handleChange('name')}
@@ -83,8 +82,7 @@ export default function Contact() {
                   <input
                     type="email"
                     placeholder={fields.email?.placeholder}
-                    className="w-full rounded-lg bg-transparent border border-gray-600 p-3 text-gray-200 placeholder-gray-400 
-                               focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] focus:placeholder-transparent transition"
+                    className="pz-input"
                     required
                     value={formData.email}
                     onChange={handleChange('email')}
@@ -111,8 +109,7 @@ export default function Contact() {
                     inputMode="numeric"
                     pattern="[0-9]*"
                     maxLength={20}
-                    className="w-full rounded-lg bg-transparent border border-gray-600 p-3 pl-8 text-gray-200 placeholder-gray-400 
-                               focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] focus:placeholder-transparent transition"
+                    className="pz-input pl-8"
                     value={formData.phone}
                     onChange={handleChange('phone')}
                     aria-invalid={errors.phone ? 'true' : 'false'}
@@ -128,8 +125,7 @@ export default function Contact() {
                 <textarea
                   placeholder={fields.message?.placeholder}
                   rows="5"
-                  className="w-full rounded-lg bg-transparent border border-gray-600 p-3 text-gray-200 placeholder-gray-400 
-                             focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] focus:placeholder-transparent transition"
+                  className="pz-input"
                   required
                   value={formData.message}
                   onChange={handleChange('message')}
@@ -144,9 +140,7 @@ export default function Contact() {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="w-full md:w-auto px-10 py-3 rounded-lg font-semibold bg-gradient-to-r from-[#ff007a] to-[#ff4da6] 
-                             text-white shadow-[0_0_20px_#ff007a] hover:shadow-[0_0_40px_#ff007a] hover:scale-105 active:scale-95 
-                             transition-transform duration-200 disabled:cursor-not-allowed disabled:opacity-70"
+                  className="pz-button w-full disabled:cursor-not-allowed disabled:opacity-70 md:w-auto"
                   disabled={processing}
                 >
                   {processing ? buttonLabels.processing : buttonLabels.default}

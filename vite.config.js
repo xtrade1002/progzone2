@@ -40,19 +40,11 @@ export default defineConfig(({ mode }) => {
                 protocol: useHttps ? 'wss' : 'ws',
             },
         },
-        optimizeDeps: {
-            include: [
-                '@mui/material',
-                '@emotion/react',
-                '@emotion/styled',
-            ],
-        },
         build: {
             rollupOptions: {
                 output: {
                     manualChunks: {
                         react: ['react', 'react-dom'],
-                        mui: ['@mui/material', '@emotion/react', '@emotion/styled'],
                     },
                 },
 

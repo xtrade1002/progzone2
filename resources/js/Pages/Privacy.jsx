@@ -11,14 +11,16 @@ export default function Privacy() {
   return (
     <Layout>
       <Head title={privacy.meta_title ?? t('menu.privacy', 'Privacy')} />
-      <section className="max-w-4xl mx-auto px-6 py-16 space-y-6">
-        <h1 className="text-3xl font-bold text-[#FF007A]">{privacy.title}</h1>
-        <p className="text-lg text-gray-300">{privacy.intro}</p>
-        <ul className="space-y-2 list-disc list-inside text-gray-300">
-          {bullets.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
+      <section className="pz-section max-w-4xl">
+        <div className="pz-panel rounded-[2rem] p-6 sm:p-10">
+          <h1 className="pz-title mb-6 text-3xl font-black sm:text-4xl">{privacy.title}</h1>
+          <p className="text-lg leading-relaxed text-slate-300">{privacy.intro}</p>
+          <ul className="mt-8 list-inside list-disc space-y-3 text-slate-300">
+            {bullets.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
       </section>
     </Layout>
   );

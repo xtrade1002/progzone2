@@ -11,14 +11,16 @@ export default function Terms() {
   return (
     <Layout>
       <Head title={terms.meta_title ?? t('menu.terms', 'Terms')} />
-      <section className="max-w-4xl mx-auto px-6 py-16 space-y-6">
-        <h1 className="text-3xl font-bold text-[#FF007A]">{terms.title}</h1>
-        <p className="text-lg text-gray-300">{terms.intro}</p>
-        <ol className="space-y-2 list-decimal list-inside text-gray-300">
-          {items.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ol>
+      <section className="pz-section max-w-4xl">
+        <div className="pz-panel rounded-[2rem] p-6 sm:p-10">
+          <h1 className="pz-title mb-6 text-3xl font-black sm:text-4xl">{terms.title}</h1>
+          <p className="text-lg leading-relaxed text-slate-300">{terms.intro}</p>
+          <ol className="mt-8 list-inside list-decimal space-y-3 text-slate-300">
+            {items.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ol>
+        </div>
       </section>
     </Layout>
   );

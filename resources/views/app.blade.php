@@ -6,13 +6,20 @@
 
       <title>{{ config('app.name', 'Progzone') }}</title>
 
-      <link rel="preconnect" href="https://fonts.bunny.net">
-      <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+      <link
+        rel="preload"
+        as="image"
+        href="/img/progzone-neon-portrait-lcp.jpg"
+        imagesrcset="/img/progzone-neon-portrait-lcp.jpg 402w"
+        imagesizes="(max-width: 640px) 248px, (max-width: 1023px) 310px, 390px"
+        fetchpriority="high"
+      >
 
+      @viteReactRefresh
       @vite(['resources/css/app.css', 'resources/js/app.jsx'])
       @inertiaHead
   </head>
-  <body class="bg-gradient-to-br from-[#0a0a0f] via-[#141422] to-[#0a0a0f] text-white font-sans antialiased">
+  <body class="bg-[#02040c] text-white font-sans antialiased">
       @inertia
   </body>
 </html>

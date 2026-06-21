@@ -60,8 +60,8 @@ export default function Prices(props) {
     return (
       <Layout>
         <Head title={tr.meta_title ?? t('menu.prices', 'Prices')} />
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
-          <div className="bg-[#121317] border border-red-500/50 rounded-2xl p-6 sm:p-10 text-gray-200 space-y-6">
+        <section className="pz-section max-w-3xl">
+          <div className="space-y-6 rounded-2xl border border-red-400/50 bg-red-500/10 p-6 text-red-100 shadow-[0_0_24px_rgba(248,113,113,0.16)] sm:p-10">
             <h1 className="text-2xl font-bold text-[#FF007A] flex items-center gap-2">
               <span role="img" aria-hidden="true">
                 ⚠️
@@ -166,7 +166,7 @@ export default function Prices(props) {
     return (
       <li
         key={key}
-        className="border border-[#ff007a]/50 rounded-2xl p-6 sm:p-8 bg-[#121317] hover:shadow-[0_0_30px_#ff007a] transition duration-300"
+        className="pz-card rounded-2xl p-6 sm:p-8"
       >
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 w-full">
           <div className="flex-1 min-w-0">
@@ -224,10 +224,10 @@ export default function Prices(props) {
   return (
     <Layout>
       <Head title={tr.meta_title ?? t('menu.prices', 'Prices')} />
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
-        <div className="rounded-2xl p-4 sm:p-10">
+      <section className="pz-section max-w-5xl">
+        <div className="pz-panel rounded-[2rem] p-5 sm:p-10">
           {tr.title && (
-            <h1 className="text-3xl font-bold text-center text-[#FF007A]">
+            <h1 className="pz-title text-center text-3xl font-black sm:text-4xl">
               {tr.title}
             </h1>
           )}

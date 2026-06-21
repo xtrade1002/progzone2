@@ -5,8 +5,8 @@ import route, { localizedRoute } from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
 
 const inputClasses =
-  'w-full rounded-lg border border-gray-600 bg-transparent p-3 text-gray-200 focus:border-[#FF007A] focus:ring-2 focus:ring-[#FF007A] outline-none transition';
-const selectClasses = inputClasses.replace('bg-transparent', 'bg-[#151522]');
+  'pz-input';
+const selectClasses = 'pz-input bg-[#090d1d]';
 
 const addDays = (date, days) => {
   const nextDate = new Date(date);
@@ -116,12 +116,12 @@ export default function QuoteRequest() {
   return (
     <Layout>
       <Head title={quote.meta_title ?? t('menu.quote', 'Quote request')} />
-      <section className="w-full px-6 py-20">
-        <div className="mx-auto max-w-5xl rounded-2xl border-1 border-[#ff007a]/30 bg-black/30 p-10 shadow-[0_0_45px_rgba(255,0,122,0.18)]">
+      <section className="pz-section max-w-6xl">
+        <div className="pz-panel rounded-[2rem] p-6 sm:p-10">
           <div className="mb-12 space-y-4 text-center">
-            <h2 className="text-5xl sm:text-4xl font-extrabold text-[#FF007A] drop-shadow-[0_0_20px_#ff007a]">
+            <h2 className="pz-title text-4xl font-black sm:text-5xl">
               {quote.title}
-              <span className="after:content-[''] after:block after:w-24 after:h-1 after:bg-[#00f7ff] after:mx-auto after:mt-4 after:rounded-full"></span>
+              <span className="pz-rule mx-auto mt-5"></span>
             </h2>
             {introParagraphs.map((paragraph, index) => (
               <p key={index} className="text-lg text-gray-300">
@@ -474,7 +474,7 @@ export default function QuoteRequest() {
             <div className="flex flex-col items-stretch sm:flex-row sm:justify-end">
               <button
                 type="submit"
-                className="rounded-lg bg-[#FF007A] px-8 py-3 font-semibold text-white shadow-[0_0_25px_#ff007a] transition hover:shadow-[0_0_40px_#ff007a] disabled:cursor-not-allowed disabled:opacity-70"
+                className="pz-button disabled:cursor-not-allowed disabled:opacity-70"
                 disabled={processing}
               >
                 {processing

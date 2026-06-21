@@ -34,8 +34,6 @@ services:
       MYSQL_ROOT_PASSWORD: progzone2
       MYSQL_USER: progzone2
       MYSQL_PASSWORD: progzone2
-    ports:
-      - "3309:3306"
     volumes:
       - dbdata:/var/lib/mysql
 

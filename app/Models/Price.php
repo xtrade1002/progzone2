@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
 
 class Price extends Model
@@ -78,7 +79,12 @@ class Price extends Model
 
         if (! array_key_exists($column, $columnCache)) {
             $model = new static();
-            $columnCache[$column] = Schema::hasColumn($model->getTable(), $column);
+            $table = $model->getTable();
+
+            $columnCache[$column] = Cache::rememberForever(
+                "schema-has-column:{$model->getConnectionName()}:{$table}:{$column}",
+                fn () => Schema::hasColumn($table, $column)
+            );
         }
 
         return $columnCache[$column];

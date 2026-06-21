@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\DomainSetting;
 use App\Support\LocalizedRoutes;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Middleware;
@@ -40,6 +41,17 @@ class HandleInertiaRequests extends Middleware
 
     protected function resolveContactEmail(?string $domain): ?string
     {
+        if ($domain === null) {
+            return $this->fallbackContactEmail();
+        }
+
+        return Cache::remember("domain-contact-email:{$domain}", now()->addMinutes(10), function () use ($domain) {
+            return $this->resolveContactEmailFromDatabase($domain);
+        });
+    }
+
+    protected function resolveContactEmailFromDatabase(?string $domain): ?string
+    {
         $candidates = collect([$domain])
             ->merge($this->fallbackDomains($domain))
             ->push(null)
@@ -65,7 +77,7 @@ class HandleInertiaRequests extends Middleware
 
                 $email = $query->value('contact_email');
             } catch (Throwable) {
-                return config('mail.from.address');
+                return $this->fallbackContactEmail();
             }
 
             if (is_string($email) && $email !== '') {
@@ -73,7 +85,13 @@ class HandleInertiaRequests extends Middleware
             }
         }
 
-        return config('mail.from.address');
+        return $this->fallbackContactEmail();
+    }
+
+    protected function fallbackContactEmail(): ?string
+    {
+        return config('mail.default_domain_mailer.from.address')
+            ?? config('mail.from.address');
     }
 
     protected function fallbackDomains(?string $currentDomain): array

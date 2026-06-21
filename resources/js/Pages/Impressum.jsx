@@ -51,10 +51,10 @@ export default function Impressum() {
   return (
     <Layout>
       <Head title={impressum.meta_title ?? t('menu.impressum', 'Impressum')} />
-      <section className="max-w-3xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold text-center text-[#FF007A] mb-10">{impressum.title}</h1>
+      <section className="pz-section max-w-3xl">
+        <h1 className="pz-title mb-10 text-center text-4xl font-black">{impressum.title}</h1>
 
-        <div className="bg-[#121317] border border-[#ff007a]/40 rounded-2xl p-8 shadow-[0_0_25px_#ff007a]/30 space-y-4 text-lg text-gray-300">
+        <div className="pz-panel space-y-4 rounded-[2rem] p-8 text-lg text-slate-300">
           {resolvedDetails.map((item, index) => (
             <p key={index}>
               <span className="font-semibold text-white">{item.label}</span>{' '}

@@ -3,6 +3,25 @@ import { Head } from "@inertiajs/react";
 import Layout from "../Components/Layout.jsx";
 import useTranslations from "../lib/useTranslations.js";
 
+const ChevronIcon = ({ className, direction = "down" }) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d={direction === "up" ? "m18 15-6-6-6 6" : "m6 9 6 6 6-6"} />
+  </svg>
+);
+
+const ChevronDown = (props) => <ChevronIcon {...props} />;
+const ChevronUp = (props) => <ChevronIcon {...props} direction="up" />;
+
 export default function Infos() {
   const { trans, t } = useTranslations();
   const infos = trans?.infos ?? {};
@@ -66,10 +85,10 @@ export default function Infos() {
 
     return (
       <div className="mb-12" key={section?.key ?? title}>
-        <h2 className="text-2xl font-bold text-center text-[#00f7ff] mb-6 drop-shadow-[0_0_10px_#00f7ff]">
+        <h2 className="pz-cyan mb-6 text-center text-2xl font-black">
           {title || t("menu.infos", "Infos")}
         </h2>
-        <div className="divide-y divide-gray-700">
+        <div className="overflow-hidden rounded-2xl border border-[#00eaff]/20 bg-black/18">
           {items.map((item, index) => {
             const itemIndex = startIndex + index;
             const contentBlocks = Array.isArray(item?.content)
@@ -79,20 +98,21 @@ export default function Infos() {
               : [];
 
             return (
-              <div key={itemIndex}>
+              <div key={itemIndex} className="border-b border-[#00eaff]/12 last:border-b-0">
                 <button
-                  className="w-full flex justify-between items-center py-4 text-left text-lg font-semibold text-[#FF007A] hover:text-[#00f7ff] transition"
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-lg font-bold text-[var(--pz-pink)] transition hover:bg-[#00eaff]/8 hover:text-[#00eaff]"
                   onClick={() => toggleItem(itemIndex)}
                 >
                   <span>{item?.title ?? t("menu.infos", "Infos")}</span>
-                  <span
-                    aria-hidden="true"
-                    className={`chevron-icon ${openIndex === itemIndex ? "chevron-icon--up" : "chevron-icon--down"}`}
-                  />
+                  {openIndex === itemIndex ? (
+                    <ChevronUp className="w-5 h-5" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5" />
+                  )}
                 </button>
                 {openIndex === itemIndex && (
-                  <div className="pb-6 pt-2">
-                    <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <div className="px-5 pb-6 pt-2">
+                    <div className="space-y-4 leading-relaxed text-slate-300">
                       {contentBlocks.map((block, contentIndex) =>
                         renderContentBlock(block, contentIndex)
                       )}
@@ -112,7 +132,10 @@ export default function Infos() {
   return (
     <Layout>
       <Head title={infos.meta_title ?? t("menu.infos", "Infos")} />
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      <section className="pz-section max-w-5xl">
+        <h1 className="pz-title mb-12 text-center text-4xl font-black">
+          {t("menu.infos", "Infos")}
+        </h1>
         {sections.length > 0 ? (
           sections.map((section) => {
             const renderedSection = renderSection(section, itemOffset);
@@ -123,7 +146,7 @@ export default function Infos() {
             return renderedSection;
           })
         ) : (
-          <p className="text-center text-gray-300">
+          <p className="text-center text-slate-300">
             {t("infos.empty", "Content will be available soon.")}
           </p>
         )}

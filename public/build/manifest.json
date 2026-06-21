@@ -1,31 +1,170 @@
 {
-  "_mui-Cc0pJSN_.js": {
-    "file": "assets/mui-Cc0pJSN_.js",
-    "name": "mui",
+  "_Layout-nrSmXYeW.js": {
+    "file": "assets/Layout-nrSmXYeW.js",
+    "name": "Layout",
     "imports": [
-      "_react-ClZwdvRs.js"
+      "resources/js/app.jsx"
     ]
   },
-  "_react-ClZwdvRs.js": {
-    "file": "assets/react-ClZwdvRs.js",
+  "_constants-CHKLk53u.js": {
+    "file": "assets/constants-CHKLk53u.js",
+    "name": "constants"
+  },
+  "_react-CjZsb-BP.js": {
+    "file": "assets/react-CjZsb-BP.js",
     "name": "react"
   },
   "resources/css/app.css": {
-    "file": "assets/app-BvGI57wM.css",
+    "file": "assets/app-bDTU8LfJ.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
       "app.css"
     ]
   },
+  "resources/js/Pages/AboutMe.jsx": {
+    "file": "assets/AboutMe-qN_9dEmX.js",
+    "name": "AboutMe",
+    "src": "resources/js/Pages/AboutMe.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
+  "resources/js/Pages/Contact.jsx": {
+    "file": "assets/Contact-DeSKcW4S.js",
+    "name": "Contact",
+    "src": "resources/js/Pages/Contact.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
+  "resources/js/Pages/Home.jsx": {
+    "file": "assets/Home-kM9pNwFi.js",
+    "name": "Home",
+    "src": "resources/js/Pages/Home.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
+  "resources/js/Pages/Impressum.jsx": {
+    "file": "assets/Impressum-DvVVeAfk.js",
+    "name": "Impressum",
+    "src": "resources/js/Pages/Impressum.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_constants-CHKLk53u.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
+  "resources/js/Pages/Infos.jsx": {
+    "file": "assets/Infos-p2xd4sYt.js",
+    "name": "Infos",
+    "src": "resources/js/Pages/Infos.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
+  "resources/js/Pages/Prices.jsx": {
+    "file": "assets/Prices-BCKTsvRR.js",
+    "name": "Prices",
+    "src": "resources/js/Pages/Prices.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_constants-CHKLk53u.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
+  "resources/js/Pages/Privacy.jsx": {
+    "file": "assets/Privacy-TrPTQoOn.js",
+    "name": "Privacy",
+    "src": "resources/js/Pages/Privacy.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
+  "resources/js/Pages/QuoteRequest.jsx": {
+    "file": "assets/QuoteRequest-BQJCRy-C.js",
+    "name": "QuoteRequest",
+    "src": "resources/js/Pages/QuoteRequest.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
+  "resources/js/Pages/References.jsx": {
+    "file": "assets/References-D-0UU-G4.js",
+    "name": "References",
+    "src": "resources/js/Pages/References.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
+  "resources/js/Pages/Services.jsx": {
+    "file": "assets/Services-CirJaR4j.js",
+    "name": "Services",
+    "src": "resources/js/Pages/Services.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
+  "resources/js/Pages/Terms.jsx": {
+    "file": "assets/Terms-B40eRLdX.js",
+    "name": "Terms",
+    "src": "resources/js/Pages/Terms.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-nrSmXYeW.js",
+      "_react-CjZsb-BP.js"
+    ]
+  },
   "resources/js/app.jsx": {
-    "file": "assets/app-BdcpjBEh.js",
+    "file": "assets/app-CDeWlDaO.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
     "imports": [
-      "_mui-Cc0pJSN_.js",
-      "_react-ClZwdvRs.js"
+      "_react-CjZsb-BP.js"
+    ],
+    "dynamicImports": [
+      "resources/js/Pages/AboutMe.jsx",
+      "resources/js/Pages/Contact.jsx",
+      "resources/js/Pages/Home.jsx",
+      "resources/js/Pages/Impressum.jsx",
+      "resources/js/Pages/Infos.jsx",
+      "resources/js/Pages/Prices.jsx",
+      "resources/js/Pages/Privacy.jsx",
+      "resources/js/Pages/QuoteRequest.jsx",
+      "resources/js/Pages/References.jsx",
+      "resources/js/Pages/Services.jsx",
+      "resources/js/Pages/Terms.jsx"
     ]
   }
 }
