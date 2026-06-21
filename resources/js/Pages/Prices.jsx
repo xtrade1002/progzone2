@@ -32,7 +32,7 @@ export default function Prices(props) {
   // Fordítási kulcs → adatbázis slug leképezés
   const slugMap = {
     wordpress: ['wordpress', 'wordpress-website', 'wordpress_website'],
-    webshop: ['woocommerce', 'woocommerce-2'],
+    webshop: ['woocommerce', 'woocommerce-2', 'webshop', 'webshop-woocommerce', 'online-shop'],
     custom: ['egyedifejlesztes', 'custom'],
     marketing: ['marketing', 'marketing-2'],
   };
@@ -41,7 +41,7 @@ export default function Prices(props) {
     domain_price: ['domain', 'domain_price'],
     hosting_price: ['hosting', 'hosting_price'],
     plugin_price: ['plugin', 'plugin_price'],
-    hourly_rate: ['extraFunctionsDev', 'hourly_rate'],
+    hourly_rate: ['extraFunctionsDev', 'extrafunctionsdev', 'hourly_rate'],
   };
 
   const resolvePriceObject = (keys) => {
@@ -112,14 +112,20 @@ export default function Prices(props) {
       return '';
     }
 
+    const normalizePriceText = (value) =>
+      String(value ?? '').toLowerCase().replace(/\s+/g, '');
+
+    const formattedNormalized = normalizePriceText(formattedNumber);
     const currencyClean = typeof currency === 'string' ? currency.trim() : '';
-    const currencyPart = currencyClean ? ` ${currencyClean}` : '';
+    const shouldAppendCurrency =
+      currencyClean && !formattedNormalized.includes(normalizePriceText(currencyClean));
+    const currencyPart = shouldAppendCurrency ? ` ${currencyClean}` : '';
 
     let extrasClean = typeof extras === 'string' ? extras.trim() : '';
     extrasClean = extrasClean.replace(/^\/\s+/, '/').replace(/^-\s+/, '-');
 
     let extrasPart = '';
-    if (extrasClean) {
+    if (extrasClean && !formattedNormalized.includes(normalizePriceText(extrasClean))) {
       extrasPart = extrasClean.startsWith('/') || extrasClean.startsWith('-')
         ? extrasClean
         : ` ${extrasClean}`;
@@ -128,7 +134,7 @@ export default function Prices(props) {
     return `${formattedNumber}${currencyPart}${extrasPart}`.trim();
   };
 
-  // Helyőrzők cseréje (kezeli a {key}, :key, ({key}) formátumokat is)
+  // Helyőrzők cseréje (kezeli a {{key}}, {key}, :key, és zárójeles formátumokat is)
   const replacePlaceholders = (text) => {
     if (!text) return text;
 
@@ -141,7 +147,9 @@ export default function Prices(props) {
       if (!value) return;
 
       const replacements = [
+        { search: `({{${placeholder}}})`, replaceWith: `(${value})` },
         { search: `({${placeholder}})`, replaceWith: `(${value})` },
+        { search: `{{${placeholder}}}`, replaceWith: value },
         { search: `{${placeholder}}`, replaceWith: value },
         { search: `:${placeholder}`, replaceWith: value },
       ];

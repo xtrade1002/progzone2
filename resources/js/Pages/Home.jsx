@@ -138,6 +138,10 @@ export default function Home() {
       'TÃ¶bb Ã©ves tapasztalat',
       'Teljes kÃ¶rÅ± Ã¼gyfÃ©ltÃ¡mogatÃ¡s',
     ];
+  const isGermanLocale = typeof locale === 'string' && locale.toLowerCase().startsWith('de');
+  const homePageClassName = isGermanLocale
+    ? 'pz-home-page pz-home-page--de'
+    : 'pz-home-page';
 
   return (
     <Layout>
@@ -198,6 +202,10 @@ export default function Home() {
           align-items: center;
           gap: 48px;
           padding: 70px 0 110px;
+        }
+
+        .pz-home-hero__inner > div {
+          min-width: 0;
         }
 
         .pz-neon-badge {
@@ -405,6 +413,48 @@ export default function Home() {
           height: 100%;
           object-fit: cover;
           object-position: center top;
+        }
+
+        .pz-home-page--de .pz-home-hero__inner {
+          grid-template-columns: minmax(0, 1fr) minmax(390px, 0.82fr);
+          gap: 36px;
+        }
+
+        .pz-home-page--de .pz-home-hero__title {
+          max-width: 720px;
+          font-size: clamp(44px, 5.6vw, 78px);
+          letter-spacing: -0.055em;
+        }
+
+        .pz-home-page--de .pz-home-typewriter {
+          width: min(640px, 100%);
+        }
+
+        .pz-home-page--de .pz-home-hero__visual {
+          justify-items: end;
+          overflow: visible;
+        }
+
+        .pz-home-page--de .pz-home-portrait-frame {
+          width: min(390px, 100%);
+          height: 590px;
+          transform: perspective(900px) rotateY(-4deg) translateX(-8px);
+        }
+
+        .pz-home-page--de .pz-hero-geometry {
+          width: 108%;
+          right: -3%;
+        }
+
+        @media (max-width: 1280px) {
+          .pz-home-page--de .pz-home-hero__title {
+            font-size: clamp(42px, 5.15vw, 70px);
+          }
+
+          .pz-home-page--de .pz-home-portrait-frame {
+            width: min(360px, 100%);
+            height: 560px;
+          }
         }
 
         .pz-hero-light-trails,
@@ -711,6 +761,15 @@ export default function Home() {
             text-align: center;
           }
 
+          .pz-home-page--de .pz-home-hero__inner {
+            grid-template-columns: 1fr;
+          }
+
+          .pz-home-page--de .pz-home-hero__title {
+            max-width: 100%;
+            font-size: clamp(36px, 8vw, 56px);
+          }
+
           .pz-home-hero__lead,
           .pz-home-typewriter,
           .pz-home-hero__actions,
@@ -721,6 +780,12 @@ export default function Home() {
           }
 
           .pz-home-portrait-frame {
+            height: 520px;
+            transform: none;
+          }
+
+          .pz-home-page--de .pz-home-portrait-frame {
+            width: min(430px, 88vw);
             height: 520px;
             transform: none;
           }
@@ -914,7 +979,7 @@ export default function Home() {
         }
       `}</style>
 
-      <main className="pz-home-page">
+      <main className={homePageClassName}>
         <section className="pz-home-hero">
           <svg className="pz-hero-light-trails" viewBox="0 0 1440 660" preserveAspectRatio="none" aria-hidden="true">
             <path className="pz-neon-path pz-cyan-stroke" d="M-80 470 C 160 350, 290 415, 440 280 S 760 80, 1010 205 S 1260 420, 1520 285" />

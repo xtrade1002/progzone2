@@ -1,4 +1,4 @@
-import{u as _,j as e,H as y,r as x}from"./app-CKbNX6-b.js";import{u as k,L as j,l as z}from"./Layout-Cdt1j-L9.js";import"./react-CjZsb-BP.js";const v=[{title:"Webdesign",text:"Egyedi, modern és reszponzív design, ami kiemel a versenytársak közül.",icon:"M5 6h14v9H5z M9 19h6 M12 15v4 M15 4l5-2-2 5-8 8H8v-2l7-9z"},{title:"Webshop készítés",text:"Professzionális webshop WooCommerce vagy egyedi megoldásokkal.",icon:"M6 6h15l-2 8H8L6 3H3 M9 20h.01 M18 20h.01"},{title:"Webfejlesztés",text:"HTML, CSS, JavaScript, PHP és Laravel alapú fejlesztések.",icon:"M8 8 4 12l4 4 M16 8l4 4-4 4 M14 5l-4 14"},{title:"SEO & Marketing",text:"Keresőoptimalizálás és online marketing a jobb helyezésekért.",icon:"M12 3c3.2 1.2 5.2 3.5 6 7-3.5.8-5.8 2.8-7 6-3.2-1.2-5.2-3.5-6-7 3.5-.8 5.8-2.8 7-6z"},{title:"Online Marketing",text:"Célzott kampányok, Google Ads, Facebook és Instagram hirdetések.",icon:"M4 12h4l9-5v10l-9-5H4z M18 9c1.5 1.5 1.5 4.5 0 6"},{title:"Támogatás & Karbantartás",text:"Folyamatos támogatás, frissítések és biztonsági karbantartás.",icon:"M5 13a7 7 0 0 1 14 0v4a2 2 0 0 1-2 2h-2v-6h4 M5 13h4v6H7a2 2 0 0 1-2-2z"}],N=({path:i})=>e.jsx("svg",{className:"h-12 w-12",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"1.8",strokeLinecap:"round",strokeLinejoin:"round","aria-hidden":"true",children:i.split(" M").map((a,p)=>e.jsx("path",{d:p===0?a:`M${a}`},p))}),u=v.map(i=>i.icon),M=({words:i})=>{const a=x.useMemo(()=>i.filter(l=>typeof l=="string"&&l.trim().length>0),[i]),[p,b]=x.useState(0),[o,r]=x.useState(0),[s,g]=x.useState(!1);if(x.useEffect(()=>{if(a.length===0)return;if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){r(Array.from(a[0]).length);return}const f=Array.from(a[p]).length,m=!s&&o===f,d=s&&o===0,n=m?1250:d?260:s?46:78,w=window.setTimeout(()=>{if(m){g(!0);return}if(d){g(!1),b(t=>(t+1)%a.length);return}r(t=>t+(s?-1:1))},n);return()=>window.clearTimeout(w)},[s,o,a,p]),a.length===0)return null;const h=Array.from(a[p]).slice(0,o).join("");return e.jsxs("div",{className:"pz-home-typewriter","aria-live":"polite",children:[e.jsx("span",{className:"pz-home-typewriter__prompt","aria-hidden":"true",children:">"}),e.jsx("span",{className:"pz-home-typewriter__text",children:h}),e.jsx("span",{className:"pz-home-typewriter__cursor","aria-hidden":"true"})]})};function C(){const{locale:i,trans:a,t:p}=k(),{props:b}=_(),o=b?.localizedRoutes,r=a?.home??{},s=Array.isArray(r.paragraphs)?r.paragraphs:[],g=Array.isArray(r.typewriter)?r.typewriter:["Webshop készítés","Weboldal készítés","Online marketing","Egyedi fejlesztés"],h=r.hero_title??{},l=r.hero_actions??{},f=Array.isArray(r.chips)?r.chips:["Modern design","Gyors betÃ¶ltÃ©s","MobilbarÃ¡t"],m=(Array.isArray(r.service_items)&&r.service_items.length>0?r.service_items:v).map((t,c)=>({...t,icon:u[c]??u[0]})),d=r.services_title??{},n=r.why??{},w=Array.isArray(n.items)?n.items:["Egyedi, igÃ©nyre szabott megoldÃ¡sok","Gyors Ã©s megbÃ­zhatÃ³ munkavÃ©gzÃ©s","Korrekt Ã¡rak, rejtett kÃ¶ltsÃ©gek nÃ©lkÃ¼l","TÃ¶bb Ã©ves tapasztalat","Teljes kÃ¶rÅ± Ã¼gyfÃ©ltÃ¡mogatÃ¡s"];return e.jsxs(j,{children:[e.jsx(y,{title:r.meta_title??p("menu.home","Home")}),e.jsx("style",{children:`
+import{u as k,j as e,H as j,r as x}from"./app-Du3IM3Uh.js";import{u as N,L as M,l as b}from"./Layout-CgwcsQMq.js";import"./react-BNHlNYj8.js";const _=[{title:"Webdesign",text:"Egyedi, modern és reszponzív design, ami kiemel a versenytársak közül.",icon:"M5 6h14v9H5z M9 19h6 M12 15v4 M15 4l5-2-2 5-8 8H8v-2l7-9z"},{title:"Webshop készítés",text:"Professzionális webshop WooCommerce vagy egyedi megoldásokkal.",icon:"M6 6h15l-2 8H8L6 3H3 M9 20h.01 M18 20h.01"},{title:"Webfejlesztés",text:"HTML, CSS, JavaScript, PHP és Laravel alapú fejlesztések.",icon:"M8 8 4 12l4 4 M16 8l4 4-4 4 M14 5l-4 14"},{title:"SEO & Marketing",text:"Keresőoptimalizálás és online marketing a jobb helyezésekért.",icon:"M12 3c3.2 1.2 5.2 3.5 6 7-3.5.8-5.8 2.8-7 6-3.2-1.2-5.2-3.5-6-7 3.5-.8 5.8-2.8 7-6z"},{title:"Online Marketing",text:"Célzott kampányok, Google Ads, Facebook és Instagram hirdetések.",icon:"M4 12h4l9-5v10l-9-5H4z M18 9c1.5 1.5 1.5 4.5 0 6"},{title:"Támogatás & Karbantartás",text:"Folyamatos támogatás, frissítések és biztonsági karbantartás.",icon:"M5 13a7 7 0 0 1 14 0v4a2 2 0 0 1-2 2h-2v-6h4 M5 13h4v6H7a2 2 0 0 1-2-2z"}],L=({path:t})=>e.jsx("svg",{className:"h-12 w-12",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"1.8",strokeLinecap:"round",strokeLinejoin:"round","aria-hidden":"true",children:t.split(" M").map((a,p)=>e.jsx("path",{d:p===0?a:`M${a}`},p))}),v=_.map(t=>t.icon),S=({words:t})=>{const a=x.useMemo(()=>t.filter(h=>typeof h=="string"&&h.trim().length>0),[t]),[p,f]=x.useState(0),[o,r]=x.useState(0),[s,g]=x.useState(!1);if(x.useEffect(()=>{if(a.length===0)return;if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){r(Array.from(a[0]).length);return}const w=Array.from(a[p]).length,m=!s&&o===w,d=s&&o===0,n=m?1250:d?260:s?46:78,u=window.setTimeout(()=>{if(m){g(!0);return}if(d){g(!1),f(z=>(z+1)%a.length);return}r(z=>z+(s?-1:1))},n);return()=>window.clearTimeout(u)},[s,o,a,p]),a.length===0)return null;const l=Array.from(a[p]).slice(0,o).join("");return e.jsxs("div",{className:"pz-home-typewriter","aria-live":"polite",children:[e.jsx("span",{className:"pz-home-typewriter__prompt","aria-hidden":"true",children:">"}),e.jsx("span",{className:"pz-home-typewriter__text",children:l}),e.jsx("span",{className:"pz-home-typewriter__cursor","aria-hidden":"true"})]})};function H(){const{locale:t,trans:a,t:p}=N(),{props:f}=k(),o=f?.localizedRoutes,r=a?.home??{},s=Array.isArray(r.paragraphs)?r.paragraphs:[],g=Array.isArray(r.typewriter)?r.typewriter:["Webshop készítés","Weboldal készítés","Online marketing","Egyedi fejlesztés"],l=r.hero_title??{},h=r.hero_actions??{},w=Array.isArray(r.chips)?r.chips:["Modern design","Gyors betÃ¶ltÃ©s","MobilbarÃ¡t"],m=(Array.isArray(r.service_items)&&r.service_items.length>0?r.service_items:_).map((i,c)=>({...i,icon:v[c]??v[0]})),d=r.services_title??{},n=r.why??{},u=Array.isArray(n.items)?n.items:["Egyedi, igÃ©nyre szabott megoldÃ¡sok","Gyors Ã©s megbÃ­zhatÃ³ munkavÃ©gzÃ©s","Korrekt Ã¡rak, rejtett kÃ¶ltsÃ©gek nÃ©lkÃ¼l","TÃ¶bb Ã©ves tapasztalat","Teljes kÃ¶rÅ± Ã¼gyfÃ©ltÃ¡mogatÃ¡s"],y=typeof t=="string"&&t.toLowerCase().startsWith("de")?"pz-home-page pz-home-page--de":"pz-home-page";return e.jsxs(M,{children:[e.jsx(j,{title:r.meta_title??p("menu.home","Home")}),e.jsx("style",{children:`
         :root {
           --pz-pink: #ff007a;
           --pz-cyan: #00f7ff;
@@ -53,6 +53,10 @@ import{u as _,j as e,H as y,r as x}from"./app-CKbNX6-b.js";import{u as k,L as j,
           align-items: center;
           gap: 48px;
           padding: 70px 0 110px;
+        }
+
+        .pz-home-hero__inner > div {
+          min-width: 0;
         }
 
         .pz-neon-badge {
@@ -260,6 +264,48 @@ import{u as _,j as e,H as y,r as x}from"./app-CKbNX6-b.js";import{u as k,L as j,
           height: 100%;
           object-fit: cover;
           object-position: center top;
+        }
+
+        .pz-home-page--de .pz-home-hero__inner {
+          grid-template-columns: minmax(0, 1fr) minmax(390px, 0.82fr);
+          gap: 36px;
+        }
+
+        .pz-home-page--de .pz-home-hero__title {
+          max-width: 720px;
+          font-size: clamp(44px, 5.6vw, 78px);
+          letter-spacing: -0.055em;
+        }
+
+        .pz-home-page--de .pz-home-typewriter {
+          width: min(640px, 100%);
+        }
+
+        .pz-home-page--de .pz-home-hero__visual {
+          justify-items: end;
+          overflow: visible;
+        }
+
+        .pz-home-page--de .pz-home-portrait-frame {
+          width: min(390px, 100%);
+          height: 590px;
+          transform: perspective(900px) rotateY(-4deg) translateX(-8px);
+        }
+
+        .pz-home-page--de .pz-hero-geometry {
+          width: 108%;
+          right: -3%;
+        }
+
+        @media (max-width: 1280px) {
+          .pz-home-page--de .pz-home-hero__title {
+            font-size: clamp(42px, 5.15vw, 70px);
+          }
+
+          .pz-home-page--de .pz-home-portrait-frame {
+            width: min(360px, 100%);
+            height: 560px;
+          }
         }
 
         .pz-hero-light-trails,
@@ -566,6 +612,15 @@ import{u as _,j as e,H as y,r as x}from"./app-CKbNX6-b.js";import{u as k,L as j,
             text-align: center;
           }
 
+          .pz-home-page--de .pz-home-hero__inner {
+            grid-template-columns: 1fr;
+          }
+
+          .pz-home-page--de .pz-home-hero__title {
+            max-width: 100%;
+            font-size: clamp(36px, 8vw, 56px);
+          }
+
           .pz-home-hero__lead,
           .pz-home-typewriter,
           .pz-home-hero__actions,
@@ -576,6 +631,12 @@ import{u as _,j as e,H as y,r as x}from"./app-CKbNX6-b.js";import{u as k,L as j,
           }
 
           .pz-home-portrait-frame {
+            height: 520px;
+            transform: none;
+          }
+
+          .pz-home-page--de .pz-home-portrait-frame {
+            width: min(430px, 88vw);
             height: 520px;
             transform: none;
           }
@@ -767,4 +828,4 @@ import{u as _,j as e,H as y,r as x}from"./app-CKbNX6-b.js";import{u as k,L as j,
             font-size: 16px;
           }
         }
-      `}),e.jsxs("main",{className:"pz-home-page",children:[e.jsxs("section",{className:"pz-home-hero",children:[e.jsxs("svg",{className:"pz-hero-light-trails",viewBox:"0 0 1440 660",preserveAspectRatio:"none","aria-hidden":"true",children:[e.jsx("path",{className:"pz-neon-path pz-cyan-stroke",d:"M-80 470 C 160 350, 290 415, 440 280 S 760 80, 1010 205 S 1260 420, 1520 285"}),e.jsx("path",{className:"pz-neon-path pz-pink-stroke",d:"M-60 565 C 170 480, 320 535, 505 382 S 790 190, 1010 302 S 1270 532, 1510 405"})]}),e.jsxs("svg",{className:"pz-hero-waves",viewBox:"0 0 1440 180",preserveAspectRatio:"none","aria-hidden":"true",children:[e.jsx("path",{className:"pz-neon-wave pz-cyan-stroke",d:"M-20 118 C 145 64, 280 164, 440 110 S 760 62, 920 106 S 1220 156, 1460 70"}),e.jsx("path",{className:"pz-neon-wave pz-pink-stroke",d:"M-20 145 C 190 88, 315 142, 505 124 S 790 164, 1010 96 S 1250 64, 1460 132"})]}),e.jsxs("div",{className:"pz-home-hero__inner",children:[e.jsxs("div",{children:[e.jsx("span",{className:"pz-neon-badge",children:"Progzone"}),e.jsxs("h1",{className:"pz-home-hero__title",children:[e.jsx("span",{children:h.line1??"Weboldalkészítés"}),e.jsxs("span",{children:[h.line2_prefix??"és"," ",e.jsx("strong",{children:h.line2_highlight??"Online Megoldások"})]})]}),e.jsx(M,{words:g}),e.jsx("p",{className:"pz-home-hero__lead",children:s[0]??"Professzionális weboldal, webshop, webdesign és online marketing egy helyen."}),e.jsxs("div",{className:"pz-home-hero__actions",children:[e.jsxs("a",{href:z("quote",i,o),className:"pz-button",children:[l.quote??"Ingyenes árajánlat"," ",e.jsx("span",{"aria-hidden":"true",children:"→"})]}),e.jsxs("a",{href:z("contact",i,o),className:"pz-button pz-button-secondary",children:[l.contact??"Kapcsolat"," ",e.jsx("span",{"aria-hidden":"true",children:"→"})]})]}),e.jsx("div",{className:"pz-home-hero__chips",children:f.map((t,c)=>e.jsxs("div",{className:"pz-home-chip",children:[e.jsx("span",{className:c===1?"pz-home-chip__icon is-cyan":"pz-home-chip__icon",children:c===0?"↗":c===1?"◌":"▯"}),e.jsx("span",{children:t})]},t))})]}),e.jsxs("div",{className:"pz-home-hero__visual","aria-hidden":"true",children:[e.jsxs("svg",{className:"pz-hero-geometry",viewBox:"0 0 520 620",children:[e.jsx("path",{className:"pz-hero-geometry__stroke pz-hero-geometry__stroke--cyan",d:"M142 42 L492 156 L292 508 L406 566 L186 590 L260 452 L114 348 L238 232 Z"}),e.jsx("path",{className:"pz-hero-geometry__stroke pz-hero-geometry__stroke--pink",d:"M88 82 L456 188 L218 548 L70 392 L172 284 L72 216 Z"})]}),e.jsx("div",{className:"pz-home-portrait-frame",children:e.jsx("img",{src:"/img/me.png",alt:"",width:"1123",height:"1401",loading:"eager",decoding:"async",fetchPriority:"high",className:"pz-home-hero__portrait"})})]})]})]}),e.jsxs("section",{className:"pz-services",children:[e.jsxs("svg",{className:"pz-services-light",viewBox:"0 0 1440 760",preserveAspectRatio:"none","aria-hidden":"true",children:[e.jsx("path",{className:"pz-neon-path pz-pink-stroke",d:"M-80 690 C 190 610, 340 680, 530 535 S 860 315, 1090 390 S 1270 560, 1510 430"}),e.jsx("path",{className:"pz-neon-path pz-cyan-stroke",d:"M-60 560 C 180 430, 390 520, 590 330 S 930 135, 1170 230 S 1320 390, 1510 300"})]}),e.jsxs("div",{className:"pz-home-section",children:[e.jsxs("div",{className:"text-center mb-10",children:[e.jsxs("h2",{className:"text-4xl sm:text-5xl font-black tracking-[-0.04em]",children:[d.prefix??"Miben tudok"," ",e.jsx("span",{className:"pz-pink",children:d.highlight??"Neked segíteni?"})]}),e.jsx("span",{className:"mx-auto mt-5 block h-1 w-24 rounded-full bg-gradient-to-r from-[#ff007a] to-[#00f7ff] shadow-[0_0_18px_rgba(255,0,122,.8)]"})]}),e.jsx("div",{className:"pz-services-grid",children:m.map(t=>e.jsxs("article",{className:"pz-service-card",children:[e.jsx("div",{className:"pz-service-card__icon",children:e.jsx(N,{path:t.icon})}),e.jsx("h3",{children:t.title}),e.jsx("p",{children:t.text}),e.jsxs("a",{href:z("services",i,o),className:"pz-card-button",children:[r.details_label??"Részletek"," ",e.jsx("span",{children:"→"})]})]},t.title))}),e.jsxs("div",{className:"pz-why",children:[e.jsxs("div",{className:"pz-why-content",children:[e.jsx("span",{className:"pz-neon-badge",children:"Progzone"}),e.jsxs("h2",{children:[n.title_prefix??"Miért válassz"," ",e.jsx("span",{className:"pz-pink",children:n.title_highlight??"Engem?"})]}),e.jsx("ul",{className:"pz-check-list",children:w.map(t=>e.jsxs("li",{children:[e.jsx("span",{className:"pz-check",children:"✓"}),e.jsx("span",{children:t})]},t))}),e.jsxs("a",{href:z("quote",i,o),className:"pz-button pz-button-secondary mt-7",children:[n.cta??"Árajánlatkérés"," ",e.jsx("span",{children:"→"})]})]}),e.jsxs("div",{className:"pz-devices","aria-hidden":"true",children:[e.jsx("div",{className:"pz-neon-tube"}),e.jsx("div",{className:"pz-neon-tube cyan"}),e.jsx("div",{className:"pz-glow-floor"}),e.jsx("img",{src:"/img/laptop.png",alt:"",width:"1858",height:"846",loading:"lazy",decoding:"async",className:"pz-laptop"})]})]})]})]})]})]})}export{C as default};
+      `}),e.jsxs("main",{className:y,children:[e.jsxs("section",{className:"pz-home-hero",children:[e.jsxs("svg",{className:"pz-hero-light-trails",viewBox:"0 0 1440 660",preserveAspectRatio:"none","aria-hidden":"true",children:[e.jsx("path",{className:"pz-neon-path pz-cyan-stroke",d:"M-80 470 C 160 350, 290 415, 440 280 S 760 80, 1010 205 S 1260 420, 1520 285"}),e.jsx("path",{className:"pz-neon-path pz-pink-stroke",d:"M-60 565 C 170 480, 320 535, 505 382 S 790 190, 1010 302 S 1270 532, 1510 405"})]}),e.jsxs("svg",{className:"pz-hero-waves",viewBox:"0 0 1440 180",preserveAspectRatio:"none","aria-hidden":"true",children:[e.jsx("path",{className:"pz-neon-wave pz-cyan-stroke",d:"M-20 118 C 145 64, 280 164, 440 110 S 760 62, 920 106 S 1220 156, 1460 70"}),e.jsx("path",{className:"pz-neon-wave pz-pink-stroke",d:"M-20 145 C 190 88, 315 142, 505 124 S 790 164, 1010 96 S 1250 64, 1460 132"})]}),e.jsxs("div",{className:"pz-home-hero__inner",children:[e.jsxs("div",{children:[e.jsx("span",{className:"pz-neon-badge",children:"Progzone"}),e.jsxs("h1",{className:"pz-home-hero__title",children:[e.jsx("span",{children:l.line1??"Weboldalkészítés"}),e.jsxs("span",{children:[l.line2_prefix??"és"," ",e.jsx("strong",{children:l.line2_highlight??"Online Megoldások"})]})]}),e.jsx(S,{words:g}),e.jsx("p",{className:"pz-home-hero__lead",children:s[0]??"Professzionális weboldal, webshop, webdesign és online marketing egy helyen."}),e.jsxs("div",{className:"pz-home-hero__actions",children:[e.jsxs("a",{href:b("quote",t,o),className:"pz-button",children:[h.quote??"Ingyenes árajánlat"," ",e.jsx("span",{"aria-hidden":"true",children:"→"})]}),e.jsxs("a",{href:b("contact",t,o),className:"pz-button pz-button-secondary",children:[h.contact??"Kapcsolat"," ",e.jsx("span",{"aria-hidden":"true",children:"→"})]})]}),e.jsx("div",{className:"pz-home-hero__chips",children:w.map((i,c)=>e.jsxs("div",{className:"pz-home-chip",children:[e.jsx("span",{className:c===1?"pz-home-chip__icon is-cyan":"pz-home-chip__icon",children:c===0?"↗":c===1?"◌":"▯"}),e.jsx("span",{children:i})]},i))})]}),e.jsxs("div",{className:"pz-home-hero__visual","aria-hidden":"true",children:[e.jsxs("svg",{className:"pz-hero-geometry",viewBox:"0 0 520 620",children:[e.jsx("path",{className:"pz-hero-geometry__stroke pz-hero-geometry__stroke--cyan",d:"M142 42 L492 156 L292 508 L406 566 L186 590 L260 452 L114 348 L238 232 Z"}),e.jsx("path",{className:"pz-hero-geometry__stroke pz-hero-geometry__stroke--pink",d:"M88 82 L456 188 L218 548 L70 392 L172 284 L72 216 Z"})]}),e.jsx("div",{className:"pz-home-portrait-frame",children:e.jsx("img",{src:"/img/me.png",alt:"",width:"1123",height:"1401",loading:"eager",decoding:"async",fetchPriority:"high",className:"pz-home-hero__portrait"})})]})]})]}),e.jsxs("section",{className:"pz-services",children:[e.jsxs("svg",{className:"pz-services-light",viewBox:"0 0 1440 760",preserveAspectRatio:"none","aria-hidden":"true",children:[e.jsx("path",{className:"pz-neon-path pz-pink-stroke",d:"M-80 690 C 190 610, 340 680, 530 535 S 860 315, 1090 390 S 1270 560, 1510 430"}),e.jsx("path",{className:"pz-neon-path pz-cyan-stroke",d:"M-60 560 C 180 430, 390 520, 590 330 S 930 135, 1170 230 S 1320 390, 1510 300"})]}),e.jsxs("div",{className:"pz-home-section",children:[e.jsxs("div",{className:"text-center mb-10",children:[e.jsxs("h2",{className:"text-4xl sm:text-5xl font-black tracking-[-0.04em]",children:[d.prefix??"Miben tudok"," ",e.jsx("span",{className:"pz-pink",children:d.highlight??"Neked segíteni?"})]}),e.jsx("span",{className:"mx-auto mt-5 block h-1 w-24 rounded-full bg-gradient-to-r from-[#ff007a] to-[#00f7ff] shadow-[0_0_18px_rgba(255,0,122,.8)]"})]}),e.jsx("div",{className:"pz-services-grid",children:m.map(i=>e.jsxs("article",{className:"pz-service-card",children:[e.jsx("div",{className:"pz-service-card__icon",children:e.jsx(L,{path:i.icon})}),e.jsx("h3",{children:i.title}),e.jsx("p",{children:i.text}),e.jsxs("a",{href:b("services",t,o),className:"pz-card-button",children:[r.details_label??"Részletek"," ",e.jsx("span",{children:"→"})]})]},i.title))}),e.jsxs("div",{className:"pz-why",children:[e.jsxs("div",{className:"pz-why-content",children:[e.jsx("span",{className:"pz-neon-badge",children:"Progzone"}),e.jsxs("h2",{children:[n.title_prefix??"Miért válassz"," ",e.jsx("span",{className:"pz-pink",children:n.title_highlight??"Engem?"})]}),e.jsx("ul",{className:"pz-check-list",children:u.map(i=>e.jsxs("li",{children:[e.jsx("span",{className:"pz-check",children:"✓"}),e.jsx("span",{children:i})]},i))}),e.jsxs("a",{href:b("quote",t,o),className:"pz-button pz-button-secondary mt-7",children:[n.cta??"Árajánlatkérés"," ",e.jsx("span",{children:"→"})]})]}),e.jsxs("div",{className:"pz-devices","aria-hidden":"true",children:[e.jsx("div",{className:"pz-neon-tube"}),e.jsx("div",{className:"pz-neon-tube cyan"}),e.jsx("div",{className:"pz-glow-floor"}),e.jsx("img",{src:"/img/laptop.png",alt:"",width:"1858",height:"846",loading:"lazy",decoding:"async",className:"pz-laptop"})]})]})]})]})]})]})}export{H as default};
