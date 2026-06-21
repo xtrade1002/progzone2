@@ -60,7 +60,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={containerRef}>
       <button
         type="button"
-        className="flex items-center gap-2 rounded-full border border-[#00eaff]/20 bg-black/35 px-2.5 py-1.5 text-lg shadow-[0_0_16px_rgba(0,234,255,0.12)] transition hover:border-[#00eaff]/60 focus:outline-none focus:ring-2 focus:ring-[#00eaff]/60 sm:px-3"
+        className="flex items-center gap-2 rounded-full bg-transparent p-1 text-lg transition hover:opacity-85 focus:outline-none focus:ring-2 focus:ring-[#00eaff]/60"
         onClick={() => setOpen((previous) => !previous)}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : 'false'}

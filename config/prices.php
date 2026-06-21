@@ -13,6 +13,6 @@ return [
     */
     'fallback_domains' => array_values(array_filter(array_map(
         static fn (string $domain) => trim($domain),
-        explode(',', env('PRICE_FALLBACK_DOMAINS', ''))
+        explode(',', env('PRICE_FALLBACK_DOMAINS') ?: 'progzone.hu,progzone.de,bitbau.ch')
     ))),
 ];

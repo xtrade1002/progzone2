@@ -34,7 +34,64 @@
       "Marketing",
       "Webseitenentwicklung",
       "Onlineshop Erstellung"
-    ]
+    ],
+    "hero_title": {
+      "line1": "Webseitenerstellung",
+      "line2_prefix": "und",
+      "line2_highlight": "Online-Lösungen"
+    },
+    "hero_actions": {
+      "quote": "Kostenloses Angebot",
+      "contact": "Kontakt"
+    },
+    "chips": [
+      "Modernes Design",
+      "Schnelle Ladezeit",
+      "Mobilfreundlich"
+    ],
+    "services_title": {
+      "prefix": "Wobei kann ich",
+      "highlight": "dir helfen?"
+    },
+    "details_label": "Details",
+    "service_items": [
+      {
+        "title": "Webdesign",
+        "text": "Individuelles, modernes und responsives Design, das deine Marke sichtbar macht."
+      },
+      {
+        "title": "Webshop-Erstellung",
+        "text": "Professionelle Onlineshops mit WooCommerce oder individuellen Lösungen."
+      },
+      {
+        "title": "Webentwicklung",
+        "text": "Entwicklung mit HTML, CSS, JavaScript, PHP und Laravel."
+      },
+      {
+        "title": "SEO & Marketing",
+        "text": "Suchmaschinenoptimierung und Online-Marketing für bessere Sichtbarkeit."
+      },
+      {
+        "title": "Online-Marketing",
+        "text": "Gezielte Kampagnen mit Google Ads, Facebook und Instagram."
+      },
+      {
+        "title": "Support & Wartung",
+        "text": "Laufende Betreuung, Updates und Sicherheitswartung."
+      }
+    ],
+    "why": {
+      "title_prefix": "Warum",
+      "title_highlight": "mich wählen?",
+      "items": [
+        "Individuelle, maßgeschneiderte Lösungen",
+        "Schnelle und zuverlässige Umsetzung",
+        "Faire Preise ohne versteckte Kosten",
+        "Mehrjährige Erfahrung",
+        "Umfassende Kundenbetreuung"
+      ],
+      "cta": "Angebot anfragen"
+    }
   },
   "about": {
     "meta_title": "Über mich",

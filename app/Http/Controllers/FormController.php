@@ -80,9 +80,8 @@ class FormController extends Controller
 
         $mailSettings = $this->resolveMailSettings($request);
 
-        Mail::mailer($mailSettings['mailer'])
-            ->to($mailSettings['recipient'])
-            ->send(new NewContactMessage($contactMessage, $mailSettings['domain'], $mailSettings['from']));
+        Mail::to($mailSettings['recipient'])
+            ->send(new NewContactMessage($contactMessage, $mailSettings['domain']));
 
         return redirect()
             ->back()

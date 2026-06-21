@@ -34,7 +34,64 @@
       "Marketing",
       "Weboldalkészítés",
       "Webshop készítés"
-    ]
+    ],
+    "hero_title": {
+      "line1": "Weboldalkészítés",
+      "line2_prefix": "és",
+      "line2_highlight": "Online Megoldások"
+    },
+    "hero_actions": {
+      "quote": "Ingyenes árajánlat",
+      "contact": "Kapcsolat"
+    },
+    "chips": [
+      "Modern design",
+      "Gyors betöltés",
+      "Mobilbarát"
+    ],
+    "services_title": {
+      "prefix": "Miben tudok",
+      "highlight": "Neked segíteni?"
+    },
+    "details_label": "Részletek",
+    "service_items": [
+      {
+        "title": "Webdesign",
+        "text": "Egyedi, modern és reszponzív design, ami kiemel a versenytársak közül."
+      },
+      {
+        "title": "Webshop készítés",
+        "text": "Professzionális webshop WooCommerce vagy egyedi megoldásokkal."
+      },
+      {
+        "title": "Webfejlesztés",
+        "text": "HTML, CSS, JavaScript, PHP és Laravel alapú fejlesztések."
+      },
+      {
+        "title": "SEO & Marketing",
+        "text": "Keresőoptimalizálás és online marketing a jobb helyezésekért."
+      },
+      {
+        "title": "Online Marketing",
+        "text": "Célzott kampányok, Google Ads, Facebook és Instagram hirdetések."
+      },
+      {
+        "title": "Támogatás & Karbantartás",
+        "text": "Folyamatos támogatás, frissítések és biztonsági karbantartás."
+      }
+    ],
+    "why": {
+      "title_prefix": "Miért válassz",
+      "title_highlight": "Engem?",
+      "items": [
+        "Egyedi, igényre szabott megoldások",
+        "Gyors és megbízható munkavégzés",
+        "Korrekt árak, rejtett költségek nélkül",
+        "Több éves tapasztalat",
+        "Teljes körű ügyféltámogatás"
+      ],
+      "cta": "Árajánlatkérés"
+    }
   },
   "about": {
     "meta_title": "Rólam",

@@ -43,17 +43,7 @@ class PriceController extends Controller
         ];
 
         // Árlista domain + nyelv szerint
-        $prices = $this->collectPrices($domain, $locale, $allowedAttributes, $aliasMap);
-
-        if (empty($prices)) {
-            foreach ($this->fallbackDomains($domain) as $fallbackDomain) {
-                $prices = $this->collectPrices($fallbackDomain, $locale, $allowedAttributes, $aliasMap);
-
-                if (! empty($prices)) {
-                    break;
-                }
-            }
-        }
+        $prices = $this->resolvePrices($domain, $locale, $allowedAttributes, $aliasMap);
 
         return Inertia::render('Prices', [
             'prices' => $prices,
@@ -107,6 +97,49 @@ class PriceController extends Controller
             });
 
         return $prices;
+    }
+
+    /**
+     * Resolves the first non-empty price list from domain and locale fallback candidates.
+     */
+    protected function resolvePrices(?string $domain, string $locale, array $allowedAttributes, array $aliasMap): array
+    {
+        foreach ($this->localeCandidates($locale) as $candidateLocale) {
+            $prices = $this->collectPrices($domain, $candidateLocale, $allowedAttributes, $aliasMap);
+
+            if (! empty($prices)) {
+                return $prices;
+            }
+
+            foreach ($this->fallbackDomains($domain) as $fallbackDomain) {
+                $prices = $this->collectPrices($fallbackDomain, $candidateLocale, $allowedAttributes, $aliasMap);
+
+                if (! empty($prices)) {
+                    return $prices;
+                }
+            }
+        }
+
+        return [];
+    }
+
+    /**
+     * Returns locale candidates in priority order.
+     */
+    protected function localeCandidates(string $locale): array
+    {
+        return collect([
+            $locale,
+            config('app.fallback_locale'),
+            'hu',
+            'de',
+            'en',
+        ])
+            ->filter()
+            ->map(fn ($candidate) => Str::lower((string) $candidate))
+            ->unique()
+            ->values()
+            ->all();
     }
 
     /**

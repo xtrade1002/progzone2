@@ -1,5 +1,23 @@
 <?php
 
+$normalizeMailScheme = static function (...$values): ?string {
+    foreach ($values as $value) {
+        if (! is_string($value) || trim($value) === '') {
+            continue;
+        }
+
+        $scheme = strtolower(trim($value));
+
+        return match ($scheme) {
+            'ssl', 'smtps' => 'smtps',
+            'tls', 'starttls', 'smtp' => 'smtp',
+            default => $scheme,
+        };
+    }
+
+    return null;
+};
+
 return [
 
     /*
@@ -39,7 +57,7 @@ return [
 
         'smtp' => [
             'transport' => 'smtp',
-            'scheme' => env('MAIL_SCHEME', env('MAIL_ENCRYPTION')),
+            'scheme' => $normalizeMailScheme(env('MAIL_SCHEME'), env('MAIL_ENCRYPTION')),
             'url' => env('MAIL_URL'),
             'host' => env('MAIL_HOST', '127.0.0.1'),
             'port' => env('MAIL_PORT', 2525),
@@ -51,7 +69,7 @@ return [
 
         'mailjet' => [
             'transport' => 'smtp',
-            'scheme' => env('MAILJET_SCHEME', env('MAIL_SCHEME', env('MAIL_ENCRYPTION'))),
+            'scheme' => $normalizeMailScheme(env('MAILJET_SCHEME'), env('MAIL_SCHEME'), env('MAIL_ENCRYPTION')),
             'url' => env('MAILJET_URL', env('MAIL_URL')),
             'host' => env('MAILJET_HOST', 'in-v3.mailjet.com'),
             'port' => env('MAILJET_PORT', 587),
@@ -63,7 +81,7 @@ return [
 
         'progzone_de' => [
             'transport' => 'smtp',
-            'scheme' => env('MAIL_SCHEME_PROGZONE_DE', env('MAIL_SCHEME', env('MAIL_ENCRYPTION'))),
+            'scheme' => $normalizeMailScheme(env('MAIL_SCHEME_PROGZONE_DE'), env('MAIL_SCHEME'), env('MAIL_ENCRYPTION')),
             'url' => env('MAIL_URL_PROGZONE_DE', env('MAIL_URL')),
             'host' => env('MAIL_HOST_PROGZONE_DE', env('MAIL_HOST', '127.0.0.1')),
             'port' => env('MAIL_PORT_PROGZONE_DE', env('MAIL_PORT', 2525)),
@@ -75,7 +93,7 @@ return [
 
         'progzone_hu' => [
             'transport' => 'smtp',
-            'scheme' => env('MAIL_SCHEME_PROGZONE_HU', env('MAIL_SCHEME', env('MAIL_ENCRYPTION'))),
+            'scheme' => $normalizeMailScheme(env('MAIL_SCHEME_PROGZONE_HU'), env('MAIL_SCHEME'), env('MAIL_ENCRYPTION')),
             'url' => env('MAIL_URL_PROGZONE_HU', env('MAIL_URL')),
             'host' => env('MAIL_HOST_PROGZONE_HU', env('MAIL_HOST', '127.0.0.1')),
             'port' => env('MAIL_PORT_PROGZONE_HU', env('MAIL_PORT', 2525)),
@@ -87,7 +105,7 @@ return [
 
         'bitbau_ch' => [
             'transport' => 'smtp',
-            'scheme' => env('MAIL_SCHEME_BITBAU_CH', env('MAIL_SCHEME', env('MAIL_ENCRYPTION'))),
+            'scheme' => $normalizeMailScheme(env('MAIL_SCHEME_BITBAU_CH'), env('MAIL_SCHEME'), env('MAIL_ENCRYPTION')),
             'url' => env('MAIL_URL_BITBAU_CH', env('MAIL_URL')),
             'host' => env('MAIL_HOST_BITBAU_CH', env('MAIL_HOST', '127.0.0.1')),
             'port' => env('MAIL_PORT_BITBAU_CH', env('MAIL_PORT', 2525)),

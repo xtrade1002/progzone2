@@ -34,7 +34,64 @@
       "Marketing",
       "Website development",
       "E-commerce solutions"
-    ]
+    ],
+    "hero_title": {
+      "line1": "Website Development",
+      "line2_prefix": "and",
+      "line2_highlight": "Online Solutions"
+    },
+    "hero_actions": {
+      "quote": "Free quote",
+      "contact": "Contact"
+    },
+    "chips": [
+      "Modern design",
+      "Fast loading",
+      "Mobile friendly"
+    ],
+    "services_title": {
+      "prefix": "How can I",
+      "highlight": "help you?"
+    },
+    "details_label": "Details",
+    "service_items": [
+      {
+        "title": "Web design",
+        "text": "Custom, modern and responsive design that helps your brand stand out."
+      },
+      {
+        "title": "Webshop development",
+        "text": "Professional online stores with WooCommerce or custom solutions."
+      },
+      {
+        "title": "Web development",
+        "text": "Development with HTML, CSS, JavaScript, PHP and Laravel."
+      },
+      {
+        "title": "SEO & Marketing",
+        "text": "Search engine optimization and online marketing for better visibility."
+      },
+      {
+        "title": "Online marketing",
+        "text": "Targeted campaigns with Google Ads, Facebook and Instagram."
+      },
+      {
+        "title": "Support & Maintenance",
+        "text": "Ongoing support, updates and security maintenance."
+      }
+    ],
+    "why": {
+      "title_prefix": "Why choose",
+      "title_highlight": "me?",
+      "items": [
+        "Custom solutions tailored to your needs",
+        "Fast and reliable delivery",
+        "Fair prices without hidden costs",
+        "Several years of experience",
+        "Full customer support"
+      ],
+      "cta": "Request a quote"
+    }
   },
   "about": {
     "meta_title": "About",

@@ -4,7 +4,7 @@ import Layout from '../Components/Layout.jsx';
 import { localizedRoute } from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
 
-const serviceItems = [
+const fallbackServiceItems = [
   {
     title: 'Webdesign',
     text: 'Egyedi, modern és reszponzív design, ami kiemel a versenytársak közül.',
@@ -44,6 +44,8 @@ const NeonIcon = ({ path }) => (
     ))}
   </svg>
 );
+
+const serviceIconPaths = fallbackServiceItems.map((item) => item.icon);
 
 const TypewriterText = ({ words }) => {
   const safeWords = useMemo(
@@ -115,6 +117,27 @@ export default function Home() {
     'Online marketing',
     'Egyedi fejlesztés',
   ];
+  const heroTitle = home.hero_title ?? {};
+  const heroActions = home.hero_actions ?? {};
+  const chips = Array.isArray(home.chips) ? home.chips : ['Modern design', 'Gyors betÃ¶ltÃ©s', 'MobilbarÃ¡t'];
+  const serviceItems = (Array.isArray(home.service_items) && home.service_items.length > 0
+    ? home.service_items
+    : fallbackServiceItems
+  ).map((item, index) => ({
+    ...item,
+    icon: serviceIconPaths[index] ?? serviceIconPaths[0],
+  }));
+  const servicesTitle = home.services_title ?? {};
+  const why = home.why ?? {};
+  const whyItems = Array.isArray(why.items)
+    ? why.items
+    : [
+      'Egyedi, igÃ©nyre szabott megoldÃ¡sok',
+      'Gyors Ã©s megbÃ­zhatÃ³ munkavÃ©gzÃ©s',
+      'Korrekt Ã¡rak, rejtett kÃ¶ltsÃ©gek nÃ©lkÃ¼l',
+      'TÃ¶bb Ã©ves tapasztalat',
+      'Teljes kÃ¶rÅ± Ã¼gyfÃ©ltÃ¡mogatÃ¡s',
+    ];
 
   return (
     <Layout>
@@ -709,14 +732,17 @@ export default function Home() {
           }
 
           .pz-devices {
-            min-height: 520px;
+            min-height: clamp(230px, 62vw, 310px);
+            margin-top: 18px;
+            overflow: hidden;
           }
 
           .pz-laptop {
             left: 0;
             top: 0;
-            width: 100%;
-            max-width: 100%;
+            width: 118%;
+            max-width: none;
+            transform: translateX(-6%) translateY(0) scale(1);
           }
 
         }
@@ -835,15 +861,29 @@ export default function Home() {
           }
 
           .pz-home-hero__visual {
-            min-height: 360px;
+            position: relative;
+            min-height: 330px;
             width: 100%;
             max-width: 100%;
             overflow: hidden;
           }
 
           .pz-home-portrait-frame {
+            position: relative;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            width: min(78vw, 280px);
+            height: 330px;
+            margin: 0 auto;
+            transform: none;
+          }
+
+          .pz-home-hero__portrait {
             width: 100%;
-            height: 360px;
+            height: 100%;
+            object-fit: contain;
+            object-position: center bottom;
           }
         }
 
@@ -891,8 +931,8 @@ export default function Home() {
               <span className="pz-neon-badge">Progzone</span>
 
               <h1 className="pz-home-hero__title">
-                <span>Weboldalkészítés</span>
-                <span>és <strong>Online Megoldások</strong></span>
+                <span>{heroTitle.line1 ?? 'Weboldalkészítés'}</span>
+                <span>{heroTitle.line2_prefix ?? 'és'} <strong>{heroTitle.line2_highlight ?? 'Online Megoldások'}</strong></span>
               </h1>
 
               <TypewriterText words={words} />
@@ -903,16 +943,16 @@ export default function Home() {
 
               <div className="pz-home-hero__actions">
                 <a href={localizedRoute('quote', locale, localizedRoutes)} className="pz-button">
-                  Ingyenes árajánlat <span aria-hidden="true">→</span>
+                  {heroActions.quote ?? 'Ingyenes árajánlat'} <span aria-hidden="true">→</span>
                 </a>
 
                 <a href={localizedRoute('contact', locale, localizedRoutes)} className="pz-button pz-button-secondary">
-                  Kapcsolat <span aria-hidden="true">→</span>
+                  {heroActions.contact ?? 'Kapcsolat'} <span aria-hidden="true">→</span>
                 </a>
               </div>
 
               <div className="pz-home-hero__chips">
-                {['Modern design', 'Gyors betöltés', 'Mobilbarát'].map((item, index) => (
+                {chips.map((item, index) => (
                   <div key={item} className="pz-home-chip">
                     <span className={index === 1 ? 'pz-home-chip__icon is-cyan' : 'pz-home-chip__icon'}>
                       {index === 0 ? '↗' : index === 1 ? '◌' : '▯'}
@@ -954,7 +994,7 @@ export default function Home() {
           <div className="pz-home-section">
             <div className="text-center mb-10">
               <h2 className="text-4xl sm:text-5xl font-black tracking-[-0.04em]">
-                Miben tudok <span className="pz-pink">Neked segíteni?</span>
+                {servicesTitle.prefix ?? 'Miben tudok'} <span className="pz-pink">{servicesTitle.highlight ?? 'Neked segíteni?'}</span>
               </h2>
               <span className="mx-auto mt-5 block h-1 w-24 rounded-full bg-gradient-to-r from-[#ff007a] to-[#00f7ff] shadow-[0_0_18px_rgba(255,0,122,.8)]" />
             </div>
@@ -968,7 +1008,7 @@ export default function Home() {
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                   <a href={localizedRoute('services', locale, localizedRoutes)} className="pz-card-button">
-                    Részletek <span>→</span>
+                    {home.details_label ?? 'Részletek'} <span>→</span>
                   </a>
                 </article>
               ))}
@@ -979,17 +1019,11 @@ export default function Home() {
         <span className="pz-neon-badge">Progzone</span>
 
         <h2>
-            Miért válassz <span className="pz-pink">Engem?</span>
+            {why.title_prefix ?? 'Miért válassz'} <span className="pz-pink">{why.title_highlight ?? 'Engem?'}</span>
         </h2>
 
         <ul className="pz-check-list">
-            {[
-                'Egyedi, igényre szabott megoldások',
-                'Gyors és megbízható munkavégzés',
-                'Korrekt árak, rejtett költségek nélkül',
-                'Több éves tapasztalat',
-                'Teljes körű ügyféltámogatás',
-            ].map((item) => (
+            {whyItems.map((item) => (
                 <li key={item}>
                     <span className="pz-check">✓</span>
                     <span>{item}</span>
@@ -1001,7 +1035,7 @@ export default function Home() {
             href={localizedRoute('quote', locale, localizedRoutes)}
             className="pz-button pz-button-secondary mt-7"
         >
-            Árajánlatkérés <span>→</span>
+            {why.cta ?? 'Árajánlatkérés'} <span>→</span>
         </a>
     </div>
 
