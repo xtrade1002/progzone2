@@ -74,6 +74,11 @@ const fallbackSelectOptions = {
     { value: 'Nincsen tárhelyem, de megoldom', label: 'Nincsen tárhelyem, de megoldom' },
     { value: 'Segíts tárhelyet/domain-t venni', label: 'Segíts tárhelyet/domain-t venni' },
   ],
+  languages: Array.from({ length: 10 }, (_, index) => {
+    const value = String(index + 1);
+
+    return { value, label: value };
+  }),
 };
 
 const getOptions = (field, fallbackKey) => (
@@ -373,20 +378,17 @@ export default function QuoteRequest() {
                   <span className="text-xs text-red-400">{errors.menu_items}</span>
                 )}
               </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="languages">
-                {withRequiredMark(fields.languages?.label ?? 'Project languages')}
-                <input
-                  id="languages"
-                  type="text"
-                  placeholder={fields.languages?.placeholder ?? 'e.g. English, German'}
-                  required
-                  className={inputClasses}
-                  value={formData.languages}
-                  onChange={handleChange('languages')}
-                  aria-invalid={errors.languages ? 'true' : 'false'}
-                />
-                {errors.languages && <span className="text-xs text-red-400">{errors.languages}</span>}
-              </label>
+              <FormSelect
+                id="languages"
+                field={fields.languages}
+                fallbackKey="languages"
+                fallbackLabel="How many languages should the website have?"
+                fallbackPlaceholder="Choose language count"
+                required
+                value={formData.languages}
+                onChange={handleChange('languages')}
+                error={errors.languages}
+              />
             </div>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="features">
