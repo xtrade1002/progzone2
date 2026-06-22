@@ -313,9 +313,9 @@
         "label": "Inspiration / reference sites",
         "placeholder": "Share any websites or products you like"
       },
-      "target_audience": {
-        "label": "Primary audience",
-        "placeholder": "Who will use or buy the product?"
+      "menu_items": {
+        "label": "How many menu items do you need?",
+        "placeholder": "e.g. 5 menu items"
       },
       "languages": {
         "label": "Project languages",
@@ -408,10 +408,6 @@
       "integrations": {
         "label": "Required integrations",
         "placeholder": "CRM, newsletter, payment gateways, etc."
-      },
-      "marketing": {
-        "label": "Marketing goals",
-        "placeholder": "Campaigns, KPIs or channels to focus on"
       },
       "legal": {
         "label": "Legal / compliance notes",

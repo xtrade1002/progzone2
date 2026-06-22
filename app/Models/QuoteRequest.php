@@ -20,6 +20,7 @@ class QuoteRequest extends Model
         'message',
         'reference_sites',
         'target_audience',
+        'menu_items',
         'languages',
         'features',
         'content_source',

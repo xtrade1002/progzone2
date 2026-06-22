@@ -34,6 +34,7 @@ class QuoteRequestMailTest extends TestCase
             'timeline' => now()->addDay()->toDateString(),
             'message' => 'Szeretnek egy weboldalt.',
             'reference_sites' => 'https://example.test',
+            'menu_items' => '5',
             'languages' => 'magyar',
             'features' => 'Kapcsolatfelveteli urlap',
             'hosting_domain' => 'Kerek segitseget domainnel.',
@@ -43,6 +44,11 @@ class QuoteRequestMailTest extends TestCase
         ]);
 
         $response->assertRedirect('/quote');
+
+        $this->assertDatabaseHas('quote_requests', [
+            'email' => 'customer@example.test',
+            'menu_items' => '5',
+        ]);
 
         Mail::assertSent(NewQuoteRequest::class, function (NewQuoteRequest $mail) {
             return $mail->hasTo('owner@example.test');

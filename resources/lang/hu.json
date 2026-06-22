@@ -312,9 +312,9 @@
         "label": "Inspiráció / referencia oldalak",
         "placeholder": "Írj meg néhány weboldalt vagy terméket, ami tetszik"
       },
-      "target_audience": {
-        "label": "Elsődleges célközönség",
-        "placeholder": "Kik fogják használni vagy megvásárolni a terméket?"
+      "menu_items": {
+        "label": "Hány menüpontot szeretne?",
+        "placeholder": "Pl. 5 menüpont"
       },
       "languages": {
         "label": "Projekt nyelvei",
@@ -407,10 +407,6 @@
       "integrations": {
         "label": "Szükséges integrációk",
         "placeholder": "CRM, hírlevél, fizetési szolgáltatók stb."
-      },
-      "marketing": {
-        "label": "Marketing célok",
-        "placeholder": "Kampányok, KPI-k vagy csatornák, amelyekre fókuszálnál"
       },
       "legal": {
         "label": "Jogi / megfelelőségi tudnivalók",

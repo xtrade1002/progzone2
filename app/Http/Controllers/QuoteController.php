@@ -27,7 +27,7 @@ class QuoteController extends Controller
             'timeline' => $this->futureDateRules(required: true),
             'message' => $this->safeTextRules(required: true),
             'reference_sites' => $this->referenceSiteRules(required: true),
-            'target_audience' => $this->safeTextRules(max: 255),
+            'menu_items' => $this->safeTextRules(max: 100),
             'languages' => $this->safeTextRules(required: true, max: 100),
             'features' => $this->safeTextRules(required: true),
             'content_source' => $this->safeTextRules(max: 255),
@@ -35,7 +35,6 @@ class QuoteController extends Controller
             'support' => $this->safeTextRules(max: 255),
             'hosting_domain' => $this->safeTextRules(required: true, max: 255),
             'integrations' => $this->safeTextRules(),
-            'marketing' => $this->safeTextRules(),
             'legal' => $this->safeTextRules(),
             'privacy' => ['accepted'],
         ], $this->validationMessages());

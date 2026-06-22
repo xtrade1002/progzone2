@@ -8,7 +8,7 @@
         'Tervezett költségvetés' => $quote->budget,
         'Tervezett ütemezés' => $quote->timeline,
         'Referencia oldalak' => $quote->reference_sites,
-        'Célközönség' => $quote->target_audience,
+        'Menüpontok száma' => $quote->menu_items,
         'Projekt nyelvei' => $quote->languages,
         'Kulcsfunkciók' => $quote->features,
         'Tartalom forrása' => $quote->content_source,
@@ -16,7 +16,6 @@
         'Utótámogatási igény' => $quote->support,
         'Tárhely / domain igény' => $quote->hosting_domain,
         'Szükséges integrációk' => $quote->integrations,
-        'Marketing célok' => $quote->marketing,
         'Jogi / megfelelőségi elvárások' => $quote->legal,
         'Adatkezelési tájékoztató elfogadva' => $quote->privacy ? 'Igen' : 'Nem',
     ];
@@ -25,7 +24,6 @@
         'Referencia oldalak',
         'Kulcsfunkciók',
         'Szükséges integrációk',
-        'Marketing célok',
         'Jogi / megfelelőségi elvárások',
     ];
 @endphp

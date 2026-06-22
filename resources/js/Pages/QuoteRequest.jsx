@@ -32,7 +32,7 @@ const createInitialFormState = () => ({
   timeline: '',
   message: '',
   reference_sites: '',
-  target_audience: '',
+  menu_items: '',
   languages: '',
   features: '',
   content_source: '',
@@ -40,7 +40,6 @@ const createInitialFormState = () => ({
   support: '',
   hosting_domain: '',
   integrations: '',
-  marketing: '',
   legal: '',
   privacy: false,
 });
@@ -146,7 +145,7 @@ export default function QuoteRequest() {
   const privacyHref = localizedRoute('privacy', locale, localizedRoutes);
   const privacyText = locale === 'hu'
     ? {
-        prefix: 'Megismertem és elfogadom az',
+        prefix: 'Elfogadom az',
         link: 'adatkezelési tájékoztatót',
         suffix: '',
       }
@@ -359,19 +358,19 @@ export default function QuoteRequest() {
             </label>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="target_audience">
-                {fields.target_audience?.label ?? 'Primary audience'}
+              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="menu_items">
+                {fields.menu_items?.label ?? 'Number of menu items'}
                 <input
-                  id="target_audience"
+                  id="menu_items"
                   type="text"
-                  placeholder={fields.target_audience?.placeholder ?? 'Who will use or buy the product?'}
+                  placeholder={fields.menu_items?.placeholder ?? 'How many menu items do you need?'}
                   className={inputClasses}
-                  value={formData.target_audience}
-                  onChange={handleChange('target_audience')}
-                  aria-invalid={errors.target_audience ? 'true' : 'false'}
+                  value={formData.menu_items}
+                  onChange={handleChange('menu_items')}
+                  aria-invalid={errors.menu_items ? 'true' : 'false'}
                 />
-                {errors.target_audience && (
-                  <span className="text-xs text-red-400">{errors.target_audience}</span>
+                {errors.menu_items && (
+                  <span className="text-xs text-red-400">{errors.menu_items}</span>
                 )}
               </label>
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="languages">
@@ -466,20 +465,6 @@ export default function QuoteRequest() {
               {errors.integrations && (
                 <span className="text-xs text-red-400">{errors.integrations}</span>
               )}
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="marketing">
-              {fields.marketing?.label ?? 'Marketing goals'}
-              <textarea
-                id="marketing"
-                rows="4"
-                placeholder={fields.marketing?.placeholder ?? 'Campaigns, KPIs or channels to focus on'}
-                className={`${inputClasses} min-h-[120px]`}
-                value={formData.marketing}
-                onChange={handleChange('marketing')}
-                aria-invalid={errors.marketing ? 'true' : 'false'}
-              ></textarea>
-              {errors.marketing && <span className="text-xs text-red-400">{errors.marketing}</span>}
             </label>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="legal">

@@ -313,9 +313,9 @@
         "label": "Inspiration / Referenzseiten",
         "placeholder": "Nenne Webseiten oder Produkte, die dir gefallen"
       },
-      "target_audience": {
-        "label": "Hauptzielgruppe",
-        "placeholder": "Wer wird das Produkt nutzen oder kaufen?"
+      "menu_items": {
+        "label": "Wie viele Menüpunkte werden benötigt?",
+        "placeholder": "z. B. 5 Menüpunkte"
       },
       "languages": {
         "label": "Projektsprachen",
@@ -408,10 +408,6 @@
       "integrations": {
         "label": "Benötigte Integrationen",
         "placeholder": "CRM, Newsletter, Zahlungsanbieter usw."
-      },
-      "marketing": {
-        "label": "Marketingziele",
-        "placeholder": "Kampagnen, KPIs oder Kanäle, auf die du dich fokussierst"
       },
       "legal": {
         "label": "Rechtliche / Compliance-Hinweise",
