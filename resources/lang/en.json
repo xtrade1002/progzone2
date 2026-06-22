@@ -326,8 +326,18 @@
         "placeholder": "List the most important functionality"
       },
       "content_source": {
-        "label": "Content source",
-        "placeholder": "Who will provide copy, images or videos?"
+        "label": "Who provides copy, images and videos?",
+        "placeholder": "Choose a content owner",
+        "options": [
+          {
+            "value": "Client",
+            "label": "Client"
+          },
+          {
+            "value": "Contractor",
+            "label": "Contractor"
+          }
+        ]
       },
       "billing_info": {
         "label": "Billing information",
@@ -335,15 +345,65 @@
       },
       "payment_method": {
         "label": "Preferred payment method",
-        "placeholder": "e.g. bank transfer, milestone-based"
+        "placeholder": "Choose a payment method",
+        "options": [
+          {
+            "value": "Card",
+            "label": "Card"
+          },
+          {
+            "value": "Bank transfer",
+            "label": "Bank transfer"
+          },
+          {
+            "value": "Revolut",
+            "label": "Revolut"
+          }
+        ]
       },
       "support": {
-        "label": "Support expectations",
-        "placeholder": "Do you need maintenance after launch?"
+        "label": "Maintenance need",
+        "placeholder": "Choose maintenance frequency",
+        "options": [
+          {
+            "value": "No",
+            "label": "No"
+          },
+          {
+            "value": "Yes, weekly",
+            "label": "Yes, weekly"
+          },
+          {
+            "value": "Yes, every two weeks",
+            "label": "Yes, every two weeks"
+          },
+          {
+            "value": "Yes, monthly",
+            "label": "Yes, monthly"
+          }
+        ]
       },
       "hosting_domain": {
         "label": "Hosting / domain needs",
-        "placeholder": "Do you need help with hosting or domains?"
+        "placeholder": "Choose hosting / domain status",
+        "options": [
+          {
+            "value": "I have hosting",
+            "label": "I have hosting"
+          },
+          {
+            "value": "I have hosting and a domain name",
+            "label": "I have hosting and a domain name"
+          },
+          {
+            "value": "I do not have hosting, but I will handle it",
+            "label": "I do not have hosting, but I will handle it"
+          },
+          {
+            "value": "Help me buy hosting/domain",
+            "label": "Help me buy hosting/domain"
+          }
+        ]
       },
       "integrations": {
         "label": "Required integrations",
@@ -1099,8 +1159,3 @@
     ]
   }
 }
-
-
-
-
-

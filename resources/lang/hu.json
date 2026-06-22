@@ -325,8 +325,18 @@
         "placeholder": "Sorold fel a legfontosabb elvárt funkciókat"
       },
       "content_source": {
-        "label": "Tartalom forrása",
-        "placeholder": "Ki biztosítja a szövegeket, képeket vagy videókat?"
+        "label": "Ki biztosítja a szövegeket, képeket,videókat?",
+        "placeholder": "Válassz tartalomfelelőst",
+        "options": [
+          {
+            "value": "Megbízó",
+            "label": "Megbízó"
+          },
+          {
+            "value": "Megbízott",
+            "label": "Megbízott"
+          }
+        ]
       },
       "billing_info": {
         "label": "Számlázási információk",
@@ -334,15 +344,65 @@
       },
       "payment_method": {
         "label": "Preferált fizetési mód",
-        "placeholder": "Pl. átutalás, mérföldkövekhez kötve"
+        "placeholder": "Válassz fizetési módot",
+        "options": [
+          {
+            "value": "Bankkártya",
+            "label": "Bankkártya"
+          },
+          {
+            "value": "Átutalás",
+            "label": "Átutalás"
+          },
+          {
+            "value": "Revolut",
+            "label": "Revolut"
+          }
+        ]
       },
       "support": {
-        "label": "Utótámogatási igény",
-        "placeholder": "Szükséged lesz karbantartásra a projekt után?"
+        "label": "Karbantartási igény",
+        "placeholder": "Válassz karbantartási gyakoriságot",
+        "options": [
+          {
+            "value": "Nem",
+            "label": "Nem"
+          },
+          {
+            "value": "Igen, hetente",
+            "label": "Igen, hetente"
+          },
+          {
+            "value": "Igen, kéthetente",
+            "label": "Igen, kéthetente"
+          },
+          {
+            "value": "Igen, havonta",
+            "label": "Igen, havonta"
+          }
+        ]
       },
       "hosting_domain": {
         "label": "Tárhely / domain igény",
-        "placeholder": "Kell segítség tárhely vagy domain ügyintézésben?"
+        "placeholder": "Válassz tárhely / domain státuszt",
+        "options": [
+          {
+            "value": "Van tárhelyem",
+            "label": "Van tárhelyem"
+          },
+          {
+            "value": "Van tárhelyem és domain nevem",
+            "label": "Van tárhelyem és domain nevem"
+          },
+          {
+            "value": "Nincsen tárhelyem, de megoldom",
+            "label": "Nincsen tárhelyem, de megoldom"
+          },
+          {
+            "value": "Segíts tárhelyet/domain-t venni",
+            "label": "Segíts tárhelyet/domain-t venni"
+          }
+        ]
       },
       "integrations": {
         "label": "Szükséges integrációk",

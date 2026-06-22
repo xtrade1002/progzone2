@@ -326,8 +326,18 @@
         "placeholder": "Liste die wichtigsten gewünschten Funktionen auf"
       },
       "content_source": {
-        "label": "Quelle der Inhalte",
-        "placeholder": "Wer liefert Texte, Bilder oder Videos?"
+        "label": "Wer stellt Texte, Bilder und Videos bereit?",
+        "placeholder": "Content-Verantwortlichen auswählen",
+        "options": [
+          {
+            "value": "Auftraggeber",
+            "label": "Auftraggeber"
+          },
+          {
+            "value": "Auftragnehmer",
+            "label": "Auftragnehmer"
+          }
+        ]
       },
       "billing_info": {
         "label": "Rechnungsinformationen",
@@ -335,15 +345,65 @@
       },
       "payment_method": {
         "label": "Bevorzugte Zahlungsmethode",
-        "placeholder": "z. B. Überweisung, meilensteinbasiert"
+        "placeholder": "Zahlungsmethode auswählen",
+        "options": [
+          {
+            "value": "Bankkarte",
+            "label": "Bankkarte"
+          },
+          {
+            "value": "Überweisung",
+            "label": "Überweisung"
+          },
+          {
+            "value": "Revolut",
+            "label": "Revolut"
+          }
+        ]
       },
       "support": {
-        "label": "Support-Erwartungen",
-        "placeholder": "Benötigst du Betreuung nach dem Launch?"
+        "label": "Wartungsbedarf",
+        "placeholder": "Wartungsrhythmus auswählen",
+        "options": [
+          {
+            "value": "Nein",
+            "label": "Nein"
+          },
+          {
+            "value": "Ja, wöchentlich",
+            "label": "Ja, wöchentlich"
+          },
+          {
+            "value": "Ja, alle zwei Wochen",
+            "label": "Ja, alle zwei Wochen"
+          },
+          {
+            "value": "Ja, monatlich",
+            "label": "Ja, monatlich"
+          }
+        ]
       },
       "hosting_domain": {
         "label": "Hosting- / Domain-Bedarf",
-        "placeholder": "Brauchst du Unterstützung bei Hosting oder Domains?"
+        "placeholder": "Hosting- / Domain-Status auswählen",
+        "options": [
+          {
+            "value": "Ich habe Hosting",
+            "label": "Ich habe Hosting"
+          },
+          {
+            "value": "Ich habe Hosting und Domainname",
+            "label": "Ich habe Hosting und Domainname"
+          },
+          {
+            "value": "Ich habe kein Hosting, kümmere mich aber selbst darum",
+            "label": "Ich habe kein Hosting, kümmere mich aber selbst darum"
+          },
+          {
+            "value": "Hilf mir, Hosting/Domain zu kaufen",
+            "label": "Hilf mir, Hosting/Domain zu kaufen"
+          }
+        ]
       },
       "integrations": {
         "label": "Benötigte Integrationen",

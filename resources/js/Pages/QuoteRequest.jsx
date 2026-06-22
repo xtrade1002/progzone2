@@ -53,6 +53,74 @@ const withRequiredMark = (value) => {
   return text.trim().endsWith('*') ? text : `${text} *`;
 };
 
+const fallbackSelectOptions = {
+  content_source: [
+    { value: 'Megbízó', label: 'Megbízó' },
+    { value: 'Megbízott', label: 'Megbízott' },
+  ],
+  payment_method: [
+    { value: 'Bankkártya', label: 'Bankkártya' },
+    { value: 'Átutalás', label: 'Átutalás' },
+    { value: 'Revolut', label: 'Revolut' },
+  ],
+  support: [
+    { value: 'Nem', label: 'Nem' },
+    { value: 'Igen, hetente', label: 'Igen, hetente' },
+    { value: 'Igen, kéthetente', label: 'Igen, kéthetente' },
+    { value: 'Igen, havonta', label: 'Igen, havonta' },
+  ],
+  hosting_domain: [
+    { value: 'Van tárhelyem', label: 'Van tárhelyem' },
+    { value: 'Van tárhelyem és domain nevem', label: 'Van tárhelyem és domain nevem' },
+    { value: 'Nincsen tárhelyem, de megoldom', label: 'Nincsen tárhelyem, de megoldom' },
+    { value: 'Segíts tárhelyet/domain-t venni', label: 'Segíts tárhelyet/domain-t venni' },
+  ],
+};
+
+const getOptions = (field, fallbackKey) => (
+  Array.isArray(field?.options) && field.options.length > 0
+    ? field.options
+    : fallbackSelectOptions[fallbackKey] ?? []
+);
+
+function FormSelect({
+  id,
+  field,
+  fallbackKey,
+  fallbackLabel,
+  fallbackPlaceholder,
+  required = false,
+  value,
+  onChange,
+  error,
+}) {
+  const options = getOptions(field, fallbackKey);
+  const label = field?.label ?? fallbackLabel;
+  const placeholder = field?.placeholder ?? fallbackPlaceholder;
+
+  return (
+    <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor={id}>
+      {required ? withRequiredMark(label) : label}
+      <select
+        id={id}
+        required={required}
+        className={selectClasses}
+        value={value}
+        onChange={onChange}
+        aria-invalid={error ? 'true' : 'false'}
+      >
+        <option value="">{required ? withRequiredMark(placeholder) : placeholder}</option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      {error && <span className="text-xs text-red-400">{error}</span>}
+    </label>
+  );
+}
+
 export default function QuoteRequest() {
   const [formData, setFormData] = useState(() => createInitialFormState());
   const [processing, setProcessing] = useState(false);
@@ -338,68 +406,50 @@ export default function QuoteRequest() {
             </label>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="content_source">
-                {fields.content_source?.label ?? 'Content source'}
-                <input
-                  id="content_source"
-                  type="text"
-                  placeholder={fields.content_source?.placeholder ?? 'Who will provide copy, images or videos?'}
-                  className={inputClasses}
-                  value={formData.content_source}
-                  onChange={handleChange('content_source')}
-                  aria-invalid={errors.content_source ? 'true' : 'false'}
-                />
-                {errors.content_source && (
-                  <span className="text-xs text-red-400">{errors.content_source}</span>
-                )}
-              </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="payment_method">
-                {fields.payment_method?.label ?? 'Preferred payment method'}
-                <input
-                  id="payment_method"
-                  type="text"
-                  placeholder={fields.payment_method?.placeholder ?? 'e.g. bank transfer, milestone-based'}
-                  className={inputClasses}
-                  value={formData.payment_method}
-                  onChange={handleChange('payment_method')}
-                  aria-invalid={errors.payment_method ? 'true' : 'false'}
-                />
-                {errors.payment_method && (
-                  <span className="text-xs text-red-400">{errors.payment_method}</span>
-                )}
-              </label>
+              <FormSelect
+                id="content_source"
+                field={fields.content_source}
+                fallbackKey="content_source"
+                fallbackLabel="Who provides copy, images and videos?"
+                fallbackPlaceholder="Choose a content owner"
+                value={formData.content_source}
+                onChange={handleChange('content_source')}
+                error={errors.content_source}
+              />
+              <FormSelect
+                id="payment_method"
+                field={fields.payment_method}
+                fallbackKey="payment_method"
+                fallbackLabel="Preferred payment method"
+                fallbackPlaceholder="Choose a payment method"
+                value={formData.payment_method}
+                onChange={handleChange('payment_method')}
+                error={errors.payment_method}
+              />
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="support">
-                {fields.support?.label ?? 'Support expectations'}
-                <input
-                  id="support"
-                  type="text"
-                  placeholder={fields.support?.placeholder ?? 'Do you need maintenance after launch?'}
-                  className={inputClasses}
-                  value={formData.support}
-                  onChange={handleChange('support')}
-                  aria-invalid={errors.support ? 'true' : 'false'}
-                />
-                {errors.support && <span className="text-xs text-red-400">{errors.support}</span>}
-              </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="hosting_domain">
-                {withRequiredMark(fields.hosting_domain?.label ?? 'Hosting / domain needs')}
-                <input
-                  id="hosting_domain"
-                  type="text"
-                  placeholder={fields.hosting_domain?.placeholder ?? 'Do you need help with hosting or domains?'}
-                  required
-                  className={inputClasses}
-                  value={formData.hosting_domain}
-                  onChange={handleChange('hosting_domain')}
-                  aria-invalid={errors.hosting_domain ? 'true' : 'false'}
-                />
-                {errors.hosting_domain && (
-                  <span className="text-xs text-red-400">{errors.hosting_domain}</span>
-                )}
-              </label>
+              <FormSelect
+                id="support"
+                field={fields.support}
+                fallbackKey="support"
+                fallbackLabel="Maintenance need"
+                fallbackPlaceholder="Choose maintenance frequency"
+                value={formData.support}
+                onChange={handleChange('support')}
+                error={errors.support}
+              />
+              <FormSelect
+                id="hosting_domain"
+                field={fields.hosting_domain}
+                fallbackKey="hosting_domain"
+                fallbackLabel="Hosting / domain needs"
+                fallbackPlaceholder="Choose hosting / domain status"
+                required
+                value={formData.hosting_domain}
+                onChange={handleChange('hosting_domain')}
+                error={errors.hosting_domain}
+              />
             </div>
 
             <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="integrations">
