@@ -13,6 +13,7 @@ use Inertia\Inertia;
 $namedRoutes = [];
 
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
+Route::get('/sitemap.rss', SitemapController::class)->name('sitemap.rss');
 
 $renderWithLocale = function (string $locale, callable $render) {
     App::setLocale($locale);

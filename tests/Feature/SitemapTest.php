@@ -37,4 +37,19 @@ class SitemapTest extends TestCase
         $response->assertSee('https://progzone.hu/szolgaltatasok', false);
         $response->assertDontSee('https://progzone.de/szolgaltatasok', false);
     }
+
+    #[Test]
+    public function legacy_rss_sitemap_url_serves_the_xml_sitemap(): void
+    {
+        $response = $this->withServerVariables([
+            'HTTP_HOST' => 'progzone.de',
+            'HTTPS' => 'on',
+        ])->get('/sitemap.rss');
+
+        $response->assertOk();
+        $response->assertHeader('Content-Type', 'application/xml; charset=UTF-8');
+        $response->assertSee('<urlset', false);
+        $response->assertSee('https://progzone.de/leistungen', false);
+        $response->assertDontSee('<html', false);
+    }
 }
