@@ -447,14 +447,6 @@
           }
         ]
       },
-      "integrations": {
-        "label": "Required integrations",
-        "placeholder": "CRM, newsletter, payment gateways, etc."
-      },
-      "legal": {
-        "label": "Legal / compliance notes",
-        "placeholder": "GDPR, contracts, terms, other requirements"
-      },
       "priority": {
         "label": "Project priority",
         "placeholder": "How urgent or important is this project?"

@@ -447,14 +447,6 @@
           }
         ]
       },
-      "integrations": {
-        "label": "Benötigte Integrationen",
-        "placeholder": "CRM, Newsletter, Zahlungsanbieter usw."
-      },
-      "legal": {
-        "label": "Rechtliche / Compliance-Hinweise",
-        "placeholder": "DSGVO, Verträge, AGB oder andere Anforderungen"
-      },
       "priority": {
         "label": "Projektpriorität",
         "placeholder": "Wie dringend oder wichtig ist das Projekt?"

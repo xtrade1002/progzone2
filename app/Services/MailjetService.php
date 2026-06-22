@@ -60,9 +60,7 @@ class MailjetService
             'Preferált fizetési mód' => Arr::get($data, 'payment_method'),
             'Utótámogatási igény' => Arr::get($data, 'support'),
             'Tárhely / domain igény' => Arr::get($data, 'hosting_domain'),
-            'Szükséges integrációk' => Arr::get($data, 'integrations'),
             'Marketing célok' => Arr::get($data, 'marketing'),
-            'Jogi / megfelelőségi elvárások' => Arr::get($data, 'legal'),
         ];
 
         $this->send($subject, $fields);

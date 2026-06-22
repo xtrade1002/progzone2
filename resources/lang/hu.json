@@ -446,14 +446,6 @@
           }
         ]
       },
-      "integrations": {
-        "label": "Szükséges integrációk",
-        "placeholder": "CRM, hírlevél, fizetési szolgáltatók stb."
-      },
-      "legal": {
-        "label": "Jogi / megfelelőségi tudnivalók",
-        "placeholder": "GDPR, szerződések, ÁSZF vagy egyéb elvárások"
-      },
       "priority": {
         "label": "Projekt prioritása",
         "placeholder": "Mennyire sürgős vagy fontos ez a projekt?"

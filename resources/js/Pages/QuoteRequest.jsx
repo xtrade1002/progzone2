@@ -39,8 +39,6 @@ const createInitialFormState = () => ({
   payment_method: '',
   support: '',
   hosting_domain: '',
-  integrations: '',
-  legal: '',
   privacy: false,
 });
 
@@ -465,36 +463,6 @@ export default function QuoteRequest() {
                 error={errors.hosting_domain}
               />
             </div>
-
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="integrations">
-              {fields.integrations?.label ?? 'Required integrations'}
-              <textarea
-                id="integrations"
-                rows="4"
-                placeholder={fields.integrations?.placeholder ?? 'CRM, newsletter, payment gateways, etc.'}
-                className={`${inputClasses} min-h-[120px]`}
-                value={formData.integrations}
-                onChange={handleChange('integrations')}
-                aria-invalid={errors.integrations ? 'true' : 'false'}
-              ></textarea>
-              {errors.integrations && (
-                <span className="text-xs text-red-400">{errors.integrations}</span>
-              )}
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="legal">
-              {fields.legal?.label ?? 'Legal / compliance notes'}
-              <textarea
-                id="legal"
-                rows="4"
-                placeholder={fields.legal?.placeholder ?? 'GDPR, contracts, terms, other requirements'}
-                className={`${inputClasses} min-h-[120px]`}
-                value={formData.legal}
-                onChange={handleChange('legal')}
-                aria-invalid={errors.legal ? 'true' : 'false'}
-              ></textarea>
-              {errors.legal && <span className="text-xs text-red-400">{errors.legal}</span>}
-            </label>
 
             <div className="flex flex-col gap-4 text-sm text-gray-400 md:flex-row md:items-center md:justify-between">
               <label className="inline-flex items-center gap-3 text-gray-300" htmlFor="privacy">

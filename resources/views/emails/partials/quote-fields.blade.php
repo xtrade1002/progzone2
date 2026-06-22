@@ -15,16 +15,12 @@
         'Preferált fizetési mód' => $quote->payment_method,
         'Utótámogatási igény' => $quote->support,
         'Tárhely / domain igény' => $quote->hosting_domain,
-        'Szükséges integrációk' => $quote->integrations,
-        'Jogi / megfelelőségi elvárások' => $quote->legal,
         'Adatkezelési tájékoztató elfogadva' => $quote->privacy ? 'Igen' : 'Nem',
     ];
 
     $multilineLabels = [
         'Referencia oldalak',
         'Kulcsfunkciók',
-        'Szükséges integrációk',
-        'Jogi / megfelelőségi elvárások',
     ];
 @endphp
 

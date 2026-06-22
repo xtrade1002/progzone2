@@ -34,8 +34,6 @@ class QuoteController extends Controller
             'payment_method' => $this->safeTextRules(max: 100),
             'support' => $this->safeTextRules(max: 255),
             'hosting_domain' => $this->safeTextRules(required: true, max: 255),
-            'integrations' => $this->safeTextRules(),
-            'legal' => $this->safeTextRules(),
             'privacy' => ['accepted'],
         ], $this->validationMessages());
 
