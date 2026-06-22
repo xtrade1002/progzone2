@@ -1,2 +1,5 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://progzone.hu/sitemap.xml
+Sitemap: https://progzone.de/sitemap.xml

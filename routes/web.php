@@ -1,15 +1,18 @@
 <?php
 
 use App\Http\Controllers\FormController;
-use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\SitemapController;
 use App\Support\LocalizedRoutes;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 $namedRoutes = [];
+
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 
 $renderWithLocale = function (string $locale, callable $render) {
     App::setLocale($locale);
@@ -41,6 +44,7 @@ foreach (LocalizedRoutes::PAGE_ROUTES as $name => $localizedRoute) {
                 fn () => app()->call([app(PriceController::class), 'index'])
             ));
             $routeName ? $route->name($routeName) : null;
+
             continue;
         }
 
