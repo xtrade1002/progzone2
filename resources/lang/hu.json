@@ -318,7 +318,7 @@
       },
       "languages": {
         "label": "Hány nyelvű legyen a weboldal?",
-        "placeholder": "Válassz nyelvi számot",
+        "placeholder": "Válassz...",
         "options": [
           {
             "value": "1",

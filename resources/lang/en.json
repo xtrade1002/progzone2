@@ -319,7 +319,7 @@
       },
       "languages": {
         "label": "How many languages should the website have?",
-        "placeholder": "Choose language count",
+        "placeholder": "Choose...",
         "options": [
           {
             "value": "1",

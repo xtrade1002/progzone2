@@ -319,7 +319,7 @@
       },
       "languages": {
         "label": "Wie viele Sprachen soll die Website haben?",
-        "placeholder": "Sprachenanzahl auswählen",
+        "placeholder": "Auswählen...",
         "options": [
           {
             "value": "1",
