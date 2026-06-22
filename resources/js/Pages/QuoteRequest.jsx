@@ -147,18 +147,31 @@ export default function QuoteRequest() {
         day: 'numeric',
       }).format(new Date(`${formData.timeline}T00:00:00`))
     : null;
+  const termsHref = localizedRoute('terms', locale, localizedRoutes);
   const privacyHref = localizedRoute('privacy', locale, localizedRoutes);
-  const privacyText = locale === 'hu'
+  const consentText = locale === 'hu'
     ? {
-        prefix: 'Elfogadom az',
-        link: 'adatkezelési tájékoztatót',
+        prefix: 'Elolvastam és elfogadom az',
+        terms: 'ÁSZF-et',
+        connector: 'és az',
+        privacy: 'Adatvédelmi szerződést',
         suffix: '',
       }
-    : {
-        prefix: 'Ich habe die',
-        link: 'Datenschutzerklärung',
-        suffix: 'gelesen und akzeptiere sie.',
-      };
+    : locale === 'de' || locale === 'de-CH'
+      ? {
+          prefix: 'Ich habe die',
+          terms: 'AGB',
+          connector: 'und die',
+          privacy: 'Datenschutzerklärung',
+          suffix: 'gelesen und akzeptiere sie.',
+        }
+      : {
+          prefix: 'I have read and accept the',
+          terms: 'Terms and Conditions',
+          connector: 'and the',
+          privacy: 'Privacy Policy',
+          suffix: '',
+        };
 
   const handleChange = (field) => (event) => {
     const value = field === 'privacy'
@@ -495,14 +508,21 @@ export default function QuoteRequest() {
                   aria-invalid={errors.privacy ? 'true' : 'false'}
                 />
                 <span>
-                  {privacyText.prefix}{' '}
+                  {consentText.prefix}{' '}
+                  <a
+                    href={termsHref}
+                    className="text-[#00f7ff] underline underline-offset-4 transition hover:text-[#FF007A]"
+                  >
+                    {consentText.terms}
+                  </a>
+                  {' '}{consentText.connector}{' '}
                   <a
                     href={privacyHref}
                     className="text-[#00f7ff] underline underline-offset-4 transition hover:text-[#FF007A]"
                   >
-                    {privacyText.link}
+                    {consentText.privacy}
                   </a>
-                  {privacyText.suffix ? ` ${privacyText.suffix}` : ''} *
+                  {consentText.suffix ? ` ${consentText.suffix}` : ''} *
                 </span>
               </label>
               {errors.privacy && <span className="text-xs text-red-400">{errors.privacy}</span>}
