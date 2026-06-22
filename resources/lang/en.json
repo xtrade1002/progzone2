@@ -311,7 +311,7 @@
       },
       "reference_sites": {
         "label": "Inspiration / reference sites",
-        "placeholder": "1. reference website or product\n2. reference website or product\n3. reference website or product\n4. reference website or product\n5. reference website or product"
+        "placeholder": "1. ______________________________\n2. ______________________________\n3. ______________________________\n4. ______________________________\n5. ______________________________"
       },
       "menu_items": {
         "label": "How many menu items do you need?",
