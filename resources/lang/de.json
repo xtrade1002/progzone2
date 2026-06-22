@@ -311,7 +311,7 @@
       },
       "reference_sites": {
         "label": "Inspiration / Referenzseiten",
-        "placeholder": "Nenne Webseiten oder Produkte, die dir gefallen"
+        "placeholder": "1. Referenz-Webseite oder Produkt\n2. Referenz-Webseite oder Produkt\n3. Referenz-Webseite oder Produkt\n4. Referenz-Webseite oder Produkt\n5. Referenz-Webseite oder Produkt"
       },
       "menu_items": {
         "label": "Wie viele Menüpunkte werden benötigt?",

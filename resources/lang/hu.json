@@ -310,7 +310,7 @@
       },
       "reference_sites": {
         "label": "Inspiráció / referencia oldalak",
-        "placeholder": "Írj meg néhány weboldalt vagy terméket, ami tetszik"
+        "placeholder": "1. referencia weboldal vagy termék\n2. referencia weboldal vagy termék\n3. referencia weboldal vagy termék\n4. referencia weboldal vagy termék\n5. referencia weboldal vagy termék"
       },
       "menu_items": {
         "label": "Hány menüpontot szeretne?",
