@@ -883,8 +883,8 @@
       },
       {
         "type": "image",
-        "image": "/img/flyer/flyer_de/fitness.svg",
-        "lightboxImage": "/img/flyer/flyer_de/fitness.svg",
+        "image": "/img/flyer/flyer_de/fitness.png",
+        "lightboxImage": "/img/flyer/flyer_de/fitness.png",
         "title": "Fitness Flyer",
         "label": "Flyer",
         "category": "Flyer",
@@ -913,8 +913,8 @@
       },
       {
         "type": "image",
-        "image": "/img/flyer/flyer_de/hundesalon.svg",
-        "lightboxImage": "/img/flyer/flyer_de/hundesalon.svg",
+        "image": "/img/flyer/flyer_de/hundekosmetik.png",
+        "lightboxImage": "/img/flyer/flyer_de/hundekosmetik.png",
         "title": "Hundesalon Flyer",
         "label": "Flyer",
         "category": "Flyer",
@@ -923,8 +923,8 @@
       },
       {
         "type": "image",
-        "image": "/img/flyer/flyer_de/massage.svg",
-        "lightboxImage": "/img/flyer/flyer_de/massage.svg",
+        "image": "/img/flyer/flyer_de/massage.png",
+        "lightboxImage": "/img/flyer/flyer_de/massage.png",
         "title": "Massage Flyer",
         "label": "Flyer",
         "category": "Flyer",
@@ -933,8 +933,8 @@
       },
       {
         "type": "image",
-        "image": "/img/flyer/flyer_de/baeckerei.svg",
-        "lightboxImage": "/img/flyer/flyer_de/baeckerei.svg",
+        "image": "/img/flyer/flyer_de/backerei.png",
+        "lightboxImage": "/img/flyer/flyer_de/backerei.png",
         "title": "Bäckerei Flyer",
         "label": "Flyer",
         "category": "Flyer",
