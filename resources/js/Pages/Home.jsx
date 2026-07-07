@@ -109,6 +109,7 @@ export default function Home() {
 
   const localizedRoutes = props?.localizedRoutes;
   const home = trans?.home ?? {};
+  const brandLabel = home.brand_label ?? 'Progzone';
 
   const paragraphs = Array.isArray(home.paragraphs) ? home.paragraphs : [];
   const words = Array.isArray(home.typewriter) ? home.typewriter : [
@@ -142,10 +143,11 @@ export default function Home() {
   const homePageClassName = isGermanLocale
     ? 'pz-home-page pz-home-page--de'
     : 'pz-home-page';
+  const seoTitle = home.meta_title ?? t('menu.home', 'Home');
 
   return (
     <Layout>
-      <Head title={home.meta_title ?? t('menu.home', 'Home')} />
+      <Head title={seoTitle} />
 
       <style>{`
         :root {
@@ -993,7 +995,7 @@ export default function Home() {
 
           <div className="pz-home-hero__inner">
             <div>
-              <span className="pz-neon-badge">Progzone</span>
+              <span className="pz-neon-badge">{brandLabel}</span>
 
               <h1 className="pz-home-hero__title">
                 <span>{heroTitle.line1 ?? 'Weboldalkészítés'}</span>
@@ -1081,7 +1083,7 @@ export default function Home() {
 
             <div className="pz-why">
     <div className="pz-why-content">
-        <span className="pz-neon-badge">Progzone</span>
+        <span className="pz-neon-badge">{brandLabel}</span>
 
         <h2>
             {why.title_prefix ?? 'Miért válassz'} <span className="pz-pink">{why.title_highlight ?? 'Engem?'}</span>

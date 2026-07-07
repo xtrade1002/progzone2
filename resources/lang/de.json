@@ -25,70 +25,71 @@
     "copyright": "© :year Progzone. Alle Rechte vorbehalten."
   },
   "home": {
-    "meta_title": "Startseite",
+    "meta_title": "Webdesign Deutschland, Website- & Onlineshop-Erstellung",
+    "meta_description": "Professionelle Website- und Onlineshop-Erstellung, individuelle Websites, WordPress und SEO-Optimierung für Unternehmen in Deutschland.",
     "paragraphs": [
-      "Professionelle Website- und Webshop-Erstellung, Webdesign und Online-Marketing an einem Ort"
+      "Ich erstelle moderne, schnelle und bezahlbare Websites für Unternehmen, Selbstständige und Projekte - von der einfachen WordPress-Seite bis zum Onlineshop."
     ],
     "typewriter": [
-      "Webdesign",
-      "Marketing",
-      "Webseitenentwicklung",
+      "Webseite erstellen lassen",
+      "Modernes Webdesign",
+      "WordPress-Webseite",
       "Onlineshop Erstellung"
     ],
     "hero_title": {
-      "line1": "Webseitenerstellung",
-      "line2_prefix": "und",
-      "line2_highlight": "Online-Lösungen"
+      "line1": "Webseiten erstellen lassen",
+      "line2_prefix": "mit",
+      "line2_highlight": "klarer Wirkung"
     },
     "hero_actions": {
       "quote": "Kostenloses Angebot",
       "contact": "Kontakt"
     },
     "chips": [
-      "Modernes Design",
-      "Schnelle Ladezeit",
-      "Mobilfreundlich"
+      "Schnell online",
+      "Faire Preise",
+      "SEO & mobil optimiert"
     ],
     "services_title": {
-      "prefix": "Wobei kann ich",
-      "highlight": "dir helfen?"
+      "prefix": "Webdesign, Entwicklung",
+      "highlight": "und Betreuung"
     },
     "details_label": "Details",
     "service_items": [
       {
         "title": "Webdesign",
-        "text": "Individuelles, modernes und responsives Design, das deine Marke sichtbar macht."
+        "text": "Modernes, responsives Design für deine Website - passend zu deinem Angebot und deiner Zielgruppe."
       },
       {
         "title": "Webshop-Erstellung",
-        "text": "Professionelle Onlineshops mit WooCommerce oder individuellen Lösungen."
+        "text": "WooCommerce-Shops und individuelle Onlineshop-Lösungen mit klarer Struktur und einfacher Verwaltung."
       },
       {
         "title": "Webentwicklung",
-        "text": "Entwicklung mit HTML, CSS, JavaScript, PHP und Laravel."
+        "text": "Saubere Umsetzung mit WordPress, Laravel, PHP, JavaScript und modernen Frontend-Technologien."
       },
       {
-        "title": "SEO & Marketing",
-        "text": "Suchmaschinenoptimierung und Online-Marketing für bessere Sichtbarkeit."
+        "title": "SEO & Sichtbarkeit",
+        "text": "Technische SEO-Grundlagen, schnelle Ladezeiten und Inhalte, die bei Google besser verstanden werden."
       },
       {
         "title": "Online-Marketing",
-        "text": "Gezielte Kampagnen mit Google Ads, Facebook und Instagram."
+        "text": "Google Ads, Social Media und Kampagnen für mehr Anfragen und messbare Ergebnisse."
       },
       {
         "title": "Support & Wartung",
-        "text": "Laufende Betreuung, Updates und Sicherheitswartung."
+        "text": "Updates, Sicherheit, kleine Anpassungen und persönliche Betreuung nach dem Launch."
       }
     ],
     "why": {
       "title_prefix": "Warum",
       "title_highlight": "mich wählen?",
       "items": [
-        "Individuelle, maßgeschneiderte Lösungen",
+        "Websites für Unternehmen und Selbstständige",
         "Schnelle und zuverlässige Umsetzung",
-        "Faire Preise ohne versteckte Kosten",
-        "Mehrjährige Erfahrung",
-        "Umfassende Kundenbetreuung"
+        "Faire, transparente Preise ohne versteckte Kosten",
+        "Moderne, mobilfreundliche und SEO-bewusste Umsetzung",
+        "Persönliche Betreuung von der Idee bis zum fertigen Auftritt"
       ],
       "cta": "Angebot anfragen"
     }
@@ -160,11 +161,11 @@
     ]
   },
   "services": {
-    "meta_title": "Leistungen",
+    "meta_title": "Webdesign & Webentwicklung",
     "cards": [
       {
         "title": "WordPress-Webseite",
-        "description": "Schnelle und kosteneffiziente Lösung, bei der Inhalte einfach selbst gepflegt werden können. Ideal für Unternehmen, die eine professionelle, moderne und SEO-freundliche Website mit kurzer Umsetzungszeit benötigen."
+        "description": "Schnelle und kosteneffiziente Website-Erstellung für Unternehmen und Selbstständige. Ideal, wenn du eine professionelle, moderne und SEO-freundliche Website mit kurzer Umsetzungszeit brauchst."
       },
       {
         "title": "WooCommerce-Onlineshop",
@@ -181,13 +182,13 @@
     ]
   },
   "prices": {
-    "meta_title": "Preise",
+    "meta_title": "Preise für Websites",
     "title": "Preise",
     "note": "Für ein genaues Angebot kontaktieren Sie mich bitte per E-Mail:",
     "note_email": "__CONTACT_EMAIL__",
     "wordpress": {
       "title": "Website-Erstellung (WordPress)",
-      "desc": "Schnelle, kostengünstige und einfach zu bearbeitende Lösung mit modernem Design und SEO. Der Preis hängt z. B. von der Anzahl der Seiten, dem Design, dem Content-Management und der Wartung ab.",
+      "desc": "Schnelle, kostengünstige und einfach zu bearbeitende Website mit modernem Design und SEO. Der Preis hängt z. B. von der Anzahl der Seiten, dem Design, dem Content-Management und der Wartung ab.",
       "not_included": "Der Preis enthält NICHT:",
       "list": [
         "Domainname ca. ({domain_price})",
@@ -699,9 +700,10 @@
     ]
   },
   "references": {
-    "meta_title": "Referenzen",
-    "title": "Referenzen",
-    "subtitle": "Eine Auswahl meiner Lieblingsprojekte",
+    "meta_title": "Referenzen für Webdesign & Website-Erstellung",
+    "meta_description": "Ausgewählte Website-, Webdesign- und Entwicklungsreferenzen. Moderne Webseiten, Webshops und digitale Lösungen für Kunden aus verschiedenen Branchen.",
+    "title": "Referenzen für Webdesign & Websites",
+    "subtitle": "Beispiele für moderne Webseiten, Webshops und digitale Lösungen - schnell, sauber umgesetzt und auf klare Online-Präsenz ausgerichtet.",
     "lightbox_alt": "Vorschau",
     "projects": [
       {

@@ -49,7 +49,7 @@ export default function route(name) {
 
 export function localizedRoute(name, locale = 'hu', localizedRoutes = null, params = {}) {
   const source = localizedRoutes ?? fallbackLocalizedRoutes;
-  const normalizedLocale = ['hu', 'de', 'en'].includes(locale) ? locale : 'hu';
+  const normalizedLocale = locale === 'de-CH' ? 'de' : ['hu', 'de', 'en'].includes(locale) ? locale : 'hu';
   const pagePath = source.pages?.[name]?.[normalizedLocale] ?? fallbackLocalizedRoutes.pages[name]?.[normalizedLocale];
 
   if (!pagePath) {
@@ -68,7 +68,7 @@ export function localizedRoute(name, locale = 'hu', localizedRoutes = null, para
 
 export function localizedPathForPath(path, locale = 'hu', localizedRoutes = null) {
   const source = localizedRoutes ?? fallbackLocalizedRoutes;
-  const normalizedLocale = ['hu', 'de', 'en'].includes(locale) ? locale : 'hu';
+  const normalizedLocale = locale === 'de-CH' ? 'de' : ['hu', 'de', 'en'].includes(locale) ? locale : 'hu';
   const normalizedPath = `/${String(path ?? '/').split('?')[0].replace(/^\/+|\/+$/g, '')}`.replace(/\/$/, '') || '/';
 
   for (const [name, paths] of Object.entries(source.pages ?? {})) {

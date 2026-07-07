@@ -23,6 +23,9 @@ export default function References() {
   const projects = Array.isArray(references.projects) ? references.projects : [];
   const activeCategory = routeCategories[props?.category] ?? 'all';
   const localizedRoutes = props?.localizedRoutes;
+  const language = typeof locale === 'string' && locale.toLowerCase().startsWith('de')
+    ? 'de'
+    : locale;
   const tabLabels = {
     hu: {
       all: 'Összes',
@@ -52,7 +55,7 @@ export default function References() {
       empty: 'There are no references in this category yet.',
     },
   };
-  const labels = tabLabels[locale] ?? tabLabels.hu;
+  const labels = tabLabels[language] ?? tabLabels.hu;
 
   const getProjectCategory = (project) => {
     const searchable = [
@@ -286,7 +289,7 @@ export default function References() {
                   rel="noopener noreferrer"
                   className="inline-flex min-h-0 w-full max-w-[190px] items-center justify-center rounded-xl border border-[#00eaff]/70 bg-transparent px-4 py-2.5 text-sm font-black text-[#00eaff] shadow-[0_0_14px_rgba(0,234,255,0.14)] transition hover:-translate-y-0.5 hover:border-[#00eaff] hover:text-white hover:shadow-[0_0_24px_rgba(0,234,255,0.28)] sm:w-auto"
                 >
-                  {locale === 'hu' ? 'Megtekintés' : locale === 'de' ? 'Ansehen' : 'Preview'}
+                  {language === 'hu' ? 'Megtekintés' : language === 'de' ? 'Ansehen' : 'Preview'}
                 </a>
               </>
             )}
@@ -298,7 +301,11 @@ export default function References() {
 
   return (
     <Layout>
-      <Head title={references.meta_title ?? t('menu.references', 'References')} />
+      <Head title={references.meta_title ?? t('menu.references', 'References')}>
+        {references.meta_description && (
+          <meta name="description" content={references.meta_description} />
+        )}
+      </Head>
       <section className="pz-section mx-auto w-full max-w-[1320px] space-y-10 overflow-x-hidden px-5 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <h1 className="pz-title text-4xl font-black sm:text-5xl">

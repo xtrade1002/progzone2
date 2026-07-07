@@ -44,10 +44,11 @@ class AppServiceProvider extends ServiceProvider
 
     private function loadTranslations(string $locale, string $fallback): array
     {
-        $paths = array_values(array_unique([
+        $paths = array_values(array_filter(array_unique([
             lang_path("{$locale}.json"),
+            str_contains($locale, '-') ? lang_path(strtok($locale, '-') . '.json') : null,
             lang_path("{$fallback}.json"),
-        ]));
+        ])));
 
         $signature = collect($paths)
             ->filter(fn ($path) => is_file($path))
@@ -55,7 +56,9 @@ class AppServiceProvider extends ServiceProvider
             ->implode('|');
 
         return Cache::rememberForever("translations:{$locale}:{$fallback}:" . md5($signature), function () use ($paths) {
-            foreach ($paths as $path) {
+            $translations = [];
+
+            foreach (array_reverse($paths) as $path) {
                 if (! is_file($path)) {
                     continue;
                 }
@@ -67,11 +70,11 @@ class AppServiceProvider extends ServiceProvider
                 }
 
                 if (is_array($decoded)) {
-                    return $decoded;
+                    $translations = array_replace_recursive($translations, $decoded);
                 }
             }
 
-            return [];
+            return $translations;
         });
     }
 

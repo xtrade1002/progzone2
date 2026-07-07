@@ -1,0 +1,77 @@
+{
+  "footer": {
+    "copyright": "© :year bitbau.ch. Alle Rechte vorbehalten."
+  },
+  "home": {
+    "brand_label": "bitbau.ch",
+    "meta_title": "Website erstellen lassen in der Schweiz | bitbau.ch",
+    "meta_description": "bitbau.ch erstellt schnelle, moderne und bezahlbare Websites, WordPress-Seiten und Onlineshops für Unternehmen in der Schweiz. Faire Preise, kurze Umsetzungszeit und persönliche Betreuung.",
+    "paragraphs": [
+      "Ich erstelle moderne, schnelle und bezahlbare Websites für Unternehmen, Selbstständige und Projekte in der Schweiz - von der einfachen WordPress-Seite bis zum Onlineshop."
+    ],
+    "typewriter": [
+      "Webseite erstellen lassen",
+      "Webdesign Schweiz",
+      "WordPress-Webseite",
+      "Onlineshop Erstellung"
+    ],
+    "hero_title": {
+      "line1": "Webseiten erstellen lassen",
+      "line2_prefix": "in der",
+      "line2_highlight": "Schweiz"
+    },
+    "service_items": [
+      {
+        "title": "Webdesign Schweiz",
+        "text": "Modernes, responsives Design für deine Website - passend zu deinem Angebot und deiner Zielgruppe."
+      },
+      {
+        "title": "Webshop-Erstellung",
+        "text": "WooCommerce-Shops und individuelle Onlineshop-Lösungen mit klarer Struktur und einfacher Verwaltung."
+      },
+      {
+        "title": "Webentwicklung",
+        "text": "Saubere Umsetzung mit WordPress, Laravel, PHP, JavaScript und modernen Frontend-Technologien."
+      },
+      {
+        "title": "SEO & Sichtbarkeit",
+        "text": "Technische SEO-Grundlagen, schnelle Ladezeiten und Inhalte, die bei Google besser verstanden werden."
+      },
+      {
+        "title": "Online-Marketing",
+        "text": "Google Ads, Social Media und Kampagnen für mehr Anfragen und messbare Ergebnisse."
+      },
+      {
+        "title": "Support & Wartung",
+        "text": "Updates, Sicherheit, kleine Anpassungen und persönliche Betreuung nach dem Launch."
+      }
+    ],
+    "why": {
+      "items": [
+        "Websites für Kunden in der Schweiz",
+        "Schnelle und zuverlässige Umsetzung",
+        "Faire, transparente Preise ohne versteckte Kosten",
+        "Moderne, mobilfreundliche und SEO-bewusste Umsetzung",
+        "Persönliche Betreuung von der Idee bis zum fertigen Auftritt"
+      ]
+    }
+  },
+  "services": {
+    "meta_title": "Webdesign & Webentwicklung in der Schweiz",
+    "cards": [
+      {
+        "title": "WordPress-Webseite",
+        "description": "Schnelle und kosteneffiziente Website-Erstellung für Unternehmen in der Schweiz. Ideal, wenn du eine professionelle, moderne und SEO-freundliche Website mit kurzer Umsetzungszeit brauchst."
+      }
+    ]
+  },
+  "prices": {
+    "meta_title": "Preise für Websites in der Schweiz"
+  },
+  "references": {
+    "meta_title": "Referenzen für Webdesign & Website-Erstellung",
+    "meta_description": "Ausgewählte Website-, Webdesign- und Entwicklungsreferenzen von bitbau.ch. Moderne Webseiten, Webshops und digitale Lösungen für Kunden in der Schweiz und darüber hinaus.",
+    "title": "Referenzen für Webdesign & Websites",
+    "subtitle": "Beispiele für moderne Webseiten, Webshops und digitale Lösungen - schnell, sauber umgesetzt und auf klare Online-Präsenz ausgerichtet."
+  }
+}
