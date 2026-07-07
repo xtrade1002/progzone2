@@ -51,10 +51,11 @@
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="{{ $seoTitle }}">
 
-      <link rel="icon" href="/favicon.ico" sizes="any">
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-      <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-      <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=pz-neon-20260707">
+      <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png?v=pz-neon-20260707">
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=pz-neon-20260707">
+      <link rel="icon" href="/favicon.ico?v=pz-neon-20260707" sizes="any">
+      <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=pz-neon-20260707">
 
       @viteReactRefresh
       @vite(['resources/css/app.css', 'resources/js/app.jsx'])
