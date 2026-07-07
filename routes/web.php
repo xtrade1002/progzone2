@@ -15,6 +15,9 @@ $namedRoutes = [];
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 Route::get('/sitemap.rss', SitemapController::class)->name('sitemap.rss');
 
+Route::redirect('/home', '/', 301);
+Route::redirect('/public/home', '/', 301);
+
 $renderWithLocale = function (string $locale, callable $render) {
     App::setLocale($locale);
 
