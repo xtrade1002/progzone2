@@ -51,6 +51,17 @@
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="{{ $seoTitle }}">
 
+      @if ($host === 'progzone.de')
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3E2JHBJS5Y"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-3E2JHBJS5Y');
+        </script>
+      @endif
+
       <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=pz-neon-20260707">
       <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png?v=pz-neon-20260707">
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=pz-neon-20260707">
