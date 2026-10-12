@@ -727,8 +727,8 @@
       {
         "type": "link",
         "url": "https://hunportal.hu",
-        "image": "/img/websites/hunportal-preview.png",
-        "lightboxImage": "/img/websites/hunportal-preview.png",
+        "image": "/img/websites/hunportal-current.webp",
+        "lightboxImage": "/img/websites/hunportal-current.webp",
         "title": "Hunportal",
         "cta": "Website ansehen",
         "categoryKey": "websites",
@@ -848,7 +848,7 @@
           "Webdesign",
           "Entwicklung"
         ],
-        "imageFit": "contain",
+        "imageFit": "cover",
         "domainOverrides": {
           "progzone.hu": {
             "url": "https://secretlounge.hu/hu",

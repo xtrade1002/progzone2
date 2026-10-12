@@ -728,13 +728,13 @@
           "Inertia",
           "Listings"
         ],
-        "imageFit": "contain"
+        "imageFit": "cover"
       },
       {
         "type": "link",
         "url": "https://hunportal.hu",
-        "image": "/img/websites/hunportal-preview.png",
-        "lightboxImage": "/img/websites/hunportal-preview.png",
+        "image": "/img/websites/hunportal-current.webp",
+        "lightboxImage": "/img/websites/hunportal-current.webp",
         "title": "Hunportal",
         "cta": "View website",
         "categoryKey": "websites",
