@@ -859,9 +859,6 @@
         }
       },
       {
-        "imageFit": "contain"
-      },
-      {
         "type": "image",
         "image": "/img/flyer/flyer_de/autowäsche.png",
         "lightboxImage": "/img/flyer/flyer_de/autowäsche.png",

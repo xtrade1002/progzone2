@@ -857,9 +857,6 @@
         }
       },
       {
-        "imageFit": "contain"
-      },
-      {
         "type": "image",
         "image": "/img/flyer/flyer_hu/auto.png",
         "lightboxImage": "/img/flyer/flyer_hu/auto.png",
