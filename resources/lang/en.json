@@ -707,14 +707,14 @@
       {
         "type": "link",
         "url": "https://secretlounge.ch",
-        "image": "/img/websites/secretlounge.ch.png",
+        "image": "/img/websites/secretlounge-ch-card.webp",
         "lightboxImage": "/img/websites/secretlounge.ch.png",
         "title": "SecretLounge.ch",
         "cta": "View website",
         "domainOverrides": {
           "progzone.hu": {
             "url": "https://secretlounge.hu/hu",
-            "image": "/img/secretlounge-hu-preview.png",
+            "image": "/img/websites/secretlounge-hu-card.webp",
             "lightboxImage": "/img/secretlounge-hu-preview.png",
             "title": "SecretLounge.hu"
           }

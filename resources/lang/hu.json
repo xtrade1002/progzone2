@@ -833,7 +833,7 @@
       {
         "type": "link",
         "url": "https://secretlounge.hu/hu",
-        "image": "/img/secretlounge-hu-preview.png",
+        "image": "/img/websites/secretlounge-hu-card.webp",
         "lightboxImage": "/img/secretlounge-hu-preview.png",
         "title": "SecretLounge.hu",
         "cta": "Megnézem a weboldalt",
@@ -850,7 +850,7 @@
         "domainOverrides": {
           "progzone.hu": {
             "url": "https://secretlounge.hu/hu",
-            "image": "/img/secretlounge-hu-preview.png",
+            "image": "/img/websites/secretlounge-hu-card.webp",
             "lightboxImage": "/img/secretlounge-hu-preview.png",
             "title": "SecretLounge.hu"
           }
