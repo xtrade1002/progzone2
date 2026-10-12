@@ -708,6 +708,24 @@
     "projects": [
       {
         "type": "link",
+        "url": "https://csaladallitokegyesulete.hu/",
+        "image": "/img/websites/csaladallitok-egyesulete.webp",
+        "lightboxImage": "/img/websites/csaladallitok-egyesulete.webp",
+        "title": "Ungarischer Verband für Familienaufstellungen",
+        "cta": "Website ansehen",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Offizielle Website des ungarischen Verbands für Familienaufstellungen mit Informationen zu Gemeinschaft, Veranstaltungen und Weiterbildungen.",
+        "tags": [
+          "Website",
+          "Webdesign",
+          "Entwicklung"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
         "url": "https://hunportal.hu",
         "image": "/img/websites/hunportal-preview.png",
         "lightboxImage": "/img/websites/hunportal-preview.png",
@@ -716,7 +734,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Referenz für Webdesign und Entwicklung.",
+        "description": "Ungarisches Such- und Community-Portal für lokale Dienstleister, Veranstaltungen, Anzeigen und nützliche Informationen.",
         "tags": [
           "Website",
           "Webdesign",
@@ -734,7 +752,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Referenz für Webdesign und Entwicklung.",
+        "description": "Unternehmenswebsite für Gartenpflege und professionelle Gartenarbeiten in Nagytarcsa und Umgebung.",
         "tags": [
           "Website",
           "Webdesign",
@@ -752,7 +770,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Referenz für Webdesign und Entwicklung.",
+        "description": "Online-Terminbuchungssystem für Dienstleister mit übersichtlicher Kalender- und Buchungsverwaltung.",
         "tags": [
           "Website",
           "Webdesign",
@@ -770,7 +788,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Referenz für Webdesign und Entwicklung.",
+        "description": "Website eines Beauty-Studios für Wimpernverlängerung, Diodenlaser-Haarentfernung und Online-Terminbuchung.",
         "tags": [
           "Website",
           "Webdesign",
@@ -788,7 +806,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Referenz für Webdesign und Entwicklung.",
+        "description": "Präsentations- und Bestellwebsite für individuell gefertigte, mit Kristallen verzierte Wettkampfbikinis.",
         "tags": [
           "Website",
           "Webdesign",
@@ -806,7 +824,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Referenz für Webdesign und Entwicklung.",
+        "description": "Internationale Website für Luxusyachten, Charterangebote, Yachtvermittlung und professionelles Yachtmanagement.",
         "tags": [
           "Website",
           "Webdesign",
@@ -824,7 +842,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Premium-Anzeigenplattform mit Laravel und Inertia umgesetzt.",
+        "description": "Premium-Such- und Anzeigenplattform für erotische Massagen und weitere Dienstleistungen für Erwachsene.",
         "tags": [
           "Website",
           "Webdesign",

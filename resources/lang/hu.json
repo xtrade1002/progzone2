@@ -706,6 +706,24 @@
     "projects": [
       {
         "type": "link",
+        "url": "https://csaladallitokegyesulete.hu/",
+        "image": "/img/websites/csaladallitok-egyesulete.webp",
+        "lightboxImage": "/img/websites/csaladallitok-egyesulete.webp",
+        "title": "Magyar Családállítók Egyesülete",
+        "cta": "Megnézem a weboldalt",
+        "categoryKey": "websites",
+        "label": "Weboldal",
+        "category": "Weboldal",
+        "description": "A Magyar Családállítók Egyesületének hivatalos weboldala, szakmai, közösségi, esemény- és képzési információkkal.",
+        "tags": [
+          "Weboldal",
+          "Webdesign",
+          "Fejlesztés"
+        ],
+        "imageFit": "contain"
+      },
+      {
+        "type": "link",
         "url": "https://hunportal.hu",
         "image": "/img/websites/hunportal-preview.png",
         "lightboxImage": "/img/websites/hunportal-preview.png",
@@ -714,7 +732,7 @@
         "categoryKey": "websites",
         "label": "Weboldal",
         "category": "Weboldal",
-        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "description": "Országos közösségi és keresőportál helyi szolgáltatók, programok, hirdetések és hasznos információk felfedezéséhez.",
         "tags": [
           "Weboldal",
           "Webdesign",
@@ -732,7 +750,7 @@
         "categoryKey": "websites",
         "label": "Weboldal",
         "category": "Weboldal",
-        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "description": "Kertfenntartási és kertészeti szolgáltatásokat bemutató vállalkozói weboldal Nagytarcsa és környéke számára.",
         "tags": [
           "Weboldal",
           "Webdesign",
@@ -750,7 +768,7 @@
         "categoryKey": "websites",
         "label": "Weboldal",
         "category": "Weboldal",
-        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "description": "Online időpontfoglaló rendszer szolgáltatóknak, átlátható foglalás- és naptárkezeléssel.",
         "tags": [
           "Weboldal",
           "Webdesign",
@@ -768,7 +786,7 @@
         "categoryKey": "websites",
         "label": "Weboldal",
         "category": "Weboldal",
-        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "description": "Nagytarcsai szépségszalon weboldala műszempilla-építéshez, dióda lézeres szőrtelenítéshez és időpontfoglaláshoz.",
         "tags": [
           "Weboldal",
           "Webdesign",
@@ -786,7 +804,7 @@
         "categoryKey": "websites",
         "label": "Weboldal",
         "category": "Weboldal",
-        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "description": "Egyedi, méretre készített és kristályokkal díszített versenybikinik bemutató- és rendelési oldala.",
         "tags": [
           "Weboldal",
           "Webdesign",
@@ -804,7 +822,7 @@
         "categoryKey": "websites",
         "label": "Weboldal",
         "category": "Weboldal",
-        "description": "Webdesign és weboldal-fejlesztési referencia.",
+        "description": "Luxusjachtokat, charterlehetőségeket, jachtbrókeri és hajómenedzsment-szolgáltatásokat bemutató nemzetközi weboldal.",
         "tags": [
           "Weboldal",
           "Webdesign",
@@ -822,7 +840,7 @@
         "categoryKey": "websites",
         "label": "Weboldal",
         "category": "Weboldal",
-        "description": "Prémium hirdetési platform Laravel és Inertia alapon.",
+        "description": "Prémium hirdetési és keresőplatform erotikus masszázsszolgáltatások és felnőtt szolgáltatók számára.",
         "tags": [
           "Weboldal",
           "Webdesign",

@@ -14,6 +14,14 @@ const routeCategories = {
   'other-designs': 'otherDesigns',
 };
 
+const referenceThumbnailUrl = (image) => {
+  if (!image?.startsWith('/img/')) {
+    return image;
+  }
+
+  return `/img/reference-thumbs/${image.slice('/img/'.length).replace(/\.[^.]+$/, '.webp')}`;
+};
+
 export default function References() {
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [failedImages, setFailedImages] = useState({});
@@ -174,6 +182,7 @@ export default function References() {
     const domain = project.url?.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');
     const previewTitle = domain ?? project.category ?? project.label ?? references.preview_label ?? 'Preview';
     const image = project.image;
+    const thumbnail = referenceThumbnailUrl(image);
     const imageKey = project.url ?? project.title ?? String(index);
     const hasImage = image && !failedImages[imageKey];
     const lightbox = hasImage ? project.lightboxImage ?? image : null;
@@ -192,11 +201,17 @@ export default function References() {
           <div className={`relative overflow-hidden bg-[#061327] ${galleryAspect}`}>
             {hasImage ? (
               <img
-                src={image}
+                src={thumbnail}
                 alt={project.title ?? references.lightbox_alt ?? 'Reference image'}
                 className="h-full w-full object-contain p-3 transition duration-500 group-hover:scale-[1.025]"
                 loading="lazy"
+                decoding="async"
                 onError={(event) => {
+                  if (event.currentTarget.src !== new URL(image, window.location.origin).href) {
+                    event.currentTarget.src = image;
+                    return;
+                  }
+
                   event.currentTarget.style.display = 'none';
                   setFailedImages((current) => ({ ...current, [imageKey]: true }));
                 }}
@@ -239,11 +254,17 @@ export default function References() {
 
           {hasImage ? (
             <img
-              src={image}
+              src={thumbnail}
               alt={project.title ?? references.lightbox_alt ?? 'Reference image'}
               className={`absolute inset-x-0 bottom-0 top-8 h-[calc(100%-2rem)] w-full bg-[#061327] transition duration-500 group-hover:scale-[1.025] ${imageMode}`}
               loading="lazy"
+              decoding="async"
               onError={(event) => {
+                if (event.currentTarget.src !== new URL(image, window.location.origin).href) {
+                  event.currentTarget.src = image;
+                  return;
+                }
+
                 event.currentTarget.style.display = 'none';
                 setFailedImages((current) => ({ ...current, [imageKey]: true }));
               }}
