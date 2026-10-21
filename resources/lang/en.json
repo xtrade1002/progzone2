@@ -706,29 +706,21 @@
     "projects": [
       {
         "type": "link",
-        "url": "https://secretlounge.ch",
-        "image": "/img/websites/secretlounge-ch-card.webp",
-        "lightboxImage": "/img/websites/secretlounge.ch.png",
-        "title": "SecretLounge.ch",
+        "url": "https://csaladallitokegyesulete.hu/",
+        "image": "/img/websites/csaladallitok-egyesulete.webp",
+        "lightboxImage": "/img/websites/csaladallitok-egyesulete.webp",
+        "title": "Hungarian Association of Family Constellation Practitioners",
         "cta": "View website",
-        "domainOverrides": {
-          "progzone.hu": {
-            "url": "https://secretlounge.hu/hu",
-            "image": "/img/websites/secretlounge-hu-card.webp",
-            "lightboxImage": "/img/secretlounge-hu-preview.png",
-            "title": "SecretLounge.hu"
-          }
-        },
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Premium listing platform built with Laravel and Inertia.",
+        "description": "Official website of the Hungarian Association of Family Constellation Practitioners, featuring professional, community, event and training information.",
         "tags": [
-          "Laravel",
-          "Inertia",
-          "Listings"
+          "Website",
+          "Web design",
+          "Development"
         ],
-        "imageFit": "cover"
+        "imageFit": "contain"
       },
       {
         "type": "link",
@@ -740,7 +732,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Website design and development reference.",
+        "description": "Hungarian search and community portal for discovering local service providers, events, listings and useful information.",
         "tags": [
           "Website",
           "Web design",
@@ -758,7 +750,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Website design and development reference.",
+        "description": "Business website presenting garden maintenance and professional gardening services in Nagytarcsa and the surrounding area.",
         "tags": [
           "Website",
           "Web design",
@@ -776,7 +768,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Website design and development reference.",
+        "description": "Online appointment booking system for service providers with clear calendar and booking management.",
         "tags": [
           "Website",
           "Web design",
@@ -794,7 +786,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Website design and development reference.",
+        "description": "Website of a beauty studio offering eyelash extensions, diode laser hair removal and online appointment booking.",
         "tags": [
           "Website",
           "Web design",
@@ -812,7 +804,7 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Website design and development reference.",
+        "description": "Showcase and ordering website for individually tailored competition bikinis decorated with crystals.",
         "tags": [
           "Website",
           "Web design",
@@ -830,13 +822,39 @@
         "categoryKey": "websites",
         "label": "Website",
         "category": "Website",
-        "description": "Website design and development reference.",
+        "description": "International website presenting luxury yachts, charter opportunities, yacht brokerage and professional yacht management.",
         "tags": [
           "Website",
           "Web design",
           "Development"
         ],
         "imageFit": "contain"
+      },
+      {
+        "type": "link",
+        "url": "https://secretlounge.ch",
+        "image": "/img/websites/secretlounge-ch-card.webp",
+        "lightboxImage": "/img/websites/secretlounge.ch.png",
+        "title": "SecretLounge.ch",
+        "cta": "View website",
+        "categoryKey": "websites",
+        "label": "Website",
+        "category": "Website",
+        "description": "Premium search and listing platform for erotic massage services and other adult service providers.",
+        "tags": [
+          "Website",
+          "Web design",
+          "Development"
+        ],
+        "imageFit": "cover",
+        "domainOverrides": {
+          "progzone.hu": {
+            "url": "https://secretlounge.hu/hu",
+            "image": "/img/websites/secretlounge-hu-card.webp",
+            "lightboxImage": "/img/secretlounge-hu-preview.png",
+            "title": "SecretLounge.hu"
+          }
+        }
       },
       {
         "type": "image",

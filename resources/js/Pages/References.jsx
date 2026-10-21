@@ -310,7 +310,7 @@ export default function References() {
                   rel="noopener noreferrer"
                   className="inline-flex min-h-0 w-full max-w-[190px] items-center justify-center rounded-xl border border-[#00eaff]/70 bg-transparent px-4 py-2.5 text-sm font-black text-[#00eaff] shadow-[0_0_14px_rgba(0,234,255,0.14)] transition hover:-translate-y-0.5 hover:border-[#00eaff] hover:text-white hover:shadow-[0_0_24px_rgba(0,234,255,0.28)] sm:w-auto"
                 >
-                  {language === 'hu' ? 'Megtekintés' : language === 'de' ? 'Ansehen' : 'Preview'}
+                  {project.cta ?? (language === 'hu' ? 'Megtekintés' : language === 'de' ? 'Website ansehen' : 'View website')}
                 </a>
               </>
             )}

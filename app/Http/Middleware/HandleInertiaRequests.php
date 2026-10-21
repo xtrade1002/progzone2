@@ -33,7 +33,8 @@ class HandleInertiaRequests extends Middleware
         $domain = $this->normalizeDomain($request->getHost());
 
         return array_merge(parent::share($request), [
-            'locale' => app()->getLocale(),
+            'locale' => fn () => LocalizedRoutes::matchPath($request->path())['locale']
+                ?? app()->getLocale(),
             'contactEmail' => $this->resolveContactEmail($domain),
             'localizedRoutes' => LocalizedRoutes::frontendRoutes(),
         ]);
