@@ -17,7 +17,7 @@ class ReferencesLocaleTest extends TestCase
         ])->get('/referenzen')->assertOk()->assertInertia(fn (Assert $page) => $page
             ->component('References')
             ->where('locale', 'de')
-            ->where('trans.references.projects.0.cta', 'Website ansehen')
+            ->where('trans.references.projects.0.cta', 'Ansehen')
             ->where('trans.references.projects.0.title', 'Ungarischer Verband für Familienaufstellungen')
         );
     }
@@ -31,7 +31,7 @@ class ReferencesLocaleTest extends TestCase
         ])->get('/references')->assertOk()->assertInertia(fn (Assert $page) => $page
             ->component('References')
             ->where('locale', 'en')
-            ->where('trans.references.projects.0.cta', 'View website')
+            ->where('trans.references.projects.0.cta', 'View')
             ->where('trans.references.projects.0.title', 'Hungarian Association of Family Constellation Practitioners')
             ->has('trans.references.projects', 38)
         );
