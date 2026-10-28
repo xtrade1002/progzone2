@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'pages' => [
+        'hu' => [
+            'home' => ['Weboldal- és webshopkészítés magyar ügyfeleknek | Progzone', 'Egyedi weboldalak, WordPress-oldalak és webshopok készítése magyar ügyfeleknek. Magyar nyelvű egyeztetés, többnyelvű megoldások. Kérj ajánlatot!'],
+            'aboutme' => ['Webfejlesztés személyes kapcsolattartással | Progzone', 'Ismerj meg, és nézd meg, hogyan készítek egyedi weboldalakat és webshopokat magyar ügyfeleknek, személyes, magyar nyelvű egyeztetéssel.'],
+            'services' => ['Weboldalkészítés, WordPress és webshop fejlesztés | Progzone', 'Webdesign, egyedi webfejlesztés, WordPress, webshopkészítés és keresőoptimalizálás magyar ügyfeleknek. Weboldalak bármilyen nyelven.'],
+            'prices' => ['Weboldalkészítés és webshop árak | Progzone', 'Nézd meg a weboldalkészítés, WordPress-oldalak és webshopok árait, majd kérj a projektedhez igazított ajánlatot magyar nyelven.'],
+            'references' => ['Weboldal- és grafikai referenciák | Progzone', 'Elkészült weboldalak, webshopok és grafikai munkák. Nézd meg a Progzone referenciáit, és meríts ötletet a saját projektedhez.'],
+            'infos' => ['Tudnivalók a weboldalkészítésről | Progzone', 'Hasznos információk weboldalkészítésről, webdesignról és online megoldásokról. Tájékozódj a saját weboldalad tervezése előtt.'],
+            'quote' => ['Weboldalkészítés: kérj egyedi árajánlatot | Progzone', 'Írd le, milyen weboldalt, WordPress-oldalt vagy webshopot szeretnél. Kérj egyedi árajánlatot, magyar nyelvű kapcsolattartással.'],
+            'contact' => ['Kapcsolat és magyar nyelvű egyeztetés | Progzone', 'Beszéljük meg a weboldalad vagy webshopod elkészítését! Vedd fel a kapcsolatot a Progzone-nal, és egyeztess magyar nyelven a projektedről.'],
+            'privacy' => ['Adatvédelmi tájékoztató | Progzone', 'A Progzone adatvédelmi tájékoztatója: személyes adatok kezelése, kapcsolatfelvétel és az érintettek jogai.'],
+            'terms' => ['Általános szerződési feltételek | Progzone', 'A Progzone szolgáltatásainak általános szerződési feltételei. Tájékozódj a weboldalkészítés megrendelésének feltételeiről.'],
+            'impressum' => ['Impresszum és szolgáltatói adatok | Progzone', 'A Progzone szolgáltatói és kapcsolattartási adatai, valamint a weboldal üzemeltetésével kapcsolatos információk.'],
+        ],
+        'de' => [
+            'home' => ['Webdesign für Deutschland & die Schweiz | Progzone', 'Websites, WordPress und Onlineshops für Unternehmen und Selbstständige in Deutschland und der Schweiz. Persönliche Beratung. Jetzt Angebot anfragen!'],
+            'aboutme' => ['Ihr Ansprechpartner für Webdesign | Progzone', 'Lernen Sie den Entwickler hinter Progzone kennen. Persönliche Zusammenarbeit für Websites und Onlineshops in Deutschland und der Schweiz.'],
+            'services' => ['Webdesign, WordPress & Onlineshop-Erstellung | Progzone', 'Individuelle Websites, WordPress, Onlineshops und SEO für Kunden in Deutschland und der Schweiz. Mehrsprachige Websites nach Ihrem Bedarf.'],
+            'prices' => ['Preise für Websites & Onlineshops | Progzone', 'Entdecken Sie Preise für Websites, WordPress und Onlineshops. Fordern Sie ein individuelles Angebot für Ihr Projekt in Deutschland oder der Schweiz an.'],
+            'references' => ['Webdesign-Referenzen & Grafikdesign | Progzone', 'Entdecken Sie realisierte Websites, Onlineshops und Grafikdesign von Progzone. Inspiration für Ihr Webprojekt in Deutschland oder der Schweiz.'],
+            'infos' => ['Wissenswertes zu Websites & Webdesign | Progzone', 'Informationen rund um Websites, Webdesign und digitale Lösungen. Erfahren Sie mehr für die Planung Ihres eigenen Webprojekts.'],
+            'quote' => ['Angebot für Ihre Website anfordern | Progzone', 'Planen Sie eine Website oder einen Onlineshop in Deutschland oder der Schweiz? Beschreiben Sie Ihr Projekt und fragen Sie ein individuelles Angebot an.'],
+            'contact' => ['Kontakt für Deutschland & die Schweiz | Progzone', 'Kontaktieren Sie Progzone für Ihre Website, WordPress-Seite oder Ihren Onlineshop. Persönliche Online-Abstimmung für Deutschland und die Schweiz.'],
+            'privacy' => ['Datenschutzerklärung | Progzone', 'Informationen zum Datenschutz bei Progzone: Verarbeitung personenbezogener Daten, Kontaktaufnahme und Ihre Rechte.'],
+            'terms' => ['Allgemeine Geschäftsbedingungen | Progzone', 'Lesen Sie die allgemeinen Geschäftsbedingungen für die Leistungen von Progzone und informieren Sie sich über die Zusammenarbeit.'],
+            'impressum' => ['Impressum & Anbieterinformationen | Progzone', 'Anbieterinformationen, Kontaktdaten und Angaben zum Betreiber der Website von Progzone.'],
+        ],
+        'en' => [
+            'home' => ['Website & online store development | Progzone', 'Custom websites, WordPress and online stores with personal support. Tell Progzone about your project and request a quote.'],
+            'aboutme' => ['About the developer | Progzone', 'Meet the developer behind Progzone and learn about personal website and online store development.'],
+            'services' => ['Web design & development services | Progzone', 'Explore custom web development, WordPress, online stores, web design and SEO services from Progzone.'],
+            'prices' => ['Website & online store pricing | Progzone', 'Explore website and online store pricing and request a quote for your project.'],
+            'references' => ['Website & graphic design portfolio | Progzone', 'Explore websites, online stores and graphic design projects created by Progzone.'],
+            'infos' => ['Website & web design information | Progzone', 'Useful information about websites, web design and planning your online project.'],
+            'quote' => ['Request a website quote | Progzone', 'Describe your website or online store project and request a personal quote from Progzone.'],
+            'contact' => ['Contact | Progzone', 'Contact Progzone to discuss your website, WordPress or online store project.'],
+            'privacy' => ['Privacy policy | Progzone', 'Learn how Progzone processes personal data and find information about your rights.'],
+            'terms' => ['Terms & conditions | Progzone', 'Read the terms and conditions for Progzone services.'],
+            'impressum' => ['Imprint & provider information | Progzone', 'Provider information and contact details for Progzone.'],
+        ],
+    ],
+    'categories' => [
+        'hu' => ['websites' => 'Weboldalak', 'flyers' => 'Flyerek', 'businessCards' => 'Névjegykártyák', 'mockups' => 'Mockupok', 'otherDesigns' => 'Egyéb grafikák'],
+        'de' => ['websites' => 'Websites', 'flyers' => 'Flyer', 'businessCards' => 'Visitenkarten', 'mockups' => 'Mockups', 'otherDesigns' => 'Weitere Designs'],
+        'en' => ['websites' => 'Websites', 'flyers' => 'Flyers', 'businessCards' => 'Business cards', 'mockups' => 'Mockups', 'otherDesigns' => 'Other designs'],
+    ],
+];

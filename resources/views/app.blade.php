@@ -2,54 +2,32 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
       @php
-        $locale = app()->getLocale();
-        $fallbackLocale = config('app.fallback_locale', 'hu');
-        $translationPaths = array_filter([
-          lang_path("{$locale}.json"),
-          str_contains($locale, '-') ? lang_path(strtok($locale, '-') . '.json') : null,
-          lang_path("{$fallbackLocale}.json"),
-        ]);
-        $translations = [];
-
-        foreach (array_reverse($translationPaths) as $translationPath) {
-          if (is_file($translationPath)) {
-            $decoded = json_decode(file_get_contents($translationPath), true);
-
-            if (is_array($decoded)) {
-              $translations = array_replace_recursive($translations, $decoded);
-            }
-          }
-        }
-
-        $seoTitle = data_get($translations, 'home.meta_title', config('app.name', 'Progzone'));
-        $seoDescription = data_get($translations, 'home.meta_description');
+        $seo = \App\Support\Seo::forRequest(request());
         $host = preg_replace('/^www\./', '', request()->getHost());
-        $canonicalUrl = match ($host) {
-          'progzone.de' => 'https://progzone.de/',
-          'progzone.hu' => 'https://progzone.hu/',
-          default => url('/'),
-        };
       @endphp
-
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
-      <title>{{ $seoTitle }}</title>
-      @if ($seoDescription)
-        <meta name="description" content="{{ $seoDescription }}">
-        <meta property="og:description" content="{{ $seoDescription }}">
-        <meta name="twitter:description" content="{{ $seoDescription }}">
-      @endif
-      <link rel="canonical" href="{{ $canonicalUrl }}">
-      <link rel="alternate" hrefLang="hu" href="https://progzone.hu/">
-      <link rel="alternate" hrefLang="de" href="https://progzone.de/">
-      <link rel="alternate" hrefLang="x-default" href="https://progzone.hu/">
-      <meta property="og:type" content="website">
-      <meta property="og:title" content="{{ $seoTitle }}">
-      <meta property="og:url" content="{{ $canonicalUrl }}">
-      <meta property="og:site_name" content="Progzone">
-      <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="{{ $seoTitle }}">
+      <title inertia="">{{ $seo['title'] }}</title>
+      <meta inertia="description" name="description" content="{{ $seo['description'] }}">
+      <link inertia="canonical" rel="canonical" href="{{ $seo['canonical'] }}">
+      @foreach ($seo['alternates'] as $language => $href)
+        <link inertia="alternate-{{ $language }}" rel="alternate" hreflang="{{ $language }}" href="{{ $href }}">
+      @endforeach
+      <meta inertia="og:type" property="og:type" content="website">
+      <meta inertia="og:title" property="og:title" content="{{ $seo['title'] }}">
+      <meta inertia="og:description" property="og:description" content="{{ $seo['description'] }}">
+      <meta inertia="og:url" property="og:url" content="{{ $seo['canonical'] }}">
+      <meta inertia="og:site_name" property="og:site_name" content="Progzone">
+      <meta inertia="og:locale" property="og:locale" content="{{ $seo['ogLocale'] }}">
+      @foreach ($seo['ogAlternateLocales'] as $alternateLocale)
+        <meta inertia="og:locale:{{ $alternateLocale }}" property="og:locale:alternate" content="{{ $alternateLocale }}">
+      @endforeach
+      <meta inertia="og:image" property="og:image" content="{{ $seo['image'] }}">
+      <meta inertia="twitter:card" name="twitter:card" content="summary">
+      <meta inertia="twitter:title" name="twitter:title" content="{{ $seo['title'] }}">
+      <meta inertia="twitter:description" name="twitter:description" content="{{ $seo['description'] }}">
+      <meta inertia="twitter:image" name="twitter:image" content="{{ $seo['image'] }}">
+      <script inertia="structured-data" type="application/ld+json">{!! json_encode($seo['structuredData'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}</script>
 
       @if ($host === 'progzone.de')
         <!-- Google tag (gtag.js) -->

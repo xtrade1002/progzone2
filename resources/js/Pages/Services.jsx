@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Head } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
 
@@ -45,7 +44,6 @@ export default function Services() {
 
   return (
     <Layout>
-      <Head title={services.meta_title ?? t('menu.services', 'Services')} />
       <section className="pz-section">
         <div
           className={`mb-12 max-w-3xl transition-all duration-[1400ms] ease-out ${

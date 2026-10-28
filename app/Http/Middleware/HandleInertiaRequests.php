@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\DomainSetting;
 use App\Support\LocalizedRoutes;
+use App\Support\Seo;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -33,8 +34,9 @@ class HandleInertiaRequests extends Middleware
         $domain = $this->normalizeDomain($request->getHost());
 
         return array_merge(parent::share($request), [
-            'locale' => fn () => LocalizedRoutes::matchPath($request->path())['locale']
-                ?? app()->getLocale(),
+            'locale' => fn () => app()->getLocale(),
+            'contentLocale' => fn () => app()->getLocale(),
+            'seo' => fn () => Seo::forRequest($request),
             'contactEmail' => $this->resolveContactEmail($domain),
             'localizedRoutes' => LocalizedRoutes::frontendRoutes(),
         ]);

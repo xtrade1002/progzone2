@@ -85,4 +85,4 @@ Route::post('/quote-request', [QuoteController::class, 'store'])->name('quote-re
 Route::post('/contact-message', [FormController::class, 'storeContactMessage'])->name('contact-message.store');
 Route::post('/locale', [LocaleController::class, 'update'])->name('locale.update');
 
-Route::fallback(fn () => Inertia::render('Home'));
+Route::fallback(fn () => abort(404));

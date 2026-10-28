@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Support\LocalizedRoutes;
+use App\Support\Seo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use SimpleXMLElement;
@@ -34,11 +35,13 @@ class SitemapController extends Controller
             $url->addChild('changefreq', $entry['changefreq']);
             $url->addChild('priority', $entry['priority']);
 
-            foreach (array_keys(self::LOCALE_DOMAINS) as $alternateLocale) {
+            $path = parse_url($this->localizedUrl($entry, $locale), PHP_URL_PATH);
+
+            foreach (Seo::alternates($path) as $language => $href) {
                 $link = $url->addChild('xhtml:link', null, 'http://www.w3.org/1999/xhtml');
                 $link->addAttribute('rel', 'alternate');
-                $link->addAttribute('hreflang', $alternateLocale);
-                $link->addAttribute('href', $this->localizedUrl($entry, $alternateLocale));
+                $link->addAttribute('hreflang', $language);
+                $link->addAttribute('href', $href);
             }
         }
 

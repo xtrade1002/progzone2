@@ -1,5 +1,4 @@
 import React from 'react';
-import { Head } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
 import { CONTACT_EMAIL_PLACEHOLDER } from '../lib/constants.js';
@@ -59,7 +58,6 @@ export default function Prices(props) {
   if (!prices || Object.keys(prices).length === 0) {
     return (
       <Layout>
-        <Head title={tr.meta_title ?? t('menu.prices', 'Prices')} />
         <section className="pz-section max-w-3xl">
           <div className="space-y-6 rounded-2xl border border-red-400/50 bg-red-500/10 p-6 text-red-100 shadow-[0_0_24px_rgba(248,113,113,0.16)] sm:p-10">
             <h1 className="text-2xl font-bold text-[#FF007A] flex items-center gap-2">
@@ -231,7 +229,6 @@ export default function Prices(props) {
 
   return (
     <Layout>
-      <Head title={tr.meta_title ?? t('menu.prices', 'Prices')} />
       <section className="pz-section max-w-5xl">
         <div className="pz-panel rounded-[2rem] p-5 sm:p-10">
           {tr.title && (

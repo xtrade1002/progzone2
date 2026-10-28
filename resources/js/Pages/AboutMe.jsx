@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Head } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
 
@@ -38,7 +37,6 @@ export default function AboutMe() {
 
   return (
     <Layout>
-      <Head title={about.meta_title ?? t('menu.about', 'About')} />
       <section className="pz-section space-y-20">
         <div className="pz-panel grid grid-cols-1 items-center gap-12 rounded-[2rem] p-6 md:grid-cols-[0.82fr_1.18fr] md:p-10">
           <div

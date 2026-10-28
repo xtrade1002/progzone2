@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Head, router, usePage } from '@inertiajs/react';
+import { router, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import route from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
@@ -44,7 +44,6 @@ export default function Contact() {
 
   return (
     <Layout>
-      <Head title={contact.meta_title ?? t('menu.contact', 'Contact')} />
       <section className="pz-section max-w-6xl">
         <div className="pz-panel rounded-[2rem] p-6 text-center sm:p-10">
           <h2 className="pz-title relative text-3xl font-black sm:text-5xl">
