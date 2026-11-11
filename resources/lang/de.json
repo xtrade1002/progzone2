@@ -1172,7 +1172,7 @@
       },
       {
         "label": "E-Mail:",
-        "value": "__CONTACT_EMAIL__",
+        "value": "info@progzone.de",
         "type": "email"
       },
       {
