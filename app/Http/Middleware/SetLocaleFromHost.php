@@ -35,17 +35,17 @@ class SetLocaleFromHost
 
         $hostLocale = $host !== null ? ($hostLocaleMap[$host] ?? null) : null;
 
-        if ($hostLocale !== null) {
-            $locale = $hostLocale;
-        } elseif (
-            $sessionLocale
+        if (
+            $request->hasSession()
+            && $request->session()->get('locale_explicit') === true
+            && $sessionLocale
             && in_array($sessionLocale, $availableLocales, true)
             && $sessionLocaleHost !== null
             && $sessionLocaleHost === $host
         ) {
             $locale = $sessionLocale;
         } else {
-            $locale = config('app.fallback_locale', 'hu');
+            $locale = $hostLocale ?? config('app.fallback_locale', 'hu');
         }
 
         if (! in_array($locale, $availableLocales, true)) {

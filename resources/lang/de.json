@@ -1159,8 +1159,16 @@
         "value": "Xtrade"
       },
       {
+        "label": "Anschrift:",
+        "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Brandenburg, Deutschland"
+      },
+      {
         "label": "USt-IdNr.:",
         "value": "DE362261730"
+      },
+      {
+        "label": "Steuernummer:",
+        "value": "10145/05975"
       },
       {
         "label": "E-Mail:",
@@ -1171,10 +1179,6 @@
         "label": "Telefon:",
         "value": "+49 173 615 47 30",
         "type": "phone"
-      },
-      {
-        "label": "Anschrift:",
-        "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland"
       }
     ]
   },

@@ -22,6 +22,7 @@ class LocaleController extends Controller
         }
 
         $request->session()->put('locale', $locale);
+        $request->session()->put('locale_explicit', true);
         $request->session()->put('locale_host', $this->normalizeHost($request->getHost()));
 
         $previousPath = (string) $request->input('current_path', '');

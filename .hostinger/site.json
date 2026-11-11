@@ -14,8 +14,8 @@
     "host": "145.223.39.83",
     "port": 65002,
     "remoteRoot": "/home/u663854887/domains/{domain}/public_html",
-    "lastRelease": "device-l10n-20261028b",
-    "scope": "Device illustration language selection only. Earlier local SEO changes are not deployed.",
-    "backupDirectory": "/home/u663854887/progzone-device-localization-20261028"
+    "lastRelease": "language-fix-20261028",
+    "scope": "Device image localization and working domain-default/manual language selection. Earlier local SEO changes are not deployed.",
+    "backupDirectory": "/home/u663854887/progzone-language-fix-20261028"
   }
 }
