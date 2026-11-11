@@ -1159,12 +1159,20 @@
         "value": "Xtrade"
       },
       {
+        "label": "Inhaber:",
+        "value": "Bettina Ersching"
+      },
+      {
+        "label": "Anschrift:",
+        "value": "Tramplerstrasse 54, 77933 Lahr, Deutschland"
+      },
+      {
         "label": "USt-IdNr.:",
         "value": "DE362261730"
       },
       {
         "label": "E-Mail:",
-        "value": "__CONTACT_EMAIL__",
+        "value": "info@progzone.de",
         "type": "email"
       },
       {
@@ -1173,8 +1181,8 @@
         "type": "phone"
       },
       {
-        "label": "Anschrift:",
-        "value": "Strasse der Jugend 18, 14974 Ludwigsfelde, Deutschland"
+        "label": "Steuernummer:",
+        "value": "10145/05975"
       }
     ]
   },
