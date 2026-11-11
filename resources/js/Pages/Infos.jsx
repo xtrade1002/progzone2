@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Head } from "@inertiajs/react";
 import Layout from "../Components/Layout.jsx";
 import useTranslations from "../lib/useTranslations.js";
 
@@ -131,7 +130,6 @@ export default function Infos() {
 
   return (
     <Layout>
-      <Head title={infos.meta_title ?? t("menu.infos", "Infos")} />
       <section className="pz-section max-w-5xl">
         <h1 className="pz-title mb-12 text-center text-4xl font-black">
           {t("menu.infos", "Infos")}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Head } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
 
@@ -10,7 +9,6 @@ export default function Privacy() {
 
   return (
     <Layout>
-      <Head title={privacy.meta_title ?? t('menu.privacy', 'Privacy')} />
       <section className="pz-section max-w-4xl">
         <div className="pz-panel rounded-[2rem] p-6 sm:p-10">
           <h1 className="pz-title mb-6 text-3xl font-black sm:text-4xl">{privacy.title}</h1>

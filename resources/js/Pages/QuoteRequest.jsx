@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Head, router, usePage } from '@inertiajs/react';
+import { router, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import route, { localizedRoute } from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
@@ -198,7 +198,6 @@ export default function QuoteRequest() {
 
   return (
     <Layout>
-      <Head title={quote.meta_title ?? t('menu.quote', 'Quote request')} />
       <section className="pz-section max-w-6xl">
         <div className="pz-panel rounded-[2rem] p-6 sm:p-10">
           <div className="mb-12 space-y-4 text-center">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Head, usePage } from '@inertiajs/react';
+import { usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
 import { CONTACT_EMAIL_PLACEHOLDER } from '../lib/constants.js';
@@ -50,7 +50,6 @@ export default function Impressum() {
 
   return (
     <Layout>
-      <Head title={impressum.meta_title ?? t('menu.impressum', 'Impressum')} />
       <section className="pz-section max-w-3xl">
         <h1 className="pz-title mb-10 text-center text-4xl font-black">{impressum.title}</h1>
 

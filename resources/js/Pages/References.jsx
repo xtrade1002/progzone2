@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
 import { localizedRoute } from '../route.js';
@@ -322,11 +322,6 @@ export default function References() {
 
   return (
     <Layout>
-      <Head title={references.meta_title ?? t('menu.references', 'References')}>
-        {references.meta_description && (
-          <meta name="description" content={references.meta_description} />
-        )}
-      </Head>
       <section className="pz-section mx-auto w-full max-w-[1320px] space-y-10 overflow-x-hidden px-5 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <h1 className="pz-title text-4xl font-black sm:text-5xl">

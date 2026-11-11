@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { router, usePage } from '@inertiajs/react';
-import route, { localeForPath, localizedPathForPath } from '../route.js';
+import route, { localizedPathForPath } from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
 
 const locales = [
@@ -11,14 +11,11 @@ const locales = [
 
 export default function LanguageSwitcher() {
   const { locale, t } = useTranslations();
-  const { props } = usePage();
+  const { props, url } = usePage();
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
   const localizedRoutes = props?.localizedRoutes;
-  const pathLocale = typeof window !== 'undefined'
-    ? localeForPath(window.location.pathname, localizedRoutes)
-    : null;
-  const currentLocale = pathLocale ?? locale;
+  const currentLocale = locale;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -73,16 +70,22 @@ export default function LanguageSwitcher() {
         <ul className="absolute right-0 top-full z-50 mt-2 w-40 overflow-hidden rounded-xl border border-[#00eaff]/25 bg-[#050611]/95 shadow-[0_18px_42px_rgba(0,0,0,0.45)] backdrop-blur-xl">
           {locales.map((item) => (
             <li key={item.code}>
-              <button
-                type="button"
-                onClick={() => handleSelect(item.code)}
+              <a
+                href={props?.seo?.alternates?.[item.code] ?? localizedPathForPath((url ?? '/').split('?')[0], item.code, localizedRoutes)}
+                hrefLang={item.code}
+                onClick={(event) => {
+                  if (!props?.seo?.alternates?.[item.code]) {
+                    event.preventDefault();
+                    handleSelect(item.code);
+                  }
+                }}
                 className={`flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm text-gray-200 transition hover:bg-[#00eaff]/10 hover:text-white ${
                   item.code === currentLocale ? 'bg-[#00eaff]/12 font-semibold text-white' : ''
                 }`}
               >
                 <span aria-hidden="true" className={`flag-icon ${item.flagClass}`} />
                 <span>{item.label}</span>
-              </button>
+              </a>
             </li>
           ))}
         </ul>

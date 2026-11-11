@@ -2,6 +2,7 @@ import React from 'react';
 import { usePage } from '@inertiajs/react';
 import Footer from './FooterMenu.jsx';
 import MainMenu from './MainMenu.jsx';
+import SeoHead from './SeoHead.jsx';
 
 export default function Layout({ activePath, children }) {
   const { url, props } = usePage();
@@ -10,6 +11,7 @@ export default function Layout({ activePath, children }) {
 
   return (
     <div className="pz-page min-h-screen flex flex-col text-white">
+      <SeoHead />
       <MainMenu activePath={currentPath} />
 
       {successMessage && (

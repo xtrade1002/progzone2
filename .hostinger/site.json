@@ -1,0 +1,21 @@
+{
+  "domain": "progzone.de",
+  "username": "u663854887",
+  "type": "php",
+  "additionalSites": [
+    {
+      "domain": "progzone.hu",
+      "username": "u663854887",
+      "type": "php"
+    }
+  ],
+  "deployment": {
+    "method": "existing-ssh",
+    "host": "145.223.39.83",
+    "port": 65002,
+    "remoteRoot": "/home/u663854887/domains/{domain}/public_html",
+    "lastRelease": "device-l10n-20261028b",
+    "scope": "Device illustration language selection only. Earlier local SEO changes are not deployed.",
+    "backupDirectory": "/home/u663854887/progzone-device-localization-20261028"
+  }
+}

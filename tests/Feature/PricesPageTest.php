@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Price;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
 
 class PricesPageTest extends TestCase
@@ -32,6 +33,9 @@ class PricesPageTest extends TestCase
         $response = $this->get('/prices');
 
         $response->assertOk();
-        $response->assertSee('Kezdő csomag', false);
+        $response->assertInertia(fn (Assert $page) => $page
+            ->component('Prices')
+            ->where('prices.wordpress.price_label', 'Kezdő csomag')
+        );
     }
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Head, usePage } from '@inertiajs/react';
+import { usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import { localizedRoute } from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
@@ -109,6 +109,11 @@ export default function Home() {
 
   const localizedRoutes = props?.localizedRoutes;
   const home = trans?.home ?? {};
+  const deviceImage = {
+    hu: '/img/laptop.png',
+    de: '/img/laptop-de.png?v=20261028',
+    en: '/img/laptop-en.png?v=20261028',
+  }[(props?.contentLocale ?? locale).split(/[-_]/)[0]] ?? '/img/laptop.png';
   const brandLabel = home.brand_label ?? 'Progzone';
 
   const paragraphs = Array.isArray(home.paragraphs) ? home.paragraphs : [];
@@ -143,11 +148,9 @@ export default function Home() {
   const homePageClassName = isGermanLocale
     ? 'pz-home-page pz-home-page--de'
     : 'pz-home-page';
-  const seoTitle = home.meta_title ?? t('menu.home', 'Home');
 
   return (
     <Layout>
-      <Head title={seoTitle} />
 
       <style>{`
         :root {
@@ -1112,7 +1115,7 @@ export default function Home() {
         <div className="pz-glow-floor" />
 
         <img
-            src="/img/laptop.png"
+            src={deviceImage}
             alt=""
             width="1858"
             height="846"
