@@ -1,0 +1,11 @@
+{
+  "directory": "/img/reference-previews-v1",
+  "website": {
+    "widths": [360, 640, 960, 1280],
+    "sizes": "(min-width: 1280px) 620px, (min-width: 1024px) calc(100vw - 64px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 40px)"
+  },
+  "gallery": {
+    "widths": [240, 320, 480, 640, 800],
+    "sizes": "(min-width: 1280px) 290px, (min-width: 1024px) calc((100vw - 104px) / 3), (min-width: 640px) calc((100vw - 68px) / 2), calc(100vw - 40px)"
+  }
+}

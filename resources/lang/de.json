@@ -730,6 +730,13 @@
         "image": "/img/websites/hunportal-current.webp",
         "lightboxImage": "/img/websites/hunportal-current.webp",
         "title": "Hunportal",
+        "domainOverrides": {
+          "progzone.de": {
+            "url": "https://hunportal.hu/de",
+            "image": "/img/websites/hunportal-de.webp",
+            "lightboxImage": "/img/websites/hunportal-de.webp"
+          }
+        },
         "cta": "Ansehen",
         "categoryKey": "websites",
         "label": "Website",
@@ -763,9 +770,16 @@
       {
         "type": "link",
         "url": "https://fixappoint.hu",
-        "image": "/img/websites/screenshot-2025-11-28-101112.png",
-        "lightboxImage": "/img/websites/screenshot-2025-11-28-101112.png",
+        "image": "/img/websites/fixappoint-hu.webp",
+        "lightboxImage": "/img/websites/fixappoint-hu.webp",
         "title": "Fixappoint",
+        "domainOverrides": {
+          "progzone.de": {
+            "url": "https://fixappoint.ch",
+            "image": "/img/websites/fixappoint-ch.webp",
+            "lightboxImage": "/img/websites/fixappoint-ch.webp"
+          }
+        },
         "cta": "Ansehen",
         "categoryKey": "websites",
         "label": "Website",
@@ -802,6 +816,12 @@
         "image": "/img/websites/versenybikini.png",
         "lightboxImage": "/img/websites/versenybikini.png",
         "title": "Versenybikini",
+        "domainOverrides": {
+          "progzone.de": {
+            "image": "/img/websites/versenybikini-de.webp",
+            "lightboxImage": "/img/websites/versenybikini-de.webp"
+          }
+        },
         "cta": "Ansehen",
         "categoryKey": "websites",
         "label": "Website",

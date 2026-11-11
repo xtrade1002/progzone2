@@ -22,7 +22,7 @@ export default function FooterMenu() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-[1.2fr_1fr_0.8fr]">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <img src="/img/pz.png" alt="Progzone" className="h-11 w-11 rounded-full shadow-[0_0_18px_rgb(var(--pz-pink-rgb)/0.6)]" />
+            <img src="/img/pz-mark-v1.webp" width="44" height="44" loading="lazy" alt="Progzone" className="h-11 w-11 rounded-full shadow-[0_0_18px_rgb(var(--pz-pink-rgb)/0.6)]" />
             <span className="text-xl font-black text-white">PROGZONE</span>
           </div>
         </div>

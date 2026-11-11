@@ -46,6 +46,7 @@
       <link rel="icon" href="/favicon.ico?v=pz-neon-20260707" sizes="any">
       <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=pz-neon-20260707">
 
+      @include('partials.reference-preload')
       @viteReactRefresh
       @vite(['resources/css/app.css', 'resources/js/app.jsx'])
       @inertiaHead

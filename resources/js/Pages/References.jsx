@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
+import referencePreview, { largeReferencePreview } from '../lib/referencePreview.js';
 import { localizedRoute } from '../route.js';
 
 const routeCategories = {
@@ -12,14 +13,6 @@ const routeCategories = {
   mockups: 'mockups',
   otherDesigns: 'otherDesigns',
   'other-designs': 'otherDesigns',
-};
-
-const referenceThumbnailUrl = (image) => {
-  if (!image?.startsWith('/img/')) {
-    return image;
-  }
-
-  return `/img/reference-thumbs/${image.slice('/img/'.length).replace(/\.[^.]+$/, '.webp')}`;
 };
 
 export default function References() {
@@ -182,7 +175,8 @@ export default function References() {
     const domain = project.url?.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');
     const previewTitle = domain ?? project.category ?? project.label ?? references.preview_label ?? 'Preview';
     const image = project.image;
-    const thumbnail = referenceThumbnailUrl(image);
+    const isFirst = project === (websiteProjects[0] ?? galleryOnlyProjects[0]);
+    const preview = referencePreview(image, !isGalleryProject, isFirst);
     const imageKey = project.url ?? project.title ?? String(index);
     const hasImage = image && !failedImages[imageKey];
     const lightbox = hasImage ? project.lightboxImage ?? image : null;
@@ -201,13 +195,16 @@ export default function References() {
           <div className={`relative overflow-hidden bg-[#061327] ${galleryAspect}`}>
             {hasImage ? (
               <img
-                src={thumbnail}
+                {...preview}
                 alt={project.title ?? references.lightbox_alt ?? 'Reference image'}
                 className="h-full w-full object-contain p-3 transition duration-500 group-hover:scale-[1.025]"
-                loading="lazy"
+                loading={isFirst ? 'eager' : 'lazy'}
+                fetchPriority={isFirst ? 'high' : undefined}
                 decoding="async"
                 onError={(event) => {
                   if (event.currentTarget.src !== new URL(image, window.location.origin).href) {
+                    event.currentTarget.removeAttribute('srcset');
+                    event.currentTarget.removeAttribute('sizes');
                     event.currentTarget.src = image;
                     return;
                   }
@@ -254,13 +251,16 @@ export default function References() {
 
           {hasImage ? (
             <img
-              src={thumbnail}
+              {...preview}
               alt={project.title ?? references.lightbox_alt ?? 'Reference image'}
               className={`absolute inset-x-0 bottom-0 top-8 h-[calc(100%-2rem)] w-full bg-[#061327] transition duration-500 group-hover:scale-[1.025] ${imageMode}`}
-              loading="lazy"
+              loading={isFirst ? 'eager' : 'lazy'}
+              fetchPriority={isFirst ? 'high' : undefined}
               decoding="async"
               onError={(event) => {
                 if (event.currentTarget.src !== new URL(image, window.location.origin).href) {
+                  event.currentTarget.removeAttribute('srcset');
+                  event.currentTarget.removeAttribute('sizes');
                   event.currentTarget.src = image;
                   return;
                 }
@@ -425,7 +425,12 @@ export default function References() {
               </button>
             )}
             <img
-              src={lightboxImage}
+              src={largeReferencePreview(lightboxImage)}
+              onError={({ currentTarget }) => {
+                if (currentTarget.src !== new URL(lightboxImage, window.location.origin).href) {
+                  currentTarget.src = lightboxImage;
+                }
+              }}
               alt={references.lightbox_alt ?? 'Preview'}
               className="max-h-[90%] max-w-[92%] rounded-2xl border border-[#00eaff]/30 object-contain shadow-[0_0_40px_rgba(0,234,255,0.24)]"
               onClick={(event) => event.stopPropagation()}

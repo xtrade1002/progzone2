@@ -69,7 +69,9 @@ export default function MainMenu({ activePath }) {
       <nav className="relative mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-2 px-3 py-3 sm:gap-3 sm:px-4 lg:px-6">
         <a href={localizedRoute('home', locale, localizedRoutes)} className="group flex min-w-0 items-center gap-2 sm:gap-3">
           <img
-            src="/img/pz.png"
+            src="/img/pz-mark-v1.webp"
+            width="40"
+            height="40"
             alt="Progzone"
             className="h-10 w-10 shrink-0 rounded-full object-contain shadow-[0_0_20px_rgb(var(--pz-pink-rgb)/0.55)] transition duration-300 group-hover:scale-105 sm:h-11 sm:w-11"
           />

@@ -2,105 +2,86 @@
 
 declare(strict_types=1);
 
-$projectRoot = dirname(__DIR__);
-$languageFiles = glob($projectRoot . '/resources/lang/*.json') ?: [];
+$projectRoot = $argv[1] ?? dirname(__DIR__);
+$outputRoot = $argv[2] ?? $projectRoot . '/public';
+$config = json_decode(file_get_contents(__DIR__ . '/../resources/reference-previews.json'), true, 512, JSON_THROW_ON_ERROR);
 $images = [];
+$lightboxes = [];
 
-foreach ($languageFiles as $languageFile) {
-    $translations = json_decode((string) file_get_contents($languageFile), true);
-    $projects = $translations['references']['projects'] ?? [];
+foreach (glob($projectRoot . '/resources/lang/*.json') ?: [] as $file) {
+    $translations = json_decode(file_get_contents($file), true, 512, JSON_THROW_ON_ERROR);
 
-    if (! is_array($projects)) {
-        continue;
-    }
+    foreach ($translations['references']['projects'] ?? [] as $project) {
+        $group = ($project['categoryKey'] ?? null) === 'websites' || ($project['type'] ?? null) === 'link'
+            ? 'website'
+            : 'gallery';
+        $variants = [$project];
 
-    foreach ($projects as $project) {
-        $image = is_array($project) ? ($project['image'] ?? null) : null;
+        foreach ($project['domainOverrides'] ?? [] as $override) {
+            $variants[] = array_replace($project, $override);
+        }
 
-        if (is_string($image) && str_starts_with($image, '/img/')) {
-            $images[$image] = true;
+        foreach ($variants as $variant) {
+            $image = $variant['image'] ?? '';
+            $lightbox = $variant['lightboxImage'] ?? $image;
+            if (str_starts_with($image, '/img/')) {
+                $images[$image] = array_unique([...($images[$image] ?? []), ...$config[$group]['widths']]);
+            }
+            if (str_starts_with($lightbox, '/img/')) {
+                $lightboxes[$lightbox] = true;
+            }
         }
     }
 }
 
-if (! function_exists('imagewebp')) {
-    fwrite(STDERR, "The PHP GD WebP extension is required.\n");
-    exit(1);
+function writePreview(GdImage $source, string $file, int $width, int $height, int $quality): void
+{
+    $preview = imagecreatetruecolor($width, $height);
+    imagealphablending($preview, false);
+    imagesavealpha($preview, true);
+    imagecopyresampled($preview, $source, 0, 0, 0, 0, $width, $height, imagesx($source), imagesy($source));
+
+    $directory = dirname($file);
+    if (! is_dir($directory)) {
+        mkdir($directory, 0775, true);
+    }
+    if (! imagewebp($preview, $file, $quality) || ! is_file($file) || filesize($file) === 0) {
+        throw new RuntimeException("Unable to write {$file}");
+    }
+    imagedestroy($preview);
 }
 
-$generated = 0;
-$sourceBytes = 0;
-$thumbnailBytes = 0;
-
-foreach (array_keys($images) as $publicPath) {
-    $relativePath = substr($publicPath, strlen('/img/'));
-    $sourcePath = $projectRoot . '/public/img/' . $relativePath;
-    $thumbnailRelativePath = preg_replace('/\.[^.]+$/', '.webp', $relativePath);
-    $thumbnailPath = $projectRoot . '/public/img/reference-thumbs/' . $thumbnailRelativePath;
-
-    if (! is_file($sourcePath) || ! is_string($thumbnailRelativePath)) {
-        fwrite(STDERR, "Skipped missing image: {$publicPath}\n");
+$count = 0;
+foreach (array_unique([...array_keys($images), ...array_keys($lightboxes)]) as $image) {
+    $original = $projectRoot . '/public' . $image;
+    if (! is_file($original)) {
+        fwrite(STDERR, "Missing original: {$image}\n");
         continue;
     }
 
-    $imageInfo = getimagesize($sourcePath);
-
-    if ($imageInfo === false) {
-        fwrite(STDERR, "Skipped unreadable image: {$publicPath}\n");
-        continue;
-    }
-
-    [$sourceWidth, $sourceHeight, $imageType] = $imageInfo;
-    $source = match ($imageType) {
-        IMAGETYPE_JPEG => imagecreatefromjpeg($sourcePath),
-        IMAGETYPE_PNG => imagecreatefrompng($sourcePath),
-        IMAGETYPE_WEBP => imagecreatefromwebp($sourcePath),
-        default => false,
-    };
-
+    $source = imagecreatefromstring(file_get_contents($original));
     if ($source === false) {
-        fwrite(STDERR, "Skipped unsupported image: {$publicPath}\n");
+        fwrite(STDERR, "Unreadable original: {$image}\n");
         continue;
     }
 
-    $scale = min(1, 960 / $sourceWidth, 720 / $sourceHeight);
-    $targetWidth = max(1, (int) round($sourceWidth * $scale));
-    $targetHeight = max(1, (int) round($sourceHeight * $scale));
-    $thumbnail = imagecreatetruecolor($targetWidth, $targetHeight);
+    $width = imagesx($source);
+    $height = imagesy($source);
+    $base = $outputRoot . $config['directory'];
+    $path = preg_replace('/\.[^.]+$/', '.webp', substr($image, strlen('/img/')));
 
-    imagealphablending($thumbnail, false);
-    imagesavealpha($thumbnail, true);
-    $transparent = imagecolorallocatealpha($thumbnail, 0, 0, 0, 127);
-    imagefilledrectangle($thumbnail, 0, 0, $targetWidth, $targetHeight, $transparent);
-    imagecopyresampled(
-        $thumbnail,
-        $source,
-        0,
-        0,
-        0,
-        0,
-        $targetWidth,
-        $targetHeight,
-        $sourceWidth,
-        $sourceHeight
-    );
-
-    if (! is_dir(dirname($thumbnailPath))) {
-        mkdir(dirname($thumbnailPath), 0775, true);
+    foreach ($images[$image] ?? [] as $size) {
+        writePreview($source, "{$base}/{$size}/{$path}", $size, max(1, (int) round($height * $size / $width)), 70);
+        $count++;
     }
 
-    imagewebp($thumbnail, $thumbnailPath, 72);
-    imagedestroy($thumbnail);
-    imagedestroy($source);
+    if (isset($lightboxes[$image])) {
+        $scale = min(1, 1600 / max($width, $height));
+        writePreview($source, "{$base}/large/{$path}", (int) round($width * $scale), (int) round($height * $scale), 84);
+        $count++;
+    }
 
-    $generated++;
-    $sourceBytes += filesize($sourcePath) ?: 0;
-    $thumbnailBytes += filesize($thumbnailPath) ?: 0;
+    imagedestroy($source);
 }
 
-printf(
-    "Generated %d thumbnails: %.2f MB -> %.2f MB\n",
-    $generated,
-    $sourceBytes / 1024 / 1024,
-    $thumbnailBytes / 1024 / 1024
-);
+printf("Generated %d optimized reference images.\n", $count);

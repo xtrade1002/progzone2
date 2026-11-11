@@ -97,11 +97,37 @@ const websiteProjects = (locale) => {
       tags: t.secretTags,
       imageFit: 'contain',
     },
-    website('Hunportal', '/img/websites/hunportal-preview.png', 'https://hunportal.hu'),
+    {
+      ...website('Hunportal', '/img/websites/hunportal-current.webp', 'https://hunportal.hu'),
+      domainOverrides: {
+        'progzone.de': {
+          url: 'https://hunportal.hu/de',
+          image: '/img/websites/hunportal-de.webp',
+          lightboxImage: '/img/websites/hunportal-de.webp',
+        },
+      },
+    },
     website(locale === 'de' ? 'Kertmeister' : 'Kertmester', '/img/websites/kertmester.png', 'https://www.kertmester.eu'),
-    website('Fixappoint', '/img/websites/screenshot-2025-11-28-101112.png', 'https://fixappoint.hu'),
+    {
+      ...website('Fixappoint', '/img/websites/fixappoint-hu.webp', 'https://fixappoint.hu'),
+      domainOverrides: {
+        'progzone.de': {
+          url: 'https://fixappoint.ch',
+          image: '/img/websites/fixappoint-ch.webp',
+          lightboxImage: '/img/websites/fixappoint-ch.webp',
+        },
+      },
+    },
     website('Glamlash', '/img/websites/glamlash.png', 'https://www.glamlash.hu'),
-    website('Versenybikini', '/img/websites/versenybikini.png', 'https://www.versenybikini.hu'),
+    {
+      ...website('Versenybikini', '/img/websites/versenybikini.png', 'https://www.versenybikini.hu'),
+      domainOverrides: {
+        'progzone.de': {
+          image: '/img/websites/versenybikini-de.webp',
+          lightboxImage: '/img/websites/versenybikini-de.webp',
+        },
+      },
+    },
     website('Oha Yachting', '/img/websites/ohayachting.webp', 'https://ohayachting.com'),
   ];
 };
