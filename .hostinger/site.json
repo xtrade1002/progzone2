@@ -14,8 +14,8 @@
     "host": "145.223.39.83",
     "port": 65002,
     "remoteRoot": "/home/u663854887/domains/{domain}/public_html",
-    "lastRelease": "language-fix-20261028",
-    "scope": "Device image localization and working domain-default/manual language selection. Earlier local SEO changes are not deployed.",
-    "backupDirectory": "/home/u663854887/progzone-language-fix-20261028"
+    "lastRelease": "mobile-layout-20261122",
+    "scope": "Frontend build: mobile and tablet spacing, 90% home content width, centered buttons, two-column service cards, expanded about/prices/contact content, compact quote/FAQ pages, footer legal links removed. PHP and database unchanged.",
+    "backupDirectory": "/home/u663854887/progzone-mobile-layout-20261122/backups"
   }
 }
