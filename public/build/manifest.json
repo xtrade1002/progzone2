@@ -1,21 +1,21 @@
 {
-  "_Layout-B2LQeSLu.js": {
-    "file": "assets/mobile-layout-20261122/Layout-B2LQeSLu.js",
+  "_Layout-g12z0yaO.js": {
+    "file": "assets/mobile-app-20261122/Layout-g12z0yaO.js",
     "name": "Layout",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "_constants-CHKLk53u.js": {
-    "file": "assets/mobile-layout-20261122/constants-CHKLk53u.js",
+    "file": "assets/mobile-app-20261122/constants-CHKLk53u.js",
     "name": "constants"
   },
   "_react-BNHlNYj8.js": {
-    "file": "assets/mobile-layout-20261122/react-BNHlNYj8.js",
+    "file": "assets/mobile-app-20261122/react-BNHlNYj8.js",
     "name": "react"
   },
   "resources/css/app.css": {
-    "file": "assets/mobile-layout-20261122/app-DLLhFpvr.css",
+    "file": "assets/mobile-app-20261122/app-CUbpGE-x.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -24,130 +24,130 @@
     ]
   },
   "resources/js/Pages/AboutMe.jsx": {
-    "file": "assets/mobile-layout-20261122/AboutMe-Ds3DXFTG.js",
+    "file": "assets/mobile-app-20261122/AboutMe-D1Z3Fg6o.js",
     "name": "AboutMe",
     "src": "resources/js/Pages/AboutMe.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/Pages/Contact.jsx": {
-    "file": "assets/mobile-layout-20261122/Contact-CXXeVoLg.js",
+    "file": "assets/mobile-app-20261122/Contact-C3DMCFyn.js",
     "name": "Contact",
     "src": "resources/js/Pages/Contact.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/Pages/Home.jsx": {
-    "file": "assets/mobile-layout-20261122/Home-CWIGsPJv.js",
+    "file": "assets/mobile-app-20261122/Home-yv8nyiQf.js",
     "name": "Home",
     "src": "resources/js/Pages/Home.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/Pages/Impressum.jsx": {
-    "file": "assets/mobile-layout-20261122/Impressum-BYKhuxNK.js",
+    "file": "assets/mobile-app-20261122/Impressum-WHAwOx6C.js",
     "name": "Impressum",
     "src": "resources/js/Pages/Impressum.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_constants-CHKLk53u.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/Pages/Infos.jsx": {
-    "file": "assets/mobile-layout-20261122/Infos-Bq_y5ueM.js",
+    "file": "assets/mobile-app-20261122/Infos-Mi55nNAL.js",
     "name": "Infos",
     "src": "resources/js/Pages/Infos.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/Pages/Prices.jsx": {
-    "file": "assets/mobile-layout-20261122/Prices-D1L0KIoF.js",
+    "file": "assets/mobile-app-20261122/Prices-CvsffRV1.js",
     "name": "Prices",
     "src": "resources/js/Pages/Prices.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_constants-CHKLk53u.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/Pages/Privacy.jsx": {
-    "file": "assets/mobile-layout-20261122/Privacy-B20yzHDo.js",
+    "file": "assets/mobile-app-20261122/Privacy-D9KiDzas.js",
     "name": "Privacy",
     "src": "resources/js/Pages/Privacy.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/Pages/QuoteRequest.jsx": {
-    "file": "assets/mobile-layout-20261122/QuoteRequest-DMPWlh7A.js",
+    "file": "assets/mobile-app-20261122/QuoteRequest-FQ_t-sHm.js",
     "name": "QuoteRequest",
     "src": "resources/js/Pages/QuoteRequest.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/Pages/References.jsx": {
-    "file": "assets/mobile-layout-20261122/References-Dn7J7unm.js",
+    "file": "assets/mobile-app-20261122/References-BASCg2ea.js",
     "name": "References",
     "src": "resources/js/Pages/References.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/Pages/Services.jsx": {
-    "file": "assets/mobile-layout-20261122/Services-DWAnOd63.js",
+    "file": "assets/mobile-app-20261122/Services-Bo7OZLAM.js",
     "name": "Services",
     "src": "resources/js/Pages/Services.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/Pages/Terms.jsx": {
-    "file": "assets/mobile-layout-20261122/Terms-CKroXt9H.js",
+    "file": "assets/mobile-app-20261122/Terms-Ct4XvTRF.js",
     "name": "Terms",
     "src": "resources/js/Pages/Terms.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-B2LQeSLu.js",
+      "_Layout-g12z0yaO.js",
       "_react-BNHlNYj8.js"
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/mobile-layout-20261122/app-CEZc61hi.js",
+    "file": "assets/mobile-app-20261122/app-CTIrcfaB.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,

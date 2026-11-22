@@ -178,7 +178,12 @@
         "title": "Marketing",
         "description": "End-to-end online marketing with Google Ads, Facebook and Instagram campaigns, SEO and content creation to generate more reach, leads and revenue."
       }
-    ]
+    ],
+    "mobile_app": {
+      "title": "Mobile App Development",
+      "description": "Custom mobile applications for Android and iOS, tailored to your business. User-friendly interfaces, sign-in, notifications and integration with existing websites, online stores or business systems.",
+      "icon": "mobile"
+    }
   },
   "prices": {
     "meta_title": "Prices",
@@ -218,6 +223,12 @@
       "title": "Marketing",
       "desc": "Google Ads, Facebook and Instagram campaigns, SEO and content creation to increase your revenue.",
       "footer": "The price depends on the number, type and complexity of the campaigns."
+    },
+    "mobile_app": {
+      "title": "Mobile App Development",
+      "desc": "Design and development of Android and iOS apps with custom interfaces and features. Pricing depends on the number of screens, feature complexity, backend requirements and integrations.",
+      "footer": "App-store developer account fees, hosting, third-party subscriptions and ongoing maintenance are agreed separately.",
+      "price_label": "Custom quote"
     }
   },
   "quote": {

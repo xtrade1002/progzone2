@@ -63,10 +63,21 @@
         "title": "WordPress-Webseite",
         "description": "Schnelle und kosteneffiziente Website-Erstellung für Unternehmen in der Schweiz. Ideal, wenn du eine professionelle, moderne und SEO-freundliche Website mit kurzer Umsetzungszeit brauchst."
       }
-    ]
+    ],
+    "mobile_app": {
+      "title": "Mobile App-Entwicklung",
+      "description": "Individuelle mobile Anwendungen für Android und iOS, abgestimmt auf dein Unternehmen. Benutzerfreundliche Oberflächen, Anmeldung, Benachrichtigungen und Anbindung an bestehende Websites, Onlineshops oder Geschäftssysteme.",
+      "icon": "mobile"
+    }
   },
   "prices": {
-    "meta_title": "Preise für Websites in der Schweiz"
+    "meta_title": "Preise für Websites in der Schweiz",
+    "mobile_app": {
+      "title": "Mobile App-Entwicklung",
+      "desc": "Konzeption und Entwicklung von Android- und iOS-Apps mit individuellem Design und Funktionen. Der Preis hängt von der Anzahl der Ansichten, dem Funktionsumfang, dem Backend und den benötigten Schnittstellen ab.",
+      "footer": "Gebühren für Entwicklerkonten in den App-Stores, Hosting, Abonnements externer Dienste und die spätere Wartung werden gesondert vereinbart.",
+      "price_label": "Individuelles Angebot"
+    }
   },
   "references": {
     "meta_title": "Referenzen für Webdesign & Website-Erstellung",

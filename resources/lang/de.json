@@ -179,7 +179,12 @@
         "title": "Marketing",
         "description": "Ganzheitliches Online-Marketing mit Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung, um mehr Reichweite, Anfragen und Umsatz zu erzielen."
       }
-    ]
+    ],
+    "mobile_app": {
+      "title": "Mobile App-Entwicklung",
+      "description": "Individuelle mobile Anwendungen für Android und iOS, abgestimmt auf dein Unternehmen. Benutzerfreundliche Oberflächen, Anmeldung, Benachrichtigungen und Anbindung an bestehende Websites, Onlineshops oder Geschäftssysteme.",
+      "icon": "mobile"
+    }
   },
   "prices": {
     "meta_title": "Preise für Websites",
@@ -219,6 +224,12 @@
       "title": "Marketing",
       "desc": "Google Ads, Facebook- und Instagram-Kampagnen, SEO und Content-Erstellung zur Umsatzsteigerung.",
       "footer": "Der Preis hängt von der Anzahl, Art und Komplexität der Kampagnen ab."
+    },
+    "mobile_app": {
+      "title": "Mobile App-Entwicklung",
+      "desc": "Konzeption und Entwicklung von Android- und iOS-Apps mit individuellem Design und Funktionen. Der Preis hängt von der Anzahl der Ansichten, dem Funktionsumfang, dem Backend und den benötigten Schnittstellen ab.",
+      "footer": "Gebühren für Entwicklerkonten in den App-Stores, Hosting, Abonnements externer Dienste und die spätere Wartung werden gesondert vereinbart.",
+      "price_label": "Individuelles Angebot"
     }
   },
   "quote": {

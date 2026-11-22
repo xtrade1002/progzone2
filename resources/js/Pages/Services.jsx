@@ -22,7 +22,10 @@ const ServiceIcon = ({ path }) => (
 export default function Services() {
   const { trans, t } = useTranslations();
   const services = trans?.services ?? {};
-  const cards = Array.isArray(services.cards) ? services.cards : [];
+  const cards = [
+    ...(Array.isArray(services.cards) ? services.cards : []),
+    services.mobile_app,
+  ].filter(Boolean);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -62,7 +65,9 @@ export default function Services() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {cards.map((card, index) => {
-            const iconPath = serviceIcons[index % serviceIcons.length];
+            const iconPath = card.icon === 'mobile'
+              ? 'M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z M10 6h4 M11 18h2'
+              : serviceIcons[index % serviceIcons.length];
             const accentClass = index % 2 === 0 ? 'text-[var(--pz-pink)]' : 'text-[var(--pz-cyan)]';
 
             return (

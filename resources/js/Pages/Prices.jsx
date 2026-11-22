@@ -33,6 +33,7 @@ export default function Prices(props) {
     wordpress: ['wordpress', 'wordpress-website', 'wordpress_website'],
     webshop: ['woocommerce', 'woocommerce-2', 'webshop', 'webshop-woocommerce', 'online-shop'],
     custom: ['egyedifejlesztes', 'custom'],
+    mobile_app: ['mobile-app', 'mobile_app'],
     marketing: ['marketing', 'marketing-2'],
   };
 
@@ -167,7 +168,7 @@ export default function Prices(props) {
 
     const slugCandidates = slugMap[key] || key;
     const priceObj = resolvePriceObject(slugCandidates);
-    const formattedPrice = formatPriceValue(priceObj);
+    const formattedPrice = formatPriceValue(priceObj) || block.price_label;
 
     return (
       <li
@@ -241,6 +242,7 @@ export default function Prices(props) {
             {renderCard('wordpress')}
             {renderCard('webshop')}
             {renderCard('custom')}
+            {renderCard('mobile_app')}
             {renderCard('marketing')}
           </ul>
 

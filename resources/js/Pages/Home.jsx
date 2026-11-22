@@ -750,6 +750,29 @@ export default function Home() {
           filter: blur(18px);
         }
 
+        @media (min-width: 1101px) {
+          .pz-why {
+            align-items: stretch;
+            min-height: 0;
+          }
+
+          .pz-devices {
+            width: 100%;
+            min-height: 0;
+            overflow: hidden;
+          }
+
+          .pz-devices .pz-laptop {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transform: none;
+            -webkit-mask-image: none;
+            mask-image: none;
+          }
+        }
+
         @media (max-width: 1100px) {
           .pz-services-grid {
             grid-template-columns: repeat(3, 1fr);

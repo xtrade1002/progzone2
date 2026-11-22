@@ -179,7 +179,12 @@
         "title": "Marketing",
         "description": "Teljes körű online marketing Google Ads, Facebook- és Instagram-kampányokkal, SEO-val és tartalomkészítéssel, hogy több elérést, érdeklődőt és bevételt hozzon."
       }
-    ]
+    ],
+    "mobile_app": {
+      "title": "Mobilapplikáció-fejlesztés",
+      "description": "Egyedi mobilalkalmazások fejlesztése Android és iOS platformra, a vállalkozásod igényeire szabva. Felhasználóbarát felület, bejelentkezés, értesítések és összekapcsolás meglévő weboldallal, webshoppal vagy üzleti rendszerrel.",
+      "icon": "mobile"
+    }
   },
   "prices": {
     "meta_title": "Árak",
@@ -218,6 +223,12 @@
       "title": "Marketing",
       "desc": "Google Ads, Facebook és Instagram kampányok, SEO és tartalomkészítés a bevételeid növeléséhez.",
       "footer": "Az ár a kampányok számától, típusától, bonyolultságától függ."
+    },
+    "mobile_app": {
+      "title": "Mobilapplikáció-fejlesztés",
+      "desc": "Android- és iOS-alkalmazások tervezése és fejlesztése egyedi megjelenéssel és funkciókkal. Az ár a képernyők számától, a funkciók összetettségétől, a háttérrendszertől és az integrációktól függ.",
+      "footer": "Az alkalmazásáruházak fejlesztői fiókjainak díjai, a tárhely és a külső szolgáltatások előfizetései, valamint a későbbi karbantartás külön egyeztetés tárgyát képezik.",
+      "price_label": "Egyedi árajánlat alapján"
     }
   },
   "quote": {

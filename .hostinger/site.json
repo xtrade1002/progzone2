@@ -14,8 +14,8 @@
     "host": "145.223.39.83",
     "port": 65002,
     "remoteRoot": "/home/u663854887/domains/{domain}/public_html",
-    "lastRelease": "mobile-layout-20261122",
-    "scope": "Frontend build: mobile and tablet spacing, 90% home content width, centered buttons, two-column service cards, expanded about/prices/contact content, compact quote/FAQ pages, footer legal links removed. PHP and database unchanged.",
-    "backupDirectory": "/home/u663854887/progzone-mobile-layout-20261122/backups"
+    "lastRelease": "mobile-app-20261122",
+    "scope": "Add mobile app development to Services and Prices in HU/DE/EN, with custom quote pricing and targeted translation updates. Includes prior desktop and mobile layout fixes.",
+    "backupDirectory": "/home/u663854887/progzone-mobile-app-20261122/backups"
   }
 }
