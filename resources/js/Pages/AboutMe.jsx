@@ -37,8 +37,8 @@ export default function AboutMe() {
 
   return (
     <Layout>
-      <section className="pz-section space-y-20">
-        <div className="pz-panel grid grid-cols-1 items-center gap-12 rounded-[2rem] p-6 md:grid-cols-[0.82fr_1.18fr] md:p-10">
+      <section className="pz-section w-[90%] space-y-12 px-0 py-6 sm:space-y-20 md:w-full md:px-6 md:py-20">
+        <div className="pz-panel grid grid-cols-1 items-center gap-6 rounded-[2rem] p-2 sm:gap-12 sm:p-6 md:grid-cols-[0.82fr_1.18fr] md:p-10">
           <div
             className={`transition-all duration-700 ease-out ${
               visible ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'
@@ -49,7 +49,7 @@ export default function AboutMe() {
               alt={about.image_alt ?? ''}
               width="1123"
               height="1401"
-              className="mx-auto max-h-[560px] rounded-[1.25rem] border border-[rgb(var(--pz-pink-rgb)/0.58)] object-cover shadow-[0_0_38px_rgb(var(--pz-pink-rgb)/0.44),0_0_36px_rgba(0,231,255,0.18)]"
+              className="mx-auto w-full max-h-none rounded-[1.25rem] border border-[rgb(var(--pz-pink-rgb)/0.58)] object-cover shadow-[0_0_38px_rgb(var(--pz-pink-rgb)/0.44),0_0_36px_rgba(0,231,255,0.18)] sm:w-auto sm:max-h-[560px]"
             />
           </div>
           <div
@@ -64,7 +64,7 @@ export default function AboutMe() {
               introParagraphs.map((paragraph, index) => (
                 <p
                   key={index}
-                  className={`pz-copy-reveal mb-4 px-1 text-lg leading-relaxed text-slate-300 ${
+                  className={`pz-copy-reveal mb-4 text-lg leading-relaxed text-slate-300 sm:px-1 ${
                     visible ? 'is-visible' : ''
                   }`}
                   style={{ transitionDelay: `${560 + index * 260}ms` }}

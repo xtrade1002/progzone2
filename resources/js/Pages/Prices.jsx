@@ -172,7 +172,7 @@ export default function Prices(props) {
     return (
       <li
         key={key}
-        className="pz-card rounded-2xl p-6 sm:p-8"
+        className="pz-card rounded-2xl p-2 sm:p-8"
       >
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 w-full">
           <div className="flex-1 min-w-0">
@@ -229,8 +229,8 @@ export default function Prices(props) {
 
   return (
     <Layout>
-      <section className="pz-section max-w-5xl">
-        <div className="pz-panel rounded-[2rem] p-5 sm:p-10">
+      <section className="pz-section w-[90%] max-w-5xl px-0 py-6 md:w-full md:px-6 md:py-20">
+        <div className="pz-panel rounded-[2rem] p-2 sm:p-10">
           {tr.title && (
             <h1 className="pz-title text-center text-3xl font-black sm:text-4xl">
               {tr.title}

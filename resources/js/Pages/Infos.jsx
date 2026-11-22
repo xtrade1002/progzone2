@@ -83,8 +83,8 @@ export default function Infos() {
     const items = Array.isArray(section?.items) ? section.items : [];
 
     return (
-      <div className="mb-12" key={section?.key ?? title}>
-        <h2 className="pz-cyan mb-6 text-center text-2xl font-black">
+      <div className="mb-6 lg:mb-12" key={section?.key ?? title}>
+        <h2 className="pz-cyan mb-4 text-center text-2xl font-black lg:mb-6">
           {title || t("menu.infos", "Infos")}
         </h2>
         <div className="overflow-hidden rounded-2xl border border-[#00eaff]/20 bg-black/18">
@@ -99,18 +99,18 @@ export default function Infos() {
             return (
               <div key={itemIndex} className="border-b border-[#00eaff]/12 last:border-b-0">
                 <button
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-lg font-bold text-[var(--pz-pink)] transition hover:bg-[#00eaff]/8 hover:text-[#00eaff]"
+                  className="flex w-full items-center justify-between gap-3 px-3 py-3 text-left text-base font-bold text-[var(--pz-pink)] transition hover:bg-[#00eaff]/8 hover:text-[#00eaff] lg:gap-4 lg:px-5 lg:py-4 lg:text-lg"
                   onClick={() => toggleItem(itemIndex)}
                 >
                   <span>{item?.title ?? t("menu.infos", "Infos")}</span>
                   {openIndex === itemIndex ? (
-                    <ChevronUp className="w-5 h-5" />
+                    <ChevronUp className="w-5 h-5 shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5" />
+                    <ChevronDown className="w-5 h-5 shrink-0" />
                   )}
                 </button>
                 {openIndex === itemIndex && (
-                  <div className="px-5 pb-6 pt-2">
+                  <div className="px-3 pb-4 pt-1 lg:px-5 lg:pb-6 lg:pt-2">
                     <div className="space-y-4 leading-relaxed text-slate-300">
                       {contentBlocks.map((block, contentIndex) =>
                         renderContentBlock(block, contentIndex)
@@ -130,8 +130,8 @@ export default function Infos() {
 
   return (
     <Layout>
-      <section className="pz-section max-w-5xl">
-        <h1 className="pz-title mb-12 text-center text-4xl font-black">
+      <section className="pz-section w-[90%] max-w-5xl px-0 py-6 lg:w-full lg:px-6 lg:py-20">
+        <h1 className="pz-title mb-6 text-center text-3xl font-black lg:mb-12 lg:text-4xl">
           {t("menu.infos", "Infos")}
         </h1>
         {sections.length > 0 ? (

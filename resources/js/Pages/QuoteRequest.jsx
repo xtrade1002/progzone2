@@ -198,24 +198,24 @@ export default function QuoteRequest() {
 
   return (
     <Layout>
-      <section className="pz-section max-w-6xl">
-        <div className="pz-panel rounded-[2rem] p-6 sm:p-10">
-          <div className="mb-12 space-y-4 text-center">
-            <h2 className="pz-title text-4xl font-black sm:text-5xl">
+      <section className="pz-section w-[90%] max-w-6xl px-0 py-6 lg:w-full lg:px-6 lg:py-20">
+        <div className="pz-panel rounded-[2rem] p-3 sm:p-5 lg:p-10">
+          <div className="mb-6 space-y-3 text-center lg:mb-12 lg:space-y-4">
+            <h2 className="pz-title text-3xl font-black lg:text-5xl">
               {quote.title}
-              <span className="pz-rule mx-auto mt-5"></span>
+              <span className="pz-rule mx-auto mt-3 lg:mt-5"></span>
             </h2>
             {introParagraphs.map((paragraph, index) => (
-              <p key={index} className="text-lg text-gray-300">
+              <p key={index} className="text-base text-gray-300 lg:text-lg">
                 {paragraph}
               </p>
             ))}
             {quote.hint && <p className="text-sm text-gray-400">{quote.hint}</p>}
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-8">
             {/* Név + Email */}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
               <input
                 type="text"
                 placeholder={withRequiredMark(fields.name?.placeholder ?? 'Full name')}
@@ -236,7 +236,7 @@ export default function QuoteRequest() {
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
               <div className="relative">
                 <span
                   className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-200"
@@ -268,7 +268,7 @@ export default function QuoteRequest() {
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
               <select
                 required
                 value={formData.service}
@@ -372,7 +372,7 @@ export default function QuoteRequest() {
               )}
             </label>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
               <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="menu_items">
                 {fields.menu_items?.label ?? 'Number of menu items'}
                 <input
@@ -416,7 +416,7 @@ export default function QuoteRequest() {
               {errors.features && <span className="text-xs text-red-400">{errors.features}</span>}
             </label>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
               <FormSelect
                 id="content_source"
                 field={fields.content_source}
@@ -439,7 +439,7 @@ export default function QuoteRequest() {
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
               <FormSelect
                 id="support"
                 field={fields.support}

@@ -301,7 +301,7 @@ export default function References() {
             )}
           </div>
 
-          <div className="flex flex-col items-start gap-3">
+          <div className="flex flex-col items-center gap-3 sm:items-start">
             {project.url && (
               <>
                 <a

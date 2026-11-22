@@ -44,11 +44,11 @@ export default function Contact() {
 
   return (
     <Layout>
-      <section className="pz-section max-w-6xl">
-        <div className="pz-panel rounded-[2rem] p-6 text-center sm:p-10">
-          <h2 className="pz-title relative text-3xl font-black sm:text-5xl">
+      <section className="pz-section w-[90%] max-w-6xl px-0 py-6 lg:w-full lg:px-6 lg:py-20">
+        <div className="pz-panel rounded-[2rem] p-2 text-center lg:p-10">
+          <h2 className="pz-title relative text-3xl font-black lg:text-5xl">
             {contact.title}
-            <span className="pz-rule mx-auto mt-5"></span>
+            <span className="pz-rule mx-auto mt-3 lg:mt-5"></span>
           </h2>
 
           {/* Flash üzenetek */}
@@ -58,10 +58,10 @@ export default function Contact() {
             </div>
           )}
 
-          <div className="mx-auto mt-12 max-w-5xl rounded-2xl border border-[#00eaff]/15 bg-black/18 px-6 py-10 sm:px-10 sm:py-12 md:px-16">
-            <form className="space-y-6 w-full" onSubmit={handleSubmit}>
+          <div className="mx-auto mt-5 w-full max-w-5xl rounded-2xl border border-[#00eaff]/15 bg-black/18 p-2 lg:mt-12 lg:px-16 lg:py-12">
+            <form className="w-full space-y-4 lg:space-y-6" onSubmit={handleSubmit}>
               {/* Név + Email */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
                 <div className="flex flex-col gap-2">
                   <input
                     type="text"

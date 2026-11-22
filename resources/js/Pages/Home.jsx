@@ -761,9 +761,78 @@ export default function Home() {
         }
 
         @media (max-width: 1024px) {
+          .pz-home-hero {
+            min-height: auto;
+          }
+
+          .pz-home-hero__inner,
+          .pz-home-section {
+            width: 90%;
+          }
+
           .pz-home-hero__inner {
+            min-height: auto;
             grid-template-columns: 1fr;
+            gap: 24px;
+            padding: 28px 0 32px;
             text-align: center;
+          }
+
+          .pz-home-hero__title {
+            margin-top: 18px;
+            font-size: clamp(32px, 5.5vw, 52px);
+            letter-spacing: -0.03em;
+            overflow-wrap: anywhere;
+          }
+
+          .pz-home-hero .pz-neon-badge {
+            margin-bottom: 0;
+          }
+
+          .pz-home-typewriter {
+            margin-top: 18px;
+          }
+
+          .pz-home-hero__lead {
+            margin-top: 16px;
+            font-size: 18px;
+          }
+
+          .pz-home-hero__actions,
+          .pz-home-hero__chips {
+            margin-top: 20px;
+          }
+
+          .pz-home-hero__visual {
+            min-height: 0;
+            height: auto;
+          }
+
+          .pz-services {
+            padding: 36px 0 28px;
+          }
+
+          .pz-why {
+            min-height: auto;
+            gap: 20px;
+            padding: 24px 0 0;
+          }
+
+          .pz-why h2 {
+            font-size: clamp(22px, 7.4vw, 56px);
+            line-height: 1.15;
+            white-space: nowrap;
+          }
+
+          .pz-why h2 span {
+            display: inline;
+          }
+
+          .pz-devices {
+            min-height: 0;
+            aspect-ratio: 1.85;
+            margin-top: 0;
+            overflow: hidden;
           }
 
           .pz-home-page--de .pz-home-hero__inner {
@@ -785,25 +854,53 @@ export default function Home() {
           }
 
           .pz-home-portrait-frame {
-            height: 520px;
+            height: 380px;
             transform: none;
           }
 
           .pz-home-page--de .pz-home-portrait-frame {
             width: min(430px, 88vw);
-            height: 520px;
+            height: 380px;
             transform: none;
           }
         }
 
         @media (max-width: 760px) {
           .pz-services-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+          }
+
+          .pz-service-card {
+            min-width: 0;
+            padding: 20px 10px;
+          }
+
+          .pz-service-card__icon {
+            width: 48px;
+            height: 48px;
+          }
+
+          .pz-service-card h3 {
+            font-size: 16px;
+            overflow-wrap: anywhere;
+          }
+
+          .pz-service-card p {
+            font-size: 12px;
+            overflow-wrap: anywhere;
+          }
+
+          .pz-service-card .pz-card-button {
+            max-width: 100%;
+            gap: 6px;
+            padding: 9px 10px;
+            font-size: 11px;
           }
 
           .pz-devices {
-            min-height: clamp(230px, 62vw, 310px);
-            margin-top: 18px;
+            min-height: 0;
+            margin-top: 0;
             overflow: hidden;
           }
 
@@ -818,6 +915,16 @@ export default function Home() {
         }
 
         @media (max-width: 640px) {
+          .pz-services {
+            padding: 40px 0 24px;
+          }
+
+          .pz-why {
+            min-height: auto;
+            gap: 16px;
+            padding: 20px 0 0;
+          }
+
           .pz-page,
           .pz-home-page,
           .pz-home-hero,
@@ -830,18 +937,24 @@ export default function Home() {
             min-height: auto;
           }
 
+          .pz-home-hero__inner,
+          .pz-home-section {
+            width: 90%;
+          }
+
           .pz-home-hero__inner {
-            width: min(100% - 32px, 1180px);
             min-height: auto;
-            gap: 26px;
-            padding: 34px 0 58px;
+            gap: 18px;
+            padding: 18px 0 24px;
           }
 
           .pz-home-hero__inner > div {
             min-width: 0;
           }
 
-          .pz-home-hero__title {
+          .pz-home-hero__title,
+          .pz-home-page--de .pz-home-hero__title {
+            margin-top: 16px;
             max-width: 100%;
             font-size: 30px;
             line-height: 1.05;
@@ -864,7 +977,7 @@ export default function Home() {
 
           .pz-home-typewriter {
             width: 100%;
-            max-width: 300px;
+            max-width: 100%;
             min-height: 56px;
             gap: 9px;
             padding: 0 14px;
@@ -879,7 +992,7 @@ export default function Home() {
 
           .pz-home-hero__lead {
             margin-top: 20px;
-            max-width: 300px;
+            max-width: 100%;
             font-size: 17px;
             line-height: 1.45;
             overflow-wrap: anywhere;
@@ -888,10 +1001,11 @@ export default function Home() {
 
           .pz-home-hero__actions {
             width: 100%;
-            max-width: 300px;
+            max-width: 100%;
             flex-direction: column;
+            align-items: center;
             gap: 12px;
-            margin-top: 28px;
+            margin-top: 20px;
           }
 
           .pz-button {
@@ -907,11 +1021,11 @@ export default function Home() {
 
           .pz-home-hero__chips {
             width: 100%;
-            max-width: 300px;
+            max-width: 100%;
             display: grid;
             grid-template-columns: 1fr;
             gap: 10px;
-            margin-top: 26px;
+            margin-top: 18px;
           }
 
           .pz-home-chip {
@@ -932,19 +1046,20 @@ export default function Home() {
 
           .pz-home-hero__visual {
             position: relative;
-            min-height: 330px;
+            min-height: 0;
             width: 100%;
             max-width: 100%;
             overflow: hidden;
           }
 
-          .pz-home-portrait-frame {
+          .pz-home-portrait-frame,
+          .pz-home-page--de .pz-home-portrait-frame {
             position: relative;
             left: auto;
             right: auto;
             bottom: auto;
             width: min(78vw, 280px);
-            height: 330px;
+            height: 280px;
             margin: 0 auto;
             transform: none;
           }
@@ -959,8 +1074,7 @@ export default function Home() {
 
         @media (max-width: 380px) {
           .pz-home-hero__inner {
-            width: min(100% - 24px, 1180px);
-            padding-top: 26px;
+            padding-top: 16px;
           }
 
           .pz-neon-badge {
