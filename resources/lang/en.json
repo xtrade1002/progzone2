@@ -91,7 +91,8 @@
         "Full customer support"
       ],
       "cta": "Request a quote"
-    }
+    },
+    "meta_description": "Custom websites, WordPress sites and online stores with personal support. Online collaboration, clear communication and multilingual solutions."
   },
   "about": {
     "meta_title": "About",
@@ -503,36 +504,28 @@
         "title": "Websites",
         "items": [
           {
-            "title": "What is a domain and hosting service?",
+            "title": "Domain and hosting",
             "content": [
               {
                 "type": "paragraph",
-                "text": "A <strong>domain name</strong> (e.g. <code>example.com</code>) is like the address of a house. When someone types it into their browser, it leads them to your website."
+                "text": "Your <strong>domain</strong> is your website address, such as example.com. <strong>Hosting</strong> stores the website’s files and data."
               },
               {
                 "type": "paragraph",
-                "text": "The <strong>hosting (web hosting)</strong> is the house itself: the place where your website’s files (text, images, database) are stored."
-              },
-              {
-                "type": "paragraph",
-                "text": "Domain and hosting are both required to make your site accessible to everyone. If either one is missing, the site won’t work."
+                "text": "They are separate services that need to be connected. Both can have recurring fees; check whether email and backups are included."
               }
             ]
           },
           {
-            "title": "What is the difference between WordPress and custom-developed websites?",
+            "title": "WordPress or custom development?",
             "content": [
               {
                 "type": "paragraph",
-                "text": "<strong>WordPress</strong> is a ready-made system used by millions. It’s like a pre-built house that you can rearrange inside: pick a theme and add plugins. It’s faster and cheaper, but less flexible."
+                "text": "<strong>WordPress</strong> is an existing content management system with themes, plugins and an editing interface. <strong>Custom development</strong> can suit specialised features and more complex workflows."
               },
               {
                 "type": "paragraph",
-                "text": "A <strong>custom-developed website</strong> is built from the ground up specifically for you. It’s like designing your own villa: you get exactly what you want, but it takes more time and budget."
-              },
-              {
-                "type": "paragraph",
-                "text": "In short: WordPress is the “ready-made house”, while custom development is the “self-built home”."
+                "text": "Choose based on your goals, budget and ongoing maintenance. Neither option is automatically faster, safer or better."
               }
             ]
           },
@@ -541,42 +534,20 @@
             "content": [
               {
                 "type": "paragraph",
-                "text": "WordPress is like a smartphone: it needs regular updates or it becomes outdated and insecure."
-              },
-              {
-                "type": "list",
-                "items": [
-                  "<strong>Updates</strong>: new versions of the core, themes and plugins keep the site more secure.",
-                  "<strong>Security</strong>: without updates, your site can be hacked easily.",
-                  "<strong>Performance</strong>: updates often make the site faster.",
-                  "<strong>Preventing conflicts</strong>: outdated plugins frequently clash with each other."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "Maintenance is like servicing a car: skip it for too long and it will eventually break down."
+                "text": "Maintenance can cover system and plugin updates, backups and checks of important functions. This reduces risks associated with outdated components, but cannot eliminate every issue."
               }
             ]
           },
           {
-            "title": "Why does a custom-developed website cost more than a WordPress site?",
+            "title": "Why can custom development cost more?",
             "content": [
               {
                 "type": "paragraph",
-                "text": "Custom development requires more working hours and expertise, which is why it costs more."
-              },
-              {
-                "type": "list",
-                "items": [
-                  "<strong>Every feature is built from scratch</strong>, there is no ready-made template.",
-                  "<strong>Fully tailored</strong> to your exact requirements.",
-                  "<strong>More secure and faster</strong> because it isn’t overloaded with unnecessary plugins.",
-                  "<strong>A long-term investment</strong> that can be expanded more easily."
-                ]
+                "text": "Planning, implementation and testing may require more individual work than configuring an existing system. The price depends on the features and complexity."
               },
               {
                 "type": "paragraph",
-                "text": "It’s like the difference between an <strong>IKEA cabinet</strong> and a <strong>custom-built piece of furniture</strong> made by a carpenter."
+                "text": "Clarify deliverables, revisions, handover, maintenance and third-party fees in the proposal."
               }
             ]
           },
@@ -585,20 +556,33 @@
             "content": [
               {
                 "type": "paragraph",
-                "text": "A website isn’t a one-off expense. There are ongoing costs as well:"
-              },
+                "text": "Domains, hosting and some licences have recurring fees. Maintenance, content updates and new features may be separate work. Clarify one-off and ongoing charges, and which fees you pay directly to providers."
+              }
+            ]
+          },
+          {
+            "title": "What does responsive mean?",
+            "content": [
               {
-                "type": "list",
-                "items": [
-                  "<strong>Domain fee</strong>: paid yearly, usually a few to several dozen euros.",
-                  "<strong>Hosting fee</strong>: the cost of running the server, generally billed monthly or annually.",
-                  "<strong>Maintenance</strong>: updates, bug fixes and backups.",
-                  "<strong>Further development</strong>: when you need new features."
-                ]
+                "type": "paragraph",
+                "text": "The layout adapts to phones, tablets and computers. Text should remain readable and controls usable without horizontal scrolling."
               },
               {
                 "type": "paragraph",
-                "text": "It’s like owning a car: the purchase price is just the beginning — fuel, insurance and servicing also matter."
+                "text": "Menus, forms, images and long text need checking at different screen sizes."
+              }
+            ]
+          },
+          {
+            "title": "Can I edit the content myself?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Yes, if a content management system or admin interface is included. Agree which texts, images, articles, products or prices you want to change."
+              },
+              {
+                "type": "paragraph",
+                "text": "The interface and an introduction to using it can form part of the scope. Design changes and new features usually require development."
               }
             ]
           }
@@ -647,15 +631,41 @@
             ]
           },
           {
-            "title": "What is SEO and why is it important?",
+            "title": "What is SEO, and when can I expect results?",
             "content": [
               {
                 "type": "paragraph",
-                "text": "<strong>SEO</strong> (search engine optimisation) helps Google value your site more. You rank higher in search results, so more people find you without paying for clicks."
+                "text": "<strong>SEO</strong> means search engine optimisation. It helps search engines understand your content and relevant visitors find your website."
               },
               {
                 "type": "paragraph",
-                "text": "In short, SEO is like a free billboard inside Google."
+                "text": "Useful content, technical quality and structure all matter. It takes ongoing work; a specific position or deadline cannot be guaranteed."
+              }
+            ]
+          },
+          {
+            "title": "What advertising budget do I need?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "There is no universal amount. Goals, location, competition and customer value help determine an initial test budget."
+              },
+              {
+                "type": "paragraph",
+                "text": "Separate the advertising spend paid to the platform from campaign management fees. Adjust using the results of the tests."
+              }
+            ]
+          },
+          {
+            "title": "How do I know whether marketing works?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Track outcomes that match your goal: enquiries, bookings or purchases, as well as visits and clicks."
+              },
+              {
+                "type": "paragraph",
+                "text": "Measurement needs planned setup and appropriate data handling. Compare campaign data with actual business outcomes; attribution is not always complete."
               }
             ]
           }
@@ -686,22 +696,292 @@
             ]
           },
           {
-            "title": "Why are a Privacy Policy and Terms & Conditions necessary?",
+            "title": "What are HTTPS and backups?",
             "content": [
               {
                 "type": "paragraph",
-                "text": "These documents are required by law and they also build trust."
+                "text": "<strong>HTTPS</strong> encrypts traffic between the browser and the website. It is a foundation, not protection against every attack."
+              },
+              {
+                "type": "paragraph",
+                "text": "<strong>Backups</strong> are recoverable copies of your data. Store them separately, make them regularly and test restoring them. Updates, strong passwords and suitable permissions also matter."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Working together",
+        "items": [
+          {
+            "title": "How does a project start?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "We discuss your goals, customers and required features. A few examples and an idea in your own words are a useful start."
+              },
+              {
+                "type": "paragraph",
+                "text": "Next we clarify the scope, price, schedule and handover. The process depends on the project’s size."
+              }
+            ]
+          },
+          {
+            "title": "What should I prepare for a quote?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Describe the goal, main features, intended launch and approximate budget. Include your existing website and examples you like."
+              },
+              {
+                "type": "paragraph",
+                "text": "Mention available branding, text, pictures, product data and accounts. You do not need to write a technical specification."
+              }
+            ]
+          },
+          {
+            "title": "How long does it take, and how do revisions work?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Features, content readiness, feedback and integrations affect the schedule. A realistic timeline follows a defined scope."
+              },
+              {
+                "type": "paragraph",
+                "text": "Agree approvals and revisions in advance. Additional requests may affect both cost and delivery."
+              }
+            ]
+          },
+          {
+            "title": "What happens after handover?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Clarify domain ownership, hosting and third-party accounts, access credentials, documentation and licences. The agreement defines usage rights and source deliverables."
+              },
+              {
+                "type": "paragraph",
+                "text": "Maintenance, support and further development can be agreed separately. Establish who updates, backs up and handles faults."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Online shops",
+        "items": [
+          {
+            "title": "What do I need to launch an online shop?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Product details, prices, images, stock requirements, payment and delivery methods, and business and customer service details."
+              },
+              {
+                "type": "paragraph",
+                "text": "WooCommerce is a WordPress-based shop system. The choice depends on product volume, languages and links to invoicing, stock or other systems."
+              }
+            ]
+          },
+          {
+            "title": "How do payments, invoicing and shipping work?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "These usually involve separate providers. Merchant accounts, contracts and configuration may be needed, with subscription or transaction fees."
+              },
+              {
+                "type": "paragraph",
+                "text": "Check integration options beforehand and test the complete order process before launch."
+              }
+            ]
+          },
+          {
+            "title": "Can I add bookings, languages or integrations?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Often yes: booking, customer accounts, languages and invoicing links are possible depending on the selected systems."
+              },
+              {
+                "type": "paragraph",
+                "text": "Translations need ongoing content management. List the languages and systems when requesting a quote."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Mobile apps",
+        "items": [
+          {
+            "title": "When is a mobile app worthwhile?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "An app can help when people return frequently or need notifications, device features and dedicated workflows."
+              },
+              {
+                "type": "paragraph",
+                "text": "For a simple presentation or enquiry form, a mobile-friendly website may be sufficient. Start with the user’s needs."
+              }
+            ]
+          },
+          {
+            "title": "How is an app different from a mobile website?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "A website opens in the browser. An Android or iOS app is installed and may use permitted device capabilities."
+              },
+              {
+                "type": "paragraph",
+                "text": "App releases, updates and store publishing add work. Agree platform support and possible separate fees beforehand."
+              }
+            ]
+          },
+          {
+            "title": "Can an app connect to my existing website?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Often, if the website or business system provides a suitable data interface. Products, bookings or customer records can then be shared."
+              },
+              {
+                "type": "paragraph",
+                "text": "Assess the current system, authentication, permissions and data handling. Integration may require changes to the existing system."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Legal basics",
+        "items": [
+          {
+            "title": "What legal content does a website need?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Check operator information, privacy information, cookie handling and, when selling online, purchase terms. Documents must reflect actual operation."
+              },
+              {
+                "type": "paragraph",
+                "text": "Requirements depend on the business location, target market and features. These are starting points; arrange legal review for your specific business."
+              }
+            ]
+          },
+          {
+            "title": "Which operator details must be published?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "For Hungarian providers covered by Ektv., check:"
               },
               {
                 "type": "list",
                 "items": [
-                  "<strong>Privacy Policy (GDPR)</strong>: explains how you use visitors’ data.",
-                  "<strong>Terms & Conditions</strong>: essential especially for online shops, covering the buying process, guarantees and withdrawal."
+                  "Name, address and contact email.",
+                  "Registration authority and number, where required.",
+                  "VAT-related tax number, if applicable.",
+                  "Licensing and regulated-profession details, if applicable.",
+                  "Hosting-provider address and contact details, subject to the statutory exception."
                 ]
               },
               {
                 "type": "paragraph",
-                "text": "Without them you risk fines, and visitors will hesitate to trust you."
+                "text": "Other countries differ. <a href=\"https://njt.jog.gov.hu/jogszabaly/2001-108-00-00\" target=\"_blank\" rel=\"noopener noreferrer\">Hungarian source: Ektv., section 4</a>."
+              }
+            ]
+          },
+          {
+            "title": "Does a contact form need privacy information?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Under the GDPR, collecting names, email addresses or other personal data requires appropriate privacy information, including for a simple enquiry form."
+              },
+              {
+                "type": "paragraph",
+                "text": "Explain purposes, legal basis, retention, recipients and rights. Consent is not the only lawful basis. <a href=\"https://europa.eu/youreurope/business/governance-and-sustainability/digital-and-data-compliance/data-protection-gdpr/index_en.htm\" target=\"_blank\" rel=\"noopener noreferrer\">Official EU guidance</a>."
+              }
+            ]
+          },
+          {
+            "title": "Does every website need a cookie banner?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "In the EU, strictly necessary cookies can be exempt from consent. Cookies requiring consent must not run before permission is obtained."
+              },
+              {
+                "type": "paragraph",
+                "text": "Check advertising and analytics tools, and allow withdrawal. Swiss requirements differ. <a href=\"https://europa.eu/youreurope/business/growing/digitalising/online-privacy/index_en.htm\" target=\"_blank\" rel=\"noopener noreferrer\">EU cookie guidance</a> · <a href=\"https://www.edoeb.admin.ch/en/cookies-practical-tips\" target=\"_blank\" rel=\"noopener noreferrer\">Swiss guidance</a>."
+              }
+            ]
+          },
+          {
+            "title": "What extra information does an online shop need?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "For EU consumer sales, explain the product, total price, extra charges, payment, delivery and complaint process before purchase."
+              },
+              {
+                "type": "paragraph",
+                "text": "Withdrawal is generally 14 days, with exceptions and different starting points. Check legal guarantees too. <a href=\"https://europa.eu/youreurope/business/selling-in-eu/selling-goods-services/ecommerce-distance-selling/index_en.htm\" target=\"_blank\" rel=\"noopener noreferrer\">Official EU selling guidance</a>."
+              }
+            ]
+          },
+          {
+            "title": "Can I copy legal text from another site?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Another business may use different providers, processes and applicable law. Also check rights to images, fonts, plugins and text."
+              },
+              {
+                "type": "paragraph",
+                "text": "Approved documents and related technical settings can be implemented during development. Professional legal review is a separate task."
+              }
+            ]
+          },
+          {
+            "title": "What is accessibility, and is it required?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Keyboard access, readable contrast, image descriptions and understandable forms help more people use your website."
+              },
+              {
+                "type": "paragraph",
+                "text": "EU accessibility requirements cover certain services, including some e-commerce services. Scope, national implementation and exemptions need individual checking. <a href=\"https://europa.eu/youreurope/business/selling-in-eu/selling-goods-services/accessibility/index_en.htm\" target=\"_blank\" rel=\"noopener noreferrer\">Official EU accessibility guidance</a>."
+              }
+            ]
+          },
+          {
+            "title": "Do the same rules apply in every country?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Not necessarily. A website’s language or domain extension does not determine applicable law on its own."
+              },
+              {
+                "type": "paragraph",
+                "text": "Check <a href=\"https://www.gesetze-im-internet.de/ddg/__5.html\" target=\"_blank\" rel=\"noopener noreferrer\">German operator-information rules</a> where relevant. Swiss online sales do not have the same general withdrawal right as the EU. <a href=\"https://www.kmu.admin.ch/de/die-gesetze-der-schweiz-und-der-eu\" target=\"_blank\" rel=\"noopener noreferrer\">Official Swiss guidance</a>."
+              }
+            ]
+          },
+          {
+            "title": "What are terms and conditions, and does every site need them?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "<strong>Terms and conditions</strong> describe the contractual rules for a purchase or service, including payment, delivery and how issues are handled."
+              },
+              {
+                "type": "paragraph",
+                "text": "An informational website and a shop concluding contracts online have different obligations. Required information and how it is communicated matter more than a document’s name. Have the terms reviewed for your actual business."
               }
             ]
           }
@@ -881,8 +1161,8 @@
         "domainOverrides": {
           "progzone.hu": {
             "url": "https://secretlounge.hu/hu",
-            "image": "/img/websites/secretlounge-hu-card.webp",
-            "lightboxImage": "/img/secretlounge-hu-preview.png",
+            "image": "/img/websites/secretlounge-hu-20261124.webp",
+            "lightboxImage": "/img/websites/secretlounge-hu-20261124.webp",
             "title": "SecretLounge.hu"
           }
         }
@@ -1236,5 +1516,9 @@
       "Meeting agreed timelines is a shared responsibility.",
       "Support and maintenance are available even after project completion."
     ]
+  },
+  "turnstile_verification_failed": "Please complete the verification and try again.",
+  "turnstile": {
+    "load_failed": "Verification could not be loaded. Please refresh the page."
   }
 }

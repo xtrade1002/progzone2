@@ -98,6 +98,11 @@ class LocalizedRoutes
     ];
 
     public const REFERENCE_CATEGORIES = [
+        'webshops' => [
+            'hu' => 'webshopok',
+            'de' => 'onlineshops',
+            'en' => 'webshops',
+        ],
         'websites' => [
             'hu' => 'weboldalak',
             'de' => 'webseiten',

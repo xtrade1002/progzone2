@@ -24,6 +24,9 @@
         --pz-blue: #0e7cff;
         --pz-text: #f7f7ff;
         --pz-muted: #b5bdd0;
+        --pz-content-max: 1520px;
+        --pz-shell-max: calc(var(--pz-content-max) + 48px);
+        --pz-reading-max: 1120px;
     }
 
     html {
@@ -129,10 +132,13 @@
 
     .pz-section {
         width: 100%;
-        max-width: 1280px;
+        max-width: var(--pz-shell-max);
         margin-inline: auto;
         padding: 5rem 1.5rem;
     }
+
+    .pz-site-shell { max-width: var(--pz-shell-max); }
+    .pz-reading-section { max-width: var(--pz-reading-max); }
 
     .pz-panel {
         border: 1px solid rgba(0, 231, 255, 0.24);

@@ -1,3 +1,3 @@
-<h1>Új ajánlatkérés érkezett a(z) {{ $domain }} oldalról</h1>
+<h1>{{ __('quote_request.owner_title', ['domain' => $domain]) }}</h1>
 
 @include('emails.partials.quote-fields', ['quote' => $quote])

@@ -9,7 +9,7 @@ export default function Privacy() {
 
   return (
     <Layout>
-      <section className="pz-section max-w-4xl">
+      <section className="pz-section pz-reading-section">
         <div className="pz-panel rounded-[2rem] p-6 sm:p-10">
           <h1 className="pz-title mb-6 text-3xl font-black sm:text-4xl">{privacy.title}</h1>
           <p className="text-lg leading-relaxed text-slate-300">{privacy.intro}</p>

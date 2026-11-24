@@ -1,0 +1,78 @@
+/* Original typewriter appearance, preserved from Home.jsx. */
+.pz-home-typewriter {
+          margin-top: 28px;
+          width: min(680px, 100%);
+          min-height: 70px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 0 24px;
+          border-radius: 18px;
+          border: 1px solid rgba(0, 247, 255, 0.9);
+          background: linear-gradient(90deg, rgba(255, 0, 122, 0.18), rgba(0, 247, 255, 0.04)), rgba(3, 8, 18, 0.82);
+          box-shadow: 0 0 22px rgba(0, 247, 255, 0.35), inset 0 0 22px rgba(255, 0, 122, 0.08);
+          color: var(--pz-cyan);
+          font-size: clamp(24px, 3vw, 38px);
+          font-weight: 1000;
+          text-shadow: 0 0 16px rgba(0, 247, 255, 0.82);
+          backdrop-filter: blur(14px);
+        }
+
+.pz-home-typewriter__prompt {
+          color: var(--pz-pink);
+        }
+
+.pz-home-typewriter__cursor {
+          width: 3px;
+          height: 34px;
+          background: var(--pz-cyan);
+          box-shadow: 0 0 16px rgba(0, 247, 255, 1);
+          animation: pzBlink 0.9s steps(2, start) infinite;
+        }
+
+@keyframes pzBlink {
+          50% { opacity: 0; }
+        }
+
+.pz-home-page--de .pz-home-typewriter {
+          width: min(640px, 100%);
+        }
+
+@media (max-width: 1024px) {
+.pz-home-typewriter {
+            margin-top: 18px;
+          }
+
+.pz-home-hero__lead,
+          .pz-home-typewriter,
+          .pz-home-hero__actions,
+          .pz-home-hero__chips {
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+          }
+}
+
+@media (max-width: 640px) {
+.pz-home-typewriter {
+            width: 100%;
+            max-width: 100%;
+            min-height: 56px;
+            gap: 9px;
+            padding: 0 14px;
+            border-radius: 14px;
+            font-size: 20px;
+            box-sizing: border-box;
+          }
+
+.pz-home-typewriter__cursor {
+            height: 26px;
+          }
+}
+
+@media (max-width: 380px) {
+.pz-home-typewriter {
+            min-height: 52px;
+            font-size: 18px;
+          }
+}

@@ -27,7 +27,7 @@ class NewQuoteRequest extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Új ajánlatkérés a {$this->domain} oldalról.",
+            subject: __('quote_request.owner_subject', ['domain' => $this->domain]),
             from: $this->prepareFromAddress(),
         );
     }

@@ -70,12 +70,23 @@ class AppServiceProvider extends ServiceProvider
                 }
 
                 if (is_array($decoded)) {
-                    $translations = array_replace_recursive($translations, $decoded);
+                    $translations = $this->mergeTranslations($translations, $decoded);
                 }
             }
 
             return $translations;
         });
+    }
+
+    private function mergeTranslations(array $fallback, array $localized): array
+    {
+        foreach ($localized as $key => $value) {
+            $fallback[$key] = is_array($value) && ! array_is_list($value) && isset($fallback[$key]) && is_array($fallback[$key])
+                ? $this->mergeTranslations($fallback[$key], $value)
+                : $value;
+        }
+
+        return $fallback;
     }
 
     private function scopeTranslations(array $translations): array
@@ -87,6 +98,8 @@ class AppServiceProvider extends ServiceProvider
             'flash_quote_success',
             'flash_contact_success',
             'common',
+            'turnstile',
+            'turnstile_verification_failed',
             'menu',
             'footer',
         ];

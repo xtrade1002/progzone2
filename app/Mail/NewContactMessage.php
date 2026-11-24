@@ -27,7 +27,7 @@ class NewContactMessage extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Új üzenet a {$this->domain} oldalról – Contact",
+            subject: __('contact_request.subject', ['domain' => $this->domain]),
             from: $this->prepareFromAddress(),
         );
     }

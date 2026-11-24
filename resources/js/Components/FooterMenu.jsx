@@ -19,7 +19,7 @@ export default function FooterMenu() {
 
   return (
     <footer className="mt-4 border-t border-[#00eaff]/18 bg-[#02040c]/92 text-sm text-slate-300 sm:mt-6 lg:mt-12">
-      <div className="mx-auto grid max-w-7xl gap-5 px-6 py-6 sm:gap-6 sm:py-8 md:grid-cols-[1fr_auto] lg:grid-cols-[1.2fr_1fr_0.8fr] lg:gap-10 lg:py-12">
+      <div className="mx-auto grid pz-site-shell gap-5 px-6 py-6 sm:gap-6 sm:py-8 md:grid-cols-[1fr_auto] lg:grid-cols-[1.2fr_1fr_0.8fr] lg:gap-10 lg:py-12">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <img src="/img/pz-mark-v1.webp" width="44" height="44" loading="lazy" alt="Progzone" className="h-11 w-11 rounded-full shadow-[0_0_18px_rgb(var(--pz-pink-rgb)/0.6)]" />

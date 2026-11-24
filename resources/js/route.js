@@ -30,6 +30,7 @@ const fallbackLocalizedRoutes = {
     impressum: { hu: '/impresszum', de: '/impressum', en: '/impressum' },
   },
   referenceCategories: {
+    webshops: { hu: 'webshopok', de: 'onlineshops', en: 'webshops' },
     websites: { hu: 'weboldalak', de: 'webseiten', en: 'websites' },
     flyers: { hu: 'flyerek', de: 'flyer', en: 'flyers' },
     businessCards: { hu: 'nevjegykartyak', de: 'visitenkarten', en: 'business-cards' },

@@ -4,13 +4,13 @@ import Footer from './FooterMenu.jsx';
 import MainMenu from './MainMenu.jsx';
 import SeoHead from './SeoHead.jsx';
 
-export default function Layout({ activePath, children }) {
+export default function Layout({ activePath, children, variant }) {
   const { url, props } = usePage();
   const currentPath = activePath ?? url ?? '';
   const successMessage = props?.flash?.success;
 
   return (
-    <div className="pz-page min-h-screen flex flex-col text-white">
+    <div className={`pz-page min-h-screen flex flex-col text-white${variant === 'inquiry' ? ' pz-page--inquiry' : ''}`}>
       <SeoHead />
       <MainMenu activePath={currentPath} />
 

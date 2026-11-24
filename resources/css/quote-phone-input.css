@@ -1,0 +1,57 @@
+.quote-phone-control {
+    --phone-country-background: #090d1d;
+    --phone-country-color: #f7f7ff;
+    --phone-country-border: rgba(0, 231, 255, 0.28);
+    --phone-country-hover: #15213a;
+    --phone-country-accent: #00eaff;
+    color: #f7f7ff;
+}
+
+.phone-number-field-wrapper:has(.quote-phone-control) {
+    --phone-field-border: rgba(0, 231, 255, 0.28);
+    --phone-field-label: #a9b4ca;
+    --phone-field-color: #f7f7ff;
+    --phone-field-radius: 0.85rem;
+    align-self: start;
+}
+
+.phone-number-field:has(.quote-phone-control) {
+    min-height: 54px;
+    background: rgba(3, 7, 17, 0.7);
+}
+
+.phone-number-field:has(.quote-phone-control):focus-within {
+    border-color: rgba(0, 231, 255, 0.72);
+    box-shadow: 0 0 0 3px rgba(0, 231, 255, 0.12);
+}
+
+.quote-phone-control > input::placeholder {
+    color: rgba(169, 180, 202, 0.68);
+}
+
+.quote-phone-control .phone-country-search-trigger svg,
+.phone-country-search-menu svg {
+    color: var(--phone-country-accent, #00eaff);
+}
+
+.quote-phone-control > input[type="tel"] {
+    font-size: clamp(12px, 3.5vw, 16px);
+    font-variant-numeric: tabular-nums;
+}
+
+.quote-phone-control > .phone-country-search-select {
+    flex-basis: 96px !important;
+    width: 96px !important;
+    min-width: 96px !important;
+}
+
+.phone-country-search-menu {
+    background: var(--site-dropdown-background, #090d1d);
+    color: var(--site-dropdown-color, #f7f7ff);
+    border-color: var(--site-dropdown-border, rgba(0, 231, 255, 0.28));
+}
+
+.phone-country-search-menu [role="option"]:is([data-active="true"], [aria-selected="true"]) {
+    background: var(--site-dropdown-hover, #15213a);
+    color: var(--site-dropdown-color, #f7f7ff);
+}

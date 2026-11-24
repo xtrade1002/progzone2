@@ -66,7 +66,7 @@ export default function MainMenu({ activePath }) {
   return (
     <>
     <header className="sticky top-0 z-50 border-b border-white/8 bg-[#02040c]/88 text-gray-300 shadow-[0_0_34px_rgba(0,231,255,0.16)] backdrop-blur-xl">
-      <nav className="relative mx-auto flex min-h-[60px] max-w-7xl items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-4 lg:min-h-[72px] lg:px-6 lg:py-3">
+      <nav className="relative mx-auto flex min-h-[60px] pz-site-shell items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-4 lg:min-h-[72px] lg:px-6 lg:py-3">
         <a href={localizedRoute('home', locale, localizedRoutes)} className="group flex min-w-0 items-center gap-2 sm:gap-3">
           <img
             src="/img/pz-mark-v1.webp"

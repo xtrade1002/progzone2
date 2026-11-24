@@ -1,6 +1,12 @@
 <?php
 
 return [
+    // Agreed development rates by market; these also apply to additional work.
+    'development_hourly_rates' => [
+        'progzone.de' => ['price_value' => 80, 'currency' => 'EUR'],
+        'bitbau.ch' => ['price_value' => 120, 'currency' => 'CHF'],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Price fallback domains

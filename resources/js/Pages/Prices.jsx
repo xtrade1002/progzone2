@@ -1,4 +1,9 @@
 import React from 'react';
+import { Link } from '@inertiajs/react';
+import { localizedRoute } from '../route.js';
+import pricesDesignContent from '../data/pricesDesignContent.js';
+import '../../css/inquiry-design.css';
+import '../../css/prices.css';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
 import { CONTACT_EMAIL_PLACEHOLDER } from '../lib/constants.js';
@@ -13,10 +18,12 @@ export default function Prices(props) {
   const {
     prices = {},
     contactEmail: sharedContactEmail = null,
-    domain = null,
     locale = null,
   } = props;
-  const { trans, t } = useTranslations();
+  const { trans, locale: currentLocale } = useTranslations();
+  const language = locale ?? currentLocale;
+  const copy = pricesDesignContent(language);
+  const quoteHref = localizedRoute('quote', language, props.localizedRoutes);
   const tr = trans?.prices ?? {};
   const contactEmail =
     typeof sharedContactEmail === 'string' && sharedContactEmail.trim() !== ''
@@ -55,31 +62,6 @@ export default function Prices(props) {
 
     return null;
   };
-
-  if (!prices || Object.keys(prices).length === 0) {
-    return (
-      <Layout>
-        <section className="pz-section max-w-3xl">
-          <div className="space-y-6 rounded-2xl border border-red-400/50 bg-red-500/10 p-6 text-red-100 shadow-[0_0_24px_rgba(248,113,113,0.16)] sm:p-10">
-            <h1 className="text-2xl font-bold text-[#FF007A] flex items-center gap-2">
-              <span role="img" aria-hidden="true">
-                ⚠️
-              </span>
-              Nincs ár adat a backendtől!
-            </h1>
-            <p>
-              Ez azt jelenti, hogy a Laravel (<code>PriceController</code>) nem küldött árakat az Inertia-nak.
-            </p>
-            <ol className="list-decimal list-inside space-y-2 text-gray-300">
-              <li>Ellenőrizd a <code>storage/logs/laravel.log</code> fájlt (keresd a „Resolved domain” sort).</li>
-              <li>Győződj meg róla, hogy a <code>prices</code> táblában van adat a domainhez.</li>
-              <li>Ellenőrizd a <code>PriceController</code> végén, hogy a <code>$mappedPrices</code> nem üres-e.</li>
-            </ol>
-          </div>
-        </section>
-      </Layout>
-    );
-  }
 
   const formatPriceValue = (priceObj) => {
     if (!priceObj) return '';
@@ -161,103 +143,56 @@ export default function Prices(props) {
     return result;
   };
 
-  // Kártya megjelenítése
-  const renderCard = (key) => {
+  const serviceKeys = ['wordpress', 'webshop', 'custom', 'mobile_app', 'marketing'];
+  const hasPrices = prices && Object.keys(prices).length > 0;
+
+  const renderService = (key, index) => {
     const block = tr[key];
     if (!block) return null;
-
-    const slugCandidates = slugMap[key] || key;
-    const priceObj = resolvePriceObject(slugCandidates);
+    const priceObj = resolvePriceObject(slugMap[key] || key);
     const formattedPrice = formatPriceValue(priceObj) || block.price_label;
-
-    return (
-      <li
-        key={key}
-        className="pz-card rounded-2xl p-2 sm:p-8"
-      >
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 w-full">
-          <div className="flex-1 min-w-0">
-            {/* Cím */}
-            <h2 className="text-2xl font-bold text-[#FF007A] mb-3">
-              {block.title}
-            </h2>
-
-            {/* Leírás */}
-            {block.desc && (
-              <p className="text-gray-300 whitespace-pre-line">
-                {replacePlaceholders(block.desc)}
-              </p>
-            )}
-
-            {/* “Az ár NEM tartalmazza” */}
-            {block.not_included && (
-              <p className="text-gray-300 mt-4">
-                <span className="font-bold text-[#FF007A] underline">
-                  {block.not_included}
-                </span>
-              </p>
-            )}
-
-            {/* Listaelemek */}
-            {Array.isArray(block.list) && (
-              <ul className="list-disc list-inside mt-2 text-gray-400 space-y-1">
-                {block.list.map((item, idx) => (
-                  <li key={idx}>
-                    {replacePlaceholders(item)}
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            {/* Lábjegyzet */}
-            {block.footer && (
-              <p className="text-gray-300 mt-4">
-                {replacePlaceholders(block.footer)}
-              </p>
-            )}
-          </div>
-
-          {/* Az adatbázisból érkező ár kiírása */}
-          {formattedPrice && (
-            <span className="text-lg sm:text-xl font-bold text-[#00f7ff] mt-2 md:mt-0 break-words">
-              {formattedPrice}
-            </span>
-          )}
+    return <li key={key} className="prices-row">
+      <div className="prices-row-main">
+        <span className="prices-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+        <div className="prices-service">
+          <h2>{copy.names[index] ?? block.title}</h2>
+          <p>{copy.descriptions[index]}</p>
         </div>
-      </li>
-    );
+        {formattedPrice && <div className="prices-amount">
+          <span>{copy.units[index]}</span>
+          <strong>{formattedPrice}</strong>
+          {key === 'marketing' && <p className="prices-budget-note">{copy.marketingNote}</p>}
+        </div>}
+      </div>
+      <details className="prices-details">
+        <summary>{copy.details}<span className="sr-only"> — {copy.names[index] ?? block.title}</span></summary>
+        <div className="prices-conditions">
+          {key === 'marketing' ? <p>{copy.marketingDetails}</p> : block.desc && <p>{replacePlaceholders(block.desc)}</p>}
+          {block.not_included && <h3>{block.not_included}</h3>}
+          {Array.isArray(block.list) && <ul>{block.list.map((item, i) => <li key={i}>{replacePlaceholders(item)}</li>)}</ul>}
+          {block.footer && <p>{replacePlaceholders(block.footer)}</p>}
+        </div>
+      </details>
+    </li>;
   };
 
-  return (
-    <Layout>
-      <section className="pz-section w-[90%] max-w-5xl px-0 py-6 md:w-full md:px-6 md:py-20">
-        <div className="pz-panel rounded-[2rem] p-2 sm:p-10">
-          {tr.title && (
-            <h1 className="pz-title text-center text-3xl font-black sm:text-4xl">
-              {tr.title}
-            </h1>
-          )}
-
-          <ul className="space-y-10 mt-10">
-            {renderCard('wordpress')}
-            {renderCard('webshop')}
-            {renderCard('custom')}
-            {renderCard('mobile_app')}
-            {renderCard('marketing')}
-          </ul>
-
-          {(tr.note || displayContactEmail) && (
-            <p className="mt-12 text-center text-gray-400">
-              {tr.note}{' '}
-              {displayContactEmail && (
-                <span className="text-[#FF007A] font-semibold">
-                  {displayContactEmail}
-                </span>
-              )}
-            </p>
-          )}
-        </div>
-      </section>
-    </Layout>
-  );
+  return <Layout variant="inquiry">
+    <div className="prices-page">
+      <header className="prices-hero">
+        <p className="prices-eyebrow">{copy.eyebrow}</p>
+        <h1>{copy.title}<br /><span>{copy.accent}</span></h1>
+        <p className="prices-intro">{copy.intro}</p>
+        <svg className="prices-hero-art" viewBox="0 0 500 170" fill="none" aria-hidden="true" focusable="false">
+          <path d="M0 72C130-20 320 205 500 40" stroke="var(--pz-cyan)" strokeWidth="1.5" />
+          <path d="M0 132C200 190 310-10 500 70" stroke="var(--pz-pink)" strokeWidth="1.5" />
+        </svg>
+      </header>
+      {hasPrices ? <>
+        <ol className="prices-list">{serviceKeys.map(renderService)}</ol>
+        <aside className="prices-extras"><h2>{copy.extraTitle}</h2><p>{copy.extra}</p></aside>
+      </> : <p className="prices-empty" role="status">{copy.unavailable}</p>}
+      <div className="prices-footer"><p>{copy.final}</p><Link className="inquiry-submit" href={quoteHref}>{copy.cta}</Link></div>
+      {displayContactEmail && <p className="prices-contact">{tr.note}{' '}<a href={'mailto:' + displayContactEmail}>{displayContactEmail}</a></p>}
+    </div>
+  </Layout>;
 }

@@ -1,12 +1,12 @@
 @php
     $fields = [
-        'Név' => $contact->name,
-        'E-mail cím' => $contact->email,
-        'Telefonszám' => $contact->phone,
+        __('contact_request.labels.name') => $contact->name,
+        __('contact_request.labels.email') => $contact->email,
+        __('contact_request.labels.phone') => $contact->phone,
     ];
 @endphp
 
-<h1>Új üzenet érkezett a(z) {{ $domain }} oldalról</h1>
+<h1>{{ __('contact_request.title', ['domain' => $domain]) }}</h1>
 
 @foreach ($fields as $label => $value)
     @continue($value === null || $value === '')
@@ -14,5 +14,5 @@
 @endforeach
 
 @if ($contact->message)
-    <p><strong>Üzenet:</strong><br>{!! nl2br(e($contact->message)) !!}</p>
+    <p><strong>{{ __('contact_request.labels.message') }}:</strong><br>{!! nl2br(e($contact->message)) !!}</p>
 @endif

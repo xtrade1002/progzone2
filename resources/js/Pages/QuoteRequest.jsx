@@ -1,474 +1,197 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { router, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import route, { localizedRoute } from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
+import TurnstileWidget from '../Components/TurnstileWidget.jsx';
+import PhoneNumberInput from '../Components/PhoneInput/PhoneNumberInput.jsx';
+import phoneCountries from '../Components/PhoneInput/countries.js';
+import FloatingField from '../Components/FloatingField.jsx';
+import QuoteDropdown from '../Components/QuoteDropdown.jsx';
+import quoteFormContent, { serviceValues, featureValues, timelineValues } from '../data/quoteFormContent.js';
+import { InquiryHero, InquirySection, inquiryContent } from '../Components/InquiryDesign.jsx';
+import '../../css/quote-phone-input.css';
+import '../../css/quote-floating-fields.css';
+import '../../css/quote-request.css';
 
-const inputClasses =
-  'pz-input';
-const selectClasses = 'pz-input bg-[#090d1d]';
-
-const addDays = (date, days) => {
-  const nextDate = new Date(date);
-  nextDate.setDate(nextDate.getDate() + days);
-  return nextDate;
-};
-
-const toDateInputValue = (date) => {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-
-  return `${year}-${month}-${day}`;
-};
-
-const createInitialFormState = () => ({
-  name: '',
-  email: '',
-  phone: '',
-  company: '',
-  service: '',
-  budget: '',
-  timeline: '',
-  message: '',
-  reference_sites: '',
-  menu_items: '',
-  languages: '',
-  features: '',
-  content_source: '',
-  payment_method: '',
-  support: '',
-  hosting_domain: '',
-  privacy: false,
+const initialForm = () => ({
+  last_name: '', first_name: '', email: '', phone: '', company: '', service: '',
+  budget: '', timeline_preference: '', timeline: '', deadline_reason: '', message: '',
+  existing_site: '', reference_sites: '', languages: '', features: [], content_source: [],
+  product_count: '', integrations: '', support: '', hosting_domain: '', privacy: false,
 });
-
-const digitsOnly = (value) => value.replace(/\D/g, '');
-const limitLines = (value, maxLines) => value.split(/\r?\n/).slice(0, maxLines).join('\n');
-const withRequiredMark = (value) => {
-  const text = value ?? '';
-
-  return text.trim().endsWith('*') ? text : `${text} *`;
+const asOptions = (labels, values = labels) => labels.map((label, index) => ({ value: values[index], label }));
+const tomorrow = () => {
+  const date = new Date();
+  date.setDate(date.getDate() + 1);
+  return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, '0'), String(date.getDate()).padStart(2, '0')].join('-');
 };
-
-const fallbackSelectOptions = {
-  content_source: [
-    { value: 'Megbízó', label: 'Megbízó' },
-    { value: 'Megbízott', label: 'Megbízott' },
-  ],
-  payment_method: [
-    { value: 'Bankkártya', label: 'Bankkártya' },
-    { value: 'Átutalás', label: 'Átutalás' },
-    { value: 'Revolut', label: 'Revolut' },
-  ],
-  support: [
-    { value: 'Nem', label: 'Nem' },
-    { value: 'Igen, hetente', label: 'Igen, hetente' },
-    { value: 'Igen, kéthetente', label: 'Igen, kéthetente' },
-    { value: 'Igen, havonta', label: 'Igen, havonta' },
-  ],
-  hosting_domain: [
-    { value: 'Van tárhelyem', label: 'Van tárhelyem' },
-    { value: 'Van tárhelyem és domain nevem', label: 'Van tárhelyem és domain nevem' },
-    { value: 'Nincsen tárhelyem, de megoldom', label: 'Nincsen tárhelyem, de megoldom' },
-    { value: 'Segíts tárhelyet/domain-t venni', label: 'Segíts tárhelyet/domain-t venni' },
-  ],
-  languages: Array.from({ length: 10 }, (_, index) => {
-    const value = String(index + 1);
-
-    return { value, label: value };
-  }),
-};
-
-const getOptions = (field, fallbackKey) => (
-  Array.isArray(field?.options) && field.options.length > 0
-    ? field.options
-    : fallbackSelectOptions[fallbackKey] ?? []
-);
-
-function FormSelect({
-  id,
-  field,
-  fallbackKey,
-  fallbackLabel,
-  fallbackPlaceholder,
-  required = false,
-  value,
-  onChange,
-  error,
-}) {
-  const options = getOptions(field, fallbackKey);
-  const label = field?.label ?? fallbackLabel;
-  const placeholder = field?.placeholder ?? fallbackPlaceholder;
-
-  return (
-    <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor={id}>
-      {required ? withRequiredMark(label) : label}
-      <select
-        id={id}
-        required={required}
-        className={selectClasses}
-        value={value}
-        onChange={onChange}
-        aria-invalid={error ? 'true' : 'false'}
-      >
-        <option value="">{required ? withRequiredMark(placeholder) : placeholder}</option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      {error && <span className="text-xs text-red-400">{error}</span>}
-    </label>
-  );
+function Field({ id, label, hint, error, required, children }) {
+  return <div className="quote-question">
+    <label className="quote-question-label" htmlFor={id}>{label}{required ? ' *' : ''}</label>
+    {children}
+    {hint && <p id={id + '-hint'} className="quote-question-hint">{hint}</p>}
+    {error && <p id={id + '-error'} className="quote-field-error" role="alert">{error}</p>}
+  </div>;
 }
-
+function FormInput({ id, field, placeholder, label, hint, value, onChange, error, required = false, multiline = false, ...props }) {
+  // Keep the existing two separate name controls and their floating labels.
+  if (id === 'quote-last-name' || id === 'quote-first-name') {
+    const nameLabel = placeholder + ' *';
+    return <FloatingField id={id} label={nameLabel} value={value} error={error}>
+      <input {...props} id={id} name={id} required placeholder={nameLabel} aria-label={nameLabel} aria-invalid={Boolean(error)} aria-describedby={error ? id + '-error' : undefined} className="pz-input" value={value} onChange={onChange} />
+    </FloatingField>;
+  }
+  const Control = multiline ? 'textarea' : 'input';
+  return <Field {...{ id, label, hint, error, required }}>
+    <Control {...props} id={id} name={id} required={required} placeholder={placeholder} className="pz-input" value={value} onChange={onChange} aria-invalid={Boolean(error)} aria-describedby={[hint && id + '-hint', error && id + '-error'].filter(Boolean).join(' ') || undefined} />
+  </Field>;
+}
+function Choices({ id, label, hint, options, value, onChange, exclusive, error }) {
+  return <fieldset className="quote-choices" aria-describedby={hint ? id + '-hint' : undefined}>
+    <legend className="quote-question-label">{label}</legend>
+    {hint && <p id={id + '-hint'} className="quote-question-hint mb-3">{hint}</p>}
+    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+      {options.map(option => <label key={option.value} className={'quote-choice ' + (value.includes(option.value) ? 'quote-choice--selected' : '')}>
+        <input type="checkbox" name={id} value={option.value} checked={value.includes(option.value)} onChange={() => onChange(value.includes(option.value) ? value.filter(item => item !== option.value) : option.value === exclusive ? [exclusive] : [...value.filter(item => item !== exclusive), option.value])} />
+        <span>{option.label}</span>
+      </label>)}
+    </div>
+    {error && <p className="quote-field-error" role="alert">{error}</p>}
+  </fieldset>;
+}
 export default function QuoteRequest() {
-  const [formData, setFormData] = useState(() => createInitialFormState());
+  const [formData, setFormData] = useState(initialForm);
   const [processing, setProcessing] = useState(false);
   const { props } = usePage();
+  const [verification, setVerification] = useState('');
+  const [verificationReset, setVerificationReset] = useState(0);
   const errors = props?.errors ?? {};
-  const localizedRoutes = props?.localizedRoutes;
-  const { trans, locale, t } = useTranslations();
-  const quote = trans?.quote ?? {};
-  const fields = quote.fields ?? {};
-  const serviceOptions = fields.service?.options ?? [];
-  const budgetOptions = fields.budget?.options ?? [];
-  const button = quote.button ?? {};
-  const introParagraphs = Array.isArray(quote.intro) ? quote.intro : [];
-  const dateLocale = locale === 'hu' ? 'hu-HU' : locale === 'de' || locale === 'de-CH' ? 'de-DE' : 'en-GB';
-  const minTimelineDate = toDateInputValue(addDays(new Date(), 1));
-  const selectedTimelineDate = formData.timeline
-    ? new Intl.DateTimeFormat(dateLocale, {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }).format(new Date(`${formData.timeline}T00:00:00`))
-    : null;
-  const termsHref = localizedRoute('terms', locale, localizedRoutes);
-  const privacyHref = localizedRoute('privacy', locale, localizedRoutes);
+  const { trans, locale } = useTranslations();
+  const copy = quoteFormContent(locale);
+  const design = inquiryContent(locale);
+  const countries = useMemo(() => phoneCountries(locale), [locale]);
+  const hostname = typeof window === 'undefined' ? '' : window.location.hostname.replace(/^www\./, '').toLowerCase();
+  const defaultPhoneCountry = { 'progzone.hu': 'HU', 'progzone.de': 'DE', 'bitbau.ch': 'CH' }[hostname] ?? (locale === 'de-CH' ? 'CH' : locale.startsWith('de') ? 'DE' : locale === 'hu' ? 'HU' : 'GB');
+  const nameLabels = locale.startsWith('de') ? { last: 'Nachname', first: 'Vorname' } : locale === 'hu' ? { last: 'Vezetéknév', first: 'Keresztnév' } : { last: 'Last name', first: 'First name' };
+  const termsHref = localizedRoute('terms', locale, props?.localizedRoutes);
+  const privacyHref = localizedRoute('privacy', locale, props?.localizedRoutes);
   const consentText = locale === 'hu'
-    ? {
-        prefix: 'Elolvastam és elfogadom az',
-        terms: 'ÁSZF-et',
-        connector: 'és az',
-        privacy: 'Adatvédelmi szerződést',
-        suffix: '',
-      }
-    : locale === 'de' || locale === 'de-CH'
-      ? {
-          prefix: 'Ich habe die',
-          terms: 'AGB',
-          connector: 'und die',
-          privacy: 'Datenschutzerklärung',
-          suffix: 'gelesen und akzeptiere sie.',
-        }
-      : {
-          prefix: 'I have read and accept the',
-          terms: 'Terms and Conditions',
-          connector: 'and the',
-          privacy: 'Privacy Policy',
-          suffix: '',
-        };
-
-  const handleChange = (field) => (event) => {
-    const value = field === 'privacy'
-      ? event.target.checked
-      : field === 'phone'
-        ? digitsOnly(event.target.value)
-        : field === 'reference_sites'
-          ? limitLines(event.target.value, 5)
-        : event.target.value;
-
-    setFormData((previous) => ({
-      ...previous,
-      [field]: value,
-    }));
-  };
-
-  const handleSubmit = (event) => {
+    ? { prefix: 'Elolvastam és elfogadom az', terms: 'ÁSZF-et', connector: 'és az', privacy: 'Adatvédelmi szerződést', suffix: '' }
+    : locale.startsWith('de')
+      ? { prefix: 'Ich habe die', terms: 'AGB', connector: 'und die', privacy: 'Datenschutzerklärung', suffix: 'gelesen und akzeptiere sie.' }
+      : { prefix: 'I have read and accept the', terms: 'Terms and Conditions', connector: 'and the', privacy: 'Privacy Policy', suffix: '' };
+  const set = (key, value) => setFormData(previous => ({ ...previous, [key]: value }));
+  const handleChange = key => event => set(key, key === 'privacy' ? event.target.checked : event.target.value);
+  const digitalProject = ['weboldal', 'webshop', 'atalakitas', 'egyedi', 'bizonytalan'].includes(formData.service);
+  const shop = digitalProject && (formData.service === 'webshop' || formData.features.includes('shop'));
+  const multilingual = digitalProject && formData.features.includes('multilingual');
+  const serviceOptions = asOptions(copy.services, serviceValues);
+  const featureOptions = asOptions(copy.featureOptions, featureValues);
+  const budgetOptions = (trans?.quote?.fields?.budget?.options ?? []).map(option => ({ ...option, label: option.value === 'bizonytalan' ? copy.unknownBudget : option.label }));
+  const input = (key, extra = {}) => <FormInput id={key} label={copy[key]} value={formData[key]} onChange={handleChange(key)} error={errors[key]} maxLength={extra.multiline ? 5000 : 255} {...extra} />;
+  const select = (key, options, extra = {}) => <Field id={key} label={copy[key]} error={errors[key]} {...extra}>
+    <QuoteDropdown id={key} name={key} label={copy[key]} placeholder={copy.choose} options={[{ value: '', label: copy.choose }, ...options]} value={formData[key]} onChange={value => set(key, value)} required={extra.required} error={errors[key]} />
+  </Field>;
+  const handleSubmit = event => {
     event.preventDefault();
-
-    router.post(route('quote-request.store'), formData, {
-      onStart: () => setProcessing(true),
-      onFinish: () => setProcessing(false),
-      onSuccess: () => setFormData(createInitialFormState()),
+    const labelFor = (options, value) => options.find(option => option.value === value)?.label ?? value;
+    router.post(route('quote-request.store'), {
+      ...formData,
+      locale,
+      cf_turnstile_response: verification,
+      name: locale === 'hu' ? formData.last_name.trim() + ' ' + formData.first_name.trim() : formData.first_name.trim() + ' ' + formData.last_name.trim(),
+      phone: formData.phone.replace(/\D/g, ''),
+      service: labelFor(serviceOptions, formData.service),
+      budget: labelFor(budgetOptions, formData.budget),
+      timeline_preference: formData.timeline_preference,
+      timeline: formData.timeline_preference === 'fixed' ? formData.timeline : '',
+      deadline_reason: formData.timeline_preference === 'fixed' ? formData.deadline_reason : '',
+      features: digitalProject ? featureOptions.filter(option => formData.features.includes(option.value)).map(option => option.label).join('\n') : '',
+      content_source: formData.content_source.join('; '),
+      languages: multilingual ? formData.languages : '',
+      product_count: shop ? formData.product_count : '',
+      integrations: digitalProject ? formData.integrations : '',
+      hosting_domain: digitalProject ? formData.hosting_domain : '',
+    }, {
+      onStart: () => setProcessing(true), onFinish: () => { setProcessing(false); setVerificationReset(value => value + 1); setVerification(''); },
+      onSuccess: () => setFormData(initialForm()),
+      onError: () => window.setTimeout(() => document.getElementById('quote-error-summary')?.focus(), 0),
     });
   };
-
-  return (
-    <Layout>
-      <section className="pz-section w-[90%] max-w-6xl px-0 py-6 lg:w-full lg:px-6 lg:py-20">
-        <div className="pz-panel rounded-[2rem] p-3 sm:p-5 lg:p-10">
-          <div className="mb-6 space-y-3 text-center lg:mb-12 lg:space-y-4">
-            <h2 className="pz-title text-3xl font-black lg:text-5xl">
-              {quote.title}
-              <span className="pz-rule mx-auto mt-3 lg:mt-5"></span>
-            </h2>
-            {introParagraphs.map((paragraph, index) => (
-              <p key={index} className="text-base text-gray-300 lg:text-lg">
-                {paragraph}
-              </p>
-            ))}
-            {quote.hint && <p className="text-sm text-gray-400">{quote.hint}</p>}
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-8">
-            {/* Név + Email */}
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
-              <input
-                type="text"
-                placeholder={withRequiredMark(fields.name?.placeholder ?? 'Full name')}
-                aria-label={fields.name?.label ?? 'Full name'}
+  return <Layout variant="inquiry">
+    <div className="inquiry-page inquiry-page--quote">
+        <InquiryHero type="quote" locale={locale} />
+        <p className="inquiry-form-note">{copy.optional}</p>
+        <form onSubmit={handleSubmit} className="quote-request-form">
+          {Object.keys(errors).length > 0 && <div id="quote-error-summary" tabIndex={-1} role="alert" className="rounded-xl border border-red-400 p-4 text-red-300">{copy.review}</div>}
+          <InquirySection number={1} title={design.sections[0]}>
+            {select('service', serviceOptions, { required: true })}
+            {input('message', { multiline: true, rows: 4, required: true, hint: copy.messageHint, placeholder: copy.messagePlaceholder })}
+            {input('existing_site', { hint: copy.existingHint, placeholder: 'https://…' })}
+          </InquirySection>
+          {digitalProject && <InquirySection number={2} title={design.sections[1]}>
+            <Choices id="features" label={copy.features} hint={copy.featuresHint} options={featureOptions} value={formData.features} onChange={value => set('features', value)} exclusive="unsure" error={errors.features} />
+            {multilingual && input('languages', { placeholder: copy.languagesPlaceholder, maxLength: 100 })}
+            {shop && select('product_count', asOptions(copy.productOptions))}
+            {input('integrations', { multiline: true, rows: 3, hint: copy.integrationsHint })}
+          </InquirySection>}
+          <InquirySection number={digitalProject ? 3 : 2} title={design.sections[2]}>
+            <Choices id="content_source" label={copy.assets} options={asOptions(copy.assetOptions)} value={formData.content_source} onChange={value => set('content_source', value)} exclusive={copy.assetOptions[4]} error={errors.content_source} />
+            {input('reference_sites', { multiline: true, rows: 3, hint: copy.referenceHint, placeholder: copy.referencePlaceholder })}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {select('timeline_preference', asOptions(copy.timelines, timelineValues))}
+              {select('budget', budgetOptions, { hint: copy.budgetHint })}
+            </div>
+            {formData.timeline_preference === 'fixed' && <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {input('timeline', { type: 'date', min: tomorrow(), required: true })}
+              {input('deadline_reason', { placeholder: copy.deadlinePlaceholder })}
+            </div>}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {select('support', asOptions(copy.supportOptions))}
+              {digitalProject && select('hosting_domain', asOptions(copy.hostingOptions))}
+            </div>
+          </InquirySection>
+          <InquirySection number={digitalProject ? 4 : 3} title={design.sections[3]} description={copy.contactHint}>
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
+              <FormInput
+                id="quote-last-name"
+                placeholder={nameLabels.last}
+                autoComplete="family-name"
                 required
-                className={inputClasses}
-                value={formData.name}
-                onChange={handleChange('name')}
+                maxLength={100}
+                value={formData.last_name}
+                onChange={handleChange('last_name')}
+                error={errors.name}
               />
-              <input
-                type="email"
-                placeholder={withRequiredMark(fields.email?.placeholder ?? 'Email address')}
-                aria-label={fields.email?.label ?? 'Email address'}
+              <FormInput
+                id="quote-first-name"
+                placeholder={nameLabels.first}
+                autoComplete="given-name"
                 required
-                className={inputClasses}
-                value={formData.email}
-                onChange={handleChange('email')}
+                maxLength={100}
+                value={formData.first_name}
+                onChange={handleChange('first_name')}
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
-              <div className="relative">
-                <span
-                  className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-200"
-                  aria-hidden="true"
-                >
-                  +
-                </span>
-                <input
-                  type="tel"
-                  placeholder={withRequiredMark(fields.phone?.placeholder ?? '49 XXXXXXXXXX')}
-                  aria-label={fields.phone?.label ?? 'Phone'}
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  maxLength={20}
-                  required
-                  className={`${inputClasses} pl-8`}
-                  value={formData.phone}
-                  onChange={handleChange('phone')}
-                />
-              </div>
-              <input
-                type="text"
-                placeholder={withRequiredMark(fields.company?.placeholder ?? 'Company / project')}
-                aria-label={fields.company?.label ?? 'Company / project'}
-                required
-                className={inputClasses}
-                value={formData.company}
-                onChange={handleChange('company')}
-              />
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {input('email', { type: 'email', autoComplete: 'email', required: true })}
+              <Field id="quote-phone" label={copy.phone} error={errors.phone}>
+                <PhoneNumberInput key={defaultPhoneCountry} id="quote-phone" name="phone" countries={countries} country={defaultPhoneCountry} variant="embedded" placeholder={copy.phone} aria-label={copy.phone} maxLength={15} className="quote-phone-control" value={formData.phone} onChange={phone => set('phone', phone)} error={errors.phone} />
+              </Field>
             </div>
-
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
-              <select
-                required
-                value={formData.service}
-                onChange={handleChange('service')}
-                className={selectClasses}
-                aria-label={fields.service?.label ?? 'Desired service'}
-              >
-                <option value="">{withRequiredMark(fields.service?.placeholder ?? 'Choose a service')}</option>
-                {serviceOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-              <select
-                value={formData.budget}
-                onChange={handleChange('budget')}
-                className={selectClasses}
-                aria-label={fields.budget?.label ?? 'Estimated budget'}
-              >
-                <option value="">{withRequiredMark(fields.budget?.placeholder ?? 'Select a budget')}</option>
-                {budgetOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label htmlFor="timeline" className="text-sm font-medium text-gray-300">
-                {withRequiredMark(fields.timeline?.label ?? 'Preferred timeline')}
-              </label>
-              <input
-                id="timeline"
-                type="date"
-                min={minTimelineDate}
-                lang={dateLocale}
-                aria-label={fields.timeline?.label ?? 'Preferred timeline'}
-                required
-                className={inputClasses}
-                value={formData.timeline}
-                onChange={handleChange('timeline')}
-              />
-              {selectedTimelineDate && (
-                <span className="text-left text-xs text-gray-400">
-                  {selectedTimelineDate}
-                </span>
-              )}
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label htmlFor="message" className="text-sm font-medium text-gray-300">
-                {withRequiredMark(fields.message?.label ?? 'Project summary')}
-              </label>
-              <textarea
-                id="message"
-                rows="5"
-                required
-                placeholder={fields.message?.placeholder ?? 'Project summary *'}
-                aria-label={fields.message?.label ?? 'Project summary'}
-                className={`${inputClasses} min-h-[140px]`}
-                value={formData.message}
-                onChange={handleChange('message')}
-              ></textarea>
-            </div>
-
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="reference_sites">
-              {withRequiredMark(fields.reference_sites?.label ?? 'Inspiration / reference sites')}
-              <div className="relative">
-                <svg
-                  aria-hidden="true"
-                  className="pointer-events-none absolute left-3 top-3.5 h-5 w-5 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.8"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M2 12h20" />
-                  <path d="M12 2a15.3 15.3 0 0 1 0 20" />
-                  <path d="M12 2a15.3 15.3 0 0 0 0 20" />
-                </svg>
-                <textarea
-                  id="reference_sites"
-                  rows="5"
-                  placeholder={
-                    fields.reference_sites?.placeholder ?? 'Share any websites or products you like'
-                  }
-                  required
-                  className={`${inputClasses} min-h-[150px] pl-11`}
-                  value={formData.reference_sites}
-                  onChange={handleChange('reference_sites')}
-                  aria-invalid={errors.reference_sites ? 'true' : 'false'}
-                ></textarea>
-              </div>
-              {errors.reference_sites && (
-                <span className="text-xs text-red-400">{errors.reference_sites}</span>
-              )}
-            </label>
-
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
-              <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="menu_items">
-                {fields.menu_items?.label ?? 'Number of menu items'}
-                <input
-                  id="menu_items"
-                  type="text"
-                  placeholder={fields.menu_items?.placeholder ?? 'How many menu items do you need?'}
-                  className={inputClasses}
-                  value={formData.menu_items}
-                  onChange={handleChange('menu_items')}
-                  aria-invalid={errors.menu_items ? 'true' : 'false'}
-                />
-                {errors.menu_items && (
-                  <span className="text-xs text-red-400">{errors.menu_items}</span>
-                )}
-              </label>
-              <FormSelect
-                id="languages"
-                field={fields.languages}
-                fallbackKey="languages"
-                fallbackLabel="How many languages should the website have?"
-                fallbackPlaceholder="Choose language count"
-                required
-                value={formData.languages}
-                onChange={handleChange('languages')}
-                error={errors.languages}
-              />
-            </div>
-
-            <label className="flex flex-col gap-2 text-sm text-gray-300" htmlFor="features">
-              {withRequiredMark(fields.features?.label ?? 'Key features')}
-              <textarea
-                id="features"
-                rows="4"
-                placeholder={fields.features?.placeholder ?? 'List the most important functionality'}
-                required
-                className={`${inputClasses} min-h-[120px]`}
-                value={formData.features}
-                onChange={handleChange('features')}
-                aria-invalid={errors.features ? 'true' : 'false'}
-              ></textarea>
-              {errors.features && <span className="text-xs text-red-400">{errors.features}</span>}
-            </label>
-
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
-              <FormSelect
-                id="content_source"
-                field={fields.content_source}
-                fallbackKey="content_source"
-                fallbackLabel="Who provides copy, images and videos?"
-                fallbackPlaceholder="Choose a content owner"
-                value={formData.content_source}
-                onChange={handleChange('content_source')}
-                error={errors.content_source}
-              />
-              <FormSelect
-                id="payment_method"
-                field={fields.payment_method}
-                fallbackKey="payment_method"
-                fallbackLabel="Preferred payment method"
-                fallbackPlaceholder="Choose a payment method"
-                value={formData.payment_method}
-                onChange={handleChange('payment_method')}
-                error={errors.payment_method}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
-              <FormSelect
-                id="support"
-                field={fields.support}
-                fallbackKey="support"
-                fallbackLabel="Maintenance need"
-                fallbackPlaceholder="Choose maintenance frequency"
-                value={formData.support}
-                onChange={handleChange('support')}
-                error={errors.support}
-              />
-              <FormSelect
-                id="hosting_domain"
-                field={fields.hosting_domain}
-                fallbackKey="hosting_domain"
-                fallbackLabel="Hosting / domain needs"
-                fallbackPlaceholder="Choose hosting / domain status"
-                required
-                value={formData.hosting_domain}
-                onChange={handleChange('hosting_domain')}
-                error={errors.hosting_domain}
-              />
-            </div>
-
-            <div className="flex flex-col gap-4 text-sm text-gray-400 md:flex-row md:items-center md:justify-between">
+            {input('company', { autoComplete: 'organization' })}
+          </InquirySection>
+          <div className="inquiry-form-footer">
+                      <div className="flex flex-col gap-4 text-sm text-gray-400">
+              {props.turnstile?.enabled && <div><TurnstileWidget siteKey={props.turnstile.siteKey} onVerify={setVerification} onExpire={() => setVerification('')} resetKey={verificationReset} />{errors.cf_turnstile_response && <p role="alert" className="inquiry-field-error">{errors.cf_turnstile_response}</p>}</div>}
               <label className="inline-flex items-center gap-3 text-gray-300" htmlFor="privacy">
                 <input
                   id="privacy"
                   type="checkbox"
-                  className="h-4 w-4 accent-[#FF007A]"
+                  className="h-4 w-4 shrink-0 accent-[#FF007A]"
                   required
                   checked={formData.privacy}
                   onChange={handleChange('privacy')}
@@ -495,20 +218,12 @@ export default function QuoteRequest() {
               {errors.privacy && <span className="text-xs text-red-400">{errors.privacy}</span>}
             </div>
 
-            <div className="flex flex-col items-stretch sm:flex-row sm:justify-end">
-              <button
-                type="submit"
-                className="pz-button disabled:cursor-not-allowed disabled:opacity-70"
-                disabled={processing}
-              >
-                {processing
-                  ? button.processing ?? 'Sending…'
-                  : button.default ?? 'Send'}
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-    </Layout>
-  );
+
+          <div className="inquiry-submit-row">
+            <button type="submit" className="inquiry-submit" disabled={processing}>{processing ? copy.sending : copy.send}</button>
+          </div>
+          </div>
+        </form>
+      </div>
+  </Layout>;
 }

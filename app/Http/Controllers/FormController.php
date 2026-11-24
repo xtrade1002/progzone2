@@ -65,20 +65,28 @@ class FormController extends Controller
      */
     public function storeContactMessage(Request $request): RedirectResponse
     {
+        if (in_array($request->input('locale'), ['hu', 'de', 'de-CH', 'en'], true)) {
+            app()->setLocale($request->input('locale'));
+        }
+
         $data = $request->validate([
             'name' => $this->safeTextRules(required: true, max: 255),
             'email' => ['required', 'email', 'max:255'],
             'phone' => $this->phoneRules(),
             'message' => $this->safeTextRules(required: true),
-        ]);
+        ], collect(__('quote_request.validation'))->except(['code', 'digits'])->all(), __('contact_request.labels'));
 
         $data = $this->sanitizeFormData($data);
+        $token = $request->input('cf_turnstile_response');
+        if (! app(\App\Services\TurnstileService::class)->validate(is_string($token) ? $token : null, $request->ip())) {
+            throw \Illuminate\Validation\ValidationException::withMessages(['cf_turnstile_response' => __('turnstile_verification_failed')]);
+        }
         $contactMessage = ContactMessage::create($data);
 
         $mailSettings = $this->resolveMailSettings($request);
 
         Mail::to($mailSettings['recipient'])
-            ->send(new NewContactMessage($contactMessage, $mailSettings['domain']));
+            ->send((new NewContactMessage($contactMessage, $mailSettings['domain']))->locale(app()->getLocale()));
 
         return redirect()
             ->back()
@@ -172,7 +180,7 @@ class FormController extends Controller
             }
 
             if (preg_match('/<\s*\/?\s*(script|iframe|object|embed|link|meta|style)\b|javascript\s*:|data\s*:\s*text\/html|on[a-z]+\s*=/i', $value)) {
-                $fail('A mező nem tartalmazhat HTML vagy JavaScript kódot.');
+                $fail(__('quote_request.validation.code'));
             }
         };
     }

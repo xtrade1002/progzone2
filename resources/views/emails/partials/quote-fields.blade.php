@@ -1,33 +1,35 @@
 @php
     $fields = [
-        'Név' => $quote->name,
-        'E-mail cím' => $quote->email,
-        'Telefonszám' => $quote->phone,
-        'Cég' => $quote->company,
-        'Szolgáltatás' => $quote->service,
-        'Tervezett költségvetés' => $quote->budget,
-        'Tervezett ütemezés' => $quote->timeline,
-        'Referencia oldalak' => $quote->reference_sites,
-        'Menüpontok száma' => $quote->menu_items,
-        'Projekt nyelvei' => $quote->languages,
-        'Kulcsfunkciók' => $quote->features,
-        'Tartalom forrása' => $quote->content_source,
-        'Preferált fizetési mód' => $quote->payment_method,
-        'Utótámogatási igény' => $quote->support,
-        'Tárhely / domain igény' => $quote->hosting_domain,
-        'Adatkezelési tájékoztató elfogadva' => $quote->privacy ? 'Igen' : 'Nem',
-    ];
-
-    $multilineLabels = [
-        'Referencia oldalak',
-        'Kulcsfunkciók',
+        'name' => $quote->name,
+        'email' => $quote->email,
+        'phone' => $quote->phone,
+        'company' => $quote->company,
+        'service' => $quote->service,
+        'budget' => $quote->budget,
+        'timeline_preference' => array_key_exists($quote->timeline_preference ?? '', __('quote_request.timelines'))
+            ? __('quote_request.timelines.'.$quote->timeline_preference)
+            : $quote->timeline_preference,
+        'timeline' => $quote->timeline,
+        'deadline_reason' => $quote->deadline_reason,
+        'existing_site' => $quote->existing_site,
+        'product_count' => $quote->product_count,
+        'reference_sites' => $quote->reference_sites,
+        'menu_items' => $quote->menu_items,
+        'languages' => $quote->languages,
+        'features' => $quote->features,
+        'integrations' => $quote->integrations,
+        'content_source' => $quote->content_source,
+        'payment_method' => $quote->payment_method,
+        'support' => $quote->support,
+        'hosting_domain' => $quote->hosting_domain,
+        'privacy' => __('quote_request.'.($quote->privacy ? 'yes' : 'no')),
     ];
 @endphp
 
-@foreach ($fields as $label => $value)
+@foreach ($fields as $field => $value)
     @continue($value === null || $value === '')
-    <p><strong>{{ $label }}:</strong>
-        @if (in_array($label, $multilineLabels, true) || (is_string($value) && str_contains($value, "\n")))
+    <p><strong>{{ __('quote_request.labels.'.$field) }}:</strong>
+        @if (in_array($field, ['reference_sites', 'features', 'integrations'], true) || (is_string($value) && str_contains($value, "\n")))
             <br>{!! nl2br(e($value)) !!}
         @else
             {{ $value }}
@@ -36,5 +38,5 @@
 @endforeach
 
 @if ($quote->message)
-    <p><strong>Üzenet:</strong><br>{!! nl2br(e($quote->message)) !!}</p>
+    <p><strong>{{ __('quote_request.labels.message') }}:</strong><br>{!! nl2br(e($quote->message)) !!}</p>
 @endif

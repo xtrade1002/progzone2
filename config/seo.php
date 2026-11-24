@@ -43,8 +43,8 @@ return [
         ],
     ],
     'categories' => [
-        'hu' => ['websites' => 'Weboldalak', 'flyers' => 'Flyerek', 'businessCards' => 'Névjegykártyák', 'mockups' => 'Mockupok', 'otherDesigns' => 'Egyéb grafikák'],
-        'de' => ['websites' => 'Websites', 'flyers' => 'Flyer', 'businessCards' => 'Visitenkarten', 'mockups' => 'Mockups', 'otherDesigns' => 'Weitere Designs'],
-        'en' => ['websites' => 'Websites', 'flyers' => 'Flyers', 'businessCards' => 'Business cards', 'mockups' => 'Mockups', 'otherDesigns' => 'Other designs'],
+        'hu' => ['webshops' => 'Webshopok', 'websites' => 'Weboldalak', 'flyers' => 'Flyerek', 'businessCards' => 'Névjegykártyák', 'mockups' => 'Mockupok', 'otherDesigns' => 'Egyéb grafikák'],
+        'de' => ['webshops' => 'Onlineshops', 'websites' => 'Websites', 'flyers' => 'Flyer', 'businessCards' => 'Visitenkarten', 'mockups' => 'Mockups', 'otherDesigns' => 'Weitere Designs'],
+        'en' => ['webshops' => 'Online stores', 'websites' => 'Websites', 'flyers' => 'Flyers', 'businessCards' => 'Business cards', 'mockups' => 'Mockups', 'otherDesigns' => 'Other designs'],
     ],
 ];

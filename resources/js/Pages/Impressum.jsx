@@ -50,7 +50,7 @@ export default function Impressum() {
 
   return (
     <Layout>
-      <section className="pz-section max-w-3xl">
+      <section className="pz-section pz-reading-section">
         <h1 className="pz-title mb-10 text-center text-4xl font-black">{impressum.title}</h1>
 
         <div className="pz-panel space-y-4 rounded-[2rem] p-8 text-lg text-slate-300">

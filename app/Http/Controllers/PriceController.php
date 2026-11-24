@@ -44,12 +44,53 @@ class PriceController extends Controller
 
         // Árlista domain + nyelv szerint
         $prices = $this->resolvePrices($domain, $locale, $allowedAttributes, $aliasMap);
+        $prices = $this->applyDevelopmentHourlyRate($prices, $domain, $locale);
 
         return Inertia::render('Prices', [
             'prices' => $prices,
             'domain' => $domain,
             'locale' => $locale,
         ]);
+    }
+
+    /**
+     * Keep the agreed market rate consistent in the main price and all hourly placeholders,
+     * even when the remaining price list falls back to another domain or language.
+     */
+    protected function applyDevelopmentHourlyRate(array $prices, ?string $domain, string $locale): array
+    {
+        if (empty($prices)) {
+            return $prices;
+        }
+
+        $marketDomain = $domain;
+        if (in_array($domain, ['localhost', '127.0.0.1'], true)) {
+            $marketDomain = match ($locale) {
+                'de' => 'progzone.de',
+                'de-CH' => 'bitbau.ch',
+                default => $domain,
+            };
+        }
+
+        $rate = config('prices.development_hourly_rates', [])[$marketDomain] ?? null;
+        if (! is_array($rate)) {
+            return $prices;
+        }
+
+        $unit = match (true) {
+            str_starts_with($locale, 'de') => '/Stunde',
+            $locale === 'hu' => '/óra',
+            default => '/hour',
+        };
+
+        foreach (['egyedifejlesztes', 'custom', 'custom-website', 'extraFunctionsDev', 'extrafunctionsdev', 'hourly_rate'] as $slug) {
+            $prices[$slug] = array_replace($prices[$slug] ?? ['slug' => $slug], $rate, [
+                'price_label' => null,
+                'extras' => $unit,
+            ]);
+        }
+
+        return $prices;
     }
 
     /**

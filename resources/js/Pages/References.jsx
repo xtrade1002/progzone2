@@ -1,467 +1,123 @@
-import React, { useState, useEffect } from 'react';
-import { Link, usePage } from '@inertiajs/react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, router, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
+import SelectDropdown from '../Components/SelectDropdown.jsx';
 import useTranslations from '../lib/useTranslations.js';
 import referencePreview, { largeReferencePreview } from '../lib/referencePreview.js';
 import { localizedRoute } from '../route.js';
+import webshopReferences from '../data/webshopReferences.js';
+import businessCardReferences from '../data/businessCardReferences.js';
+import '../../css/inquiry-design.css';
+import '../../css/references.css';
 
-const routeCategories = {
-  websites: 'websites',
-  flyers: 'flyers',
-  businessCards: 'businessCards',
-  'business-cards': 'businessCards',
-  mockups: 'mockups',
-  otherDesigns: 'otherDesigns',
-  'other-designs': 'otherDesigns',
+const copy = {
+  hu: { websites: 'Weboldalak', webshops: 'Webshopok', flyers: 'Flyerek', businessCards: 'Névjegykártyák', mockups: 'Mockupok', otherDesigns: 'Egyéb grafikák', empty: 'Ebben a kategóriában még nincs feltöltött referencia.', view: 'Megtekintés', question: 'Van egy ötleted?', contact: 'Beszéljünk róla', previous: 'Előző kép', next: 'Következő kép', close: 'Előnézet bezárása', filter: 'Referencia kategóriája' },
+  de: { websites: 'Websites', webshops: 'Onlineshops', flyers: 'Flyer', businessCards: 'Visitenkarten', mockups: 'Mockups', otherDesigns: 'Weitere Designs', empty: 'In dieser Kategorie gibt es noch keine Referenzen.', view: 'Ansehen', question: 'Hast du eine Idee?', contact: 'Lass uns darüber sprechen', previous: 'Vorheriges Bild', next: 'Nächstes Bild', close: 'Vorschau schließen', filter: 'Referenzkategorie' },
+  en: { websites: 'Websites', webshops: 'Online stores', flyers: 'Flyers', businessCards: 'Business cards', mockups: 'Mockups', otherDesigns: 'Other designs', empty: 'There are no references in this category yet.', view: 'View', question: 'Have an idea?', contact: 'Let’s talk about it', previous: 'Previous image', next: 'Next image', close: 'Close preview', filter: 'Reference category' },
 };
+const categories = ['websites', 'webshops', 'flyers', 'businessCards', 'mockups', 'otherDesigns'];
+const aliases = { 'business-cards': 'businessCards', 'other-designs': 'otherDesigns', webshop: 'webshops' };
+export function projectCategory(project) {
+  const explicit = aliases[project.categoryKey] ?? project.categoryKey;
+  if (categories.includes(explicit)) return explicit;
+  const text = [project.category, project.label, project.title, ...(project.tags ?? [])].filter(Boolean).join(' ').toLowerCase();
+  if (/webshop|woocommerce|online (shop|store)|onlineshop/.test(text)) return 'webshops';
+  if (project.type === 'link' || project.url) return 'websites';
+  if (/névjegy|business card|visitenkarte/.test(text)) return 'businessCards';
+  if (/mockup/.test(text)) return 'mockups';
+  if (/flyer|szórólap/.test(text)) return 'flyers';
+  return 'otherDesigns';
+}
 
 export default function References() {
+  const { props } = usePage();
+  const { locale, trans } = useTranslations();
+  const labels = copy[locale?.split(/[-_]/)[0]] ?? copy.hu;
+  const references = trans?.references ?? {};
+  const activeCategory = aliases[props.category] ?? (categories.includes(props.category) ? props.category : 'websites');
+  const projects = businessCardReferences([...(Array.isArray(references.projects) ? references.projects : []), ...webshopReferences(locale)], locale);
+  const host = typeof window === 'undefined' ? '' : window.location.hostname.replace(/^www\./, '').toLowerCase();
+  const displayedProjects = projects.filter(project => projectCategory(project) === activeCategory).map(project => ({ ...project, ...project.domainOverrides?.[host] }));
+  const isWeb = ['websites', 'webshops'].includes(activeCategory);
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [failedImages, setFailedImages] = useState({});
-  const { props } = usePage();
-  const { locale, trans, t } = useTranslations();
-  const references = trans?.references ?? {};
-  const projects = Array.isArray(references.projects) ? references.projects : [];
-  const activeCategory = routeCategories[props?.category] ?? 'all';
-  const localizedRoutes = props?.localizedRoutes;
-  const language = typeof locale === 'string' && locale.toLowerCase().startsWith('de')
-    ? 'de'
-    : locale;
-  const tabLabels = {
-    hu: {
-      all: 'Összes',
-      websites: 'Weboldalak',
-      flyers: 'Flyerek',
-      businessCards: 'Névjegykártyák',
-      mockups: 'Mockupok',
-      otherDesigns: 'Egyéb grafikák',
-      empty: 'Ebben a kategóriában még nincs feltöltött referencia.',
-    },
-    de: {
-      all: 'Alle',
-      websites: 'Websites',
-      flyers: 'Flyer',
-      businessCards: 'Visitenkarten',
-      mockups: 'Mockups',
-      otherDesigns: 'Weitere Designs',
-      empty: 'In dieser Kategorie gibt es noch keine Referenzen.',
-    },
-    en: {
-      all: 'All',
-      websites: 'Websites',
-      flyers: 'Flyers',
-      businessCards: 'Business cards',
-      mockups: 'Mockups',
-      otherDesigns: 'Other designs',
-      empty: 'There are no references in this category yet.',
-    },
+  const dialog = useRef(null);
+  const trigger = useRef(null);
+  const galleryProjects = displayedProjects.filter(project => project.image || project.lightboxImage);
+  const lightboxProject = lightboxIndex === null ? null : galleryProjects[lightboxIndex];
+  const lightboxImage = lightboxProject?.lightboxImage ?? lightboxProject?.image;
+  const closeLightbox = () => {
+    dialog.current?.close();
+    setLightboxIndex(null);
+    trigger.current?.focus();
   };
-  const labels = tabLabels[language] ?? tabLabels.hu;
-
-  const getProjectCategory = (project) => {
-    const searchable = [
-      project.categoryKey,
-      project.category,
-      project.label,
-      project.title,
-      ...(Array.isArray(project.tags) ? project.tags : []),
-    ]
-      .filter(Boolean)
-      .join(' ')
-      .toLowerCase();
-
-    if (project.categoryKey) {
-      return project.categoryKey;
-    }
-
-    if (project.type === 'link' || project.url) {
-      return 'websites';
-    }
-
-    if (searchable.includes('névjegy') || searchable.includes('business card') || searchable.includes('visitenkarte')) {
-      return 'businessCards';
-    }
-
-    if (searchable.includes('mockup')) {
-      return 'mockups';
-    }
-
-    if (searchable.includes('flyer') || searchable.includes('szórólap')) {
-      return 'flyers';
-    }
-
-    return 'otherDesigns';
+  const changeImage = delta => setLightboxIndex(index => index === null ? null : (index + delta + galleryProjects.length) % galleryProjects.length);
+  const openLightbox = project => {
+    trigger.current = document.activeElement;
+    const index = galleryProjects.indexOf(project);
+    if (index >= 0) setLightboxIndex(index);
   };
-
-  const tabs = [
-    { key: 'all', label: labels.all },
-    { key: 'websites', label: labels.websites },
-    { key: 'flyers', label: labels.flyers },
-    { key: 'businessCards', label: labels.businessCards },
-    { key: 'mockups', label: labels.mockups },
-    { key: 'otherDesigns', label: labels.otherDesigns },
-  ].map((tab) => ({
-    ...tab,
-    href: localizedRoute('references', locale, localizedRoutes, { category: tab.key }),
-    count: tab.key === 'all' ? projects.length : projects.filter((project) => getProjectCategory(project) === tab.key).length,
-  }));
-  const filteredProjects = activeCategory === 'all'
-    ? projects
-    : projects.filter((project) => getProjectCategory(project) === activeCategory);
-
-  const resolveProject = (project) => {
-    const host = typeof window === 'undefined'
-      ? ''
-      : window.location.hostname.replace(/^www\./, '').toLowerCase();
-    const override = project.domainOverrides?.[host];
-
-    return override ? { ...project, ...override } : project;
-  };
-
-  const displayedProjects = filteredProjects.map(resolveProject);
-  const websiteProjects = displayedProjects.filter((project) => getProjectCategory(project) === 'websites');
-  const galleryOnlyProjects = displayedProjects.filter((project) => getProjectCategory(project) !== 'websites');
-  const galleryProjects = displayedProjects.filter((project) => project.image || project.lightboxImage);
-  const lightboxProject = lightboxIndex === null ? null : galleryProjects[lightboxIndex] ?? null;
-  const lightboxImage = lightboxProject?.lightboxImage ?? lightboxProject?.image ?? null;
-
-  const openLightbox = (project) => {
-    const index = galleryProjects.findIndex((item) => item === project);
-    setLightboxIndex(index >= 0 ? index : null);
-  };
-
-  const showPreviousImage = () => {
-    setLightboxIndex((current) => {
-      if (current === null || galleryProjects.length === 0) {
-        return current;
-      }
-
-      return (current - 1 + galleryProjects.length) % galleryProjects.length;
-    });
-  };
-
-  const showNextImage = () => {
-    setLightboxIndex((current) => {
-      if (current === null || galleryProjects.length === 0) {
-        return current;
-      }
-
-      return (current + 1) % galleryProjects.length;
-    });
-  };
-
+  useEffect(() => { setLightboxIndex(null); }, [activeCategory, locale]);
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setLightboxIndex(null);
-      }
-
-      if (event.key === 'ArrowLeft') {
-        showPreviousImage();
-      }
-
-      if (event.key === 'ArrowRight') {
-        showNextImage();
-      }
+    if (lightboxIndex === null) return undefined;
+    dialog.current?.showModal();
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKey = event => {
+      if (event.key === 'Escape') { event.preventDefault(); closeLightbox(); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); changeImage(-1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); changeImage(1); }
     };
+    window.addEventListener('keydown', handleKey);
+    return () => { window.removeEventListener('keydown', handleKey); document.body.style.overflow = previousOverflow; trigger.current?.focus(); };
+  }, [lightboxIndex !== null]);
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [galleryProjects.length]);
-
-  const renderProject = (project, index) => {
-    const projectCategory = getProjectCategory(project);
-    const isGalleryProject = projectCategory !== 'websites';
-    const domain = project.url?.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');
-    const previewTitle = domain ?? project.category ?? project.label ?? references.preview_label ?? 'Preview';
-    const image = project.image;
-    const isFirst = project === (websiteProjects[0] ?? galleryOnlyProjects[0]);
-    const preview = referencePreview(image, !isGalleryProject, isFirst);
-    const imageKey = project.url ?? project.title ?? String(index);
-    const hasImage = image && !failedImages[imageKey];
-    const lightbox = hasImage ? project.lightboxImage ?? image : null;
-    const imageMode = project.imageFit === 'contain' ? 'object-contain object-bottom px-3 sm:px-4' : 'object-cover';
-    const galleryAspect = projectCategory === 'flyers' ? 'aspect-[3/4]' : 'aspect-[4/3]';
-
-    if (isGalleryProject) {
-      return (
-        <button
-          key={project.image ?? project.title ?? index}
-          type="button"
-          onClick={() => lightbox && openLightbox(project)}
-          className="group block overflow-hidden rounded-xl border border-[#00eaff]/18 bg-[#040b1c]/88 text-left shadow-[0_12px_42px_rgba(0,0,0,0.28)] transition duration-300 hover:-translate-y-1 hover:border-[#00eaff]/46 hover:shadow-[0_16px_52px_rgba(0,234,255,0.12)]"
-          aria-label={project.title ?? references.lightbox_alt ?? 'Reference image'}
-        >
-          <div className={`relative overflow-hidden bg-[#061327] ${galleryAspect}`}>
-            {hasImage ? (
-              <img
-                {...preview}
-                alt={project.title ?? references.lightbox_alt ?? 'Reference image'}
-                className="h-full w-full object-contain p-3 transition duration-500 group-hover:scale-[1.025]"
-                loading={isFirst ? 'eager' : 'lazy'}
-                fetchPriority={isFirst ? 'high' : undefined}
-                decoding="async"
-                onError={(event) => {
-                  if (event.currentTarget.src !== new URL(image, window.location.origin).href) {
-                    event.currentTarget.removeAttribute('srcset');
-                    event.currentTarget.removeAttribute('sizes');
-                    event.currentTarget.src = image;
-                    return;
-                  }
-
-                  event.currentTarget.style.display = 'none';
-                  setFailedImages((current) => ({ ...current, [imageKey]: true }));
-                }}
-              />
-            ) : (
-              <div className="flex h-full items-center justify-center px-5 text-center text-lg font-black text-white/80">
-                {project.title}
-              </div>
-            )}
-          </div>
-        </button>
-      );
-    }
-
-    return (
-      <article
-        key={project.url ?? index}
-        className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#00eaff]/18 bg-[#040b1c]/88 shadow-[0_12px_42px_rgba(0,0,0,0.32)] transition duration-300 hover:-translate-y-1 hover:border-[#00eaff]/46 hover:shadow-[0_16px_52px_rgba(0,234,255,0.12)]"
-      >
-        <button
-          type="button"
-          onClick={() => lightbox && openLightbox(project)}
-          className="relative aspect-video w-full overflow-hidden bg-[#061327] text-left"
-          aria-label={project.previewLabel ?? project.title}
-        >
-          <div className="absolute left-0 right-0 top-0 z-10 flex h-8 items-center gap-2 border-b border-white/10 bg-[#071025]/94 px-4">
-            <span className="h-2 w-2 rounded-full bg-[#ff5f57]"></span>
-            <span className="h-2 w-2 rounded-full bg-[#ffbd2e]"></span>
-            <span className="h-2 w-2 rounded-full bg-[#28c840]"></span>
-            <span className="ml-2 min-w-0 truncate rounded-full border border-white/10 bg-white/5 px-3 py-0.5 text-[11px] font-semibold text-slate-300">
-              {previewTitle}
-            </span>
-          </div>
-
-          <div className="absolute inset-x-0 bottom-0 top-8">
-            <div className="flex h-full items-center justify-center bg-[linear-gradient(135deg,rgba(255,0,122,0.18),rgba(0,234,255,0.12),rgba(6,19,39,0.92))] px-6 text-center">
-              <span className="max-w-xs text-2xl font-black text-white/90">{project.title}</span>
-            </div>
-          </div>
-
-          {hasImage ? (
-            <img
-              {...preview}
-              alt={project.title ?? references.lightbox_alt ?? 'Reference image'}
-              className={`absolute inset-x-0 bottom-0 top-8 h-[calc(100%-2rem)] w-full bg-[#061327] transition duration-500 group-hover:scale-[1.025] ${imageMode}`}
-              loading={isFirst ? 'eager' : 'lazy'}
-              fetchPriority={isFirst ? 'high' : undefined}
-              decoding="async"
-              onError={(event) => {
-                if (event.currentTarget.src !== new URL(image, window.location.origin).href) {
-                  event.currentTarget.removeAttribute('srcset');
-                  event.currentTarget.removeAttribute('sizes');
-                  event.currentTarget.src = image;
-                  return;
-                }
-
-                event.currentTarget.style.display = 'none';
-                setFailedImages((current) => ({ ...current, [imageKey]: true }));
-              }}
-            />
-          ) : null}
-
-          {hasImage ? (
-            <div className="absolute inset-0 bg-gradient-to-t from-[#020817]/40 via-transparent to-transparent" aria-hidden="true"></div>
-          ) : null}
-        </button>
-
-        <div className="flex flex-1 flex-col justify-between gap-5 p-5 sm:p-6">
-          <div>
-            {project.label && (
-              <p className="mb-3 text-[11px] font-black uppercase tracking-[0.18em] text-[#00eaff]">
-                {project.label}
-              </p>
-            )}
-            <h2 className="text-2xl font-black text-[var(--pz-pink)]">{project.title}</h2>
-            {project.description && (
-              <p className="mt-3 text-sm leading-relaxed text-slate-300">{project.description}</p>
-            )}
-            {Array.isArray(project.tags) && project.tags.length > 0 && (
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-bold text-slate-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="flex flex-col items-center gap-3 sm:items-start">
-            {project.url && (
-              <>
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-0 w-full max-w-[190px] items-center justify-center rounded-xl border border-[#00eaff]/70 bg-transparent px-4 py-2.5 text-sm font-black text-[#00eaff] shadow-[0_0_14px_rgba(0,234,255,0.14)] transition hover:-translate-y-0.5 hover:border-[#00eaff] hover:text-white hover:shadow-[0_0_24px_rgba(0,234,255,0.28)] sm:w-auto"
-                >
-                  {project.cta ?? (language === 'hu' ? 'Megtekintés' : language === 'de' ? 'Ansehen' : 'View')}
-                </a>
-              </>
-            )}
-          </div>
-        </div>
-      </article>
-    );
+  const imageError = (event, project, key) => {
+    const original = new URL(project.image, window.location.origin).href;
+    if (event.currentTarget.src !== original) {
+      event.currentTarget.removeAttribute('srcset'); event.currentTarget.removeAttribute('sizes'); event.currentTarget.src = original;
+    } else setFailedImages(current => ({ ...current, [key]: true }));
   };
-
-  return (
-    <Layout>
-      <section className="pz-section mx-auto w-full max-w-[1320px] space-y-10 overflow-x-hidden px-5 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <h1 className="pz-title text-4xl font-black sm:text-5xl">
-            {references.title}
-          </h1>
-          {references.subtitle && (
-            <p className="mt-5 text-lg leading-relaxed text-slate-300">{references.subtitle}</p>
-          )}
-        </div>
-
-        <div className="border-b border-[#00eaff]/20 pb-3">
-          <label htmlFor="reference-category" className="sr-only">
-            {references.category_filter_label ?? 'Reference category'}
-          </label>
-          <select
-            id="reference-category"
-            value={activeCategory}
-            onChange={(event) => {
-              window.location.href = localizedRoute('references', locale, localizedRoutes, { category: event.target.value });
-            }}
-            className="block w-full rounded-xl border border-[#00eaff]/35 bg-[#071025] px-4 py-3 text-sm font-black text-white shadow-[0_0_20px_rgba(0,234,255,0.12)] outline-none transition focus:border-[#00eaff] focus:ring-2 focus:ring-[#00eaff]/30 sm:hidden"
-          >
-            {tabs.map((tab) => (
-              <option key={tab.key} value={tab.key} className="bg-[#071025] text-white">
-                {tab.label} ({tab.count})
-              </option>
-            ))}
-          </select>
-
-          <div className="hidden flex-wrap gap-2 sm:flex">
-            {tabs.map((tab) => {
-              const isActive = activeCategory === tab.key;
-
-              return (
-                <Link
-                  key={tab.key}
-                  href={tab.href}
-                  className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-black transition ${
-                    isActive
-                      ? 'border-[#00eaff] bg-[#00eaff]/12 text-white shadow-[0_0_24px_rgba(0,234,255,0.18)]'
-                      : 'border-white/10 bg-white/[0.03] text-slate-300 hover:border-[#00eaff]/55 hover:text-white'
-                  }`}
-                  aria-current={isActive ? 'page' : undefined}
-                >
-                  <span>{tab.label}</span>
-                  <span className={`rounded-full px-2 py-0.5 text-[11px] ${
-                    isActive ? 'bg-[#00eaff]/20 text-[#00eaff]' : 'bg-white/10 text-slate-400'
-                  }`}
-                  >
-                    {tab.count}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        {activeCategory === 'all' ? (
-          <div className="space-y-8">
-            <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-              {websiteProjects.map((project, index) => renderProject(project, index))}
-            </div>
-            {galleryOnlyProjects.length > 0 && (
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {galleryOnlyProjects.map((project, index) => renderProject(project, index))}
-              </div>
-            )}
-          </div>
-        ) : (
-          <div className={
-            activeCategory === 'websites'
-              ? 'grid grid-cols-1 gap-5 xl:grid-cols-2'
-              : 'grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-          }>
-            {displayedProjects.length > 0 ? (
-              displayedProjects.map((project, index) => renderProject(project, index))
-            ) : (
-              <div className="rounded-2xl border border-[#00eaff]/18 bg-[#040b1c]/80 p-8 text-center text-slate-300">
-                {labels.empty}
-              </div>
-            )}
-          </div>
-        )}
-
-        {lightboxImage && (
-          <div
-            className="fixed inset-0 z-50 flex cursor-pointer items-center justify-center bg-black/86 backdrop-blur"
-            onClick={() => setLightboxIndex(null)}
-          >
-            {galleryProjects.length > 1 && (
-              <button
-                type="button"
-                aria-label="Previous image"
-                className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/65 text-3xl font-bold text-white transition hover:border-[#00eaff] hover:text-[#00eaff] sm:left-6"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  showPreviousImage();
-                }}
-              >
-                ‹
-              </button>
-            )}
-            <img
-              src={largeReferencePreview(lightboxImage)}
-              onError={({ currentTarget }) => {
-                if (currentTarget.src !== new URL(lightboxImage, window.location.origin).href) {
-                  currentTarget.src = lightboxImage;
-                }
-              }}
-              alt={references.lightbox_alt ?? 'Preview'}
-              className="max-h-[90%] max-w-[92%] rounded-2xl border border-[#00eaff]/30 object-contain shadow-[0_0_40px_rgba(0,234,255,0.24)]"
-              onClick={(event) => event.stopPropagation()}
-            />
-            {galleryProjects.length > 1 && (
-              <button
-                type="button"
-                aria-label="Next image"
-                className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/65 text-3xl font-bold text-white transition hover:border-[#00eaff] hover:text-[#00eaff] sm:right-6"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  showNextImage();
-                }}
-              >
-                ›
-              </button>
-            )}
-            <button
-              type="button"
-              aria-label="Close preview"
-              className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/65 text-2xl font-bold text-white transition hover:border-[#FF007A] hover:text-[#FF007A] sm:right-6 sm:top-6"
-              onClick={(event) => {
-                event.stopPropagation();
-                setLightboxIndex(null);
-              }}
-            >
-              ×
+  return <Layout variant="inquiry">
+    <section className="references-page">
+      <header className="references-hero">
+        <div><h1>{references.title ?? 'Referenciák'}</h1><p>{references.subtitle}</p></div>
+        <svg className="references-beam" viewBox="0 0 800 180" fill="none" aria-hidden="true"><path d="M0 60C250 0 380 200 800 26" stroke="#00f7ff" /><path d="M60 170C310 100 410 160 800 0" stroke="#ff007a" /></svg>
+      </header>
+      <nav className="references-filters" aria-label={labels.filter}>
+        <label className="sr-only" htmlFor="reference-category">{labels.filter}</label>
+        <div className="references-mobile-filter"><SelectDropdown id="reference-category" label={labels.filter} allowEmpty={false} options={categories.map(key => ({ value: key, label: labels[key] }))} value={activeCategory} onChange={category => router.visit(localizedRoute('references', locale, props.localizedRoutes, { category }))} /></div>
+        <div className="references-filter-links">{categories.map(key => <Link key={key} href={localizedRoute('references', locale, props.localizedRoutes, { category: key })} aria-current={activeCategory === key ? 'page' : undefined}>{labels[key]}</Link>)}</div>
+      </nav>
+      <div className={'references-grid' + (isWeb ? ' references-grid--web' : ' references-grid--graphic') + (activeCategory === 'flyers' ? ' references-grid--flyers' : '')}>
+        {displayedProjects.length ? displayedProjects.map((project, index) => {
+          const key = project.url ?? project.image ?? project.title;
+          const hasImage = project.image && !failedImages[key];
+          const preview = referencePreview(project.image, isWeb, index === 0);
+          // The wide gallery uses larger image slots than the old framed cards.
+          const sizes = isWeb ? '(min-width: 1584px) 744px, (min-width: 768px) calc((100vw - 96px) / 2), calc(100vw - 40px)' : activeCategory === 'flyers' ? '(min-width: 1584px) 286px, (min-width: 1280px) calc((100vw - 152px) / 5), (min-width: 768px) calc((100vw - 108px) / 3), calc((100vw - 54px) / 2)' : '(min-width: 1584px) 485px, (min-width: 1100px) calc((100vw - 128px) / 3), (min-width: 640px) calc((100vw - 72px) / 2), calc(100vw - 40px)';
+          return <article className="reference-project" key={key}>
+            <button type="button" className={'reference-preview' + (isWeb ? ' reference-preview--web' : ' reference-preview--graphic')} onClick={() => openLightbox(project)} disabled={!hasImage} aria-label={project.previewLabel ?? project.title}>
+              {isWeb && <span className="reference-browser" aria-hidden="true"><i /><i /><i /><span>{project.url?.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '')}</span></span>}
+              {hasImage ? <img {...preview} srcSet={project.previewSrcSet ?? preview.srcSet} sizes={sizes} alt={project.title ?? references.lightbox_alt} loading={index < 2 ? 'eager' : 'lazy'} fetchPriority={index === 0 ? 'high' : undefined} decoding="async" className={project.imageFit === 'contain' || !isWeb ? 'reference-image--contain' : ''} onError={event => imageError(event, project, key)} /> : <span className="reference-placeholder">{project.title}</span>}
             </button>
-          </div>
-        )}
-      </section>
-    </Layout>
-  );
+            {isWeb && <div className="reference-caption">
+              <p className="reference-category">{project.label ?? project.category ?? labels[activeCategory]}</p>
+              <div className="reference-title-row"><h2>{project.title}</h2>{project.url && <a className="reference-view" href={project.url} target="_blank" rel="noopener noreferrer">{project.cta ?? labels.view}</a>}</div>
+              {project.description && <p className="reference-description">{project.description}</p>}
+              {project.tags?.length > 0 && <ul className="reference-tags">{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>}
+              {!project.url && hasImage && <button type="button" className="reference-view" onClick={() => openLightbox(project)}>{labels.view}</button>}
+            </div>}
+          </article>;
+        }) : <p className="references-empty">{labels.empty}</p>}
+      </div>
+      <footer className="references-cta"><h2>{labels.question}</h2><Link href={localizedRoute('contact', locale, props.localizedRoutes)}>{labels.contact}</Link></footer>
+    </section>
+    {lightboxImage && <dialog ref={dialog} className="references-lightbox" aria-label={lightboxProject.title ?? references.lightbox_alt} onCancel={event => { event.preventDefault(); closeLightbox(); }} onClick={event => { if (event.target === event.currentTarget) closeLightbox(); }}>
+      {galleryProjects.length > 1 && <button type="button" className="references-lightbox-prev" aria-label={labels.previous} onClick={() => changeImage(-1)}>‹</button>}
+      <img src={largeReferencePreview(lightboxImage)} alt={lightboxProject.title ?? references.lightbox_alt} onError={({ currentTarget }) => { const original = new URL(lightboxImage, window.location.origin).href; if (currentTarget.src !== original) currentTarget.src = lightboxImage; }} />
+      {galleryProjects.length > 1 && <button type="button" className="references-lightbox-next" aria-label={labels.next} onClick={() => changeImage(1)}>›</button>}
+      <button type="button" className="references-lightbox-close" aria-label={labels.close} onClick={closeLightbox} autoFocus>×</button>
+    </dialog>}
+  </Layout>;
 }

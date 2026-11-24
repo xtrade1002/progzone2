@@ -24,7 +24,7 @@ class QuoteRequestConfirmation extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Megkaptuk az ajánlatkérésed - {$this->domain}",
+            subject: __('quote_request.confirmation_subject', ['domain' => $this->domain]),
             from: $this->prepareFromAddress(),
         );
     }

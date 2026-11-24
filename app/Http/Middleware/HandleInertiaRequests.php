@@ -39,6 +39,10 @@ class HandleInertiaRequests extends Middleware
             'seo' => fn () => Seo::forRequest($request),
             'contactEmail' => $this->resolveContactEmail($domain),
             'localizedRoutes' => LocalizedRoutes::frontendRoutes(),
+            'turnstile' => [
+                'siteKey' => config('services.turnstile.site_key'),
+                'enabled' => (bool) (config('services.turnstile.site_key') && config('services.turnstile.secret_key')),
+            ],
         ]);
     }
 

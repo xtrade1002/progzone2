@@ -9,6 +9,21 @@ use Tests\TestCase;
 class ReferencesLocaleTest extends TestCase
 {
     #[Test]
+    public function webshop_reference_routes_preserve_the_category_and_localized_links(): void
+    {
+        foreach (['hu' => '/referenciak/webshopok', 'de' => '/referenzen/onlineshops', 'en' => '/references/webshops'] as $locale => $path) {
+            $this->get($path)->assertOk()->assertInertia(fn (Assert $page) => $page
+                ->component('References')
+                ->where('category', 'webshops')
+                ->where('locale', $locale)
+                ->where('localizedRoutes.referenceCategories.webshops.hu', 'webshopok')
+                ->where('localizedRoutes.referenceCategories.webshops.de', 'onlineshops')
+                ->where('localizedRoutes.referenceCategories.webshops.en', 'webshops')
+            );
+        }
+    }
+
+    #[Test]
     public function german_reference_path_exposes_german_locale_and_content_on_hungarian_domain(): void
     {
         $this->withServerVariables([
@@ -19,6 +34,7 @@ class ReferencesLocaleTest extends TestCase
             ->where('locale', 'de')
             ->where('trans.references.projects.0.cta', 'Ansehen')
             ->where('trans.references.projects.0.title', 'Ungarischer Verband für Familienaufstellungen')
+            ->has('trans.references.projects', count(json_decode(file_get_contents(resource_path('lang/de.json')), true)['references']['projects']))
         );
     }
 

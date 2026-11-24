@@ -17,27 +17,40 @@ class QuoteController extends Controller
 {
     public function store(Request $request): RedirectResponse
     {
+        if (in_array($request->input('locale'), ['hu', 'de', 'de-CH', 'en'], true)) {
+            app()->setLocale($request->input('locale'));
+        }
+
         $data = $request->validate([
             'name' => $this->safeTextRules(required: true, max: 255),
             'email' => ['required', 'email', 'max:255'],
-            'phone' => $this->phoneRules(required: true),
-            'company' => $this->safeTextRules(required: true, max: 255),
+            'phone' => $this->phoneRules(),
+            'company' => $this->safeTextRules(max: 255),
             'service' => $this->safeTextRules(required: true, max: 255),
-            'budget' => $this->safeTextRules(required: true, max: 255),
-            'timeline' => $this->futureDateRules(required: true),
-            'message' => $this->safeTextRules(required: true),
-            'reference_sites' => $this->referenceSiteRules(required: true),
+            'budget' => $this->safeTextRules(max: 255),
+            'timeline_preference' => ['nullable', 'in:flexible,one-three-months,later,fixed'],
+            'timeline' => ['required_if:timeline_preference,fixed', ...$this->futureDateRules()],
+            'deadline_reason' => $this->safeTextRules(max: 255),
+            'existing_site' => $this->safeTextRules(max: 255),
+            'product_count' => $this->safeTextRules(max: 100),
+            'integrations' => $this->safeTextRules(max: 5000),
+            'message' => $this->safeTextRules(required: true, max: 5000),
+            'reference_sites' => $this->safeTextRules(max: 5000),
             'menu_items' => $this->safeTextRules(max: 100),
-            'languages' => $this->safeTextRules(required: true, max: 100),
-            'features' => $this->safeTextRules(required: true),
+            'languages' => $this->safeTextRules(max: 100),
+            'features' => $this->safeTextRules(max: 5000),
             'content_source' => $this->safeTextRules(max: 255),
             'payment_method' => $this->safeTextRules(max: 100),
             'support' => $this->safeTextRules(max: 255),
-            'hosting_domain' => $this->safeTextRules(required: true, max: 255),
+            'hosting_domain' => $this->safeTextRules(max: 255),
             'privacy' => ['accepted'],
-        ], $this->validationMessages());
+        ], $this->validationMessages(), __('quote_request.labels'));
 
         $data = $this->sanitizeFormData($data);
+        $token = $request->input('cf_turnstile_response');
+        if (! app(\App\Services\TurnstileService::class)->validate(is_string($token) ? $token : null, $request->ip())) {
+            throw \Illuminate\Validation\ValidationException::withMessages(['cf_turnstile_response' => __('turnstile_verification_failed')]);
+        }
         $data['privacy'] = true;
 
         $quote = QuoteRequest::create($data);
@@ -45,8 +58,8 @@ class QuoteController extends Controller
         $host = $this->determineHostLabel($request->getHost());
         $recipient = $this->resolveRecipient($request->getHost());
 
-        Mail::to($recipient)->send(new NewQuoteRequest($quote, $host));
-        Mail::to($quote->email)->send(new QuoteRequestConfirmation($quote, $host));
+        Mail::to($recipient)->send((new NewQuoteRequest($quote, $host))->locale(app()->getLocale()));
+        Mail::to($quote->email)->send((new QuoteRequestConfirmation($quote, $host))->locale(app()->getLocale()));
 
         return redirect()
             ->back()
@@ -193,7 +206,7 @@ class QuoteController extends Controller
             }
 
             if (preg_match('/<\s*\/?\s*(script|iframe|object|embed|link|meta|style)\b|javascript\s*:|data\s*:\s*text\/html|on[a-z]+\s*=/i', $value)) {
-                $fail('A mező nem tartalmazhat HTML vagy JavaScript kódot.');
+                $fail(__('quote_request.validation.code'));
             }
         };
     }
@@ -206,7 +219,7 @@ class QuoteController extends Controller
         return [
             $required ? 'required' : 'nullable',
             'string',
-            'max:20',
+            'max:15',
             function (string $attribute, mixed $value, Closure $fail): void {
                 if ($value === null || $value === '') {
                     return;
@@ -221,11 +234,7 @@ class QuoteController extends Controller
 
     private function phoneDigitsMessage(): string
     {
-        return match (app()->getLocale()) {
-            'de', 'de-CH' => 'Bitte gib nur Zahlen ein.',
-            'en' => 'Please use digits only.',
-            default => 'A telefonszam mezo csak szamokat tartalmazhat.',
-        };
+        return __('quote_request.validation.digits');
     }
 
     /**
@@ -241,60 +250,13 @@ class QuoteController extends Controller
     }
 
     /**
-     * @return array<int, mixed>
-     */
-    private function referenceSiteRules(bool $required = false): array
-    {
-        return [
-            ...$this->safeTextRules(required: $required),
-            function (string $attribute, mixed $value, Closure $fail): void {
-                if (! is_string($value) || $value === '') {
-                    return;
-                }
-
-                if (substr_count(str_replace("\r\n", "\n", trim($value)), "\n") + 1 > 5) {
-                    $fail($this->referenceSitesLineMessage());
-                }
-            },
-        ];
-    }
-
-    private function referenceSitesLineMessage(): string
-    {
-        return match (app()->getLocale()) {
-            'de', 'de-CH' => 'Bitte gib maximal 5 Website-Adressen an.',
-            'en' => 'Please enter up to 5 website addresses.',
-            default => 'Legfeljebb 5 weboldal címet adhatsz meg.',
-        };
-    }
-
-    /**
      * @return array<string, string>
      */
     private function validationMessages(): array
     {
-        return [
-            'timeline.date' => $this->timelineDateMessage(),
-            'timeline.after' => $this->timelineFutureMessage(),
-        ];
-    }
-
-    private function timelineDateMessage(): string
-    {
-        return match (app()->getLocale()) {
-            'de', 'de-CH' => 'Bitte wähle ein gültiges Datum aus.',
-            'en' => 'Please choose a valid date.',
-            default => 'Kérlek válassz érvényes dátumot.',
-        };
-    }
-
-    private function timelineFutureMessage(): string
-    {
-        return match (app()->getLocale()) {
-            'de', 'de-CH' => 'Bitte wähle ein zukünftiges Datum aus.',
-            'en' => 'Please choose a future date.',
-            default => 'Kérlek jövőbeli dátumot válassz.',
-        };
+        return collect(['required', 'required_if', 'email', 'max', 'string', 'accepted', 'in', 'date', 'after'])
+            ->mapWithKeys(fn ($rule) => [$rule => __("quote_request.validation.{$rule}")])
+            ->all();
     }
 
     /**

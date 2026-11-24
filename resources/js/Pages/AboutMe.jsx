@@ -1,123 +1,80 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useId, useRef, useState } from 'react';
+import { Link, usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import useTranslations from '../lib/useTranslations.js';
+import { localizedRoute } from '../route.js';
+import aboutDesignContent from '../data/aboutDesignContent.js';
+import '../../css/inquiry-design.css';
+import '../../css/about.css';
+
+function LightTrail() {
+  const id = useId();
+  const path = 'M0 165C130 210 225 30 400 122S730 190 900 80 1040 65 1160 32';
+  return <svg className="about-beam" viewBox="0 0 1160 240" fill="none" aria-hidden="true" focusable="false">
+    <defs><linearGradient id={id} x1="0" y1="150" x2="1160" y2="65" gradientUnits="userSpaceOnUse"><stop stopColor="#00f7ff" stopOpacity="0" /><stop offset=".24" stopColor="#00f7ff" /><stop offset=".54" stopColor="#00f7ff" /><stop offset=".72" stopColor="#ff007a" /><stop offset="1" stopColor="#ff007a" stopOpacity="0" /></linearGradient></defs>
+    <path className="about-beam-halo" d={path} stroke={'url(#' + id + ')'} strokeWidth="14" />
+    <path d={path} stroke={'url(#' + id + ')'} strokeWidth="1.8" />
+    <path className="about-beam-spark" d={path} stroke={'url(#' + id + ')'} strokeWidth="3" pathLength="1200" />
+  </svg>;
+}
 
 export default function AboutMe() {
-  const { trans, t } = useTranslations();
+  const { trans, locale } = useTranslations();
+  const { props } = usePage();
+  const copy = aboutDesignContent(locale);
   const about = trans?.about ?? {};
-  const introParagraphs = Array.isArray(about.intro_paragraphs) ? about.intro_paragraphs : [];
-  const serviceBlocks = Array.isArray(about.service_blocks) ? about.service_blocks : [];
-  const [visible, setVisible] = useState(false);
-  const [servicesVisible, setServicesVisible] = useState(false);
-  const servicesRef = useRef(null);
+  const blocks = Array.isArray(about.service_blocks) ? about.service_blocks : [];
+  const [activeTab, setActiveTab] = useState(0);
+  const selected = Math.min(activeTab, Math.max(0, blocks.length - 1));
+  const block = blocks[selected];
+  const tabs = useRef([]);
+  const id = useId();
+  const selectWithKeyboard = (event, index) => {
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % blocks.length;
+    if (event.key === 'ArrowLeft') next = (index - 1 + blocks.length) % blocks.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = blocks.length - 1;
+    if (next === undefined) return;
+    event.preventDefault();
+    setActiveTab(next);
+    tabs.current[next]?.focus();
+  };
 
-  useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (!servicesRef.current) {
-      return undefined;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setServicesVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.22 }
-    );
-
-    observer.observe(servicesRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <Layout>
-      <section className="pz-section w-[90%] space-y-12 px-0 py-6 sm:space-y-20 md:w-full md:px-6 md:py-20">
-        <div className="pz-panel grid grid-cols-1 items-center gap-6 rounded-[2rem] p-2 sm:gap-12 sm:p-6 md:grid-cols-[0.82fr_1.18fr] md:p-10">
-          <div
-            className={`transition-all duration-700 ease-out ${
-              visible ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'
-            }`}
-          >
-            <img
-              src="/img/me.png"
-              alt={about.image_alt ?? ''}
-              width="1123"
-              height="1401"
-              className="mx-auto w-full max-h-none rounded-[1.25rem] border border-[rgb(var(--pz-pink-rgb)/0.58)] object-cover shadow-[0_0_38px_rgb(var(--pz-pink-rgb)/0.44),0_0_36px_rgba(0,231,255,0.18)] sm:w-auto sm:max-h-[560px]"
-            />
-          </div>
-          <div
-            className={`transition-all delay-200 duration-700 ease-out ${
-              visible ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'
-            }`}
-          >
-            <h3 className="pz-title pz-text-sweep mb-8 text-3xl font-black sm:text-5xl">
-              {about.intro_title}
-            </h3>
-            {introParagraphs.length > 0 ? (
-              introParagraphs.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className={`pz-copy-reveal mb-4 text-lg leading-relaxed text-slate-300 sm:px-1 ${
-                    visible ? 'is-visible' : ''
-                  }`}
-                  style={{ transitionDelay: `${560 + index * 260}ms` }}
-                >
-                  {paragraph}
-                </p>
-              ))
-            ) : (
-              <p className="pz-cyan px-1 italic">Tartalom feltoltes alatt...</p>
-            )}
-          </div>
-        </div>
-
-        <div
-          ref={servicesRef}
-          className={`transition-all delay-500 duration-700 ease-out ${
-            servicesVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
-          }`}
-        >
-          <h4 className="pz-title pz-text-sweep relative mb-12 inline-block text-3xl font-black sm:text-4xl">
-            {about.services_title}
-            <span className="pz-rule absolute -bottom-4 left-0" />
-          </h4>
-
-          <div className="grid grid-cols-1 gap-6 text-left md:grid-cols-3">
-            {serviceBlocks.length > 0 ? (
-              serviceBlocks.map((block, index) => (
-                <article
-                  key={index}
-                  className={`pz-card pz-service-reveal p-6 ${
-                    servicesVisible ? 'is-visible' : ''
-                  } ${index === 0 ? 'from-left' : index === 1 ? 'from-bottom' : 'from-right'}`}
-                  style={{ transitionDelay: `${760 + index * 320}ms` }}
-                >
-                  <h2 className="mb-4 text-2xl font-black text-[var(--pz-pink)]">{block.title}</h2>
-                  <p className="mb-6 px-1 leading-relaxed text-slate-300">{block.description}</p>
-                  <ul className="space-y-4 text-slate-400">
-                    {(block.highlights ?? []).map((highlight, highlightIndex) => (
-                      <li key={highlightIndex} className="px-1">
-                        <span className="font-bold text-white">{highlight.title}</span>
-                        <br />
-                        {highlight.description}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))
-            ) : (
-              <p className="pz-cyan text-center italic">Nincsenek szolgaltatasi blokkok megadva.</p>
-            )}
-          </div>
+  return <Layout variant="inquiry">
+    <div className="about-page">
+      <section className="about-hero" aria-labelledby={id + '-title'}>
+        <div className="about-aura" aria-hidden="true" />
+        <div className="about-watermark" aria-hidden="true"><span className="about-watermark-prog">PROG</span><span className="about-watermark-zone">ZONE</span></div>
+        <LightTrail />
+        <header className="about-hero-heading">
+          <p className="about-eyebrow">{copy.eyebrow}</p>
+          <h1 id={id + '-title'}>{copy.headline.map(line => <span key={line}>{line}</span>)}</h1>
+        </header>
+        <figure className="about-portrait-wrap">
+          <img className="about-portrait" src="/img/about-portrait-cutout-v1.png" width="1122" height="1402" alt={copy.portraitAlt} fetchPriority="high" />
+        </figure>
+        <div className="about-intro">
+          <h2>{copy.greeting}</h2>
+          {copy.intro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+          <Link className="about-contact-link" href={localizedRoute('contact', locale, props?.localizedRoutes)}>{copy.cta}</Link>
         </div>
       </section>
-    </Layout>
-  );
+      {blocks.length > 0 && <section className="about-expertise" aria-labelledby={id + '-expertise'}>
+        <div className="about-expertise-header">
+          <h2 id={id + '-expertise'}>{copy.expertise}</h2>
+          <div className="about-tabs" role="tablist" aria-label={copy.tabLabel}>
+            {blocks.map((item, index) => <button key={index} type="button" role="tab" ref={element => { tabs.current[index] = element; }}
+              id={id + '-tab-' + index} aria-controls={id + '-panel'} aria-selected={selected === index} tabIndex={selected === index ? 0 : -1}
+              onClick={() => setActiveTab(index)} onKeyDown={event => selectWithKeyboard(event, index)}>{copy.tabs[index] ?? item.title}</button>)}
+          </div>
+        </div>
+        <div className="about-tab-panel" key={selected} id={id + '-panel'} role="tabpanel" aria-labelledby={id + '-tab-' + selected} tabIndex={0}>
+          <div className="about-panel-summary"><h3>{copy.panelHeadings[selected] ?? block.title}</h3><p>{block.description}</p></div>
+          <ul className="about-highlights">{(block.highlights ?? []).map((highlight, index) => <li key={index}><h4>{highlight.title}</h4><p>{highlight.description}</p></li>)}</ul>
+        </div>
+        <p className="about-tabs-hint">{copy.hint}</p>
+      </section>}
+    </div>
+  </Layout>;
 }

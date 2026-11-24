@@ -1,0 +1,47 @@
+.services-page { width: min(100% - 64px, var(--pz-content-max)); margin-inline: auto; padding-block: clamp(28px, 3vw, 44px) 52px; }
+.services-hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 24px; align-items: center; padding-bottom: 32px; }
+.services-eyebrow { color: var(--pz-cyan); margin-bottom: 12px; font-size: .75rem; font-weight: 750; letter-spacing: .18em; }
+.services-hero h1 { color: #fff; margin: 0; font-size: clamp(2rem, 3.4vw, 2.75rem); font-weight: 850; letter-spacing: -.035em; line-height: 1.1; }
+.services-hero h1 span { color: var(--pz-pink); }
+.services-intro { max-width: 580px; margin-top: 16px; color: #bdc5d5; font-size: .9375rem; line-height: 1.65; }
+.services-ribbon { display: block; width: 100%; height: auto; max-height: 210px; overflow: visible; }
+.services-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 44px; }
+.services-entry { --service-accent: var(--pz-pink); position: relative; display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 18px; border-top: 1px solid #ffffff50; padding: 22px 0 24px; min-width: 0; }
+.services-entry:nth-child(even), .services-entry--mobile { --service-accent: var(--pz-cyan); }
+.services-entry::before { content: ''; position: absolute; height: 3px; width: 52px; top: -2px; left: 0; background: var(--service-accent); }
+.services-icon { display: block; width: 34px; height: 34px; margin-top: 1px; color: var(--service-accent); }
+.services-entry-copy { min-width: 0; }
+.services-entry h2 { margin: 0; color: #f7f7ff; font-size: clamp(1.125rem, 1.55vw, 1.3125rem); line-height: 1.35; font-weight: 750; letter-spacing: -.02em; overflow-wrap: break-word; }
+.services-entry-description { margin-top: 14px; color: #c3ccda; font-size: .9375rem; line-height: 1.7; }
+.services-entry-tags { margin-top: 14px; color: #a7b2c7; font-size: .8125rem; line-height: 1.65; }
+.services-entry--mobile { margin-top: 8px; padding-block: 22px; border-bottom: 1px solid #ffffff35; align-items: center; }
+.services-entry--mobile .services-entry-copy { display: grid; grid-template-columns: minmax(195px, 1fr) minmax(0, 1.6fr) auto; gap: 24px; align-items: center; }
+.services-entry--mobile .services-entry-description, .services-entry--mobile .services-entry-tags { margin-top: 0; }
+.services-entry--mobile .services-icon { margin-top: 0; }
+.services-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 30px; }
+.services-footer h2 { margin: 0; color: #f7f7ff; font-size: clamp(1.125rem, 1.6vw, 1.375rem); line-height: 1.4; font-weight: 750; letter-spacing: -.02em; }
+.services-footer .inquiry-submit { flex-shrink: 0; text-decoration: none; }
+@media (max-width: 1023px) {
+    .services-page { width: calc(100% - 48px); }
+    .services-hero { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 16px; }
+    .services-grid { column-gap: 28px; }
+    .services-entry { grid-template-columns: 30px minmax(0, 1fr); column-gap: 14px; }
+    .services-icon { width: 29px; height: 29px; }
+    .services-entry--mobile .services-entry-copy { grid-template-columns: minmax(160px, 1fr) minmax(0, 1.4fr); gap: 8px 20px; }
+    .services-entry--mobile .services-entry-tags { grid-column: 2; }
+}
+@media (max-width: 767px) {
+    .services-page { width: calc(100% - 40px); padding-block: 28px 44px; }
+    .services-hero { position: relative; isolation: isolate; display: block; padding-bottom: 28px; }
+    .services-hero h1 { font-size: clamp(1.875rem, 7.5vw, 2.5rem); }
+    .services-ribbon { position: absolute; width: 62%; right: -12px; top: 0; z-index: -1; opacity: .24; }
+    .services-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .services-entry { padding-block: 20px 24px; }
+    .services-entry-description { margin-top: 10px; }
+    .services-entry-tags { margin-top: 10px; }
+    .services-entry--mobile { margin-top: 0; }
+    .services-entry--mobile .services-entry-copy { display: block; }
+    .services-entry--mobile .services-entry-description, .services-entry--mobile .services-entry-tags { margin-top: 10px; }
+    .services-footer { flex-direction: column; align-items: stretch; gap: 20px; padding-top: 24px; }
+    .services-footer .inquiry-submit { width: 100%; }
+}

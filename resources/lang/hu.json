@@ -262,11 +262,11 @@
         "options": [
           {
             "value": "weboldal",
-            "label": "Weboldal készítés"
+            "label": "Weboldal készítés (WordPress)"
           },
           {
             "value": "webshop",
-            "label": "Webshop fejlesztés"
+            "label": "Webshop fejlesztés (WordPress + WooCommerce)"
           },
           {
             "value": "design",
@@ -278,17 +278,21 @@
           },
           {
             "value": "marketing",
-            "label": "Online marketing"
+            "label": "Online marketing (Google Ads, Facebook, Instagram és egyéb)"
           },
           {
             "value": "egyedi",
-            "label": "Egyedi fejlesztés"
+            "label": "Egyedi weboldal / webshop fejlesztése"
+          },
+          {
+            "value": "applikacio",
+            "label": "Applikációfejlesztés (iOS, Android)"
           }
         ]
       },
       "budget": {
         "label": "Tervezett költségkeret",
-        "placeholder": "Válassz kategóriát",
+        "placeholder": "Válassz árkategóriát",
         "options": [
           {
             "value": "0-200",
@@ -308,7 +312,7 @@
           },
           {
             "value": "bizonytalan",
-            "label": "Még bizonytalan"
+            "label": "Még bizonytalan vagyok"
           }
         ]
       },
@@ -503,36 +507,28 @@
         "title": "Weboldalak",
         "items": [
           {
-            "title": "Mi az a domain és hosting szolgáltatás?",
+            "title": "Domain és tárhely",
             "content": [
               {
                 "type": "paragraph",
-                "text": "A <strong>domain név</strong> (pl. <code>example.com</code>) olyan, mint a ház címe. Ha valaki beírja a böngészőbe, ezen keresztül talál rá a weboldaladra."
+                "text": "A <strong>domain</strong> a weboldalad címe, például ceged.hu. A <strong>tárhely</strong> tárolja az oldal fájljait és adatait."
               },
               {
                 "type": "paragraph",
-                "text": "A <strong>hosting (tárhely)</strong> pedig maga a ház: az a hely, ahol a weboldalad fájljai (szövegek, képek, adatbázis) vannak eltárolva."
-              },
-              {
-                "type": "paragraph",
-                "text": "A domain és a hosting együtt szükséges ahhoz, hogy a weboldalad mindenki számára elérhető legyen. Ha az egyik hiányzik, nem fog működni."
+                "text": "Külön szolgáltatások, amelyeket össze kell kapcsolni. Mindkettőnek lehet rendszeres díja; a céges e-mail és a biztonsági mentés tartalmát külön érdemes ellenőrizni."
               }
             ]
           },
           {
-            "title": "Mi a különbség a WordPress és az egyedileg fejlesztett weboldalak között?",
+            "title": "WordPress vagy egyedi fejlesztés?",
             "content": [
               {
                 "type": "paragraph",
-                "text": "A <strong>WordPress</strong> egy kész rendszer, amit milliók használnak. Ez olyan, mint egy előre felépített ház, amit belül átrendezhetsz: választhatsz sablont és kiegészítőket. Gyorsabb és olcsóbb, de kevésbé rugalmas."
+                "text": "A <strong>WordPress</strong> kész tartalomkezelő rendszer: sablonokkal és bővítményekkel sok igény megoldható, és az adminfelületen szerkesztheted a tartalmat."
               },
               {
                 "type": "paragraph",
-                "text": "Az <strong>egyedi fejlesztésű weboldal</strong> viszont a nulláról, teljesen rád szabva készül el. Ez olyan, mint egy saját tervezésű villa: pontosan azt kapod, amit szeretnél, de több időt és pénzt igényel."
-              },
-              {
-                "type": "paragraph",
-                "text": "Röviden: a WordPress a „kész ház”, az egyedi fejlesztés pedig a „saját építésű otthon”."
+                "text": "Az <strong>egyedi fejlesztés</strong> különleges működéshez, összetett folyamatokhoz vagy más rendszerek összekapcsolásához lehet jó választás. A cél, a keret és a későbbi üzemeltetés alapján érdemes dönteni; egyik megoldás sem automatikusan jobb, gyorsabb vagy biztonságosabb."
               }
             ]
           },
@@ -541,42 +537,20 @@
             "content": [
               {
                 "type": "paragraph",
-                "text": "A WordPress olyan, mint egy okostelefon: rendszeresen frissíteni kell, különben elavul és veszélyes lesz."
-              },
-              {
-                "type": "list",
-                "items": [
-                  "<strong>Frissítések</strong>: a rendszer, sablonok és bővítmények új verziói biztonságosabbá teszik az oldalt.",
-                  "<strong>Biztonság</strong>: ha nem frissíted, könnyen feltörhetik az oldalad.",
-                  "<strong>Teljesítmény</strong>: a frissítésekkel az oldal gyakran gyorsabb lesz.",
-                  "<strong>Hibák megelőzése</strong>: a régi bővítmények gyakran összeakadnak."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "A karbantartás olyan, mint az autószerviz: ha nem viszed időben, előbb-utóbb lerobban."
+                "text": "A karbantartás része lehet a rendszer és a bővítmények frissítése, a mentés és a fontos működések ellenőrzése. Így csökkenthető az elavult összetevőkből eredő hibák és támadások kockázata."
               }
             ]
           },
           {
-            "title": "Miért kerül többe egy egyedileg fejlesztett weboldal, mint egy WordPress oldal?",
+            "title": "Miért kerülhet többe az egyedi fejlesztés?",
             "content": [
               {
                 "type": "paragraph",
-                "text": "Az egyedi fejlesztés több munkaidőt és szakértelmet igényel, ezért magasabb az ára."
-              },
-              {
-                "type": "list",
-                "items": [
-                  "<strong>Minden funkciót a nulláról készítünk</strong>, nincs kész sablon.",
-                  "<strong>Teljesen személyre szabott</strong>, pontosan az igényeid szerint.",
-                  "<strong>Biztonságosabb és gyorsabb</strong>, mivel nincs tele felesleges bővítményekkel.",
-                  "<strong>Tartós befektetés</strong>, hosszú távon könnyebben bővíthető."
-                ]
+                "text": "A tervezés, a megvalósítás és a tesztelés több egyedi munkát igényelhet, mint egy kész rendszer megfelelő beállítása. Az árat a funkciók és az összetettség határozzák meg."
               },
               {
                 "type": "paragraph",
-                "text": "Ez olyan, mint az <strong>IKEA bútor</strong> és az <strong>asztalos által készített egyedi bútor</strong> közötti különbség."
+                "text": "Az ajánlatban érdemes tisztázni a tartalmat, az átadást, a módosításokat, az üzemeltetést és a külső szolgáltatások díjait."
               }
             ]
           },
@@ -585,20 +559,33 @@
             "content": [
               {
                 "type": "paragraph",
-                "text": "A weboldal nem egyszeri kiadás. Vannak folyamatos költségei is:"
-              },
+                "text": "A domain, a tárhely és egyes licencek rendszeres díjat jelenthetnek. A karbantartás, a tartalomfrissítés és az új funkciók külön feladatok lehetnek. Az ajánlatnál tisztázzuk, mi egyszeri, mi ismétlődő, és mely díjakat fizeted közvetlenül a szolgáltatóknak."
+              }
+            ]
+          },
+          {
+            "title": "Mit jelent, hogy reszponzív egy weboldal?",
+            "content": [
               {
-                "type": "list",
-                "items": [
-                  "<strong>Domain díj</strong>: évente fizetendő, néhány ezer–tízezer forint.",
-                  "<strong>Tárhely díj</strong>: a szerver fenntartása, általában havi vagy éves előfizetés.",
-                  "<strong>Karbantartás</strong>: frissítések, hibajavítások, biztonsági mentések.",
-                  "<strong>Fejlesztések</strong>: ha új funkciókra van szükség."
-                ]
+                "type": "paragraph",
+                "text": "Az elrendezés alkalmazkodik a telefon, tablet és számítógép kijelzőjéhez. A szöveg olvasható, a gombok kezelhetők, és a látogatónak nem kell oldalra görgetnie."
               },
               {
                 "type": "paragraph",
-                "text": "Ez olyan, mint egy autó: nem csak a vásárlás számít, hanem a benzin, a biztosítás és a szervizelés is."
+                "text": "Ehhez több képernyőméreten kell ellenőrizni a menüt, az űrlapokat, a képeket és a hosszabb szövegeket is."
+              }
+            ]
+          },
+          {
+            "title": "Később én is szerkeszthetem a tartalmat?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Igen, ha a projekt része tartalomkezelő vagy adminfelület. Előre tisztázzuk, mit szeretnél önállóan módosítani: szöveget, képet, cikket, terméket vagy árakat."
+              },
+              {
+                "type": "paragraph",
+                "text": "Az adminfelület és a használatának bemutatása az egyeztetett feladat része lehet. A dizájn és az egyedi funkciók módosítása általában külön fejlesztést igényel."
               }
             ]
           }
@@ -647,15 +634,41 @@
             ]
           },
           {
-            "title": "Mi az a SEO és miért fontos?",
+            "title": "Mi az a SEO, és mikor várható eredmény?",
             "content": [
               {
                 "type": "paragraph",
-                "text": "A <strong>SEO</strong> (keresőoptimalizálás) segít abban, hogy a Google jobban szeresse a weboldalad. Így a keresésekben előrébb kerülsz, és több ember talál rád anélkül, hogy fizetned kellene a kattintásokért."
+                "text": "A <strong>SEO, vagyis keresőoptimalizálás</strong> segít, hogy a keresők megértsék az oldalad tartalmát, és a megfelelő érdeklődők könnyebben megtalálják."
               },
               {
                 "type": "paragraph",
-                "text": "Röviden: a SEO olyan, mint egy ingyenes reklámtábla a Google-ben."
+                "text": "Technikai állapot, hasznos szövegek és jól szervezett oldalak együtt számítanak. Nem fizetett hirdetés, de munkát és időt igényel; konkrét helyezés vagy határidő nem garantálható."
+              }
+            ]
+          },
+          {
+            "title": "Mennyi pénzzel érdemes hirdetést indítani?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Nincs minden vállalkozásra érvényes összeg. A cél, a piac, a célterület és a várható ügyfélérték alapján lehet tesztkeretet meghatározni."
+              },
+              {
+                "type": "paragraph",
+                "text": "Külön tétel a platformnak fizetett hirdetési keret és a kampánykezelés díja. A kezdeti tesztek után az eredmények alapján érdemes változtatni."
+              }
+            ]
+          },
+          {
+            "title": "Honnan tudom, hogy működik a marketing?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Nem csak a megtekintés és a kattintás számít. A célhoz illő eredményt érdemes követni: például ajánlatkérést, foglalást vagy vásárlást."
+              },
+              {
+                "type": "paragraph",
+                "text": "A méréshez előre megtervezett beállítások és megfelelő adatkezelés kellenek. A bevételi adatok és a kampányadatok összevetése segít a döntésben, de nem minden kapcsolat mérhető tökéletesen."
               }
             ]
           }
@@ -686,22 +699,294 @@
             ]
           },
           {
-            "title": "Miért kell adatvédelmi nyilatkozat és ÁSZF?",
+            "title": "Mit jelent a HTTPS és a biztonsági mentés?",
             "content": [
               {
                 "type": "paragraph",
-                "text": "Ezek jogilag kötelező dokumentumok, de az ügyfelek bizalmát is növelik."
+                "text": "A <strong>HTTPS</strong> titkosítja a böngésző és a weboldal közötti adatforgalmat. Fontos alap, de önmagában nem véd meg minden támadástól."
+              },
+              {
+                "type": "paragraph",
+                "text": "A <strong>biztonsági mentés</strong> az adatok visszaállítható másolata. Érdemes külön tárolni, rendszeresen elkészíteni és a visszaállítást is ellenőrizni. A frissítés, az erős jelszó és a megfelelő jogosultság ugyancsak fontos."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Közös munka",
+        "items": [
+          {
+            "title": "Hogyan indul egy közös projekt?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Először a célodat, az ügyfeleidet és a szükséges funkciókat beszéljük át. Ha még nincs kész terved, néhány példa és a saját szavaiddal leírt elképzelés is jó kiindulás."
+              },
+              {
+                "type": "paragraph",
+                "text": "Ezután tisztázzuk a feladatokat, az árazást, az ütemezést és az átadás feltételeit. A fejlesztés menete a projekt méretéhez igazodik."
+              }
+            ]
+          },
+          {
+            "title": "Mit készítsek elő az ajánlatkéréshez?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Írd össze, mire van szükséged, mi a fő cél és mikorra tervezed az indulást. Hasznos a meglévő oldal címe, néhány tetsző példa és egy hozzávetőleges keret."
+              },
+              {
+                "type": "paragraph",
+                "text": "Jelezd, mi van már meg: logó, szöveg, kép, terméklista vagy hozzáférések. Nem kell technikai specifikációt írnod; a hiányzó részleteket egyeztetjük."
+              }
+            ]
+          },
+          {
+            "title": "Mennyi ideig tart, és hogyan kérhetek módosítást?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Az időigényt a funkciók, a tartalmak elkészülte, a visszajelzések és a külső kapcsolódások befolyásolják. Konkrét ütemezést a pontosított feladat alapján lehet adni."
+              },
+              {
+                "type": "paragraph",
+                "text": "A jóváhagyások és módosítások menetét előre rögzítjük. Az eredeti feladaton túli új igény hatással lehet az árra és az átadási időre."
+              }
+            ]
+          },
+          {
+            "title": "Mi történik átadás után, és kinél maradnak a hozzáférések?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Átadáskor érdemes rendezni a domain, a tárhely és a külső fiókok tulajdonosát, a hozzáféréseket, a dokumentációt és a licenceket. A használati jogokat és az átadandó forrásokat a megállapodás rögzíti."
+              },
+              {
+                "type": "paragraph",
+                "text": "A karbantartás, a támogatás és a későbbi fejlesztés külön egyeztethető. Tisztázzuk, ki frissít, készít mentést és intézkedik hiba esetén."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Webshopok",
+        "items": [
+          {
+            "title": "Mi kell egy webshop elindításához?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Termékadatok, árak, képek, készletkezelési igények, fizetési és szállítási módok, valamint a vállalkozás és az ügyfélszolgálat adatai."
+              },
+              {
+                "type": "paragraph",
+                "text": "A WooCommerce WordPress-alapú webshoprendszer. A megfelelő megoldás függ a termékek mennyiségétől, a nyelvektől és a számlázóhoz, raktárhoz vagy más rendszerhez való kapcsolódástól."
+              }
+            ]
+          },
+          {
+            "title": "Hogyan működik az online fizetés, számlázás és szállítás?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Ezeket általában külön szolgáltatók biztosítják. Szükség lehet saját kereskedői fiókra, szerződésre és beállításokra; lehetnek előfizetési vagy tranzakciós díjak."
+              },
+              {
+                "type": "paragraph",
+                "text": "A kapcsolódások lehetőségét előre ellenőrizzük. Indulás előtt a teljes rendelési folyamatot tesztelni kell, a fizetéstől a visszaigazolásig."
+              }
+            ]
+          },
+          {
+            "title": "Lehet foglalást, több nyelvet vagy más rendszert hozzákapcsolni?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Sok esetben igen: például időpontfoglalást, ügyfélfiókot, többnyelvű felületet vagy számlázókapcsolatot. A megvalósíthatóság a választott rendszerektől és a szolgáltatók lehetőségeitől függ."
+              },
+              {
+                "type": "paragraph",
+                "text": "A többnyelvűség fordítást és külön tartalomkezelést is jelent. A nyelveket és az összekapcsolandó rendszereket már az ajánlatkérésnél érdemes felsorolni."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Mobilalkalmazás",
+        "items": [
+          {
+            "title": "Mikor érdemes mobilalkalmazásban gondolkodni?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Ha a felhasználók rendszeresen visszatérnek, vagy fontosak az értesítések, a telefon funkciói és az alkalmazáshoz igazított munkafolyamatok."
+              },
+              {
+                "type": "paragraph",
+                "text": "Egy bemutatkozó oldalhoz vagy egyszerű ajánlatkéréshez gyakran elegendő egy jól működő mobilbarát weboldal. A cél alapján érdemes választani."
+              }
+            ]
+          },
+          {
+            "title": "Miben különbözik a mobilbarát weboldal és az app?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "A mobilbarát weboldalt a böngészőben nyitod meg. Az Android- vagy iOS-alkalmazás telepíthető, külön felületet és a megengedett eszközfunkciókhoz kapcsolódást kínálhat."
+              },
+              {
+                "type": "paragraph",
+                "text": "Az alkalmazás kiadása, frissítése és áruházi megjelenése további feladatokat jelent. A két platform támogatását és az esetleges külön díjakat előre egyeztetjük."
+              }
+            ]
+          },
+          {
+            "title": "Összekapcsolható az app a meglévő oldallal?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Sok esetben igen, ha az oldal vagy üzleti rendszer megfelelő adatkapcsolatot biztosít. Így például ugyanazok a termékek, foglalások vagy ügyféladatok használhatók."
+              },
+              {
+                "type": "paragraph",
+                "text": "Fel kell mérni a jelenlegi rendszert, a belépés módját, a jogosultságokat és az adatkezelést. A kapcsolat néha a meglévő rendszer bővítését is igényli."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Jogi alapok",
+        "items": [
+          {
+            "title": "Milyen jogi tartalmakra lehet szükség a weboldalon?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Az üzemeltetői adatok, az adatkezelési tájékoztatás, a sütik kezelése és online értékesítésnél a vásárlási feltételek külön ellenőrzendők. A dokumentumoknak a tényleges működést kell leírniuk."
+              },
+              {
+                "type": "paragraph",
+                "text": "A pontos követelmények az üzemeltetés és a célpiac országától, a tevékenységtől és a funkcióktól függenek. Ez általános eligazítás; az induláshoz a saját működésedre szabott jogi ellenőrzés szükséges."
+              }
+            ]
+          },
+          {
+            "title": "Milyen adatokat kötelező feltüntetni egy magyar üzleti weboldalon?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Az Ektv. hatálya alá tartozó szolgáltatónál könnyen elérhetően és folyamatosan közzéteendő adatok:"
               },
               {
                 "type": "list",
                 "items": [
-                  "<strong>Adatvédelmi nyilatkozat (GDPR)</strong>: leírja, mire használod a felhasználók adatait.",
-                  "<strong>ÁSZF</strong>: főleg webshopoknál szükséges, szabályozza a vásárlás menetét, garanciát, elállást."
+                  "<strong>Szolgáltató neve</strong>; székhelye, telephelye, ezek hiányában lakcíme.",
+                  "<strong>Elérhetőségek</strong>, különösen a kapcsolattartásra használt e-mail-cím.",
+                  "<strong>Nyilvántartási adatok</strong>, ha nyilvántartásba vételhez kötött: bejegyző bíróság vagy hatóság és nyilvántartási szám, például cégjegyzékszám.",
+                  "<strong>Adószám</strong>, ha a szolgáltató az általános forgalmi adó alanya.",
+                  "<strong>Engedélyadatok</strong> engedélyköteles tevékenységnél: hatóság, elérhetőség és engedélyszám.",
+                  "<strong>Szabályozott szakmánál</strong> az alkalmazandó kamarai, képesítési és szakmai szabályokra vonatkozó adatok.",
+                  "<strong>Tárhelyszolgáltató</strong> székhelye, telephelye és elérhetősége, különösen e-mailje; kivétel lehet, ha ezek a szolgáltatás jellegéből egyébként is megismerhetők."
                 ]
               },
               {
                 "type": "paragraph",
-                "text": "Ezek nélkül nem csak bírságot kaphatsz, de a látogatók sem fognak benned bízni."
+                "text": "Ezeket általában az impresszumban rendezik. A tevékenységtől függően további adatok is szükségesek. <a href=\"https://njt.jog.gov.hu/jogszabaly/2001-108-00-00\" target=\"_blank\" rel=\"noopener noreferrer\">Hivatalos forrás: Ektv. 4. §</a>."
+              }
+            ]
+          },
+          {
+            "title": "Kapcsolati űrlaphoz is kell adatkezelési tájékoztató?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Ha nevet, e-mail-címet vagy más személyes adatot kezelsz, a GDPR hatálya alatt tájékoztatni kell az érintettet. Egy egyszerű kapcsolati űrlap is jelenthet adatkezelést."
+              },
+              {
+                "type": "paragraph",
+                "text": "A tájékoztatóban szerepeljen például az adatkezelő, a cél, a jogalap, a megőrzés, az igénybe vett adatfeldolgozók és az érintetti jogok. Nem minden adatkezelés jogalapja a hozzájárulás. <a href=\"https://europa.eu/youreurope/business/governance-and-sustainability/digital-and-data-compliance/data-protection-gdpr/index_en.htm\" target=\"_blank\" rel=\"noopener noreferrer\">Hivatalos EU-s tájékoztató</a>."
+              }
+            ]
+          },
+          {
+            "title": "Minden weboldalra kell sütis felugró ablak?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Nem önmagában a weboldal létezése miatt kell hozzájárulást kérni. Az EU-ban a kért szolgáltatáshoz szigorúan szükséges sütik kivételt képezhetnek; a hozzájárulást igénylő sütiket előzetes engedély előtt nem szabad elindítani."
+              },
+              {
+                "type": "paragraph",
+                "text": "A hirdetési és mérési eszközöket külön meg kell vizsgálni. A felület tegye lehetővé a választást és a hozzájárulás visszavonását is. <a href=\"https://europa.eu/youreurope/business/growing/digitalising/online-privacy/index_en.htm\" target=\"_blank\" rel=\"noopener noreferrer\">Hivatalos útmutató a sütikről</a>."
+              }
+            ]
+          },
+          {
+            "title": "Webshopnál milyen további tájékoztatás kell?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "EU-s fogyasztói értékesítésnél fontos a termék vagy szolgáltatás jellemzőinek, a teljes árnak, a további költségeknek, a fizetésnek, a szállításnak és a panaszkezelésnek az előzetes ismertetése. A vásárlási feltételeket is rendezetten kell elérhetővé tenni."
+              },
+              {
+                "type": "paragraph",
+                "text": "Az elállás főszabály szerint 14 napos, de vannak kivételek és eltérő kezdő időpontok. A szavatossági tájékoztatást és az esetleges jótállást is ellenőrizni kell. <a href=\"https://europa.eu/youreurope/business/selling-in-eu/selling-goods-services/ecommerce-distance-selling/index_en.htm\" target=\"_blank\" rel=\"noopener noreferrer\">Hivatalos EU-s webshopútmutató</a>."
+              }
+            ]
+          },
+          {
+            "title": "Elég egy másik oldalról átmásolt jogi szöveg?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Nem érdemes erre alapozni: más lehet az adatkezelés, a szolgáltató, a vásárlás menete és az alkalmazandó ország joga. A kép-, betűtípus-, bővítmény- és szövegfelhasználási jogokat is rendezni kell."
+              },
+              {
+                "type": "paragraph",
+                "text": "A fejlesztésben a jóváhagyott dokumentumok elhelyezése és a kapcsolódó technikai beállítások megvalósíthatók; a jogi szöveg szakmai ellenőrzése külön feladat. Német vagy svájci célpiac esetén az ottani követelményeket is külön vizsgálni kell."
+              }
+            ]
+          },
+          {
+            "title": "Mit jelent az akadálymentesítés, és kötelező-e?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "A billentyűzettel kezelhető felület, az olvasható kontraszt, a képek szöveges leírása és az érthető űrlapok több látogatónak segítenek használni az oldalt."
+              },
+              {
+                "type": "paragraph",
+                "text": "Egyes szolgáltatásokra, köztük bizonyos elektronikus kereskedelmi szolgáltatásokra uniós akadálymentességi követelmények vonatkoznak. A hatályt, a nemzeti szabályokat és a mentességeket egyedileg kell vizsgálni. <a href=\"https://europa.eu/youreurope/business/selling-in-eu/selling-goods-services/accessibility/index_en.htm\" target=\"_blank\" rel=\"noopener noreferrer\">Hivatalos EU-s útmutató</a>."
+              }
+            ]
+          },
+          {
+            "title": "Külföldi célpiacnál ugyanazok a szabályok?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Nem feltétlenül: a magyar, német és svájci követelmények eltérhetnek. Nem a weboldal nyelve vagy a domainvégződés dönti el önmagában az alkalmazandó jogot."
+              },
+              {
+                "type": "paragraph",
+                "text": "Német szolgáltatónál például a <a href=\"https://www.gesetze-im-internet.de/ddg/__5.html\" target=\"_blank\" rel=\"noopener noreferrer\">DDG 5. §</a> szerinti szolgáltatói adatok is vizsgálandók. A svájci online értékesítésnél nincs az EU-s szabállyal azonos általános elállási jog; a célpiacot külön ellenőrizni kell. <a href=\"https://www.kmu.admin.ch/de/die-gesetze-der-schweiz-und-der-eu\" target=\"_blank\" rel=\"noopener noreferrer\">Svájci hivatalos tájékoztató</a>."
+              }
+            ]
+          },
+          {
+            "title": "Mi az ÁSZF, és minden oldalra szükséges?",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Az <strong>ÁSZF</strong> az általános szerződési feltételek rövidítése: a vásárlás vagy szolgáltatás szerződéses szabályait írja le, például a fizetést, teljesítést és a jogérvényesítést."
+              },
+              {
+                "type": "paragraph",
+                "text": "Egy bemutatkozó oldal és egy online szerződést kötő webshop kötelezettségei eltérnek. Nem a dokumentum elnevezése, hanem a szükséges tájékoztatások megléte, tartalma és megfelelő közlése számít; a konkrét működéshez illő feltételeket szakemberrel érdemes kialakítani."
               }
             ]
           }
@@ -864,8 +1149,8 @@
       {
         "type": "link",
         "url": "https://secretlounge.hu/hu",
-        "image": "/img/websites/secretlounge-hu-card.webp",
-        "lightboxImage": "/img/secretlounge-hu-preview.png",
+        "image": "/img/websites/secretlounge-hu-20261124.webp",
+        "lightboxImage": "/img/websites/secretlounge-hu-20261124.webp",
         "title": "SecretLounge.hu",
         "cta": "Megtekintés",
         "categoryKey": "websites",
@@ -881,8 +1166,8 @@
         "domainOverrides": {
           "progzone.hu": {
             "url": "https://secretlounge.hu/hu",
-            "image": "/img/websites/secretlounge-hu-card.webp",
-            "lightboxImage": "/img/secretlounge-hu-preview.png",
+            "image": "/img/websites/secretlounge-hu-20261124.webp",
+            "lightboxImage": "/img/websites/secretlounge-hu-20261124.webp",
             "title": "SecretLounge.hu"
           }
         }
@@ -1236,5 +1521,9 @@
       "A határidők betartása közös felelősségünk.",
       "A projekt lezárása után is biztosítok támogatást és karbantartást."
     ]
+  },
+  "turnstile_verification_failed": "Kérlek, végezd el az ellenőrzést, majd próbáld újra.",
+  "turnstile": {
+    "load_failed": "Az ellenőrzés nem töltődött be. Kérlek, frissítsd az oldalt."
   }
 }

@@ -85,8 +85,8 @@ const websiteProjects = (locale) => {
       domainOverrides: {
         'progzone.hu': {
           url: 'https://secretlounge.hu/hu',
-          image: '/img/secretlounge-hu-preview.png',
-          lightboxImage: '/img/secretlounge-hu-preview.png',
+          image: '/img/websites/secretlounge-hu-20261124.webp',
+          lightboxImage: '/img/websites/secretlounge-hu-20261124.webp',
           title: 'SecretLounge.hu',
         },
       },

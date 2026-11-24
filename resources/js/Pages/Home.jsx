@@ -3,6 +3,9 @@ import { usePage } from '@inertiajs/react';
 import Layout from '../Components/Layout.jsx';
 import { localizedRoute } from '../route.js';
 import useTranslations from '../lib/useTranslations.js';
+import '../../css/inquiry-design.css';
+import '../../css/home.css';
+import '../../css/home-typewriter.css';
 
 const fallbackServiceItems = [
   {
@@ -104,7 +107,7 @@ const TypewriterText = ({ words }) => {
 };
 
 export default function Home() {
-  const { locale, trans, t } = useTranslations();
+  const { locale, trans } = useTranslations();
   const { props } = usePage();
 
   const localizedRoutes = props?.localizedRoutes;
@@ -125,7 +128,7 @@ export default function Home() {
   ];
   const heroTitle = home.hero_title ?? {};
   const heroActions = home.hero_actions ?? {};
-  const chips = Array.isArray(home.chips) ? home.chips : ['Modern design', 'Gyors betÃ¶ltÃ©s', 'MobilbarÃ¡t'];
+  const chips = Array.isArray(home.chips) ? home.chips : ['Modern design', 'Gyors betöltés', 'Mobilbarát'];
   const serviceItems = (Array.isArray(home.service_items) && home.service_items.length > 0
     ? home.service_items
     : fallbackServiceItems
@@ -138,990 +141,22 @@ export default function Home() {
   const whyItems = Array.isArray(why.items)
     ? why.items
     : [
-      'Egyedi, igÃ©nyre szabott megoldÃ¡sok',
-      'Gyors Ã©s megbÃ­zhatÃ³ munkavÃ©gzÃ©s',
-      'Korrekt Ã¡rak, rejtett kÃ¶ltsÃ©gek nÃ©lkÃ¼l',
-      'TÃ¶bb Ã©ves tapasztalat',
-      'Teljes kÃ¶rÅ± Ã¼gyfÃ©ltÃ¡mogatÃ¡s',
+      'Egyedi, igényre szabott megoldások',
+      'Gyors és megbízható munkavégzés',
+      'Korrekt árak, rejtett költségek nélkül',
+      'Több éves tapasztalat',
+      'Teljes körű ügyféltámogatás',
     ];
   const isGermanLocale = typeof locale === 'string' && locale.toLowerCase().startsWith('de');
   const homePageClassName = isGermanLocale
-    ? 'pz-home-page pz-home-page--de'
-    : 'pz-home-page';
+    ? 'pz-home-page pz-home-page--orbit pz-home-page--de'
+    : 'pz-home-page pz-home-page--orbit';
 
   return (
-    <Layout>
+    <Layout variant="inquiry">
 
-      <style>{`
-        :root {
-          --pz-pink: #ff007a;
-          --pz-cyan: #00f7ff;
-          --pz-dark: #050812;
-        }
 
-        body {
-          background: #050812;
-        }
-
-        .pz-home-page {
-          position: relative;
-          overflow: hidden;
-          background:
-            radial-gradient(circle at 78% 10%, rgba(255, 0, 122, 0.22), transparent 28%),
-            radial-gradient(circle at 18% 46%, rgba(0, 247, 255, 0.16), transparent 34%),
-            linear-gradient(180deg, #030611 0%, #050812 45%, #030611 100%);
-          color: white;
-        }
-
-        .pz-home-page::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background-image:
-            linear-gradient(rgba(0, 247, 255, 0.045) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 0, 122, 0.04) 1px, transparent 1px);
-          background-size: 58px 58px;
-          opacity: 0.65;
-          pointer-events: none;
-        }
-
-        .pz-home-hero {
-          position: relative;
-          overflow: hidden;
-          min-height: 760px;
-          border-bottom: 1px solid rgba(255, 0, 122, 0.5);
-        }
-
-        .pz-home-hero__inner,
-        .pz-home-section {
-          position: relative;
-          z-index: 5;
-          width: min(1180px, calc(100% - 40px));
-          margin: 0 auto;
-        }
-
-        .pz-home-hero__inner {
-          min-height: 760px;
-          display: grid;
-          grid-template-columns: 1fr 0.95fr;
-          align-items: center;
-          gap: 48px;
-          padding: 70px 0 110px;
-        }
-
-        .pz-home-hero__inner > div {
-          min-width: 0;
-        }
-
-        .pz-neon-badge {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 9px 21px;
-          border: 1px solid var(--pz-pink);
-          border-radius: 999px;
-          color: #fff;
-          background: rgba(255, 0, 122, 0.08);
-          box-shadow: 0 0 16px rgba(255, 0, 122, 0.75), inset 0 0 16px rgba(255, 0, 122, 0.16);
-          text-transform: uppercase;
-          font-size: 12px;
-          font-weight: 900;
-          letter-spacing: 0.04em;
-        }
-
-        .pz-home-hero__title {
-          margin-top: 28px;
-          color: #fff;
-          font-size: clamp(48px, 6.6vw, 88px);
-          line-height: 0.98;
-          font-weight: 1000;
-          letter-spacing: -0.065em;
-        }
-
-        .pz-home-hero__title span {
-          display: block;
-        }
-
-        .pz-home-hero__title strong,
-        .pz-pink {
-          color: var(--pz-pink);
-          text-shadow: 0 0 18px rgba(255, 0, 122, 0.9), 0 0 44px rgba(255, 0, 122, 0.42);
-        }
-
-        .pz-home-typewriter {
-          margin-top: 28px;
-          width: min(680px, 100%);
-          min-height: 70px;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 0 24px;
-          border-radius: 18px;
-          border: 1px solid rgba(0, 247, 255, 0.9);
-          background: linear-gradient(90deg, rgba(255, 0, 122, 0.18), rgba(0, 247, 255, 0.04)), rgba(3, 8, 18, 0.82);
-          box-shadow: 0 0 22px rgba(0, 247, 255, 0.35), inset 0 0 22px rgba(255, 0, 122, 0.08);
-          color: var(--pz-cyan);
-          font-size: clamp(24px, 3vw, 38px);
-          font-weight: 1000;
-          text-shadow: 0 0 16px rgba(0, 247, 255, 0.82);
-          backdrop-filter: blur(14px);
-        }
-
-        .pz-home-typewriter__prompt {
-          color: var(--pz-pink);
-        }
-
-        .pz-home-typewriter__cursor {
-          width: 3px;
-          height: 34px;
-          background: var(--pz-cyan);
-          box-shadow: 0 0 16px rgba(0, 247, 255, 1);
-          animation: pzBlink 0.9s steps(2, start) infinite;
-        }
-
-        @keyframes pzBlink {
-          50% { opacity: 0; }
-        }
-
-        .pz-home-hero__lead {
-          margin-top: 24px;
-          max-width: 620px;
-          color: rgba(255, 255, 255, 0.92);
-          font-size: 21px;
-          line-height: 1.55;
-          font-weight: 700;
-        }
-
-        .pz-home-hero__actions,
-        .pz-home-hero__chips {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 18px;
-        }
-
-        .pz-home-hero__actions {
-          margin-top: 38px;
-        }
-
-        .pz-home-hero__chips {
-          margin-top: 34px;
-        }
-
-        .pz-button {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 12px;
-          min-height: 58px;
-          padding: 0 30px;
-          border-radius: 16px;
-          background: linear-gradient(135deg, #ff1689, #ff007a);
-          color: #fff;
-          font-weight: 1000;
-          text-transform: uppercase;
-          box-shadow: 0 0 20px rgba(255, 0, 122, 0.78), 0 0 48px rgba(255, 0, 122, 0.32);
-          transition: 0.25s ease;
-        }
-
-        .pz-button:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 0 26px rgba(255, 0, 122, 1), 0 0 64px rgba(255, 0, 122, 0.48);
-        }
-
-        .pz-button-secondary {
-          background: rgba(0, 247, 255, 0.05);
-          border: 1px solid rgba(0, 247, 255, 0.9);
-          color: var(--pz-cyan);
-          box-shadow: 0 0 18px rgba(0, 247, 255, 0.45), inset 0 0 20px rgba(0, 247, 255, 0.08);
-        }
-
-        .pz-home-chip {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          padding: 12px 18px;
-          border: 1px solid rgba(255, 255, 255, 0.14);
-          border-radius: 14px;
-          background: rgba(8, 12, 26, 0.78);
-          backdrop-filter: blur(14px);
-          font-size: 14px;
-          font-weight: 800;
-        }
-
-        .pz-home-chip__icon {
-          display: grid;
-          place-items: center;
-          width: 26px;
-          height: 26px;
-          border-radius: 999px;
-          color: var(--pz-pink);
-          border: 1px solid var(--pz-pink);
-          box-shadow: 0 0 14px rgba(255, 0, 122, 0.7);
-        }
-
-        .pz-home-chip__icon.is-cyan {
-          color: var(--pz-cyan);
-          border-color: var(--pz-cyan);
-          box-shadow: 0 0 14px rgba(0, 247, 255, 0.7);
-        }
-
-        .pz-home-hero__visual {
-          position: relative;
-          min-height: 610px;
-          display: grid;
-          place-items: center;
-        }
-
-        .pz-hero-geometry {
-          position: absolute;
-          width: 118%;
-          max-width: 680px;
-          right: -9%;
-          top: 0;
-          bottom: 0;
-          margin: auto 0;
-          overflow: visible;
-          filter: drop-shadow(0 0 12px rgba(255, 0, 122, 1)) drop-shadow(0 0 28px rgba(0, 247, 255, 0.55));
-        }
-
-        .pz-hero-geometry__stroke {
-          fill: none;
-          stroke-width: 6;
-          stroke-linejoin: round;
-          stroke-linecap: round;
-          vector-effect: non-scaling-stroke;
-        }
-
-        .pz-hero-geometry__stroke--pink {
-          stroke: var(--pz-pink);
-        }
-
-        .pz-hero-geometry__stroke--cyan {
-          stroke: var(--pz-cyan);
-        }
-
-        .pz-home-portrait-frame {
-          position: relative;
-          z-index: 3;
-          width: min(430px, 88vw);
-          height: 610px;
-          overflow: hidden;
-          border-radius: 30px;
-          border: 1px solid rgba(255, 0, 122, 0.65);
-          background: rgba(0, 0, 0, 0.45);
-          box-shadow: 0 0 30px rgba(255, 0, 122, 0.6), 0 0 56px rgba(0, 247, 255, 0.22);
-          transform: perspective(900px) rotateY(-5deg);
-        }
-
-        .pz-home-hero__portrait {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center top;
-        }
-
-        .pz-home-page--de .pz-home-hero__inner {
-          grid-template-columns: minmax(0, 1fr) minmax(390px, 0.82fr);
-          gap: 36px;
-        }
-
-        .pz-home-page--de .pz-home-hero__title {
-          max-width: 720px;
-          font-size: clamp(44px, 5.6vw, 78px);
-          letter-spacing: -0.055em;
-        }
-
-        .pz-home-page--de .pz-home-typewriter {
-          width: min(640px, 100%);
-        }
-
-        .pz-home-page--de .pz-home-hero__visual {
-          justify-items: end;
-          overflow: visible;
-        }
-
-        .pz-home-page--de .pz-home-portrait-frame {
-          width: min(390px, 100%);
-          height: 590px;
-          transform: perspective(900px) rotateY(-4deg) translateX(-8px);
-        }
-
-        .pz-home-page--de .pz-hero-geometry {
-          width: 108%;
-          right: -3%;
-        }
-
-        @media (max-width: 1280px) {
-          .pz-home-page--de .pz-home-hero__title {
-            font-size: clamp(42px, 5.15vw, 70px);
-          }
-
-          .pz-home-page--de .pz-home-portrait-frame {
-            width: min(360px, 100%);
-            height: 560px;
-          }
-        }
-
-        .pz-hero-light-trails,
-        .pz-hero-waves,
-        .pz-services-light {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-        }
-
-        .pz-hero-light-trails {
-          z-index: 2;
-          opacity: 0.75;
-        }
-
-        .pz-hero-waves {
-          top: auto;
-          bottom: -2px;
-          z-index: 4;
-          height: 190px;
-        }
-
-        .pz-neon-path,
-        .pz-neon-wave {
-          fill: none;
-          stroke-linecap: round;
-          vector-effect: non-scaling-stroke;
-        }
-
-        .pz-neon-path {
-          stroke-width: 2.8;
-        }
-
-        .pz-neon-wave {
-          stroke-width: 3;
-        }
-
-        .pz-cyan-stroke {
-          stroke: var(--pz-cyan);
-          filter: drop-shadow(0 0 8px rgba(0, 247, 255, 1)) drop-shadow(0 0 20px rgba(0, 247, 255, 0.75));
-        }
-
-        .pz-pink-stroke {
-          stroke: var(--pz-pink);
-          filter: drop-shadow(0 0 8px rgba(255, 0, 122, 1)) drop-shadow(0 0 20px rgba(255, 0, 122, 0.75));
-        }
-
-        .pz-services {
-          position: relative;
-          overflow: hidden;
-          padding: 82px 0 88px;
-        }
-
-        .pz-services-grid {
-          display: grid;
-          grid-template-columns: repeat(6, 1fr);
-          gap: 14px;
-        }
-
-        .pz-service-card {
-          position: relative;
-          min-height: 300px;
-          padding: 26px 18px;
-          border-radius: 14px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          background:
-            radial-gradient(circle at 50% 0%, rgba(255, 0, 122, 0.20), transparent 40%),
-            linear-gradient(180deg, rgba(11, 18, 34, 0.92), rgba(5, 8, 18, 0.95));
-          border: 1px solid rgba(255, 0, 122, 0.58);
-          box-shadow: 0 0 20px rgba(255, 0, 122, 0.38), inset 0 0 28px rgba(255, 255, 255, 0.035);
-          transition: 0.25s ease;
-        }
-
-        .pz-service-card:nth-child(even) {
-          border-color: rgba(0, 247, 255, 0.62);
-          box-shadow: 0 0 20px rgba(0, 247, 255, 0.36), inset 0 0 28px rgba(255, 255, 255, 0.035);
-        }
-
-        .pz-service-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 0 30px rgba(255, 0, 122, 0.55), 0 0 34px rgba(0, 247, 255, 0.25);
-        }
-
-        .pz-service-card__icon {
-          display: grid;
-          place-items: center;
-          width: 74px;
-          height: 74px;
-          margin: 0 auto;
-          color: var(--pz-pink);
-          filter: drop-shadow(0 0 14px rgba(255, 0, 122, 0.9));
-        }
-
-        .pz-service-card:nth-child(even) .pz-service-card__icon {
-          color: var(--pz-cyan);
-          filter: drop-shadow(0 0 14px rgba(0, 247, 255, 0.9));
-        }
-
-        .pz-service-card h3 {
-          margin-top: 16px;
-          min-height: 46px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 20px;
-          line-height: 1.1;
-          font-weight: 1000;
-        }
-
-        .pz-service-card p {
-          margin-top: 14px;
-          margin-bottom: 24px;
-          color: rgba(255,255,255,.82);
-          font-size: 14px;
-          line-height: 1.55;
-        }
-
-        .pz-card-button {
-          margin-top: auto;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 9px;
-          border: 1px solid currentColor;
-          border-radius: 999px;
-          padding: 9px 18px;
-          color: var(--pz-pink);
-          font-size: 13px;
-          font-weight: 1000;
-          text-transform: uppercase;
-          box-shadow: 0 0 14px rgba(255, 0, 122, 0.45);
-        }
-
-        .pz-service-card:nth-child(even) .pz-card-button {
-          color: var(--pz-cyan);
-          box-shadow: 0 0 14px rgba(0, 247, 255, 0.45);
-        }
-
-        .pz-why {
-          position: relative;
-          margin-top: 34px;
-          display: grid;
-          grid-template-columns: minmax(300px, 0.78fr) minmax(560px, 1.42fr);
-          gap: 36px;
-          align-items: center;
-          min-height: 430px;
-          overflow: hidden;
-          isolation: isolate;
-        }
-
-        .pz-why::before {
-          content: "";
-          position: absolute;
-          inset: 8% -6% -2% 38%;
-          z-index: -1;
-          background:
-            radial-gradient(circle at 62% 42%, rgba(255, 0, 122, 0.28), transparent 30%),
-            radial-gradient(circle at 80% 68%, rgba(0, 247, 255, 0.22), transparent 32%),
-            linear-gradient(125deg, transparent, rgba(0, 247, 255, 0.08), rgba(255, 0, 122, 0.10));
-          filter: blur(22px);
-        }
-
-        .pz-why h2 {
-          margin-top: 12px;
-          font-size: clamp(34px, 4vw, 52px);
-          line-height: 1;
-          font-weight: 1000;
-          letter-spacing: -0.045em;
-        }
-
-        .pz-check-list {
-          margin-top: 26px;
-          display: grid;
-          gap: 14px;
-        }
-
-        .pz-check-list li {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          color: rgba(255,255,255,.9);
-          font-size: 17px;
-          font-weight: 700;
-        }
-
-        .pz-check {
-          display: grid;
-          place-items: center;
-          width: 25px;
-          height: 25px;
-          border-radius: 999px;
-          border: 2px solid var(--pz-pink);
-          color: var(--pz-pink);
-          box-shadow: 0 0 14px rgba(255, 0, 122, .8);
-          flex: 0 0 auto;
-        }
-
-        .pz-devices {
-          position: relative;
-          min-height: 430px;
-          justify-self: end;
-          width: min(100%, 760px);
-          filter:
-            drop-shadow(0 0 22px rgba(255, 0, 122, 0.46))
-            drop-shadow(0 0 34px rgba(0, 247, 255, 0.26));
-        }
-
-        .pz-glow-floor {
-          position: absolute;
-          left: 5%;
-          right: -6%;
-          bottom: 12px;
-          height: 76px;
-          background:
-            radial-gradient(ellipse at 48% 44%, rgba(255, 0, 122, 0.78), transparent 58%),
-            radial-gradient(ellipse at 75% 40%, rgba(0, 247, 255, 0.62), transparent 54%),
-            linear-gradient(90deg, transparent, rgba(255,0,122,.65), rgba(0,247,255,.55), transparent);
-          filter: blur(20px);
-          opacity: .95;
-        }
-
-        .pz-neon-tube {
-          position: absolute;
-          left: 7%;
-          bottom: 42px;
-          width: 13px;
-          height: 390px;
-          border-radius: 999px;
-          background: linear-gradient(180deg, #fff, var(--pz-pink) 18%, #ff007a 84%, #fff);
-          box-shadow:
-            0 0 12px rgba(255,255,255,.85),
-            0 0 24px rgba(255,0,122,1),
-            0 0 58px rgba(255,0,122,.9),
-            0 0 96px rgba(255,0,122,.48);
-          transform: rotate(17deg);
-        }
-
-        .pz-neon-tube.cyan {
-          left: auto;
-          right: 1%;
-          background: linear-gradient(180deg, #fff, var(--pz-cyan) 18%, #00f7ff 84%, #fff);
-          box-shadow:
-            0 0 12px rgba(255,255,255,.8),
-            0 0 24px rgba(0,247,255,1),
-            0 0 60px rgba(0,247,255,.88),
-            0 0 100px rgba(0,247,255,.45);
-          transform: rotate(17deg);
-        }
-
-        .pz-laptop {
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: auto;
-          object-fit: contain;
-          object-position: left top;
-          filter: drop-shadow(0 18px 36px rgba(0,0,0,.58))
-            drop-shadow(0 0 22px rgba(255,0,122,.62))
-            drop-shadow(0 0 38px rgba(0,247,255,.18));
-          z-index: 2;
-        }
-
-        .pz-laptop-frame {
-          position: absolute;
-          inset: 0;
-          box-shadow:
-            inset 0 0 24px rgba(255,255,255,.055);
-          pointer-events: none;
-        }
-
-        .pz-laptop-frame::after {
-          content: "";
-          position: absolute;
-          left: 10%;
-          right: -6%;
-          bottom: 3px;
-          height: 58px;
-          border-radius: 50%;
-          background:
-            radial-gradient(ellipse at 48% 44%, rgba(255, 0, 122, 0.44), transparent 60%),
-            radial-gradient(ellipse at 75% 40%, rgba(0, 247, 255, 0.28), transparent 56%);
-          filter: blur(18px);
-        }
-
-        @media (min-width: 1101px) {
-          .pz-why {
-            align-items: stretch;
-            min-height: 0;
-          }
-
-          .pz-devices {
-            width: 100%;
-            min-height: 0;
-            overflow: hidden;
-          }
-
-          .pz-devices .pz-laptop {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transform: none;
-            -webkit-mask-image: none;
-            mask-image: none;
-          }
-        }
-
-        @media (max-width: 1100px) {
-          .pz-services-grid {
-            grid-template-columns: repeat(3, 1fr);
-          }
-
-          .pz-why {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        @media (max-width: 1024px) {
-          .pz-home-hero {
-            min-height: auto;
-          }
-
-          .pz-home-hero__inner,
-          .pz-home-section {
-            width: 90%;
-          }
-
-          .pz-home-hero__inner {
-            min-height: auto;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            padding: 28px 0 32px;
-            text-align: center;
-          }
-
-          .pz-home-hero__title {
-            margin-top: 18px;
-            font-size: clamp(32px, 5.5vw, 52px);
-            letter-spacing: -0.03em;
-            overflow-wrap: anywhere;
-          }
-
-          .pz-home-hero .pz-neon-badge {
-            margin-bottom: 0;
-          }
-
-          .pz-home-typewriter {
-            margin-top: 18px;
-          }
-
-          .pz-home-hero__lead {
-            margin-top: 16px;
-            font-size: 18px;
-          }
-
-          .pz-home-hero__actions,
-          .pz-home-hero__chips {
-            margin-top: 20px;
-          }
-
-          .pz-home-hero__visual {
-            min-height: 0;
-            height: auto;
-          }
-
-          .pz-services {
-            padding: 36px 0 28px;
-          }
-
-          .pz-why {
-            min-height: auto;
-            gap: 20px;
-            padding: 24px 0 0;
-          }
-
-          .pz-why h2 {
-            font-size: clamp(22px, 7.4vw, 56px);
-            line-height: 1.15;
-            white-space: nowrap;
-          }
-
-          .pz-why h2 span {
-            display: inline;
-          }
-
-          .pz-devices {
-            min-height: 0;
-            aspect-ratio: 1.85;
-            margin-top: 0;
-            overflow: hidden;
-          }
-
-          .pz-home-page--de .pz-home-hero__inner {
-            grid-template-columns: 1fr;
-          }
-
-          .pz-home-page--de .pz-home-hero__title {
-            max-width: 100%;
-            font-size: clamp(36px, 8vw, 56px);
-          }
-
-          .pz-home-hero__lead,
-          .pz-home-typewriter,
-          .pz-home-hero__actions,
-          .pz-home-hero__chips {
-            justify-content: center;
-            margin-left: auto;
-            margin-right: auto;
-          }
-
-          .pz-home-portrait-frame {
-            height: 380px;
-            transform: none;
-          }
-
-          .pz-home-page--de .pz-home-portrait-frame {
-            width: min(430px, 88vw);
-            height: 380px;
-            transform: none;
-          }
-        }
-
-        @media (max-width: 760px) {
-          .pz-services-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-          }
-
-          .pz-service-card {
-            min-width: 0;
-            padding: 20px 10px;
-          }
-
-          .pz-service-card__icon {
-            width: 48px;
-            height: 48px;
-          }
-
-          .pz-service-card h3 {
-            font-size: 16px;
-            overflow-wrap: anywhere;
-          }
-
-          .pz-service-card p {
-            font-size: 12px;
-            overflow-wrap: anywhere;
-          }
-
-          .pz-service-card .pz-card-button {
-            max-width: 100%;
-            gap: 6px;
-            padding: 9px 10px;
-            font-size: 11px;
-          }
-
-          .pz-devices {
-            min-height: 0;
-            margin-top: 0;
-            overflow: hidden;
-          }
-
-          .pz-laptop {
-            left: 0;
-            top: 0;
-            width: 118%;
-            max-width: none;
-            transform: translateX(-6%) translateY(0) scale(1);
-          }
-
-        }
-
-        @media (max-width: 640px) {
-          .pz-services {
-            padding: 40px 0 24px;
-          }
-
-          .pz-why {
-            min-height: auto;
-            gap: 16px;
-            padding: 20px 0 0;
-          }
-
-          .pz-page,
-          .pz-home-page,
-          .pz-home-hero,
-          .pz-home-hero__inner {
-            max-width: 100%;
-            overflow-x: hidden;
-          }
-
-          .pz-home-hero {
-            min-height: auto;
-          }
-
-          .pz-home-hero__inner,
-          .pz-home-section {
-            width: 90%;
-          }
-
-          .pz-home-hero__inner {
-            min-height: auto;
-            gap: 18px;
-            padding: 18px 0 24px;
-          }
-
-          .pz-home-hero__inner > div {
-            min-width: 0;
-          }
-
-          .pz-home-hero__title,
-          .pz-home-page--de .pz-home-hero__title {
-            margin-top: 16px;
-            max-width: 100%;
-            font-size: 30px;
-            line-height: 1.05;
-            letter-spacing: 0;
-            overflow-wrap: anywhere;
-            word-break: break-word;
-            text-wrap: balance;
-          }
-
-          .pz-home-hero__title span,
-          .pz-home-hero__title strong {
-            max-width: 100%;
-            overflow-wrap: anywhere;
-            word-break: break-word;
-          }
-
-          .pz-home-hero__title strong {
-            display: block;
-          }
-
-          .pz-home-typewriter {
-            width: 100%;
-            max-width: 100%;
-            min-height: 56px;
-            gap: 9px;
-            padding: 0 14px;
-            border-radius: 14px;
-            font-size: 20px;
-            box-sizing: border-box;
-          }
-
-          .pz-home-typewriter__cursor {
-            height: 26px;
-          }
-
-          .pz-home-hero__lead {
-            margin-top: 20px;
-            max-width: 100%;
-            font-size: 17px;
-            line-height: 1.45;
-            overflow-wrap: anywhere;
-            word-break: break-word;
-          }
-
-          .pz-home-hero__actions {
-            width: 100%;
-            max-width: 100%;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            margin-top: 20px;
-          }
-
-          .pz-button {
-            width: 100%;
-            min-height: 56px;
-            padding: 0 16px;
-            border-radius: 14px;
-            font-size: 14px;
-            line-height: 1.15;
-            text-align: center;
-            white-space: normal;
-          }
-
-          .pz-home-hero__chips {
-            width: 100%;
-            max-width: 100%;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-            margin-top: 18px;
-          }
-
-          .pz-home-chip {
-            width: 100%;
-            min-width: 0;
-            justify-content: flex-start;
-            padding: 11px 13px;
-            border-radius: 12px;
-            font-size: 13px;
-            box-sizing: border-box;
-          }
-
-          .pz-home-chip__icon {
-            width: 24px;
-            height: 24px;
-            flex: 0 0 auto;
-          }
-
-          .pz-home-hero__visual {
-            position: relative;
-            min-height: 0;
-            width: 100%;
-            max-width: 100%;
-            overflow: hidden;
-          }
-
-          .pz-home-portrait-frame,
-          .pz-home-page--de .pz-home-portrait-frame {
-            position: relative;
-            left: auto;
-            right: auto;
-            bottom: auto;
-            width: min(78vw, 280px);
-            height: 280px;
-            margin: 0 auto;
-            transform: none;
-          }
-
-          .pz-home-hero__portrait {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center bottom;
-          }
-        }
-
-        @media (max-width: 380px) {
-          .pz-home-hero__inner {
-            padding-top: 16px;
-          }
-
-          .pz-neon-badge {
-            padding: 8px 16px;
-            font-size: 11px;
-          }
-
-          .pz-home-hero__title {
-            margin-top: 20px;
-            font-size: 27px;
-          }
-
-          .pz-home-typewriter {
-            min-height: 52px;
-            font-size: 18px;
-          }
-
-          .pz-home-hero__lead {
-            font-size: 16px;
-          }
-        }
-      `}</style>
-
-      <main className={homePageClassName}>
+      <div className={homePageClassName}>
         <section className="pz-home-hero">
           <svg className="pz-hero-light-trails" viewBox="0 0 1440 660" preserveAspectRatio="none" aria-hidden="true">
             <path className="pz-neon-path pz-cyan-stroke" d="M-80 470 C 160 350, 290 415, 440 280 S 760 80, 1010 205 S 1260 420, 1520 285" />
@@ -1150,11 +185,11 @@ export default function Home() {
 
               <div className="pz-home-hero__actions">
                 <a href={localizedRoute('quote', locale, localizedRoutes)} className="pz-button">
-                  {heroActions.quote ?? 'Ingyenes árajánlat'} <span aria-hidden="true">→</span>
+                  {heroActions.quote ?? 'Ingyenes árajánlat'}
                 </a>
 
                 <a href={localizedRoute('contact', locale, localizedRoutes)} className="pz-button pz-button-secondary">
-                  {heroActions.contact ?? 'Kapcsolat'} <span aria-hidden="true">→</span>
+                  {heroActions.contact ?? 'Kapcsolat'}
                 </a>
               </div>
 
@@ -1162,7 +197,11 @@ export default function Home() {
                 {chips.map((item, index) => (
                   <div key={item} className="pz-home-chip">
                     <span className={index === 1 ? 'pz-home-chip__icon is-cyan' : 'pz-home-chip__icon'}>
-                      {index === 0 ? '↗' : index === 1 ? '◌' : '▯'}
+                      <NeonIcon path={[
+                        'M4 5h16v11H4z M8 20h8 M12 16v4',
+                        'M13 2 4 14h7l-1 8 10-13h-7z',
+                        'M8 2h8a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z M11 18h2',
+                      ][index % 3]} />
                     </span>
                     <span>{item}</span>
                   </div>
@@ -1171,17 +210,27 @@ export default function Home() {
             </div>
 
             <div className="pz-home-hero__visual" aria-hidden="true">
-              <svg className="pz-hero-geometry" viewBox="0 0 520 620">
-                <path className="pz-hero-geometry__stroke pz-hero-geometry__stroke--cyan" d="M142 42 L492 156 L292 508 L406 566 L186 590 L260 452 L114 348 L238 232 Z" />
-                <path className="pz-hero-geometry__stroke pz-hero-geometry__stroke--pink" d="M88 82 L456 188 L218 548 L70 392 L172 284 L72 216 Z" />
+              <svg className="pz-home-orbits" viewBox="0 0 600 600" aria-hidden="true">
+                <g className="pz-home-orbits__cyan">
+                  <ellipse cx="300" cy="300" rx="284" ry="148" transform="rotate(-32 300 300)" />
+                  <circle cx="91" cy="232" r="3" /><circle cx="480" cy="122" r="2" />
+                  <circle cx="523" cy="385" r="3" /><circle cx="174" cy="102" r="2" />
+                </g>
+                <g className="pz-home-orbits__pink">
+                  <ellipse cx="300" cy="313" rx="278" ry="154" transform="rotate(-18 300 313)" />
+                  <circle cx="70" cy="378" r="2" /><circle cx="440" cy="204" r="3" />
+                  <circle cx="191" cy="476" r="3" />
+                </g>
               </svg>
 
               <div className="pz-home-portrait-frame">
                 <img
-                  src="/img/me.png"
+                  src="/img/home-orbit-portrait-v4.webp"
+                  srcSet="/img/home-orbit-portrait-v4-480.webp 480w, /img/home-orbit-portrait-v4.webp 800w"
+                  sizes="(max-width: 767px) 360px, (max-width: 1100px) 420px, 500px"
                   alt=""
-                  width="1123"
-                  height="1401"
+                  width="800"
+                  height="843"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
@@ -1215,7 +264,7 @@ export default function Home() {
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                   <a href={localizedRoute('services', locale, localizedRoutes)} className="pz-card-button">
-                    {home.details_label ?? 'Részletek'} <span>→</span>
+                    {home.details_label ?? 'Részletek'}
                   </a>
                 </article>
               ))}
@@ -1242,7 +291,7 @@ export default function Home() {
             href={localizedRoute('quote', locale, localizedRoutes)}
             className="pz-button pz-button-secondary mt-7"
         >
-            {why.cta ?? 'Árajánlatkérés'} <span>→</span>
+            {why.cta ?? 'Árajánlatkérés'}
         </a>
     </div>
 
@@ -1266,7 +315,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </Layout>
   );
 }
